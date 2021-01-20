@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="mentors_hr_salary_rule_form" model="ir.ui.view">
+            <field name="name">mentors.hr.salary.rule.form</field>
+            <field name="model">hr.salary.rule</field>
+            <field name="inherit_id" ref="hr_payroll.hr_salary_rule_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='code']" position="before">
+                    <field name="parent_id"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="mentors_hr_salary_rule_list" model="ir.ui.view">
+            <field name="name">mentors.hr.salary.rule.tree</field>
+            <field name="model">hr.salary.rule</field>
+            <field name="inherit_id" ref="hr_payroll.hr_salary_rule_list"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='code']" position="before">
+                    <field name="parent_id"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="mentors_view_hr_rule_filter" model="ir.ui.view">
+            <field name="name">mentors.hr.salary.rule.search</field>
+            <field name="model">hr.salary.rule</field>
+            <field name="inherit_id" ref="hr_payroll.view_hr_rule_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//filter[@name='head']" position="before">
+                    <filter string="Parent" name="parent_id" context="{'group_by': 'parent_id'}"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

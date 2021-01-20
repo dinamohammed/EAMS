@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_view_country_state_tree_inherit" model="ir.ui.view">
+        <field name="name">hr.res.country.state.tree.inherit</field>
+        <field name="model">res.country.state</field>
+        <field name="inherit_id" ref="base.view_country_state_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='country_id']" position="replace">
+                <field name="ext_amount" />
+                <field name="country_id" options="{'no_create': True}"/>
+                <field name="currency_id" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="base.view_country_state_form" model="ir.ui.view">
+        <field name="name">hr.res.country.state.form</field>
+        <field name="model">res.country.state</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="ext_amount" />
+                        </group>
+                        <group>
+                            <field name="country_id" options="{'no_create': True}"/>
+                            <field name="currency_id" readonly="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_country_state_search_inherit" model="ir.ui.view">
+        <field name="name">hr.res.country.state.search.inherit</field>
+        <field name="model">res.country.state</field>
+        <field name="inherit_id" ref="base.view_country_state_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group" position="before">
+                <filter name="egypt" string="Egypt" domain="[('country_id.name', '=', 'Egypt')]"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="base.action_country_state" model="ir.actions.act_window">
+        <field name="context">{'search_default_egypt':1}</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+</odoo>

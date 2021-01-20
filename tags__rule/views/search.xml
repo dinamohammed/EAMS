@@ -1,0 +1,40 @@
+<odoo>
+    <data>
+    <record model="ir.ui.view" id="view_employee_filter_custom">
+        <field name="name">hr.employee.custom.search</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_filter"/>
+        <field name="priority" eval="1"/>
+        <field name="arch" type="xml">
+            <xpath expr="/search/field[@name='name']" position="after">
+                 <field name="registration_number"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_employee_filter_custom">
+        <field name="name">hr.contract.custom.search</field>
+        <field name="model">hr.contract</field>
+        <field name="inherit_id" ref="hr_contract.hr_contract_view_search"/>
+        <field name="priority" eval="1"/>
+        <field name="arch" type="xml">
+            <xpath expr="/search/field[@name='name']" position="after">
+                 <field name="employee_no" />
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_hr_payslip_filter_custom">
+        <field name="name">hr.payslip.custom.search</field>
+        <field name="model">hr.payslip</field>
+        <field name="inherit_id" ref="hr_payroll.view_hr_payslip_filter"/>
+        <field name="priority" eval="1"/>
+        <field name="arch" type="xml">
+            <xpath expr="/search/field[@name='employee_id']" position="after">
+                 <field name="employee_no" />
+            </xpath>
+        </field>
+    </record>
+
+    </data>
+</odoo>

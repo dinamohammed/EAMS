@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_employee_promotion_form_view" model="ir.ui.view">
+        <field name="name">hr.promotion.form.view</field>
+        <field name="model">hr.promotion</field>
+        <field name="arch" type="xml">
+            <form string="Promotion">
+                <header>
+                    <button name="action_confirm" string="Confirm" class="oe_highlight"
+                            groups="hr.group_hr_manager" states="draft" type="object"/>
+                    <button name="action_print_report" string="Print" class="oe_highlight"
+                            states="confirm" type="object"/>
+                    <button name="action_cancel" string="Cancel"
+                            groups="hr.group_hr_manager" states="draft" type="object"/>
+                    <button name="action_reset" string="Rest To Draft"
+                            groups="hr.group_hr_manager" states="cancel" type="object"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" placeholder="e.g. Decision 12232"
+                                   attrs="{'readonly':[('state','!=','draft')]}"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="date" readonly="0"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Employee's" name="lines">
+                            <field name="line_ids" attrs="{'readonly':[('state','!=','draft')]}">
+                                <tree editable="bottom">
+                                    <field name="state" invisible="1"/>
+                                    <field name="employee_id"/>
+                                    <field name="level_date" readonly="1"/>
+                                    <field name="level_id" style="color:blue" attrs="{'invisible':[('state','=','confirm')]}"/>
+                                    <field name="old_level_id" style="color:red" attrs="{'invisible':[('state','!=','confirm')]}"/>
+                                    <field name="new_level_id" style="color:green" required="1" domain="[('id','!=',level_id)]"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" help="Follow this salesteam to automatically track the events associated to users of this team."/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+    <record id="hr_employee_promotion_tree_view" model="ir.ui.view">
+        <field name="name">hr.promotion.tree.view</field>
+        <field name="model">hr.promotion</field>
+        <field name="arch" type="xml">
+            <tree string="Promotion">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+    <record id="hr_employee_promotion_penalty_filter_view" model="ir.ui.view">
+        <field name="name">hr.promotion.filter.view</field>
+        <field name="model">hr.promotion</field>
+        <field name="arch" type="xml">
+            <search string="Promotion">
+                <field name="name"/>
+                <group expand="0" string="Group By">
+                    <filter string="Month" name="month" domain="[]" context="{'group_by':'date:month'}"/>
+                    <filter string="Year" name="year" domain="[]" context="{'group_by':'date:year'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="act_hr_employee_promotion" model="ir.actions.act_window">
+        <field name="name">Promotions</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.promotion</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('hr_employee_promotion_tree_view')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('hr_employee_promotion_form_view')})]"/>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Add New Promotion
+            </p>
+        </field>
+    </record>
+    <menuitem id="menu_hr_employee_promotion"
+              name="Promotions"
+              parent="hr.menu_hr_employee_payroll"
+              action="act_hr_employee_promotion"
+              sequence="4"/>
+</odoo>

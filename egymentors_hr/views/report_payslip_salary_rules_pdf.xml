@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_payslip_salary_rules_pdf_doc">
+        <t t-call="web.external_layout">
+            <t t-set="docs" t-value="docs.with_context(lang=lang)" />
+            <div class="page">
+                <h2 class="text-center">عناصر اجر الموظفين</h2>
+                <div class="row mt32 mb32" >
+                    <div class="col-auto mw-100 mb-2" name="date">
+                        <strong>Date:</strong>
+                        <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M')"/>
+                    </div>
+                    <div class="col-auto mw-100 mb-2" name="date">
+                        <strong>Count:</strong>
+                        <span t-esc="len(docs)"/> Employee Payslip
+                    </div>
+                </div>
+                <t t-set="parents_dict" t-value="docs.assign_parents_and_free_rules()[0]"/>
+                <t t-set="rules_without_parent" t-value="docs.assign_parents_and_free_rules()[1]"/>
+                <table class="table table-sm o_main_table" name="pay_raise_line_table" style="direction:rtl">
+                    <thead>
+                        <tr style="background-color:#898a8c">
+                            <th name="th_count" class="text-center"><span>م</span></th>
+                            <th name="th_emp" class="text-right"><span>إسم الموظف</span></th>
+                            <t t-foreach="docs.get_rule_parents_and_free(True)" t-as="parent">
+                                <th name="th_parent" class="text-center"><span t-esc="parent"/> </th>
+                            </t>
+                            <t t-foreach="docs.get_rule_parents_and_free()" t-as="rule">
+                                <th name="th_free_rule" class="text-center"><span t-esc="rule"/> </th>
+                            </t>
+                            <th name="th_bank_account" class="text-center"><span >حساب بنك الموظف</span> </th>
+                        </tr>
+                    </thead>
+                    <tbody class="invoice_tbody">
+                        <t t-set="count" t-value="1"/>
+                        <tr t-foreach="docs" t-as="payslip" style="background-color:#D7E4BC; border-bottom:1px black solid">
+                            <td class="text-center"><span t-esc="count"/></td>
+                            <td class="text-right"><span t-if="payslip.employee_id" t-esc="payslip.employee_id.name"/></td>
+                            <t t-foreach="payslip.get_parent_amount(parents_dict)" t-as="parent_total">
+                                <td class="text-center"><span t-esc="parent_total"/></td>
+                            </t>
+                            <t t-foreach="payslip.get_free_rule_amount(rules_without_parent)" t-as="rule_total">
+                                <td class="text-center"><span t-esc="rule_total"/></td>
+                            </t>
+                            <td class="text-center">
+                                <span t-if="payslip.employee_id.bank_account_id"
+                                      t-esc="payslip.employee_id.bank_account_id.acc_number"/>
+                                <span t-else=''>------------</span>
+                            </td>
+                            <t t-set="count" t-value="count+1"/>
+                        </tr>
+                        <tr style="background-color:#898a8c; border-bottom:1px black soli">
+                            <th colspan="2" class="text-center">الإجمالى</th>
+                            <t t-foreach="docs.get_parent_amount(parents_dict)" t-as="parent_total">
+                                <th class="text-center"><span t-esc="parent_total"/></th>
+                            </t>
+                            <t t-foreach="docs.get_free_rule_amount(rules_without_parent)" t-as="rule_total">
+                                <th class="text-center"><span t-esc="rule_total"/></th>
+                            </t>
+                            <th class="text-center"/>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+    <template id="report_payslip_salary_rules_pdf">
+        <t t-set="data_report_landscape" t-value="True"/>
+        <t t-set="full_width" t-value="True"/>
+        <t t-call="web.html_container">
+            <!--                        <t t-foreach="docs" t-as="o">-->
+            <t t-set="lang" t-value="user.partner_id.lang"/>
+            <t t-call="egymentors_hr.report_payslip_salary_rules_pdf_doc" t-lang="lang"/>
+            <!--                        </t>-->
+        </t>
+    </template>
+
+
+</odoo>

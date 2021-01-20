@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!--1000-->
+        <record id="tax_slide_10000" model="hr.tax.slide">
+            <field name="name">Below or equal 10K</field>
+            <field name="priority">0</field>
+            <field name="max_amount">10000</field>
+        </record>
+        <record id="tax_slide_line_2000" model="hr.tax.slide.line">
+            <field name="amount_from">0</field>
+            <field name="amount_to">2000</field>
+            <field name="tax_percentage">0</field>
+            <field name="comment">معافاه من الخصم الضصريبي</field>
+            <field name="tax_slide_id" ref="egymentors_hr_tax_slides.tax_slide_10000"/>
+        </record>
+        <record id="tax_slide_line_3250" model="hr.tax.slide.line">
+            <field name="amount_from">2000</field>
+            <field name="amount_to">3250</field>
+            <field name="tax_percentage">2.5</field>
+            <field name="tax_slide_id" ref="egymentors_hr_tax_slides.tax_slide_10000"/>
+        </record>
+        <record id="tax_slide_line_4500" model="hr.tax.slide.line">
+            <field name="amount_from">3250</field>
+            <field name="amount_to">4500</field>
+            <field name="tax_percentage">2.5</field>
+            <field name="tax_slide_id" ref="egymentors_hr_tax_slides.tax_slide_10000"/>
+        </record>
+        <record id="tax_slide_line_5750" model="hr.tax.slide.line">
+            <field name="amount_from">4500</field>
+            <field name="amount_to">5750</field>
+            <field name="tax_percentage">2.5</field>
+            <field name="tax_slide_id" ref="egymentors_hr_tax_slides.tax_slide_10000"/>
+        </record>
+        <record id="tax_slide_line_7000" model="hr.tax.slide.line">
+            <field name="amount_from">5750</field>
+            <field name="amount_to">7000</field>
+            <field name="tax_percentage">2.5</field>
+            <field name="tax_slide_id" ref="egymentors_hr_tax_slides.tax_slide_10000"/>
+        </record>
+        <record id="tax_slide_line_8250" model="hr.tax.slide.line">
+            <field name="amount_from">7000</field>
+            <field name="amount_to">8250</field>
+            <field name="tax_percentage">2.5</field>
+            <field name="tax_slide_id" ref="egymentors_hr_tax_slides.tax_slide_10000"/>
+        </record>
+        <record id="tax_slide_line_9500" model="hr.tax.slide.line">
+            <field name="amount_from">8250</field>
+            <field name="amount_to">9500</field>
+            <field name="tax_percentage">2.5</field>
+            <field name="tax_slide_id" ref="egymentors_hr_tax_slides.tax_slide_10000"/>
+        </record>
+         <record id="tax_slide_line_10000" model="hr.tax.slide.line">
+            <field name="amount_from">9500</field>
+            <field name="amount_to">10000</field>
+            <field name="tax_percentage">2.5</field>
+            <field name="tax_slide_id" ref="egymentors_hr_tax_slides.tax_slide_10000"/>
+        </record>
+    </data>
+</odoo>

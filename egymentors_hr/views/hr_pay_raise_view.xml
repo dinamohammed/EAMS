@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_pay_raise_form_view" model="ir.ui.view">
+        <field name="name">hr.pay.raise.form.view</field>
+        <field name="model">hr.pay.raise</field>
+        <field name="arch" type="xml">
+            <form string="Pay Raise">
+                <header>
+                    <button name="action_confirm" string="Confirm" class="oe_highlight"
+                            groups="hr.group_hr_manager" states="draft" type="object"/>
+                    <button name="action_print_report" string="Print" class="oe_highlight"
+                            states="confirm" type="object"/>
+                    <button name="action_cancel" string="Cancel"
+                            groups="hr.group_hr_manager" states="draft" type="object"/>
+                    <button name="action_reset" string="Rest To Draft"
+                            groups="hr.group_hr_manager" states="cancel" type="object"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" placeholder="e.g. Pay Raise 30%"
+                                   attrs="{'readonly':[('state','!=','draft')]}"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="date"/>
+                        </group>
+                        <group>
+                            <field name="contract_type_id" required="1"/>
+                            <label for="percentage"/>
+                            <div>
+                                <field name="percentage" required="1" class="oe_inline"/>
+                                <span style="color:#003a39" class="o_form_label oe_inline"> %</span>
+                            </div>
+
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Employee's" name="lines">
+                            <field name="line_ids"
+                                   context="{'default_percentage': percentage}"
+                                   attrs="{'readonly':[('state','!=','draft')]}">
+                                <tree editable="bottom">
+                                    <field name="percentage" invisible="1"/>
+                                    <field name="currency_id" invisible="1"/>
+                                    <field name="state" invisible="1"/>
+                                    <field name="contract_id" string="Employee"
+                                           domain="[('date_start','&lt;=',parent.date),
+                                           ('state','=','open'),
+                                           ('contract_type_id','=', parent.contract_type_id)]"/>
+                                    <field name="employee_id" invisible="1"/>
+                                    <field name="basic_salary"/>
+                                    <field name="old_salary"/>
+                                    <field name="new_salary"/>
+                                    <field name="raise_amount"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" help="Follow this salesteam to automatically track the events associated to users of this team."/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+    <record id="hr_pay_raise_tree_view" model="ir.ui.view">
+        <field name="name">hr.pay.raise.tree.view</field>
+        <field name="model">hr.pay.raise</field>
+        <field name="arch" type="xml">
+            <tree string="Pay Raise">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="contract_type_id"/>
+                <field name="percentage"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+    <record id="hr_pay_raise_filter_view" model="ir.ui.view">
+        <field name="name">hr.pay.raise.filter.view</field>
+        <field name="model">hr.pay.raise</field>
+        <field name="arch" type="xml">
+            <search string="Pay Raise">
+                <field name="name"/>
+                <group expand="0" string="Group By">
+                    <filter string="State" name="state" domain="[]" context="{'group_by':'state'}"/>
+                    <filter string="Contract Type" name="contract_type_id" domain="[]" context="{'group_by':'contract_type_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="act_hr_pay_raise" model="ir.actions.act_window">
+        <field name="name">Pay Raise</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.pay.raise</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('hr_pay_raise_tree_view')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('hr_pay_raise_form_view')})]"/>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Add New Pay Raise
+            </p>
+        </field>
+    </record>
+    <menuitem id="menu_hr_pay_raise"
+              name="Pay Raise"
+              parent="hr.menu_hr_employee_payroll"
+              action="act_hr_pay_raise"
+              sequence="6"/>
+</odoo>

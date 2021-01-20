@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_award_profit_form_view" model="ir.ui.view">
+        <field name="name">hr.award.profit.form.view</field>
+        <field name="model">hr.award.profit</field>
+        <field name="arch" type="xml">
+            <form string="Award/Profit">
+                <header>
+                    <button name="action_confirm" string="Confirm" class="oe_highlight"
+                            groups="hr.group_hr_manager" states="draft" type="object"/>
+                    <button name="action_print_report" string="Print" class="oe_highlight"
+                            type="object"/>
+                    <button name="action_cancel" string="Cancel"
+                            groups="hr.group_hr_manager" states="draft" type="object"/>
+                    <button name="action_reset" string="Rest To Draft"
+                            groups="hr.group_hr_manager" states="cancel" type="object"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only" string="Decision"/>
+                        <h1>
+                            <field name="name" placeholder="e.g. Decision No.1001"
+                                   attrs="{'readonly':[('state','!=','draft')]}"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="date"/>
+                            <field name="select_by" required="1"/>
+                            <field name="work_location_id" attrs="{'invisible':[('select_by','!=','work_loc')],
+                            'required':[('select_by','=','work_loc')], 'readonly':[('state','!=','draft')]}"/>
+
+                            <field name="company_id" attrs="{'invisible':[('select_by','!=','all')],
+                            'required':[('select_by','=','all')], 'readonly':[('state','!=','draft')]}"/>
+                        </group>
+                        <group>
+                            <field name="extra_type" required="1"/>
+                            <field name="num_months" attrs="{'invisible':[('extra_type','!=','profit')],
+                            'required':[('extra_type','=','profit')]}"/>
+                            <field name="award_value" attrs="{'invisible':[('extra_type','!=','award')],
+                            'required':[('extra_type','=','award')]}"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Employees" name="lines">
+                            <field name="line_ids" attrs="{'readonly':[('state','!=','draft')]}">
+                                <tree editable="bottom"
+                                      decoration-primary="state == 'draft'"
+                                      decoration-warning="state == 'cancel'"
+                                      decoration-info="state == 'confirm'"
+                                      decoration-success="state == 'done'">
+                                    <field name="employee_id"
+                                           context="{'default_work_location_id': parent.work_location_id}"
+                                           domain="[('work_location_id','=',parent.work_location_id)]"/>
+                                    <field name="extra_type" invisible="1"/>
+                                    <field name="date" invisible="1"/>
+                                    <field name="amount" attrs="{'readonly':[('parent.extra_type','=','award')]}" force_save="1"/>
+                                    <field name="notes"/>
+                                    <field name="state" readonly="1"/>
+                                    <field name="payslip_id" readonly="1" optional="hide"
+                                           attrs="{'invisible':[('state','!=','done')]}"/>
+                                </tree>
+                            </field>
+                            <group class="oe_right">
+                                <group class="oe_subtotal_footer">
+                                    <field name="total_amount" widget="monetary" class="oe_subtotal_footer_separator"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" help="Follow this salesteam to automatically track the events associated to users of this team."/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+    <record id="hr_award_profit_tree_view" model="ir.ui.view">
+        <field name="name">hr.award.profit.tree.view</field>
+        <field name="model">hr.award.profit</field>
+        <field name="arch" type="xml">
+            <tree string="Award/Profit"
+                  decoration-primary="state == 'draft'"
+                  decoration-warning="state == 'cancel'"
+                  decoration-info="state == 'confirm'"
+                  decoration-success="state == 'done'">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="extra_type"/>
+                <field name="work_location_id"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+    <record id="hr_award_profit_penalty_filter_view" model="ir.ui.view">
+        <field name="name">hr.award.profit.filter.view</field>
+        <field name="model">hr.award.profit</field>
+        <field name="arch" type="xml">
+            <search string="Award/Profit">
+                <field name="name"/>
+                <filter string="Award" name="award" domain="[('extra_type','=','award')]" />
+                <filter string="Profit" name="profit" domain="[('extra_type','=','profit')]" />
+                <group expand="0" string="Group By">
+                    <filter string="State" name="state" domain="[]" context="{'group_by':'state'}"/>
+                    <filter string="Work Location" name="work_location" domain="[]" context="{'group_by':'work_location_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="act_hr_award_profit" model="ir.actions.act_window">
+        <field name="name">Award/Profit</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.award.profit</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Add New Award/Profit
+            </p>
+        </field>
+    </record>
+    <menuitem id="menu_hr_award_profit"
+              name="Award/Profit"
+              parent="hr.menu_hr_employee_payroll"
+              action="act_hr_award_profit"
+              sequence="14"/>
+
+</odoo>

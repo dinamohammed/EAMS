@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="egymentors_employee_view_tax_base_form_inherit" model="ir.ui.view" >
+        <field name="name">hr.employee.form.inherit</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="tags__rule.employee_view_tax_base_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='level_id']" position="after">
+                <field name="level_date" readonly="0"/>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page name="deductions" string="Deductions">
+                    <field name="deductions_ids">
+                        <tree editable="bottom">
+                            <field name="year" required="1"/>
+                            <field name="date" invisible="1"/>
+                            <field name="notes" style='max-width:1200px;width:700px'/>
+                        </tree>
+                    </field>
+                </page>
+                <page name="adequacy" string="Adequacy Report">
+                    <field name="grade_ids">
+                        <tree editable="bottom">
+                            <field name="grade_id" required="1"/>
+                            <field name="year" required="1"/>
+                            <field name="date" invisible="1"/>
+                            <field name="percentage"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+            <xpath expr="/form/sheet/notebook/page[@name='public']/div/div/group/field[@name='tax_base']" position="before">
+                <field name="previous_wage" readonly="True"/>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

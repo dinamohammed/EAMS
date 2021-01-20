@@ -1,0 +1,76 @@
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h2 class="oe_slogan">EgyMentors Tax Slide</h2>
+            <h3 class="oe_slogan">New features, new helper fields</h3>
+        </div>
+        <div class="oe_span3">
+            <div class="oe_demo oe_picture oe_screenshot">
+                <img src="egymentors.png"/>
+            </div>
+        </div>
+        <div class="oe_span9">
+            <p class="oe_mt32">
+                This module add :<br>
+            </p>
+            <ul>
+                <li>
+                    <b><u>Tax slides to payroll</u></b>
+                    <ol>
+                        <li>add new object to tax tax slide ordered by priority and slide max amount</li>
+                        <li>add lines for each slide to process amount and produce amount</li>
+                    </ol>
+                </li>
+            </ul>
+
+
+        </div>
+        <div class="oe_span9">
+            <p class="oe_mt32">
+                <b style="color:blue">To be used on salary rule copy/past this on python code field on salary rule:</b><br>
+                <b>amount = categories.GROSS</b> <i style="color:green"># For example get GROSS to handle</i><br/>
+                <i style="color:green"># Search for lines that is satisfied amount conditions.</i> <br/>
+                <b>slides = payslip.env['hr.tax.slide'].search([('max_amount','>=',amount)])</b><br/>
+                <i style="color:green"># This will search for slides which is below you amount and loop them to calc. tax amount, then get it's sum </i><br/>
+                <b>result = slides and slides.compute_tax_amount(amount) or 0.0</b><br/>
+            </p>
+            <hr/>
+            <p>
+                <b style="color:red">This code isn't active until next stage:</b><br>
+                <b>amount = categories.GROSS</b> <i style="color:green"># For example get GROSS to handle</i><br/>
+                <i style="color:green"># Search for lines that is satisfied amount conditions.</i> <br/>
+                <b>taxedamount , slides = payslip.env['hr.tax.slide'].taxesStageLoop(self, amount)</b><br/>
+                <i style="color:green"># This will search for slides which is below you amount and loop them to calc. tax amount, then get it's sum</i>><br/>
+                <b>result = payslip.env['hr.tax.slide'].calculatedTotalTaxes(taxedamount,slides)</b><br/>
+            </P>
+            <br/>
+            <br/>
+            <p>
+                <b>CYCLE:</b><br/>
+                <span>
+                    <ul>
+                        <li>System will search for the slide which it's amount is equal or below the define amount</li>
+                        <li>Then it will be ordered by priority from 0:100</li>
+                        <li>Then in slide lines system will start processing
+                            <ul>
+                                <li>system will compare processing_amount with amount to field if it's bigger or equal</li>
+                                <li>If true it will compute tax through(line_amount * percentage/100)</li>
+                                <li>then it will deduct this line amount from processing_amount and complete the loop until amount give False</li>
+                                <li>System will calc those tax amount and return to payslip rule</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </span>
+            </p>
+        </div>
+    </div>
+
+</section>
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h2>Need our service?</h2>
+            <p class="oe_mt32">Contact us by <a href="mailto:sherif.elkadry@egymentors.com">email</a> or visit our website <a href="http://www.egymentors.com " target="_blank">EgyMentors</a></p>
+        </div>
+    </div>
+</section>
