@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_bonus_penalty_type_form_view" model="ir.ui.view">
+        <field name="name">hr.bonus.penalty.type.form.view</field>
+        <field name="model">hr.bonus.penalty.type</field>
+        <field name="arch" type="xml">
+            <form string="Types">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="extra_type" options="{'horizontal': true}"/>
+                            <field name="bonus_type" attrs="{'required':[('extra_type','!=','bonus')],
+                            'invisible':[('extra_type','=','penalty')]}" options="{'horizontal': true}"/>
+                            <field name="fixed_amount" attrs="{'invisible':[('extra_type','=','bonus')]}" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_bonus_form_view" model="ir.ui.view">
+        <field name="name">hr.bonus.form.view</field>
+        <field name="model">hr.bonus.penalty</field>
+        <field name="arch" type="xml">
+            <form string="Bonus">
+                <header>
+                    <button name="action_confirm" string="Confirm" class="oe_highlight"
+                            groups="hr.group_hr_manager" states="draft" type="object"/>
+                    <button name="action_print_report" string="Print" class="oe_highlight"
+                            type="object"/>
+                    <button name="action_cancel" string="Cancel"
+                            groups="hr.group_hr_manager" states="draft" type="object"/>
+                    <button name="action_reset" string="Rest To Draft"
+                            groups="hr.group_hr_manager" states="cancel" type="object"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only" string="Bonus"/>
+                        <h1>
+                            <field name="name" placeholder="e.g. Bonus..."
+                                   attrs="{'readonly':[('state','!=','draft')]}"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="extra_type" invisible="1"/>
+                        <group>
+                            <field name="date"/>
+                            <field name="period_month" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="bonus_type" required="1" />
+                            <field name="work_location_id" attrs="{'readonly':[('state','!=','draft')]}"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Employee's" name="lines">
+                            <field name="line_ids" attrs="{'readonly':[('state','!=','draft')]}">
+                                <tree editable="bottom"
+                                      decoration-primary="state == 'draft'"
+                                      decoration-warning="state == 'cancel'"
+                                      decoration-info="state == 'confirm'"
+                                      decoration-success="state == 'done'">
+                                    <field name="employee_id"
+                                           context="{'default_work_location_id': parent.work_location_id}"
+                                           domain="[('work_location_id','=',parent.work_location_id)]"/>
+                                    <field name="extra_type" invisible="1"/>
+                                    <field name="date" invisible="1"/>
+                                    <field name="type_id" domain="[('extra_type','=','bonus'),
+                                    ('bonus_type','=',parent.bonus_type)]"
+                                           context="{'form_view_id':%(hr_bonus_penalty_type_form_view)d}"/>
+                                    <field name="pre_amount" attrs="{'column_invisible': [('parent.bonus_type', '!=', 'allowance')],
+                                    'required':[('parent.bonus_type', '=', 'allowance')]}"/>
+                                    <field name="discount_list" attrs="{'column_invisible': [('parent.bonus_type', '!=', 'allowance')]}"/>
+                                    <field name="stop_incentive" attrs="{'column_invisible': [('parent.bonus_type', '!=', 'allowance')]}"/>
+                                    <field name="amount" attrs="{'readonly':[('parent.bonus_type', '=', 'allowance')]}"/>
+                                    <field name="notes"/>
+                                    <field name="state" readonly="1"/>
+                                    <field name="payslip_id" readonly="1" optional="hide"
+                                           attrs="{'invisible':[('state','!=','done')]}"/>
+                                </tree>
+                            </field>
+                            <group class="oe_right">
+                                <group class="oe_subtotal_footer">
+<!--                                     <field name="total_bonus_production" widget="monetary" attrs="{'invisible':[('bonus_type', '!=', 'allowance')]}"/>
+                                    <field name="total_bonus_leadership" widget="monetary" attrs="{'invisible':[('bonus_type', '!=', 'allowance')]}"/>
+                                    <field name="total_bonus_workshop" widget="monetary" attrs="{'invisible':[('bonus_type', '!=', 'allowance')]}"/>
+                                    <field name="total_bonus_direction" widget="monetary" attrs="{'invisible':[('bonus_type', '!=', 'allowance')]}"/>
+                                    <field name="total_bonuses_allowance" widget="monetary" class="oe_subtotal_footer_separator" attrs="{'invisible':[('bonus_type', '!=', 'allowance')]}"/>
+
+                                    <field name="total_bonus_efforts" widget="monetary" attrs="{'invisible':[('bonus_type', '!=', 'rewards')]}"/> -->
+                                    <field name="total_bonus_rewards" widget="monetary" attrs="{'invisible':[('bonus_type', '!=', 'rewards')]}"/>
+<!--                                     <field name="total_bonus_transportation" widget="monetary" attrs="{'invisible':[('bonus_type', '!=', 'rewards')]}"/>
+                                    <field name="total_bonus_travel" widget="monetary" attrs="{'invisible':[('bonus_type', '!=', 'rewards')]}"/>
+                                    <field name="total_bonus_additional" widget="monetary" attrs="{'invisible':[('bonus_type', '!=', 'rewards')]}"/>
+                                    <field name="total_bonus_feeding" widget="monetary" attrs="{'invisible':[('bonus_type', '!=', 'rewards')]}"/> -->
+                                    <field name="total_bonuses_rewards" widget="monetary" class="oe_subtotal_footer_separator"
+                                           attrs="{'invisible':[('bonus_type', '!=', 'rewards')]}"/>
+                                    <!--<field name="total_bonuses" widget="monetary" class="oe_subtotal_footer_separator"/>-->
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" help="Follow this salesteam to automatically track the events associated to users of this team."/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+    <record id="hr_bonus_tree_view" model="ir.ui.view">
+        <field name="name">hr.bonus.tree.view</field>
+        <field name="model">hr.bonus.penalty</field>
+        <field name="arch" type="xml">
+            <tree string="Bonus"
+                  decoration-primary="state == 'draft'"
+                  decoration-warning="state == 'cancel'"
+                  decoration-info="state == 'confirm'"
+                  decoration-success="state == 'done'">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="bonus_type"/>
+                <field name="period_month"/>
+                <field name="work_location_id"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+    <record id="hr_bonus_penalty_filter_view" model="ir.ui.view">
+        <field name="name">hr.bonus.penalty.filter.view</field>
+        <field name="model">hr.bonus.penalty</field>
+        <field name="arch" type="xml">
+            <search string="Bonus">
+                <field name="name"/>
+                <filter string="Bonuses" name="bonuses" domain="[('extra_type','=','bonus')]" />
+                <filter string="Penalties" name="penalties" domain="[('extra_type','=','penalty')]" />
+                <group expand="0" string="Group By">
+                    <filter string="State" name="state" domain="[]" context="{'group_by':'state'}"/>
+                    <filter string="Period" name="period" domain="[]" context="{'group_by':'period_month'}"/>
+                    <filter string="Work Location" name="work_location" domain="[]" context="{'group_by':'work_location_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="act_hr_bonus" model="ir.actions.act_window">
+        <field name="name">Bonuses</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.bonus.penalty</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('hr_bonus_tree_view')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('hr_bonus_form_view')})]"/>
+        <field name="context">{'search_default_bonuses':1,'default_extra_type':'bonus'}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Add New Bonus
+            </p>
+        </field>
+    </record>
+    <menuitem id="menu_hr_bonus"
+              name="Bonuses"
+              parent="hr.menu_hr_employee_payroll"
+              action="act_hr_bonus"
+              sequence="2"/>
+
+    <record id="act_hr_bonus_type" model="ir.actions.act_window">
+        <field name="name">Bonus Types</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.bonus.penalty.type</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('extra_type','=', 'bonus')]</field>
+        <field name="context">{'default_extra_type': 'bonus'}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Add New Bonus Type
+            </p>
+        </field>
+    </record>
+    <menuitem id="menu_hr_bonus_type"
+              parent="hr.menu_human_resources_configuration"
+              action="act_hr_bonus_type"
+              sequence="12"/>
+
+</odoo>

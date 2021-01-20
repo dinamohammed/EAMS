@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_hr_employee_promotion_doc">
+        <t t-call="web.external_layout">
+            <t t-set="o" t-value="o.with_context(lang=lang)" />
+            <div class="page">
+                <h2 class="text-center">Promotion Report</h2>
+                <h3 class="text-center">--<span t-esc="o.name"/>--</h3>
+                <div class="row mt32 mb32" >
+                    <div class="col-auto mw-100 mb-2" t-if="o.date" name="date">
+                        <strong>Date:</strong>
+                        <p class="m-0" t-field="o.date"/>
+                    </div>
+                </div>
+                <table class="table table-sm o_main_table" name="promotion_line_table">
+                    <thead>
+                        <tr>
+                            <!-- TODO: remove in master -->
+                            <th name="th_count" class="text-center"><span>Ser.</span></th>
+                            <th name="th_emp" class="text-left"><span>Employee</span></th>
+                            <th name="th_type" class="text-center"><span>Old Level</span></th>
+                            <th name="th_type" class="text-center"><span>New Level</span></th>
+                        </tr>
+                    </thead>
+                    <tbody class="invoice_tbody">
+                        <t t-set="count" t-value="1"/>
+                        <tr t-foreach="o.line_ids" t-as="line">
+                            <td class="text-center"><span t-esc="count"/></td>
+                            <td class="text-left"><span t-if="line.employee_id" t-esc="line.employee_id.name"/></td>
+                            <td class="text-center" style="color:red"><span t-if="line.old_level_id" t-esc="line.old_level_id.name"/></td>
+                            <td class="text-center" style="color:green"><span t-if="line.new_level_id" t-esc="line.new_level_id.name"/></td>
+                            <t t-set="count" t-value="count+1"/>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+    <template id="report_hr_employee_promotion">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-set="lang" t-value="user.partner_id.lang"/>
+                <t t-call="egymentors_hr.report_hr_employee_promotion_doc" t-lang="lang"/>
+            </t>
+        </t>
+    </template>
+
+
+</odoo>
