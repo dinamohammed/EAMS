@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!--Form Views-->
+        <record id="view_hr_job_employee_form" model="ir.ui.view">
+            <field name="name">hr.job.employee.form</field>
+            <field name="model">hr.job</field>
+            <field name="arch" type="xml">
+                <form string="الوظيفة">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <group>
+                                <h1>
+                                    <field name="name" readonly="0"/>
+                                </h1>
+                            </group>
+                        </div>
+                        <group>
+                            <group>
+                                <!--<field name="functional_job_id" string="المجموعة الوظيفية" options="{'no_create': True}"/>-->
+                                <!--<field name="qualitative_job_id" string="المجموعة النوعية" options="{'no_create': True}"/>-->
+                                <field name="job_title_id" string="المسمي الوظيفي" options="{'no_create': True}"/>
+                                <field name="emp_no" string="عدد الموظفين"/>
+                            </group>
+                            <group name="recruitment">
+                                <field name="company_id" options="{'no_create': True}"
+                                       groups="base.group_multi_company" invisible="1"/>
+                                <field name="department_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" options="{'open_attachments': True}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_hr_functional_job_form" model="ir.ui.view">
+            <field name="name">hr.functional.job.form</field>
+            <field name="model">hr.functional.job</field>
+            <field name="arch" type="xml">
+                <form string="المجموعة الوظيفية">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" string="اسم المجموعة الوظيفية"/>
+                            </group>
+                            <group>
+                                <field name="qualitative_job_ids"
+                                       string="المجموعات النوعية المتفرعة من هذه المجموعة الوظيفية: " widget="one2many"
+                                       create="false">
+                                    <tree create="false">
+                                        <field name="name" nolabel="1"/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_hr_qualitative_job_form" model="ir.ui.view">
+            <field name="name">hr.qualitative.job.form</field>
+            <field name="model">hr.qualitative.job</field>
+            <field name="arch" type="xml">
+                <form string="المجموعة النوعية">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="functional_job_id" string="المجموعة الوظيفية"/>
+                                <field name="name" string="اسم المجموعة النوعية"/>
+                            </group>
+                            <group>
+                                <field name="job_title_ids"
+                                       string="المسميات الوظيفية المتفرعة من هذه المجموعة النوعية: " widget="one2many">
+                                    <tree create="false">
+                                        <field name="name" nolabel="1"/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_hr_job_title_form" model="ir.ui.view">
+            <field name="name">hr.job.title.form</field>
+            <field name="model">hr.title</field>
+            <field name="arch" type="xml">
+                <form string="الوظائف">
+                    <sheet>
+                        <div class="oe_title">
+                            <group>
+                                <h1>
+                                    <field name="job_full_name"/>
+                                </h1>
+                            </group>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="functional_job_id" string="المجموعة الوظيفية"/>
+                                <field name="qualitative_job_id" string="المجموعة النوعية"/>
+                                <field name="name" string="اسم الوظيفة"/>
+                                <field name="emp_no" string="عدد الموظفين"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_hr_job_career_form" model="ir.ui.view">
+            <field name="name">hr.job.job.creer.form</field>
+            <field name="model">hr.career</field>
+            <field name="arch" type="xml">
+                <form string="السلم الوظيفي">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" string="السلم الوظيفي"/>
+                                <field name="functional_job_id" string="المجموعة الوظيفية"/>
+                                <field name="hierarchical_order_id" string="الدرجة الوظيفية"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_hr_hierarchical_order_form" model="ir.ui.view">
+            <field name="name">hr.hierarchical.order.form</field>
+            <field name="model">hr.hierarchical.order</field>
+            <field name="arch" type="xml">
+                <form string="الدرجة الوظيفية">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" string="الدرجة الوظيفية"/>
+                                <field name="degree" string="مربوط الدرجة"/>
+                                <field name="duration" string="المدة البينية"/>
+                                <field name="financial_rank" string="الدرجة المالية"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree Views-->
+        <record id="view_hr_functional_job_tree" model="ir.ui.view">
+            <field name="name">hr.functional.job.tree</field>
+            <field name="model">hr.functional.job</field>
+            <field name="arch" type="xml">
+                <tree string="المجموعات الوظيفية">
+                    <field name="name" string="المجموعات الوظيفية"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_hr_qualitative_job_tree" model="ir.ui.view">
+            <field name="name">hr.qualitative.job.tree</field>
+            <field name="model">hr.qualitative.job</field>
+            <field name="arch" type="xml">
+                <tree string="المجموعات النوعية">
+                    <field name="name" string="المجموعات النوعية"/>
+                    <field name="functional_job_id" string="المجموعات الوظيفية"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_hr_title_tree" model="ir.ui.view">
+            <field name="name">hr.titletree</field>
+            <field name="model">hr.title</field>
+            <field name="arch" type="xml">
+                <tree string="الممسميات الوظيفية">
+                    <field name="functional_job_id" string="المجموعات الوظيفية"/>
+                    <field name="qualitative_job_id" string="المجموعات النوعية"/>
+                    <field name="name" string="المسميات الوظيفية"/>
+                    <field name="emp_no" string="عدد الموظفين"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_hr_career_tree" model="ir.ui.view">
+            <field name="name">hr.career</field>
+            <field name="model">hr.career</field>
+            <field name="arch" type="xml">
+                <tree string="السلالم الوظيفية">
+                    <field name="name" string="السلم الوظيفي"/>
+                    <field name="functional_job_id" string="المجموعات الوظيفية"/>
+                    <field name="hierarchical_order_id" string="الدرجة الوظيفية"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_hr_hierarchical_order_tree" model="ir.ui.view">
+            <field name="name">hr.hierarchical.order</field>
+            <field name="model">hr.hierarchical.order</field>
+            <field name="arch" type="xml">
+                <tree string="الدرجات الوظيفية">
+                    <field name="name" string="الدرجة الوظيفية"/>
+                    <field name="degree" string="الدرجة"/>
+                    <field name="duration" string="المدة البينية"/>
+                    <field name="financial_rank" string="الدرجة المالية"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Actions-->
+        <record id="action_open_hr_job" model="ir.actions.act_window">
+            <field name="name">المراكز الوظيفية</field>
+            <field name="res_model">hr.job</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p>
+                    انشئ مركز وظيفي...
+                </p>
+            </field>
+        </record>
+
+        <record id="action_open_functional_job" model="ir.actions.act_window">
+            <field name="name">المجموعات الوظيفية</field>
+            <field name="res_model">hr.functional.job</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    انشئ مجموعة وظيفية...
+                </p>
+            </field>
+        </record>
+
+        <record id="action_open_qualitative_job" model="ir.actions.act_window">
+            <field name="name">المجموعات النوعية</field>
+            <field name="res_model">hr.qualitative.job</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    انشئ مجموعة نوعية...
+                </p>
+            </field>
+        </record>
+
+        <record id="action_open_job_title" model="ir.actions.act_window">
+            <field name="name">المسميات الوظيفية</field>
+            <field name="res_model">hr.title</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    انشئ مسمي وظيفي...
+                </p>
+            </field>
+        </record>
+
+        <record id="action_open_job_career" model="ir.actions.act_window">
+            <field name="name">السلم الوظيفي</field>
+            <field name="res_model">hr.career</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    انشئ سلم وظيفي...
+                </p>
+            </field>
+        </record>
+
+        <record id="action_open_hr_hierarchical_order" model="ir.actions.act_window">
+            <field name="name">الدرجة الوظيفية</field>
+            <field name="res_model">hr.hierarchical.order</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    انشئ درجة وظيفية...
+                </p>
+            </field>
+        </record>
+
+        <!--MenuItems-->
+        <menuitem
+                id="menu_hr_job"
+                name="الوظائف"
+                parent="hr.menu_hr_root"
+                sequence="5"/>
+
+        <menuitem
+                id="menu_hr_job_employee_user"
+                name="المراكز الوظيفية"
+                action="action_open_hr_job"
+                parent="menu_hr_job"
+                sequence="1"/>
+
+        <menuitem
+                id="menu_hr_functional_jobs"
+                name="المجموعات الوظيفية"
+                action="action_open_functional_job"
+                parent="menu_hr_job"
+                sequence="2"/>
+
+        <menuitem
+                id="menu_hr_qualitative_jobs"
+                name="المجموعات النوعية"
+                action="action_open_qualitative_job"
+                parent="menu_hr_job"
+                sequence="3"/>
+
+        <menuitem
+                id="menu_hr_job_title"
+                name="المسميات الوظيفية"
+                action="action_open_job_title"
+                parent="menu_hr_job"
+                sequence="4"/>
+
+        <menuitem
+                id="menu_hr_job_career"
+                name="السلم الوظيفي"
+                action="action_open_job_career"
+                parent="menu_hr_job"
+                sequence="5"/>
+
+        <menuitem
+                id="menu_hr_hierarchical_order"
+                name="الدرجة الوظيفية"
+                action="action_open_hr_hierarchical_order"
+                parent="menu_hr_job"
+                sequence="6"/>
+
+    </data>
+</odoo>

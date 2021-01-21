@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!--Form View-->
+        <record id="view_hr_training_subject_form" model="ir.ui.view">
+            <field name="name">hr.training.subject</field>
+            <field name="model">hr.training.subject</field>
+            <field name="arch" type="xml">
+                <form string="Training Name">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" string="Training Name"/>
+                                <field name="categ_id" string="Training Category"/>
+                                <separator/>
+                                <field name="training_place_id" string="Training Place"/>
+                                <field name="in_comp_training_check" invisible="1"/>
+                                <field name="responsible_id" string="Trainer"/>
+                                <field name="trainer_type" string="Trainer Type"
+                                       attrs="{'invisible':[('in_comp_training_check', '=', False)]}"/>
+                                <separator/>
+                            </group>
+                            <group>
+                                <label for="date_from" string="Date"/>
+                                <div class="o_row">
+                                    <field name="date_from" widget="daterange" nolabel="1" class="oe_inline"
+                                           options="{'related_end_date': 'date_to'}"/>
+                                    <i class="fa fa-long-arrow-right mx-2" aria-label="Arrow icon" title="Arrow"/>
+                                    <field name="date_to" widget="daterange" nolabel="1" class="oe_inline"
+                                           options="{'related_start_date': 'date_from'}"/>
+                                </div>
+                                <separator/>
+                                <field name="training_type" string="Training Type" widget="radio"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <pae string="Participant">
+                                <field name="participant_ids" string="Participant"/>
+                            </pae>
+                            <page string="Description">
+                                <field name="description" string="Description" nolabel="1"
+                                       placeholder="Training description...."/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_hr_training_place_form" model="ir.ui.view">
+            <field name="name">hr.training.place</field>
+            <field name="model">hr.training.place</field>
+            <field name="arch" type="xml">
+                <form string="Training Place">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" string="Training Place"/>
+                                <field name="subject_id" string="Training"/>
+                            </group>
+                            <group>
+                                <field name="training" string="Inside/Outside the company" widget="radio"/>
+                                <separator/>
+                                <field name="training_cost_type" string="Training Cost Type" widget="radio"/>
+                                <field name="training_cost" string="Training Cost"
+                                       attrs="{'invisible':[('training_cost_type', '=', 'unpaid')]}"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_hr_training_catg_form" model="ir.ui.view">
+            <field name="name">hr.subject.catg</field>
+            <field name="model">hr.subject.catg</field>
+            <field name="arch" type="xml">
+                <form string="Training Category">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" string="Training Category"/>
+                            </group>
+                            <group>
+                                <field name="subject_ids" string="Training Courses" widget="one2many"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_hr_training_session_form" model="ir.ui.view">
+            <field name="name">hr.session</field>
+            <field name="model">hr.session</field>
+            <field name="arch" type="xml">
+                <form string="Session">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" string="Session"/>
+                                <field name="subject_id" string="Training"/>
+                                <field name="instructor_id" string="Trainer"/>
+                                <field name="session_date" string="Session Date"/>
+                                <field name="session_duration" string="Session Date" class="oe_edit_only"/>
+                                <field name="session_duration_display" string="Session Date" class="oe_read_only"/>
+                                <field name="seats" string="Number of Seats"/>
+                            </group>
+                            <group/>
+                            <field name="attendee_ids" string="Attendees"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_hr_training_evaluation_form" model="ir.ui.view">
+            <field name="name">hr.training.evaluation</field>
+            <field name="model">hr.training.evaluation</field>
+            <field name="arch" type="xml">
+                <form string="Evaluation">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" string="Evaluation"/>
+                                <!--<field name="evaluation" string="evaluation"/>-->
+                                <field name="subject_id" string="Training"/>
+                                <field name="trainee_id" string="Employee"/>
+                                <field name="grade" string="Grade"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree View-->
+        <record id="view_hr_training_subject_tree" model="ir.ui.view">
+            <field name="name">hr.training.subject</field>
+            <field name="model">hr.training.subject</field>
+            <field name="arch" type="xml">
+                <tree string="Training Course Name">
+                    <field name="name" string="Training Name"/>
+                    <field name="categ_id" string="Training Category"/>
+                    <field name="responsible_id" string="Trainer"/>
+                    <field name="training_type" string="Training Type"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_hr_training_place_tree" model="ir.ui.view">
+            <field name="name">hr.training.place</field>
+            <field name="model">hr.training.place</field>
+            <field name="arch" type="xml">
+                <tree string="Training Course Place">
+                    <field name="name" string="Training Place"/>
+                    <field name="training" string="Inside/Outside the company"/>
+                    <field name="subject_id" string="Training Course"/>
+                    <field name="training_cost_type" string="Training Cost Type"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_hr_subject_categ_tree" model="ir.ui.view">
+            <field name="name">hr.subject.catg</field>
+            <field name="model">hr.subject.catg</field>
+            <field name="arch" type="xml">
+                <tree string="Training Course Place">
+                    <field name="name" string="Training Category"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_hr_training_session_tree" model="ir.ui.view">
+            <field name="name">hr.session</field>
+            <field name="model">hr.session</field>
+            <field name="arch" type="xml">
+                <tree string="Sessions">
+                    <field name="name" string="Session"/>
+                    <field name="subject_id" string="Training"/>
+                    <field name="instructor_id" string="Trainer"/>
+                    <field name="session_date" string="Session Date"/>
+                    <field name="session_duration_display" string="Session Date"/>
+                    <field name="seats" string="Number of Seats"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_hr_training_evaluation_tree" model="ir.ui.view">
+            <field name="name">hr.training.evaluation</field>
+            <field name="model">hr.training.evaluation</field>
+            <field name="arch" type="xml">
+                <tree string="Evaluations">
+                    <field name="name" string="Evaluation"/>
+                    <field name="subject_id" string="Training"/>
+                    <field name="trainee_id" string="Employee"/>
+                    <field name="grade" string="Grade"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Actions-->
+        <record id="open_view_training_subject" model="ir.actions.act_window">
+            <field name="name">Training Course</field>
+            <field name="res_model">hr.training.subject</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create Training Course...
+                </p>
+            </field>
+        </record>
+
+        <record id="open_view_training_place" model="ir.actions.act_window">
+            <field name="name">Training Place</field>
+            <field name="res_model">hr.training.place</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create Training Place...
+                </p>
+            </field>
+        </record>
+
+        <record id="open_view_subject_catg" model="ir.actions.act_window">
+            <field name="name">Training Category</field>
+            <field name="res_model">hr.subject.catg</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create Training Category...
+                </p>
+            </field>
+        </record>
+
+        <record id="open_view_hr_session" model="ir.actions.act_window">
+            <field name="name">Sessions</field>
+            <field name="res_model">hr.session</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create Session...
+                </p>
+            </field>
+        </record>
+
+        <record id="open_view_hr_training_evaluation" model="ir.actions.act_window">
+            <field name="name">Evaluations</field>
+            <field name="res_model">hr.training.evaluation</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create Evaluation...
+                </p>
+            </field>
+        </record>
+
+        <!--MenuItem-->
+        <menuitem
+                id="menu_hr_training"
+                name="Training"
+                parent="hr.menu_hr_employee_payroll"
+                sequence="6"/>
+
+        <menuitem
+                id="menu_hr_training_course"
+                name="Training Course"
+                action="open_view_training_subject"
+                parent="menu_hr_training"
+                sequence="1"/>
+
+        <menuitem
+                id="menu_hr_training_place"
+                name="Training Place"
+                action="open_view_training_place"
+                parent="menu_hr_training"
+                sequence="2"/>
+
+        <menuitem
+                id="menu_hr_subject_catg"
+                name="Training Category"
+                action="open_view_subject_catg"
+                parent="menu_hr_training"
+                sequence="3"/>
+
+        <menuitem
+                id="menu_hr_sessions"
+                name="Session"
+                action="open_view_hr_session"
+                parent="menu_hr_training"
+                sequence="4"/>
+
+        <menuitem
+                id="menu_hr_training_evaluation"
+                name="Evaluation"
+                action="open_view_hr_training_evaluation"
+                parent="menu_hr_training"
+                sequence="5"/>
+
+    </data>
+</odoo>
