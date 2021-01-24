@@ -38,6 +38,16 @@
                             <pae string="Participant">
                                 <field name="participant_ids" string="Participant"/>
                             </pae>
+                            <pae string="Evaluation">
+                                <field name="evaluation_ids">
+                                    <tree create="false" delete="false">
+                                        <field name="trainee_id" string="Employee"/>
+                                        <field name="subject_id" string="Training"/>
+                                        <field name="grade" string="Grade"/>
+                                        <field name="name" string="Evaluation"/>
+                                    </tree>
+                                </field>
+                            </pae>
                             <page string="Description">
                                 <field name="description" string="Description" nolabel="1"
                                        placeholder="Training description...."/>
@@ -103,8 +113,10 @@
                                 <field name="subject_id" string="Training"/>
                                 <field name="instructor_id" string="Trainer"/>
                                 <field name="session_date" string="Session Date"/>
-                                <field name="session_duration" string="Session Date" class="oe_edit_only"/>
-                                <field name="session_duration_display" string="Session Date" class="oe_read_only"/>
+                                <field name="session_duration" string="Session Duration per Hours"
+                                       class="oe_edit_only"/>
+                                <field name="session_duration_display" string="Session Duration per Hours"
+                                       class="oe_read_only"/>
                                 <field name="seats" string="Number of Seats"/>
                             </group>
                             <group/>
@@ -191,11 +203,11 @@
             <field name="name">hr.training.evaluation</field>
             <field name="model">hr.training.evaluation</field>
             <field name="arch" type="xml">
-                <tree string="Evaluations">
-                    <field name="name" string="Evaluation"/>
-                    <field name="subject_id" string="Training"/>
+                <tree string="Evaluations" create="false" delete="false">
                     <field name="trainee_id" string="Employee"/>
+                    <field name="subject_id" string="Training"/>
                     <field name="grade" string="Grade"/>
+                    <field name="name" string="Evaluation"/>
                 </tree>
             </field>
         </record>
@@ -256,7 +268,7 @@
         <record id="open_view_hr_training_evaluation" model="ir.actions.act_window">
             <field name="name">Evaluations</field>
             <field name="res_model">hr.training.evaluation</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree</field>
             <field name="domain">[]</field>
             <field name="context">{}</field>
             <field name="help" type="html">
