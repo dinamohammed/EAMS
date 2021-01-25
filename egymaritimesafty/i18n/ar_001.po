@@ -76,8 +76,8 @@ msgstr ""
 
 #. module: egymaritimesafty
 #: model_terms:ir.actions.act_window,help:egymaritimesafty.open_view_hr_training_evaluation
-msgid "Create Evaluation..."
-msgstr "انشئ تقييم..."
+msgid "First, Add participant in the Training Course view and add there evaluation..."
+msgstr "اولا يجب ان تضيف مشتركين في شاشة الدورة التدريبية، ثم ضف التقيم لهم..."
 
 #. module: egymaritimesafty
 #: model_terms:ir.actions.act_window,help:egymaritimesafty.action_open_functional_job
@@ -281,8 +281,12 @@ msgid "Evaluations"
 msgstr "التقيمات"
 
 #. module: egymaritimesafty
-#: model:ir.model.fields.selection,name:egymaritimesafty.selection__hr_training_subject__trainer_type__external
 #: model:ir.model.fields.selection,name:egymaritimesafty.selection__hr_training_subject__trainer_type__internal
+msgid "Internal Trainer"
+msgstr "مدرب داخلي (مدرب داخل الهيئة)"
+
+#. module: egymaritimesafty
+#: model:ir.model.fields.selection,name:egymaritimesafty.selection__hr_training_subject__trainer_type__external
 msgid "External Trainer"
 msgstr "مدرب خارجي (مدرب خارج الهيئة)"
 
@@ -681,7 +685,7 @@ msgstr "منحة"
 #: model_terms:ir.ui.view,arch_db:egymaritimesafty.view_hr_training_session_form
 #: model_terms:ir.ui.view,arch_db:egymaritimesafty.view_hr_training_session_tree
 msgid "Session"
-msgstr "المحاضرات"
+msgstr "المحاضرة"
 
 #. module: egymaritimesafty
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_session__session_date

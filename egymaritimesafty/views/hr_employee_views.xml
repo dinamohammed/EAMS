@@ -37,8 +37,10 @@
                             <field name="new_certificate" string="New Certificate"/>
                             <separator/>
                             <field name="functional_job_id" string="Functional Job Group"/>
-                            <field name="qualitative_job_id" string="Qualitative Job Group"/>
-                            <field name="job_title_id" string="Job"/>
+                            <field name="qualitative_job_id" string="Qualitative Job Group"
+                                   context="{'default_functional_job_id': functional_job_id}"/>
+                            <field name="job_title_id" string="Job"
+                                   context="{'default_functional_job_id': functional_job_id, 'default_qualitative_job_id': qualitative_job_id}"/>
                         </group>
                     </group>
                 </sheet>

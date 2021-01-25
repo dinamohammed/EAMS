@@ -26,7 +26,7 @@ class TrainingSubject(models.Model):
     training_place_id = fields.Many2one('hr.training.place', string="Training Place")
     responsible_id = fields.Many2one('hr.employee', ondelete='set null', string="Responsible", index=True)
     in_comp_training_check = fields.Boolean(compute='_check_training_place')
-    trainer_type = fields.Selection(string="Trainer Type", selection=[('internal', 'External Trainer'),
+    trainer_type = fields.Selection(string="Trainer Type", selection=[('internal', 'Internal Trainer'),
                                                                       ('external', 'External Trainer')])
     training_duration = fields.Integer(help="Training duration per day/s.")
     participant_ids = fields.Many2many(comodel_name="hr.employee", string="Participants")
@@ -79,7 +79,8 @@ class TrainingPlace(models.Model):
     training = fields.Selection(string="In or Out company",
                                 selection=[('in_company', 'Inside the company'),
                                            ('out_company', 'Outside the company'), ])
-    subject_id = fields.Many2one('hr.training.subject', string="Course Subject", required='True')
+    subject_ids = fields.One2many(comodel_name="hr.training.subject", inverse_name="training_place_id",
+                                  string="Course Subject", required=False)
     currency_id = fields.Many2one('res.currency', default=lambda self: self.env.company.currency_id.id)
     training_cost_type = fields.Selection(string="Training Cost Type",
                                           selection=[('paid', 'Paid'), ('unpaid', 'Unpaid')])
@@ -139,13 +140,13 @@ class TrainingEvaluation(models.Model):
             if rec.grade:
                 if rec.grade < 60:
                     rec.name = ''
-                elif 60 <= rec.grade >= 65:
+                elif 60 <= rec.grade <= 65:
                     rec.name = 'مقبول'
-                elif 66 <= rec.grade >= 75:
+                elif 66 <= rec.grade <= 75:
                     rec.name = 'جيد'
-                elif 76 <= rec.grade >= 89:
+                elif 76 <= rec.grade <= 89:
                     rec.name = 'جيد جدا'
-                elif 90 <= rec.grade >= 100:
+                elif 90 <= rec.grade <= 100:
                     rec.name = 'ممتاز'
                 else:
                     raise ValidationError(_("ادخل رقم صحيح..."))
