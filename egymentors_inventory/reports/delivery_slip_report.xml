@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="stock.report_delivery_document">
+        <t t-call="web.html_container">
+            <t t-set="o" t-value="o.with_context(lang=o.partner_id.lang)" />
+            <t t-if="o.picking_type_id.code == 'incoming' " t-call="egymentors_inventory.receipt_order_layout">
+                <div class="page" style="font-size:24px;">
+                    <div class="oe_structure"/>
+                    <div class="row">
+                        <div class="row" style="padding-left:60%;">
+                            <ul style="list-style:none;">
+                                <li><strong>Ref No: </strong><span t-esc="o.name"/></li>
+                                <li><strong>Date: </strong><span t-field="o.scheduled_date"/></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h2>Received Form</h2>
+                    <div class="row">
+                        <table class="table text-center" style="width:100%;border: 2px solid black;border-collapse: collapse;">
+                            <tbody style="border: 2px solid black;">
+                                <tr style="border-bottom: 2px solid black;width:50%;">
+                                    <td style="border-right: 2px solid black;width:25%;"><span style="margin-left:10px;"> Company شركة :-</span></td>
+                                    <td style="border-right: 2px solid black;width:25%;"><span style="margin-left:10px;" t-esc="o.partner_id.name"/></td>
+                                    <td rowspan="2" style="border-right: 2px solid black;width:25%;"><span style="margin-left:10px;"> Address العنوان :-</span></td>
+                                    <td rowspan="2" style="border-right: 2px solid black;width:25%;"><span class="company_address" t-field="o.partner_id"
+                                                    t-options='{"widget": "contact", "fields": ["address"], "no_marker": true}' style="margin-left:10px;"/></td>
+                                </tr>
+                                <tr style="border-top: 2px solid black;width:50%;">
+                                    <td style="border-right: 2px solid black;width:25%;"><span style="margin-left:10px;"> Tel &amp; Fax :-</span></td>
+                                    <td style="width:25%;"><span style="margin-left:10px;" t-field="o.partner_id.phone" /></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h2>Comments</h2>
+                    <div class="row" style="font-size:22px;">
+                        <table class="table" style="width:100%;border:2px solid black;border-collapse: collapse;">
+                            <thead style="border: 2px solid black;">
+                                <tr style="border-bottom: 2px solid black;">
+                                    <td style="border-right: 2px solid black;text-align:center;"> Supplier Code <br/> كود المورد </td>
+                                    <td style="border-right: 2px solid black;text-align:center;"> PO Number <br/> رقم أمر الشراء </td>
+                                    <td style="border-right: 2px solid black;text-align:center;"> Purchase Person <br/> مندوب المشتريات </td>
+                                    <td style="border-right: 2px solid black;text-align:center;"> Store Name <br/> اسم المخزن </td>
+                                    <td style="border-right: 2px solid black;text-align:center;"> Supplier invoice ref <br/> فاتورة المورد رقم </td>
+                                </tr>
+                            </thead>
+                            <tbody style="border: 2px solid black;">
+                                <tr style="border-bottom: 2px solid black;">
+                                    <td style="border-right: 2px solid black;text-align:center;"><span t-esc="o.partner_id and o.partner_id.ref or ''"/></td>
+                                    <td style="border-right: 2px solid black;text-align:center;"><span t-esc="o.origin"/></td>
+                                    <td style="border-right: 2px solid black;text-align:center;"><span t-esc="o.purchase_id and o.purchase_id.user_id and o.purchase_id.user_id.name or ''"/></td>
+                                    <td style="border-right: 2px solid black;text-align:center;"><span t-field="o.location_dest_id"/></td>
+                                    <td style="border-right: 2px solid black;text-align:center;"><span t-esc="o.vendor_receipt"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <table class="table" style="width:100%;border-collapse: collapse;">
+                            <thead style="border: 2px solid black;">
+                                <tr style="border-bottom: 2px solid black;">
+                                    <td style="border-right: 2px solid black;text-align:center;">Code <br/> كود </td>
+                                    <td style="border-right: 2px solid black;text-align:center;">Item Description <br/> الصنف </td>
+                                    <td style="border-right: 2px solid black;text-align:center;">Qty الكمية </td>
+                                    <td style="border-right: 2px solid black;text-align:center;">Unit <br/>  وحدة القياس </td>
+                                    <td style="border-right: 2px solid black;text-align:center;">Fax No <br/> فاكس رقم </td>
+                                </tr>
+                            </thead>
+                            <tbody style="border: 2px solid black;">
+                                <t t-set="total_done_qty" t-value="0"/>
+                                <t t-foreach="o.move_ids_without_package" t-as="line">
+                                    <tr style="border-bottom: 2px solid black;">
+                                        <td style="border-right: 2px solid black;text-align:center;"><span t-esc="line.product_id.default_code"/></td>
+                                        <td style="border-right: 2px solid black;text-align:center;"><span t-esc="line.name"/></td>
+                                        <td style="border-right: 2px solid black;text-align:center;"><span t-esc="line.quantity_done"/></td>
+                                        <t t-set="total_done_qty" t-value="total_done_qty + line.quantity_done"/>
+                                        <td style="border-right: 2px solid black;text-align:center;"><span t-field="line.product_id.uom_id"/></td>
+                                        <td style="border-right: 2px solid black;text-align:center;"><span t-esc="line.fx_num_id and line.fx_num_id.name or ''"/></td>
+                                    </tr>
+                                </t>
+                                <tr>
+                                    <td colspan="2" style="border-right: 2px solid black;text-align:center;">Total</td>
+                                    <td style="border-right: 2px solid black;text-align:center;"><span t-esc="total_done_qty"/></td>
+                                    <td colspan="2" style="border-right: 2px solid black;"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </t>
+            <t t-elif="o.picking_type_id.code == 'outgoing'" t-call="egymentors_inventory.delivery_order_layout">
+                <t t-set="partner" t-value="o.partner_id or (o.move_lines and o.move_lines[0].partner_id) or False"/>
+                <div class="page" style="font-size:24px;">
+                    <div class="oe_structure"/>
+                    <div class="row">
+                        <div class="row" style="padding-left:60%;">
+                            <ul style="list-style:none;">
+                                <li><strong>Ref No: </strong><span t-field="o.name"/></li>
+                                <li><strong>Date: </strong><span t-field="o.scheduled_date"/></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <table class="table" style="width:100%;">
+                            <thead>
+                                <tr style="border-style:hidden;font-size:24px;">
+                                    <td colspan="3"><strong>Delivery to :-</strong></td>
+                                    <td colspan="3"><strong>Billing to :- </strong><span style="margin-left:25px;font-size:14px;">If different than original address</span></td>
+                                </tr>
+                            </thead>
+                            <tbody style="font-size:22px;">
+                                <tr style="border-style:hidden;">
+                                    <td style="width:10%">Name</td>
+                                    <td style="width:10%">الاسم</td>
+                                    <td style="width:30%"><span t-field="o.partner_id"/></td>
+                                    <td style="width:10%">Name</td>
+                                    <td style="width:10%">الاسم</td>
+                                    <td style="width:30%"></td>
+                                </tr>
+                                <tr style="border-style:hidden;">
+                                    <td style="width:10%">Tel</td>
+                                    <td style="width:10%"></td>
+                                    <td style="width:30%"><span t-field="o.partner_id.phone"/></td>
+                                    <td style="width:10%">Tel</td>
+                                    <td style="width:10%"></td>
+                                    <td style="width:30%"></td>
+                                </tr>
+                                <tr style="border-style:hidden;">
+                                    <td style="width:10%">Address</td>
+                                    <td style="width:10%">العنوان</td>
+                                    <td style="width:30%">
+                                        <span t-esc="partner" t-options='{"widget": "contact", "fields": ["address"], "no_marker": True}'/>
+                                    </td>
+                                    <td style="width:10%">Address</td>
+                                    <td style="width:10%">العنوان</td>
+                                    <td style="width:30%"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h2>Comments ملاحظات</h2>
+                    <div class="row" style="font-size:22px;">
+                        <table class="table" style="width:100%;border:2px solid black;border-collapse: collapse;">
+                            <thead style="border: 2px solid black;">
+                                <tr style="border-bottom: 2px solid black;">
+                                    <td style="border-right: 2px solid black;text-align:center;"> Customer Code <br/> كود العميل </td>
+                                    <td style="border-right: 2px solid black;text-align:center;"> Sales Person <br/> مندوب المبيعات </td>
+                                    <td style="border-right: 2px solid black;text-align:center;"> Internal PO number <br/> رقم الطلبية </td>
+                                    <td style="border-right: 2px solid black;text-align:center;"> Store info No. <br/> مخزن رقم </td>
+                                </tr>
+                            </thead>
+                            <tbody style="border: 2px solid black;">
+                                <tr style="border-bottom: 2px solid black;">
+                                    <td style="border-right: 2px solid black;text-align:center;"><span t-esc="o.partner_id and o.partner_id.ref or ''"/></td>
+                                    <td style="border-right: 2px solid black;text-align:center;"><span t-esc="o.sale_id and o.sale_id.user_id and o.sale_id.user_id.name or ''"/></td>
+                                    <td style="border-right: 2px solid black;text-align:center;"><span t-esc="o.customer_order_delivery"/></td>
+                                    <td style="border-right: 2px solid black;text-align:center;"><span t-field="o.location_id"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="row">
+                        <table class="table" style="width:100%;border-collapse: collapse;">
+                            <thead style="border: 2px solid black;">
+                                <tr style="border-bottom: 2px solid black;">
+                                    <td style="border-right: 2px solid black;text-align:center;">Code كود </td>
+                                    <td style="border-right: 2px solid black;text-align:center;">Item Description الصنف </td>
+                                    <td style="border-right: 2px solid black;text-align:center;">Unit <br/> وحدة الصنف </td>
+                                    <td style="border-right: 2px solid black;text-align:center;">Width <br/> العرض </td>
+                                    <td style="border-right: 2px solid black;text-align:center;">Qty الكمية </td>
+                                </tr>
+                            </thead>
+                            <tbody style="border: 2px solid black;">
+                                <t t-set="total_done_qty" t-value="0"/>
+                                <t t-foreach="o.move_ids_without_package" t-as="line">
+                                    <tr style="border-bottom: 2px solid black;">
+                                        <td style="border-right: 2px solid black;text-align:center;"><span t-esc="line.product_id.default_code"/></td>
+                                        <td style="border-right: 2px solid black;text-align:center;"><span t-esc="line.name"/></td>
+                                        <td style="border-right: 2px solid black;text-align:center;"><span t-field="line.product_id.uom_id"/></td>
+                                        <td style="border-right: 2px solid black;text-align:center;"><span t-esc="line.product_id.texmar_width"/></td>
+                                        <td style="border-right: 2px solid black;text-align:center;"><span t-esc="line.quantity_done"/></td>
+                                        <t t-set="total_done_qty" t-value="total_done_qty + line.quantity_done"/>
+                                    </tr>
+                                </t>
+                                <tr>
+                                    <td colspan="3" style="border-right: 2px solid black;"></td>
+                                    <td style="border-right: 2px solid black;text-align:center;">Total</td>
+                                    <td style="border-right: 2px solid black;text-align:center;"><span t-esc="total_done_qty"/></td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </t>
+            <t t-else="else" t-call="web.external_layout">
+                <t t-set="o" t-value="o.with_context(lang=o.partner_id.lang)" />
+                <t t-set="partner" t-value="o.partner_id or (o.move_lines and o.move_lines[0].partner_id) or False"/>
+                <t t-if="partner" name="partner_header">
+                    <t t-set="address">
+                        <div t-esc="partner"
+                        t-options='{"widget": "contact", "fields": ["address", "name", "phone"], "no_marker": True}'/>
+                   </t>
+                </t>
+
+                <div class="page">
+                    <h2>
+                        <span t-field="o.name"/>
+                    </h2>
+                    <div class="row mt32 mb32">
+                        <div t-if="o.origin" class="col-auto" name="div_origin">
+                            <strong>Order:</strong>
+                            <p t-field="o.origin"/>
+                        </div>
+                        <div t-if="o.state" class="col-auto" name="div_sched_date">
+                            <strong>Shipping Date:</strong>
+                            <t t-if="o.state == 'done'">
+                                <p t-field="o.date_done" t-options='{"widget": "date"}'/>
+                            </t>
+                            <t t-if="o.state != 'done'">
+                                <p t-field="o.scheduled_date" t-options='{"widget": "date"}'/>
+                           </t>
+                        </div>
+                    </div>
+                    <table class="table table-sm" t-if="o.state!='done'" name="stock_move_table">
+                        <thead>
+                            <tr>
+                                <th name="th_sm_product"><strong>Product</strong></th>
+                                <th name="th_sm_quantity"><strong>Quantity</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-set="lines" t-value="o.move_lines.filtered(lambda x: x.product_uom_qty)"/>
+                            <tr t-foreach="lines" t-as="move">
+                                <td>
+                                    <span t-field="move.product_id"/>
+                                    <p t-if="move.description_picking != move.product_id.description and move.description_picking != move.product_id.name">
+                                        <span t-field="move.description_picking"/>
+                                    </p>
+                                </td>
+                                <td>
+                                    <span t-field="move.product_uom_qty"/>
+                                    <span t-field="move.product_uom"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm mt48" t-if="o.move_line_ids and o.state=='done'" name="stock_move_line_table">
+                        <t t-set="has_serial_number" t-value="o.move_line_ids.mapped('lot_id')" />
+                        <thead>
+                            <tr>
+                                <th name="th_sml_product"><strong>Product</strong></th>
+                                <th name="lot_serial" t-if="has_serial_number" groups="stock.group_lot_on_delivery_slip">
+                                    Lot/Serial Number
+                                </th>
+                                <th name="th_sml_quantity" class="text-center"><strong>Quantity</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="o.move_line_ids" t-as="move_line">
+                                <td>
+                                    <span t-field="move_line.product_id"/>
+                                    <p t-if="move_line.move_id.description_picking != move_line.product_id.description and move_line.move_id.description_picking != move_line.product_id.name">
+                                        <span t-field="move_line.move_id.description_picking"/>
+                                    </p>
+                                </td>
+                                <td t-if="has_serial_number and move_line.lot_name" groups="stock.group_lot_on_delivery_slip">
+                                    <span t-field="move_line.lot_name"/>
+                                </td>
+                                <td t-elif="has_serial_number" groups="stock.group_lot_on_delivery_slip">
+                                    <span t-field="move_line.lot_id.name"/>
+                                </td>
+                                <td class="text-center">
+                                    <span t-field="move_line.qty_done"/>
+                                    <span t-field="move_line.product_uom_id"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>
+                        <t t-if="o.backorder_ids and o.backorder_ids.filtered(lambda x: x.state not in ('done', 'cancel'))">
+                            All items couldn't be shipped, the remaining ones will be shipped as soon as they become available.
+                        </t>
+                    </p>
+                </div>
+            </t>
+         </t>
+    </template>
+
+    <template id="receipt_order_layout">
+        <t t-if="not o" t-set="o" t-value="doc"/>
+        <t t-if="not company">
+            <!-- Multicompany -->
+            <t t-if="company_id">
+                <t t-set="company" t-value="company_id"/>
+            </t>
+            <t t-elif="o and 'company_id' in o">
+                <t t-set="company" t-value="o.company_id.sudo()"/>
+            </t>
+            <t t-else="else">
+                <t t-set="company" t-value="res_company"/>
+            </t>
+        </t>
+
+        <div t-attf-class="header o_company_#{company.id}_layout">
+            <div class="o_boxed_header" style="font-size:24px;">
+                <div class="row mb8">
+                    <div class="col-6">
+                        <div class="row">
+                            <img t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" alt="Logo"/>
+                        </div>
+                        <div class="row" style="margin-top:30px;">
+                            <h4 class="mt0" t-field="o.company_id.report_header"/>
+                            <div name="company_address" class="mb4">
+                                <span class="company_address" t-field="o.company_id.partner_id"
+                                    t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 mb4">
+                        <div class="col-md-12" style="padding-top:50px;">
+                            <h1 class="col-md-12 text-center" style="font-size:50px;">Receiving Note</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div t-attf-class="article o_report_layout_standard o_company_#{company.id}_layout"  t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
+            <t t-raw="0"/>
+        </div>
+
+        <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
+            <div class="text-center" style="font-size:24px;margin-top:15px;">
+                <p>All supplied products are under revision and inspection for 15 days from delivery جميع البضائع المورده تحت الفحص و الاستلام لمدة 15 يوم</p>
+                <div class="row">
+                    <div class="col-3" style="text-align:center;">
+                        <span><strong>Received by</strong></span>
+                    </div>
+                    <div class="col-3" style="text-align:center;">
+                        <span><strong>Store Keeper</strong></span>
+                    </div>
+                    <div class="col-3" style="text-align:center;">
+                        <span><strong>Security</strong></span>
+                    </div>
+                    <div class="col-3" style="text-align:center;">
+                        <span><strong>Purchase Accounting</strong></span>
+                    </div>
+                </div>
+                <div class="oe_clear"/>
+                <div class="row" style="margin-top:25px;">
+                    <div class="col-3" style="text-align:center;">
+                        <span>-------------------</span>
+                    </div>
+                    <div class="col-3" style="text-align:center;">
+                        <span>-------------------</span>
+                    </div>
+                    <div class="col-3" style="text-align:center;">
+                        <span>-------------------</span>
+                    </div>
+                    <div class="col-3" style="text-align:center;">
+                        <span>-------------------</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </template>
+    <template id="delivery_order_layout">
+        <t t-if="not o" t-set="o" t-value="doc"/>
+        <t t-if="not company">
+            <!-- Multicompany -->
+            <t t-if="company_id">
+                <t t-set="company" t-value="company_id"/>
+            </t>
+            <t t-elif="o and 'company_id' in o">
+                <t t-set="company" t-value="o.company_id.sudo()"/>
+            </t>
+            <t t-else="else">
+                <t t-set="company" t-value="res_company"/>
+            </t>
+        </t>
+
+        <div t-attf-class="header o_company_#{company.id}_layout">
+            <div class="o_boxed_header">
+                <div class="row mb8">
+                    <div class="col-4">
+                        <div class="row">
+                            <img t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" alt="Logo"/>
+                        </div>
+                        <div class="row" style="margin-top:30px;">
+                            <h4 class="mt0" t-field="o.company_id.report_header"/>
+                            <div name="company_address" class="mb4">
+                                <span class="company_address" t-field="o.company_id.partner_id"
+                                    t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="col-md-12" style="padding-top:70px;">
+                            <h2 class="col-md-12 text-center">عملاء الشركة</h2>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="col-md-12" style="padding-top:20px;padding-bottom:5px;">
+                            <h1 class="col-md-12 text-center">Delivery Note</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div t-attf-class="article o_report_layout_standard o_company_#{company.id}_layout"  t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
+            <t t-raw="0"/>
+        </div>
+
+        <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
+            <div class="text-center" style="margin-top:15px;font-size:18px;">
+                <div class="row">
+                    <div class="col-3" style="text-align:center;">
+                        <span><strong>Received by</strong></span>
+                        <span><strong>المستلم</strong></span>
+                    </div>
+                    <div class="col-3" style="text-align:center;">
+                        <span><strong>Store Keeper</strong></span>
+                    </div>
+                    <div class="col-3" style="text-align:center;">
+                        <span><strong>Security</strong></span>
+                    </div>
+                    <div class="col-3" style="text-align:center;">
+                        <span><strong>Purchase Accounting</strong></span>
+                    </div>
+                </div>
+                <div class="oe_clear"/>
+                <div class="row" style="margin-bottom:15px;margin-top:25px;">
+                    <div class="col-3" style="text-align:center;">
+                        <ul style="list-style:none;">
+                            <li><span class="text-left"> Name :- &#160;&#160;&#160;&#160;&#160;&#160;</span><span>-------------------------</span></li>
+                            <li><span class="text-left"> ID :- &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span>-------------------------</span></li>
+                            <li><span class="text-left"> Signature :- &#160;</span><span>-------------------------</span></li>
+                        </ul>
+
+                    </div>
+                    <div class="col-3" style="text-align:center;">
+                        <span>-------------------------</span>
+                    </div>
+                    <div class="col-3" style="text-align:center;">
+                        <span>-------------------------</span>
+                    </div>
+                    <div class="col-3" style="text-align:center;">
+                        <span>-------------------------</span>
+                    </div>
+                </div>
+                <p>if you have any questions concerning this invoice, contact our sales manager Mr. Mohamed Radwan, mob. 01223248892</p>
+                <p>Allowed refund or change within 30 days from invoice date يحق الارتجاع أو الاستبدال في خلال 30 يوم من تاريخ الفاتورة</p>
+                <h2 class="text-center">Thank You for Your Business</h2>
+            </div>
+        </div>
+
+    </template>
+
+</odoo>
