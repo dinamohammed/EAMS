@@ -7,7 +7,7 @@
             <field name="model">product.template</field>
             <field name="inherit_id" ref="product.product_template_form_view"/>
             <field name="arch" type="xml">
-                <xpath expr="//page[@name='general_information']/group[1]/group[1]/field[@name='barcode']" position="after">
+                <xpath expr="/form/sheet/notebook/page[@name='general_information']/group[1]/group[@name='group_general']/field[@name='categ_id']" position="after">
                     <field name="ref_2"/>
                 </xpath>
             </field>
@@ -18,7 +18,7 @@
             <field name="model">product.product</field>
             <field name="inherit_id" ref="product.product_variant_easy_edit_view"/>
             <field name="arch" type="xml">
-                <xpath expr="//group[1]/group[@name='codes']/field[@name='barcode']" position="after">
+                <xpath expr="/sheet/form/group[1]/group[@name='codes']/field[@name='barcode']" position="after">
                     <field name="ref_2"/>
                 </xpath>
             </field>
