@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_account_checkbook_tree" model="ir.ui.view">
+            <field name="name">account.checkbook.tree</field>
+            <field name="model">account.checkbook</field>
+            <field name="arch" type="xml">
+<!--  decoration-warning=""  decoration-bf=""  decoration-info=""      decoration-danger="" decoration-muted=""-->
+                <tree string="Checkbooks"
+                      decoration-warning="state == 'used'"
+                      decoration-bf="state == 'draft'"
+                      decoration-info="state == 'active'"
+                      editable="bottom">
+                    <field name="name"/>
+                    <field name="next_number"/>
+                    <field name="range_to"/>
+                    <field name="block_manual_number"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_account_checkbook_form" model="ir.ui.view">
+            <field name="name">account.checkbook.form</field>
+            <field name="model">account.checkbook</field>
+            <field name="arch" type="xml">
+                <form string="Checkbooks">
+                    <header string="Checkbooks">
+                        <field name="state" widget="statusbar" clickable="True"/>
+                    </header>
+                    <sheet string="Checkbooks">
+                        <div class="oe_name">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" invisible="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="issue_check_subtype"/>
+                                <field name="sequence_id"/>
+                                <field name="range_to"/>
+                            </group>
+                            <group>
+                                <field name="next_number" readonly="1"/>
+                                <field name="block_manual_number"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>
