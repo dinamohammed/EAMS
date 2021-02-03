@@ -3,239 +3,104 @@
     <template id="report_purchase_order_note_doc">
         <t t-call="web.external_layout">
             <!--            <t t-set="o" t-value="o.with_context(lang=lang)" />-->
-            <div class="page text-right" style="text-align: right !important;direction:rtl;font-size:16px;">
+            <t t-set="productname" t-value=""/>
+            <t t-foreach="o.order_line" t-as="line" >
+                <t t-set="productname" t-value="line.product_id.display_name"/>
+            </t>
+            <div class="page text-right" style="text-align: right !important;direction:rtl;font-size:20px;">
                 <div class="row" >
                     <div class="col-4"/>
-                    <div class="col-4 text-center">
-                        <h5 style="width:100%;block:">
-                            <strong>مذكره شراء رقم(
-                                <span t-if="o.name" t-field="o.name"/>
-                                )</strong>
-                        </h5>
-                    </div>
-                </div>
-                <br/>
-                <div class="row" >
-                    <p style="width:100%;block">
-                        <b>السيد اللواء/</b>
-                        <!-- رئيس الشئون الفنيه-->
-                    </p>
-                </div>
-                <div class="row" >
+                    <div class="col-4"/>
                     <div class="col-4"/>
                     <div class="col-4 text-center">
-                        <b>
-                            تحيه طيبه وبعد,,,
-                        </b>
+                        <p style="width:100%;block:">
+                            رقم الصادر:
+                        </p>
+                        <p style="width:100%;block:">
+                            التاريخ:
+                        </p>
+                        <p style="width:100%;block:">
+                            المرفقات:
+                        </p>
                     </div>
                 </div>
                 <br/>
                 <div class="row" >
                     <p style="width:100%;block">
-                        <b>بالإحاله إلى طلب شراء رقم (</b>
-                        <span t-if="o.request_id" t-esc="o.request_id.name"/>
-                        <span t-if="not o.request_id" style="color:white">----------------</span>
-                        <b> ) بتاريخ</b>
-                        <span t-if="o.request_id" t-esc="o.request_id.date_request"/>
-                        <span t-if="not o.request_id" style="color:white">----------------------------</span>
-                        <b>من </b>
-                        <span t-if="o.request_id and o.request_id.req_dep_id" t-esc="o.request_id.req_dep_id.name"/>
-
+                        <strong><u>مذكرة مرفوعة للسيد اللواء البحري أ.ح/ رئيس الهيئه المصريه لسلامة الملاحه البحريه</u></strong>
                     </p>
                 </div>
                 <div class="row" >
-                    <p style="width:100%;block">
-                        <b>بـخـصـوص/</b>
-                    </p>
-                </div>
-                <div class="row">
-                    <p style="width:100%;block"><b>
-                        نحيط علم سيادتكم علماً بأنه قامت اللجنه المشكله من كلا من:
-                    </b></p>
-                </div>
-                <div class="row">
-                    <p style="width:100%;block">
-                        <b>1-</b>
-                        <b style="color:white">--------------------------------------------------------------</b>
-                        <b>إداره المشتريات</b>
-                    </p>
-                </div>
-                <div class="row">
-                    <p style="width:100%;block">
-                        <b>2-</b>
-                        <b style="color:white">--------------------------------------------------------------</b>
-                        <b>المندوب المالي</b>
-                    </p>
-                </div>
-                <div class="row">
-                    <p style="width:100%;block">
-                        <b>3-</b>
-                        <b style="color:white">--------------------------------------------------------------</b>
-                        <b>الشئون فنيه</b>
-                    </p>
-                </div>
-                <div class="row">
-                    <p style="width:100%;block">
-                        <b>
-                            وقامت اللجنه بالبحث فى السوق المحلى وعمل عروض اسعار من شركه
-                            <span t-if="o.partner_id" t-esc="o.partner_id.name"/>
-
-                        </b>
-                    </p>
-                </div>
-                <div class="row">
-                    <t t-set="count" t-value="1"/>
-                    <table class="table table-sm" style="width:60%">
-                        <tr t-foreach="o.order_line" t-as="line">
-                            <th style="border:0px"><span t-esc="count"/>- </th>
-                            <th style="border:0px"><span t-if="line.product_id" t-esc="line.product_id.name"/></th>
-                            <th style="border:0px"> = </th>
-                            <td style="border:0px"> <span t-esc="line.product_qty"/> </td>
-                            <th style="border:0px"> x </th>
-                            <td style="border:0px"> <span t-esc="line.price_unit"
-                                                          t-options='{"widget": "monetary", "display_currency": o.currency_id}'/> </td>
-                            <th style="border:0px"> = </th>
-                            <td style="border:0px"> <span t-esc="line.price_subtotal"
-                                                          t-options='{"widget": "monetary", "display_currency": o.currency_id}'/> </td>
-                            <t t-set="count" t-value="count+1"/>
-                        </tr>
-                    </table>
-                </div>
-                <!--<div class="row" t-foreach="o.order_line" t-as="line">-->
-                <!--    <p style="width:100%;block">-->
-                <!--        <b style="font-size:18px;"><span t-esc="count"/>- </b>-->
-                <!--        <span t-if="o.product_id" t-esc="o.product_id.name"/>-->
-                <!--        <b style="font-size:18px;"> = </b>-->
-                <!--        <span t-if="line" t-esc="line.product_qty"/>-->
-                <!--        <b style="font-size:18px;"> x </b>-->
-                <!--        <span t-if="line" t-esc="line.price_unit"-->
-                <!--              t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>-->
-                <!--        <b style="font-size:18px;"> = </b>-->
-                <!--        <span t-if="line" t-esc="line.price_subtotal"-->
-                <!--              t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>-->
-                <!--    </p>-->
-                <!--    <t t-set="count" t-value="count+1"/>-->
-                <!--</div>-->
-                <div class="row">
-                    <table class="table table-sm" style="width:60%">
-                        <tr t-foreach="o.amount_by_group" t-as="amount_by_group">
-                            <th style="border:0px">ضريبه القيمه المضافه </th>
-                            <th style="border:0px"> = </th>
-                            <td style="border:0px"> <span t-esc="amount_by_group[0]"/> </td>
-                            <!--                            <th style="border:0px"> x </th>-->
-                            <!--                            <td style="border:0px"> <span t-esc="amount_by_group[4]"/> </td>-->
-                            <th style="border:0px"> = </th>
-                            <td style="border:0px"> <span t-esc="amount_by_group[3]"/> </td>
-                            <!--                            <td style="border:0px"> <span t-esc="amount_by_group"/> </td>-->
-                        </tr>
-                    </table>
-                    <!--    <p style="width:100%;block">-->
-                    <!--        <b>ضريبه القيمه المضافه </b>-->
-                    <!--        <b style="font-size:18px;"> = </b>-->
-                    <!--        <t t-foreach="o.amount_by_group" t-as="amount_by_group">-->
-                    <!--            <span t-esc="amount_by_group[0]"/>-->
-                    <!--            <b style="font-size:18px;"> x </b>-->
-                    <!--            <span t-esc="amount_by_group[4]"/>-->
-                    <!--            <b style="font-size:18px;"> = </b>-->
-                    <!--            <span t-esc="amount_by_group[3]"/>-->
-                    <!--            &lt;!&ndash;<b t-esc="amount_by_group" style="color:red"/>&ndash;&gt;-->
-                    <!--        </t>-->
-                    <!--        <br/>-->
-                    <!--    </p>-->
-                </div>
-                <div class="row">
-                    <table class="table table-sm" style="width:60%">
-                        <tr>
-                            <th style="border:0px">ليصبح إجمالى السعر بعد الضريبه</th>
-                            <th style="border:0px"> = </th>
-                            <td style="border:0px"> <span t-esc="o.amount_untaxed"/> </td>
-                            <th style="border:0px"> + </th>
-                            <td style="border:0px"> <span t-esc="o.amount_tax"/> </td>
-                            <th style="border:0px"> = </th>
-                            <td style="border:0px"> <span t-esc="o.amount_total"
-                                                          t-options='{"widget": "monetary", "display_currency": o.currency_id}'/></td>
-                        </tr>
-                    </table>
-
-                    <!--    <p style="width:100%;block">-->
-                    <!--        <b>ليصبح إجمالى السعر بعد الضريبه =  </b>-->
-                    <!--        <span t-esc="o.amount_untaxed"/>-->
-                    <!--        <span> + </span>-->
-                    <!--        <span t-esc="o.amount_tax"/>-->
-                    <!--        <span> = </span>-->
-                    <!--        <b t-esc="o.amount_tax"-->
-                    <!--           t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>-->
-                    <!--    </p>-->
-                </div>
-                <div class="row">
-                    <p style="width:100%;block">
-                        <span t-esc="o.amount_to_text()"/>
-                    </p>
-                </div>
-                <!--<div class="row">-->
-                <!--    <p style="width:100%;block">-->
-                <!--        <b>1-</b>-->
-                <!--        <b style="color:white">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</b>-->
-                <!--    </p>-->
-                <!--</div>-->
-                <!--<div class="row">-->
-                <!--    <p style="width:100%;block">-->
-                <!--        <b>2-</b>-->
-                <!--        <b style="color:white">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</b>-->
-                <!--    </p>-->
-                <!--</div>-->
-                <!--<div class="row">-->
-                <!--    <p style="width:100%;block">-->
-                <!--        <b>3-</b>-->
-                <!--        <b style="color:white">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</b>-->
-                <!--    </p>-->
-                <!--</div>-->
-                <div class="row ">
-                    <p style="width:100%;block"><b>
-                        قرار أعضاء لجنه البت المُشكله طبقاً للماده 35, 36 من لائحه المشتريات
-                    </b></p>
-                </div>
-                <div class="row ">
-                    <div class="col-2"><h5>القرار:</h5></div>
-                    <div class="col-10">
-                        <b class="text-center">-------------------------------------------------------------------------------------------------------</b>
-                        <br/>
-                        <b class="text-center">-------------------------------------------------------------------------------------------------------</b>
-                        <br/>
-                        <b class="text-center">-------------------------------------------------------------------------------------------------------</b>
-                    </div>
-                </div>
-                <br/>
-                <div class="row ">
-                    <div class="col-2"><h5>الملاحظات:</h5></div>
-                    <div class="col-10">
-                        <b class="text-center">-------------------------------------------------------------------------------------------------------</b>
-                        <br/>
-                        <b class="text-center">-------------------------------------------------------------------------------------------------------</b>
+                    <div class="col-12">
+                        <b><u>الموضوع:-</u></b>
+                        <p>  شراء <span><t t-esc="productname"/></span></p>
                     </div>
                 </div>
                 <br/>
                 <div class="row" >
+                    <div class="col-12">
+                        <b><u>العرض:-</u></b>
+                        <p>يرجى التكرم بالعلم بأن إدارة _ _ _ _ _ _ _ _ _  قد طلبت منّا شراء <span><t t-esc="productname"/></span> لزوم</p>
+                        <p>_ _ _ _ _ _ _ بموجب _ _ _ _ _ _ معتمدة من قبل سيادته (مرفق طيه صورة)</p>
+                    </div>
+                </div>
+                <br/>
+                <div class="row" >
+                    <div class="col-12">
+                        <b><u>الرأي</u></b>
+                        <p>لذا نرجو بالموافقة على العمليه سالفه الذكر بطريقة الإتفاق المباشر طبقاً للمادة _ _ _ _ _ من</p>
+                        <p>القانون رقم 182 لسنة 2018 ولائحته التنفيذيه, على ألا تقل مدة سريان العطاء عن اسبوع</p>
+                    </div>
+                </div>
+                <div class="row">
                     <div class="col-4"/>
-                    <div class="col-4">
-                        <b class="pull-right text-center" >
-                            ولسيادتكم جزيل الشكر,,,
-                        </b>
+                    <div class="col-4 text-center">
+                        <p style="width:100%;block:">
+                            <strong>وتفضلوا بقبول فائق الإحترام ,,,</strong>
+                        </p>
                     </div>
                 </div>
                 <br/>
-                <div class="row"  >
-                    <div class="col-4 text-center">
-                        <strong>المشتريات والمخازن</strong>
-                    </div>
-                    <div class="col-4 text-center">
-                        <strong>إداره المراجعه</strong>
-                    </div>
-                    <div class="col-4 text-center">
-                        <strong>رئيس اللجنه</strong>
-                    </div>
-                </div>
+                <br/>
+                <div class="row" style="font-size:12px">
+                    <table class="table-sm" style="width:75%;border-collapse: collapse;">
+                        <thead style="border: 1px solid black;">
+                            <tr style="border-bottom: 1px;">
+                                <th style="border-right: 1px solid black;">محاسب ثان</th>
+                                <th></th>
+                                <th style="border-right: 1px solid black;">مدير المشتريات</th>
+                                <th></th>
+                                <th style="border-right: 1px solid black;">مدير الإحتياجات والمخازن</th>
+                                <th></th>
+                                <th style="border-right: 1px solid black;">مدير عام الإدارة العامه للشئون الماليه</th>
+                                <th style="border-left: 1px solid black;"></th>
+                            </tr>
+                        </thead>
+                        <tbody style="border: 1px solid black;">
+                            <tr style="border-bottom: 1px solid black;">
+                                <td style="border-right: 1px solid black;">الإسم</td>
+                                <td style="border-right: 1px solid black;">التوقيع</td>
+                                <td style="border-right: 1px solid black;">الإسم</td>
+                                <td style="border-right: 1px solid black;">التوقيع</td>
+                                <td style="border-right: 1px solid black;">الإسم</td>
+                                <td style="border-right: 1px solid black;">التوقيع</td>
+                                <td style="border-right: 1px solid black;">الإسم</td>
+                                <td style="border-right: 1px solid black;">التوقيع</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid black;">
+                                <td style="border-right: 1px solid black;">ا/محمد مصطفى المعدلي</td>
+                                <td style="border-right: 1px solid black;"></td>
+                                <td style="border-right: 1px solid black;">ا/امل حامد المغربي</td>
+                                <td style="border-right: 1px solid black;"></td>
+                                <td style="border-right: 1px solid black;">ا/جاكلين حنا رفله</td>
+                                <td style="border-right: 1px solid black;"></td>
+                                <td style="border-right: 1px solid black;">ا/صفيه محمد جاد</td>
+                                <td style="border-right: 1px solid black;"></td>
+                            </tr>
+                        </tbody>
+                </table>
             </div>
+            </div>     
         </t>
     </template>
     <template id="report_purchase_order_note">

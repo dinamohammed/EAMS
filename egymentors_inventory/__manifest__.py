@@ -29,7 +29,7 @@
     'description': """
 """,
     'version': '10.0',
-    'depends': ['base', 'stock', 'purchase', 'purchase_requisition', 'report_xlsx', 'purchase_discount'],
+    'depends': ['base', 'stock', 'purchase', 'purchase_requisition', 'report_xlsx', 'purchase_discount','product'],
     'data': [
         'data/inventory_adjustment_data.xml',
         'data/purchase_request_date.xml',
@@ -47,7 +47,7 @@
         'views/report_purchase_order_check.xml',
         'views/report_purchase_order_note.xml',
         'views/report_purchase_order_inherit.xml'
-        # 'views/stock_picking_view.xml',
+        'views/product_changes_view.xml',
     ],
     'installable': True,
     'application': True,
