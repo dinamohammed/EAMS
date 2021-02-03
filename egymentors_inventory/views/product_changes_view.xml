@@ -13,7 +13,7 @@
             </field>
         </record>
         
-        <record id="product_variant_easy_edit_view_inherit11" model="ir.ui.view">
+<!--         <record id="product_variant_easy_edit_view_inherit11" model="ir.ui.view">
             <field name="name">product.product.view.form.easy.inherit11</field>
             <field name="model">product.product</field>
             <field name="inherit_id" ref="product.product_variant_easy_edit_view"/>
@@ -22,6 +22,6 @@
                     <field name="ref_2"/>
                 </xpath>
             </field>
-        </record>
+        </record> -->
     </data>
 </odoo>
