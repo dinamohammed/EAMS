@@ -1,0 +1,27 @@
+<odoo>
+  <data>
+      <record id="adding_penality_field" model="ir.ui.view">
+            <field name="name">adding penality field</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                  <field name="date_order" position='after'>
+                      <label for="down_payment_perc"/>
+                      <div class="o_row">
+                      <field name="down_payment_perc"/><span>%%</span>
+                      </div>
+                  
+                      <field name="down_payment_total" attrs="{'invisible':[('down_payment_perc','=',0)]}"/>
+                      <label for="penality_perc"/>
+                      <div class="o_row">
+                      <field name="penality_perc"/><span>%%</span>
+                      </div>
+                      
+                  </field>
+                  <field name="amount_tax" position='before'>
+                      <field name="penality_value" attrs="{'invisible':[('penality_perc','=',0)]}"/>
+                  </field>
+            </field>
+      </record>
+  </data>
+</odoo>

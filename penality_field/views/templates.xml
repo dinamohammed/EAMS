@@ -1,0 +1,21 @@
+<odoo>
+    <data>
+        <template id="penality_field_to_report" inherit_id="egymentors_inventory.report_purchase_order_check_doc">
+        <xpath expr="//t/div[@class='page text-right']/div/div/table/tr[@class='border-black o_total']"
+        position="before">
+    <tr class="border-black o_peanlity" t-if='o.penality_value'>
+        <td name="td_penality_label"><strong>غرامة التأخير</strong></td>
+        <td>
+            <span t-esc="o.penality_value"/>
+        </td>
+    </tr>
+    <tr class="border-black o_down_paymnet" t-if='o.down_payment_total'>
+        <td name="td_down_payment_label"><strong>دفعة مقدمة</strong></td>
+        <td>
+            <span t-esc="o.down_payment_total"/>
+        </td>
+    </tr>
+    </xpath>
+        </template>
+    </data>
+</odoo>
