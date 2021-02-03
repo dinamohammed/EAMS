@@ -46,7 +46,7 @@
         'views/report_purchase_requisition_price.xml',
         'views/report_purchase_order_check.xml',
         'views/report_purchase_order_note.xml',
-        'views/report_purchase_order_inherit.xml'
+        'views/report_purchase_order_inherit.xml',
         'views/product_changes_view.xml',
     ],
     'installable': True,
