@@ -6,7 +6,7 @@ from odoo.exceptions import Warning
 
 class AgreementSignature(models.Model):
 	_name = 'agreement.signature'
-    
-    name = fields.Many2one('hr.employee', 'Name')
-    title = fields.Char(related = 'name.job_id.name')
-    rank = fields.Integer('Rank',help="Add the Order of print out")
+	
+	name = fields.Many2one('hr.employee', 'Name')
+	title = fields.Char(related = 'name.job_id.name')
+	rank = fields.Integer('Rank',help="Add the Order of print out")
