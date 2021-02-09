@@ -39,6 +39,18 @@
                 <xpath expr="//field[@name='line_ids']/tree" position="inside">
                     <field name="request_line_ids" optional="hide" widget="many2many_tags"/>
                 </xpath>
+                
+                <xpath expr="//page[@name='products']" position="after">
+                    <page string = "Signatures" name = "agreement_signatures">
+                        <field name="signatures_ids" widget="section_and_note_one2many" mode="tree">
+                            <tree string="Signatures Lines" editable="bottom">
+                                <field name="name"/>
+                                <field name="title"/>
+                                <field name="rank"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
 
             </field>
         </record>

@@ -48,6 +48,7 @@
         'views/report_purchase_order_note.xml',
         'views/report_purchase_order_inherit.xml',
         'views/product_changes_view.xml',
+        'views/agreement_signature_view.xml',
     ],
     'installable': True,
     'application': True,
