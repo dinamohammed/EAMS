@@ -32,8 +32,8 @@ class PurchaseRequisitionInherit(models.Model):
 								help="Choose Confirmed request and load it's lines on PO")
 	request_ids = fields.Many2many(comodel_name='purchase.request', copy=False)
 	request_state = fields.Selection(_STATES, compute='get_request_state', required=False)
-	
-	signatures_ids = fields.Many2many(comodel_name='agreement.signature',help="Add signatures to be added in printouts")
+    
+    signatures_ids = fields.Many2many(comodel_name='agreement.signature',help="Add signatures to be added in printouts")
 
 
 	@api.onchange('request_id')
