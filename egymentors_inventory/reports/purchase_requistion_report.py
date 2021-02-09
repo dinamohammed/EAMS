@@ -222,12 +222,11 @@ class PartnerXlsx(models.AbstractModel):
 							minimum = line
 					signatures_ranked.append(minimum)
 					signatures.remove(minimum) 
-                
-                for line in signatures_ranked:
-                    worksheet.merge_range(row, col, row, col+1, "%s" %line.title, cell_format_right_bold)
-                    worksheet.merge_range(row+1, col, row+1, col+1, "%s" %line.name, cell_format_right_bold)
-                    col + = 2
-
+				for line in signatures_ranked:
+					worksheet.merge_range(row, col, row, col+1, "%s" %line.title, cell_format_right_bold)
+					worksheet.merge_range(row+1, col, row+1, col+1, "%s" %line.name, cell_format_right_bold)
+					col + = 2
+				
 				row += 2
 				worksheet.merge_range(row, 0, row, 1, "المرفقات", cell_format_right_bold)
 				row += 1
