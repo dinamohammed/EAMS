@@ -212,13 +212,21 @@ class PartnerXlsx(models.AbstractModel):
 				worksheet.merge_range(row, 0, row, 1, "توقيعات اعضاء اللجنه", cell_format_right_bold)
 				worksheet.merge_range(row, 5, row, 6, "رئيس اللجنه", cell_format_right_bold)
 				row += 1
-				worksheet.merge_range(row, 0, row, 1, "إداره المشتريات", cell_format_right_bold)
-				worksheet.merge_range(row, 2, row, 3, "الشئون الفنيه", cell_format_right_bold)
-				worksheet.merge_range(row, 4, row, 5, "حسابات المخزون", cell_format_right_bold)
-				worksheet.merge_range(row, 6, row, 7, "قسم الشئون القانونيه", cell_format_right_bold)
-				worksheet.merge_range(row, 8, row, 9, "المراجعه", cell_format_right_bold)
-				worksheet.merge_range(row, 10, row, 11, "المدير المالي", cell_format_right_bold)
-				worksheet.merge_range(row, 12, row, 13, "رئيس الشئون الفنيه", cell_format_right_bold)
+				col = 0
+				signatures_ranked = []
+				signatures = signatures_ids.copy()
+				while signatures:
+					minimum = signatures[0]
+					for line in signatures:
+						if line.rank < minimum.rank:
+							minimum = line
+					signatures_ranked.append(minimum)
+					signatures.remove(minimum) 
+                
+                for line in signatures_ranked:
+                    worksheet.merge_range(row, col, row, col+1, "%s" %line.title, cell_format_right_bold)
+                    worksheet.merge_range(row+1, col, row+1, col+1, "%s" %line.name, cell_format_right_bold)
+                    col + = 2
 
 				row += 2
 				worksheet.merge_range(row, 0, row, 1, "المرفقات", cell_format_right_bold)
