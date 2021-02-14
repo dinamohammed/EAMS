@@ -17,7 +17,7 @@
 {
     "name": "Product/Material Internal Requisitions by Employees/Users",
     "summary": "This module allow employees/users to create Internal Requisitions.",
-    "version": "14.0.1",
+    #"version": "14.0.1",
     "description": """
         This module allowed Internal requisition of employee.
         Material Internal Requisitions
@@ -112,7 +112,7 @@
         Internal_requisition (qweb) """,
     "author": "CodersFort",
     "maintainer": "Ananthu Krishna",
-    "license" :  "Other proprietary",
+    #"license" :  "Other proprietary",
     "website": "http://www.codersfort.com",
     "images": ["images/material_internal_requisition.png"],
     "category": "Warehouse",
