@@ -17,7 +17,7 @@
 {
     "name": "Product/Material Internal Requisitions by Employees/Users",
     "summary": "This module allow employees/users to create Internal Requisitions.",
-    "version": "13.0.1",
+    "version": "14.0.1",
     "description": """
         This module allowed Internal requisition of employee.
         Material Internal Requisitions
