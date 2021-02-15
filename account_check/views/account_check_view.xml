@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!--  Checks -->
+        <record model="ir.ui.view" id="view_account_check_tree">
+            <field name="name">account.check.tree</field>
+            <field name="model">account.check</field>
+            <field name="priority">100</field>
+            <field name="groups_id" eval="[(4, ref('account.group_account_manager'))]"/>
+            <field name="arch" type="xml">
+                <!--               decoration-muted=""-->
+                <tree decoration-primary="state in ('draft', 'holding', 'deposited')"
+                      decoration-info="state in ('handed', 'withdrawed', 'transfered')"
+                      decoration-success="state in ('inbank', 'selled', 'debited')"
+                      decoration-warning="state in ('changed', 'reclaimed')"
+                      decoration-danger="state in ('cancel', 'returned', 'rejected')"
+                      create="false" string="Checks">
+                    <field name="checkbook_id" invisible="context.get('default_type',False) != 'issue_check'"/>
+                    <field name="journal_id" invisible="1"/>
+                    <field name="name"/>
+                    <field name="issue_date"/>
+                    <field name="payment_date"/>
+                    <!-- <field name="payment_date"/> -->
+                    <field name="partner_id"/>
+                    <!-- <field name="source_partner_id" invisible="context.get('default_type',False) != 'third_check'" string="Source Partner"/> -->
+                    <!-- <field name="destiny_partner_id" string="Destiny Partner"/> -->
+                    <field name="type" invisible="1"/>
+                    <field name="bank_id" invisible="context.get('default_type',False) != 'third_check'"/>
+                    <field name="amount" sum="Total Amount"/>
+                    <field name="state_string"/>
+                    <field name="state" invisible="1"/>
+                    <field name="owner_name" invisible="context.get('default_type',False) != 'third_check'"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_account_check_form">
+            <field name="name">account.check.form</field>
+            <field name="model">account.check</field>
+            <field name="arch" type="xml">
+                <form string="Checks" create="false">
+                    <field name="id" invisible="1"/>
+                    <field name="type" invisible="1"/>
+                    <field name="journal_id" invisible="1"/>
+                    <field name="currency_id" invisible="1"/>
+                    <field name="company_currency_id" invisible="1"/>
+                    <field name="check_validation" invisible="1"/>
+                    <field name="after_inbank" invisible="1"/>
+                    <header>
+                        <!--=================================================-->
+                        <!--============ CUSTOMER PAYMENT ACTIONS============-->
+                        <button name="open_wizard_customer_notes_return" string="Return Check" type="object"
+                                attrs="{'invisible':['|','|',('type','!=','third_check'),
+                                ('state','!=','handed'),('check_validation','!=','two')]}" />
+                        <button name="open_wizard_customer_notes_return" string="Return Check" type="object"
+                                 attrs="{'invisible':['|','|',('type','!=','third_check'),
+                                ('state','!=','under_collection'),('check_validation','!=','three')]}" />
+                        <!-- After Customer Payment create check [Holding] it's needed to be handed / Returned-->
+                        <button name="change_state_handed" type="object" string="Hand Check"
+                                attrs="{'invisible':['|',('state','not in',('holding')),
+                                ('type','!=','third_check')]}" class="oe_highlight"/>
+                        <!-- After Customer check [Handed] needed to be In bank / Returned [Two steps Configuration]-->
+                        <button name="open_wizard_after_handed_check" string="In Bank" type="object"
+                                context="{'default_action_type': 'inbank'}"
+                                attrs="{'invisible':['|','|',('type','!=','third_check'),
+                                ('state','!=','handed'),('check_validation','!=','two')]}" class="oe_highlight"/>
+                        <!-- After Customer check [Handed] needed to be Under Collection / Returned [Three steps Configuration]-->
+                        <button name="open_wizard_after_handed_check" string="In Bank" type="object"
+                                context="{'default_action_type': 'inbank'}"
+                                attrs="{'invisible':['|','|',('type','!=','third_check'),
+                                ('state','!=','under_collection'),('check_validation','!=','three')]}" class="oe_highlight"/>
+                        <button name="open_wizard_after_handed_check" string="Under Collection" type="object"
+                                context="{'default_action_type': 'under_collection'}"
+                                attrs="{'invisible':['|','|',('type','!=','third_check'),
+                                ('state','!=','handed'),('check_validation','!=','three')]}" class="oe_highlight"/>
+                        <!-- After Payment create check it's needed to be handed / Returned-->
+                        <button context="{'default_action_type': 'claim'}" string="Claim to Customer" type="action"
+                                name="%(action_account_check_action_wizard)d"
+                                attrs="{'invisible': ['|',('state', '!=', 'rejected'), ('type', '!=', 'third_check')]}"
+                                help="It will create a draft debit note to customerand change check state"/>
+                        <!-- After Customer check [in banked] needed to be debited / Returned [Three steps Configuration]-->
+                        <button name="bank_debit_action" string="Bank Debit" type="object"
+                                class="oe_highlight" attrs="{'invisible':['|','|',('state','not in',('inbank')),
+                                ('type','!=','third_check'),('after_inbank','=',False)]}"
+                                help="It will create a journal entry from Deferred Check Account to bank account and change check state"/>
+                        <!-- After SUPPLIER Return action-->
+                        <button name="bank_return_action" type="object" string="Supplier Return Check"
+                                attrs="{'invisible':['|','|',('state','!=','inbank'),('type','!=','third_check'),('after_inbank','=',False)]}"/>
+                        <!--=================================================-->
+                        <!--============ SUPPLIER PAYMENT ACTIONS============-->
+                        <!-- After SUPPLIER check [Handed] needed to be debited / Returned [Three steps Configuration]-->
+                        <button context="{'default_action_type': 'bank_debit'}" string="Bank Debit" type="action"
+                                name="%(account_check.action_account_check_action_wizard)d" class="oe_highlight"
+                                attrs="{'invisible':['|',('state','!=','handed'),
+                                ('type','=','third_check')]}"
+                                help="It will create a journal entry from Deferred Check Account to bank account and change check state"/>
+                        <!-- After SUPPLIER Rejection actions-->
+                        <button context="{'default_action_type': 'reject'}" string="Supplier Rejection" type="action"
+                                name="%(action_account_check_action_wizard)d"
+                                attrs="{'invisible':['|',('state','not in',('handed','delivered')),('type','=','third_check')]}"
+                                help="It will create a debit note from supplier in draft state and change check state"/>
+                        <button context="{'default_action_type': 'reject'}" string="Bank Rejection"
+                                name="%(action_account_check_action_wizard)d" type="action"
+                                attrs="{'invisible':[('state','not in',('deposited'))]}"
+                                help="It will create an account entry from bank account to company rejection account and change check state"/>
+                        <button context="{'default_action_type': 'reject'}" string="Sell Rejection"
+                                name="%(action_account_check_action_wizard)d" type="action"
+                                attrs="{'invisible':[('state','not in',('selled'))]}"
+                                help="It will create an account entry from cash account to company rejection account and change check state"/>
+
+                        <!--=================================================-->
+                        <field name="state" widget="statusbar"
+                               statusbar_visible="draft,holding,handed,inbank,returned"/>
+                    </header>
+                    <sheet string="Checks">
+                        <widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
+                        <h1>
+                            <field name="type"/><span>: </span>
+                            <field name="name" style="color:#00A09D"/>
+                        </h1>
+                        <group>
+                            <group>
+                                <field name="active" invisible="1"/>
+                                <field name="journal_id"/>
+                                <field name="checkbook_id" attrs="{'invisible':[('type','!=','issue_check')],'required':[('type','=','issue_check')]}" domain="[('journal_id', '=', journal_id)]"/>
+                                <field name="bank_id"/>
+                                <field name="number"/>
+                                <field name="amount"/>
+                                <field name="partner_id" attrs="{'invisible':[('partner_id','=',False)]}"/>
+                                <field name="amount_currency" attrs="{'invisible': [('amount_currency', '=', 0.0)]}"/>
+                                <field name="payment_date"/>
+                            </group>
+                            <group>
+                                <field name="state_string" readonly="1" string="On Stage" style="color:#7C7BAD"/>
+                                <field name="company_id" readonly="1"
+                                       groups="base.group_multi_company" widget="selection"/>
+<!--                                ,'required':[('type','=','third_check')]-->
+                                <field name="owner_name" attrs="{'invisible':[('type','!=','third_check')]}"/>
+                                <field name="owner_vat" attrs="{'invisible':[('type','!=','third_check')]}"/>
+                                <field name="issue_date"/>
+                                <field name="inbank_account_id" invisible="0"/>
+                            </group>
+                        </group>
+                        <group string="Operations">
+                            <field name="operation_ids" nolabel="1" readonly="1">
+                                <tree>
+                                    <field name="date"/>
+                                    <field name="operation"/>
+                                    <field name="origin_name" string="Origin"/>
+                                    <field name="partner_id"/>
+                                </tree>
+                                <form>
+                                    <group>
+                                        <field name="date"/>
+                                        <field name="operation"/>
+                                        <field name="origin"/>
+                                        <field name="partner_id"/>
+                                        <field name="notes"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </group>
+                        <!-- <group string="Related Documents">
+                            <field name="move_line_id"/>
+                            <field name="deposit_move_line_id"/>
+                        </group> -->
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_account_check_create_form">
+            <field name="name">account.check.create.form</field>
+            <field name="model">account.check</field>
+            <field name="inherit_id" ref="view_account_check_form"/>
+            <field name="groups_id" eval="[(4, ref('account.group_account_manager'))]"/>
+            <field name="arch" type="xml">
+                <form position="attributes">
+                    <attribute name="create">true</attribute>
+                </form>
+                <header position="after">
+                    <!-- If you are creating a check by hand we give you this message -->
+                    <p class="alert alert-info" role="alert" style="margin-bottom:0px;"
+                       attrs="{'invisible':[('id','!=',False)]}">
+                        Remember that checks are created with payments..
+                        <br/>
+                        <b>Only</b>
+                        you must create checks manually to make some
+                        <b>adjustment</b>
+                        or for the
+                        <b>initial charge</b>
+                        thereof.<br/>
+                        You can load the corresponding operations once you have saved the check.</p>
+                    <p class="alert alert-info oe_edit_only" role="alert"
+                       style="margin-bottom:0px;" attrs="{'invisible':[('id','=', False)]}">
+                        <b>IMPORTANT:</b> Check operations are created automatically with the payments, transfers or buttons available on the check. <br/> <b> ONLY </b> You must create or modify operations to
+                        <b> loading of initial checks </b> or adjustments on <b> unconventional circuits. </b> </p>
+                </header>
+                <field name="operation_ids" position="attributes">
+                    <attribute name="readonly">0</attribute>
+                    <attribute name="attrs">{'readonly':[('id','=',False)]}</attribute>
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_checks_search">
+            <field name="name">check.search</field>
+            <field name="model">account.check</field>
+            <field name="arch" type="xml">
+                <search string="Checks">
+                    <field name="name"/>
+                    <field name="partner_id"/>
+                    <field name="journal_id"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                    <field name="state"/>
+                    <field name="owner_name"/>
+                    <field name="owner_vat"/>
+                    <field name="payment_date"/>
+                    <!-- <field name="deposit_date"/> -->
+                    <filter name="archived" string="Archived" domain="[('active','=',False)]"/>
+
+                    <group expand="0" string="Group By...">
+                        <filter name="group_by_issue_date" string="Issue Date" context="{'group_by':'issue_date'}"/>
+                        <filter name="group_by_payment_date" string="Payment Date" context="{'group_by':'payment_date'}"/>
+                        <!-- <filter string="Deposit Date" context="{'group_by':'deposit_date:day'}"/>                         -->
+                        <filter name="group_by_journal_id" string="Journal" context="{'group_by':'journal_id'}"/>
+                        <filter name="group_by_state" string="State" context="{'group_by':'state'}"/>
+                        <filter name="group_by_partner_id" string="Partner" context="{'group_by':'partner_id'}"/>
+                        <!-- <filter string="Destiny Partner" context="{'group_by':'destiny_partner_id'}"/> -->
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_account_check_calendar">
+            <field name="name">account.check.calendar</field>
+            <field name="model">account.check</field>
+            <field name="arch" type="xml">
+                <calendar string="Checks"
+                          mode="month"
+                          date_start="payment_date"
+                          color="bank_id">
+                    <field name="amount"/>
+                </calendar>
+            </field>
+        </record>
+
+        <!-- Third Check Menu -->
+        <record model="ir.actions.act_window" id="action_third_check">
+            <field name="name">Received Checks</field>
+            <field name="res_model">account.check</field>
+            <!--            <field name="view_type">form</field>-->
+            <field name="view_mode">tree,form,calendar</field>
+            <!-- <field name="search_view_id" ref=""/> -->
+            <!-- <field name="view_id" ref="view_account_check_tree"/> -->
+            <field name="domain">[('type','=','third_check')]</field>
+            <field name="context">{'search_default_state':'holding','search_default_state_string':'holding','default_type':'third_check'}</field>
+        </record>
+
+        <menuitem
+                name="Checks"
+                string="Checks"
+                id="menu_checks"
+                sequence="40"
+                parent="account.menu_finance_entries"/>
+
+        <menuitem
+                action="action_third_check"
+                id="menu_third_check"
+                sequence="40"
+                parent="menu_checks"/>
+
+        <!-- Issued Check Menu -->
+        <record model="ir.actions.act_window" id="action_issue_check">
+            <field name="name">Issue Checks</field>
+            <field name="res_model">account.check</field>
+            <!--            <field name="view_type">form</field>-->
+            <field name="view_mode">tree,form,calendar</field>
+            <!-- <field name="search_view_id" ref=""/> -->
+            <!-- <field name="view_id" ref="view_account_check_tree"/> -->
+            <field name="domain">[('type','=','issue_check')]</field>
+            <field name="context">{'search_default_state':'handed','default_type':'issue_check'}</field>
+        </record>
+
+        <menuitem
+                action="action_issue_check"
+                id="menu_issue_check"
+                sequence="50"
+                parent="menu_checks"/>
+
+    </data>
+</odoo>

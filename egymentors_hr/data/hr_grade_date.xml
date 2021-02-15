@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record forcecreate="True" id="grade_100" model="hr.employee.grade">
+            <field name="name">Excellent</field>
+            <field name="percentage">100</field>
+        </record>
+        <record forcecreate="True" id="grade_90" model="hr.employee.grade">
+            <field name="name">v.good</field>
+            <field name="percentage">90</field>
+        </record>
+        <record forcecreate="True" id="grade_75" model="hr.employee.grade">
+            <field name="name">Good</field>
+            <field name="percentage">75</field>
+        </record>
+        <record forcecreate="True" id="grade_50" model="hr.employee.grade">
+            <field name="name">Fair</field>
+            <field name="percentage">50</field>
+        </record>
+        <record forcecreate="True" id="grade_0" model="hr.employee.grade">
+            <field name="name">Failure</field>
+            <field name="percentage">0</field>
+        </record>
+    </data>
+</odoo>

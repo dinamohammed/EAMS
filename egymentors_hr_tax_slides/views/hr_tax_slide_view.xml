@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="hr_tax_slide_form_view" model="ir.ui.view">
+            <field name="name">hr.tax.slide.form.view</field>
+            <field name="model">hr.tax.slide</field>
+            <field name="arch" type="xml">
+                <form string="Tax Slide">
+                    <header>
+
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" placeholder="e.g. Tax Slide 001"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="max_amount"/>
+                                <field name="currency_id" readonly="1" groups="base.group_multi_company"/>
+                            </group>
+                            <group>
+                                <field name="priority"/>
+                                <field name="company_id" groups="base.group_multi_company"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Component's" name="line_ids">
+                                <field name="line_ids">
+                                    <tree editable="bottom">
+                                        <field name="amount_from"/>
+                                        <field name="amount_to"/>
+                                        <field name="line_amount"/>
+                                        <field name="currency_id" invisible="1"/>
+                                        <field name="tax_percentage"/>
+                                        <field name="comment"/>
+<!--                                        <field name="level"/>-->
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" help="Follow this salesteam to automatically track the events associated to users of this team."/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="hr_tax_slide_tree_view" model="ir.ui.view">
+            <field name="name">hr.tax.slide.tree.view</field>
+            <field name="model">hr.tax.slide</field>
+            <field name="arch" type="xml">
+                <tree string="Tax Slide">
+                    <field name="name"/>
+                    <field name="max_amount"/>
+                    <field name="priority"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                </tree>
+            </field>
+        </record>
+        <record id="hr_tax_slide_penalty_filter_view" model="ir.ui.view">
+            <field name="name">hr.tax.slide.filter.view</field>
+            <field name="model">hr.tax.slide</field>
+            <field name="arch" type="xml">
+                <search string="Tax Slide">
+                    <field name="name"/>
+                    <filter string="Archived" name="Inactive" domain="[('active', '=', False)]"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Company" name="company_id" domain="[]" context="{'group_by':'company_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        <record id="act_hr_tax_slide" model="ir.actions.act_window">
+            <field name="name">Tax Slide</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.tax.slide</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('hr_tax_slide_tree_view')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('hr_tax_slide_form_view')})]"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Add New Tax Slide
+                </p>
+            </field>
+        </record>
+        <menuitem id="menu_hr_tax_slide"
+                  name="Tax Slide"
+                  parent="hr_payroll.menu_hr_salary_configuration"
+                  action="act_hr_tax_slide"
+                  sequence="17"/>
+
+    </data>
+</odoo>

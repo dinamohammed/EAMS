@@ -1,0 +1,49 @@
+<odoo>
+    <data>
+        <record id="view_level_form" model="ir.ui.view">
+            <field name="name">hr.level.form</field>
+            <field name="model">hr.level</field>
+            <field name="arch" type="xml">
+                <form string="Level Form">
+                    <sheet>
+                        <group col="4">
+                            <field name="name"/>
+                            <field name="code"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_level_tree" model="ir.ui.view">
+            <field name="name">hr.level.tree</field>
+            <field name="model">hr.level</field>
+            <field name="arch" type="xml">
+                <tree string="Level Tree">
+                    <field name="name"/>
+                    <field name="code"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="open_module_tree_level" model="ir.actions.act_window">
+            <field name="name">Work Levels</field>
+            <field name="res_model">hr.level</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Create a new Work Level
+              </p><p>
+                Odoo's Work level is used to manage levels of work for each employee.
+              </p>
+            </field>
+        </record>
+
+        <menuitem
+                id="menu_hr_level_tree"
+                action="open_module_tree_level"
+                parent="hr.menu_human_resources_configuration"
+                sequence="5"
+                groups="base.group_user"/>
+    </data>
+</odoo>

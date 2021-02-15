@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_hr_employee_transfer_doc">
+        <t t-call="web.external_layout">
+            <t t-set="o" t-value="o.with_context(lang=lang)" />
+            <div class="page">
+                <h2 class="text-center">Transfer Report</h2>
+                <h3 class="text-center">--<span t-esc="o.name"/>--</h3>
+                <div class="row">
+                    <div class="col-3" t-if="o.employee_id" name="emp">
+                        <strong>Employee:</strong>
+                        <p class="m-0" t-field="o.employee_id.name"/>
+                    </div>
+                    <div class="col-3" t-if="o.date" name="date">
+                        <strong>Date:</strong>
+                        <p class="m-0" t-field="o.date"/>
+                    </div>
+                </div>
+                <br/>
+                <div class="row" t-if="o.change_dep">
+                    <hr style="border: 0;height: 1px;background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));"/>
+                    <div class="col-6" name="loc" string="Department Section">
+                        <p>
+                            <strong>Old Department:</strong>
+                            <span style="color:red" t-field="o.old_department_id.name"/>
+                        </p>
+                        <p>
+                            <strong>New Department:</strong>
+                            <span style="color:green" t-field="o.new_department_id.name"/>
+                        </p>
+                    </div>
+                </div>
+                <br/>
+                <div class="row" t-if="o.change_loc">
+                    <hr style="border: 0;height: 1px;background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));"/>
+                    <div class="col-6" name="loc" string="Location Section">
+                        <p>
+                            <strong>Old Location:</strong>
+                            <span style="color:red" t-field="o.old_location_id.name"/>
+                        </p>
+                        <p>
+                            <strong>New Location:</strong>
+                            <span style="color:green" t-field="o.new_location_id.name"/>
+                        </p>
+                    </div>
+                </div>
+                <br/>
+                <div class="row" t-if="o.change_job">
+                    <hr style="border: 0;height: 1px;background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));"/>
+                    <div class="col-6" t-if="o.change_job" name="job" string="Job Section">
+                        <p>
+                            <strong>Old Job:</strong>
+                            <span style="color:red" t-field="o.old_job_id.name"/>
+                        </p>
+                        <p>
+                            <strong>New Job:</strong>
+                            <span style="color:green" t-field="o.new_job_id.name"/>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+    <template id="report_hr_employee_transfer">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-set="lang" t-value="user.partner_id.lang"/>
+                <t t-call="egymentors_hr.report_hr_employee_transfer_doc" t-lang="lang"/>
+            </t>
+        </t>
+    </template>
+
+
+</odoo>

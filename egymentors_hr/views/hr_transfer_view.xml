@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_transfer_form_view" model="ir.ui.view">
+        <field name="name">hr.transfer.form.view</field>
+        <field name="model">hr.transfer</field>
+        <field name="arch" type="xml">
+            <form string="Transfer">
+                <header>
+                    <button name="action_confirm" string="Confirm" class="oe_highlight"
+                            groups="hr.group_hr_manager" states="draft" type="object"/>
+                    <button name="action_print_report" string="Print" class="oe_highlight"
+                            states="confirm" type="object"/>
+                    <button name="action_cancel" string="Cancel"
+                            groups="hr.group_hr_manager" states="draft" type="object"/>
+                    <button name="action_reset" string="Rest To Draft"
+                            groups="hr.group_hr_manager" states="cancel" type="object"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" placeholder="e.g. Decision No.12232"
+                                   attrs="{'readonly':[('state','!=','draft')]}"/>
+                        </h1>
+                    </div>
+                    <div name="options_active">
+                        <div>
+                            <label for="change_dep" class="oe_inline"/>
+                            <field name="change_dep" class="oe_inline oe_input_align"
+                                   attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        </div>
+                        <div>
+                            <label for="change_loc" class="oe_inline"/>
+                            <field name="change_loc" class="oe_inline oe_input_align"
+                                   attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        </div>
+                        <div>
+                            <label for="change_job" class="oe_inline"/>
+                            <field name="change_job" class="oe_inline oe_input_align"
+                                   attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        </div>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="date" readonly="0"/>
+                            <field name="employee_id"/>
+                        </group>
+                        <group name="dep" string="Department Section."
+                               attrs="{'invisible':[('change_dep','=',False)]}">
+                            <field name="department_id" style="color:blue" attrs="{'invisible':[('state','=','confirm')]}"/>
+                            <field name="old_department_id" style="color:red" attrs="{'invisible':[('state','!=','confirm')]}"/>
+                            <field name="new_department_id" style="color:green"
+                                   attrs="{'required':[('change_dep','=',True)]}"
+                                   required="0" domain="[('id','!=',department_id)]"/>
+                        </group>
+                        <group name="loc" string="Location Section."
+                               attrs="{'invisible':[('change_loc','=',False)]}">
+                            <field name="location_id" style="color:blue" attrs="{'invisible':[('state','=','confirm')]}"/>
+                            <field name="old_location_id" style="color:red" attrs="{'invisible':[('state','!=','confirm')]}"/>
+                            <field name="new_location_id" style="color:green"
+                                   attrs="{'required':[('change_loc','=',True)]}"
+                                   required="0" domain="[('id','!=',location_id)]"/>
+                        </group>
+                        <group name="job" string="Job Section."
+                               attrs="{'invisible':[('change_job','=',False)]}">
+                            <field name="job_id" style="color:blue" attrs="{'invisible':[('state','=','confirm')]}"/>
+                            <field name="old_job_id" style="color:red" attrs="{'invisible':[('state','!=','confirm')]}"/>
+                            <field name="new_job_id" style="color:green"
+                                   attrs="{'required':[('change_job','=',True)]}"
+                                   required="0" domain="[('id','!=',job_id)]"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" help="Follow this salesteam to automatically track the events associated to users of this team."/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+    <record id="hr_transfer_tree_view" model="ir.ui.view">
+        <field name="name">hr.transfer.tree.view</field>
+        <field name="model">hr.transfer</field>
+        <field name="arch" type="xml">
+            <tree string="Transfer">
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="date"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+    <record id="hr_employee_transfer_filter_view" model="ir.ui.view">
+        <field name="name">hr.transfer.filter.view</field>
+        <field name="model">hr.transfer</field>
+        <field name="arch" type="xml">
+            <search string="Transfer">
+                <field name="name"/>
+                <filter string="Department Changed" name="change_dep" domain="[('change_dep','=',True)]"/>
+                <filter string="Location Changed" name="change_loc" domain="[('change_loc','=',True)]"/>
+                <filter string="Job Changed" name="change_job" domain="[('change_job','=',True)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Employee" name="emp" context="{'group_by':'employee_id'}"/>
+                    <filter string="Month" name="month" context="{'group_by':'date:month'}"/>
+                    <filter string="Year" name="year" context="{'group_by':'date:year'}"/>
+                    <separator/>
+                    <filter string="Old Department" name="old_dep" domain="[('change_dep','=',True)]" context="{'group_by':'old_department_id'}"/>
+                    <filter string="New Department" name="new_dep" domain="[('change_dep','=',True)]" context="{'group_by':'new_department_id'}"/>
+                    <separator/>
+                    <filter string="Old Location" name="old_loc" domain="[('change_loc','=',True)]" context="{'group_by':'old_location_id'}"/>
+                    <filter string="New Location" name="new_loc" domain="[('change_loc','=',True)]" context="{'group_by':'new_location_id'}"/>
+                    <separator/>
+                    <filter string="Old Job" name="old_job" domain="[('change_job','=',True)]" context="{'group_by':'old_job_id'}"/>
+                    <filter string="New Job" name="new_job" domain="[('change_job','=',True)]" context="{'group_by':'new_job_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="act_hr_transfer" model="ir.actions.act_window">
+        <field name="name">Transfers</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.transfer</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Add New Transfer
+            </p>
+        </field>
+    </record>
+    <menuitem id="menu_hr_transfer"
+              name="Transfers"
+              parent="hr.menu_hr_employee_payroll"
+              action="act_hr_transfer"
+              sequence="5"/>
+</odoo>

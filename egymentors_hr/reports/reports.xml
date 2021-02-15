@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <report
+                id="hr_bonus_report"
+                model="hr.bonus.penalty"
+                report_type="qweb-pdf"
+                string="Bonus"
+                menu="False"
+                name="egymentors_hr.report_hr_bonus"
+                file="egymentors_hr.report_hr_bonus"
+        />
+        <report
+                id="hr_penalty_report"
+                model="hr.bonus.penalty"
+                report_type="qweb-pdf"
+                string="Penalty"
+                menu="False"
+                name="egymentors_hr.report_hr_penalty"
+                file="egymentors_hr.report_hr_penalty"
+        />
+        <report
+                id="hr_pay_raise_report"
+                model="hr.pay.raise"
+                report_type="qweb-pdf"
+                string="Pay Raise"
+                menu="False"
+                name="egymentors_hr.report_hr_pay_raise"
+                file="egymentors_hr.report_hr_pay_raise"
+        />
+        <report
+                id="hr_employee_promotion_report"
+                model="hr.promotion"
+                report_type="qweb-pdf"
+                string="Promotion"
+                menu="False"
+                name="egymentors_hr.report_hr_employee_promotion"
+                file="egymentors_hr.report_hr_employee_promotion"
+        />
+        <report
+                id="hr_employee_transfer_report"
+                model="hr.transfer"
+                report_type="qweb-pdf"
+                string="Transfer"
+                menu="False"
+                name="egymentors_hr.report_hr_employee_transfer"
+                file="egymentors_hr.report_hr_employee_transfer"
+        />
+        <report
+                id="hr_trans_allowance_report"
+                model="hr.trans.allowance"
+                report_type="qweb-pdf"
+                string="Transportation Allowance"
+                menu="False"
+                name="egymentors_hr.report_hr_trans_allowance"
+                file="egymentors_hr.report_hr_trans_allowance"
+        />
+        <report
+                id="payslip_salary_rules_xlsx_report"
+                model="hr.payslip"
+                string="عناصر أجر الموظفين(Excel)"
+                report_type="xlsx"
+                name="egymentors_hr.report_payslip_salary_rules"
+                file="egymentors_hr.report_payslip_salary_rules"
+                attachment_use="False"
+        />
+        <report
+                id="payslip_salary_rules_report_pdf"
+                model="hr.payslip"
+                string="عناصر أجر الموظفين(PDF)"
+                report_type="qweb-pdf"
+                name="egymentors_hr.report_payslip_salary_rules_pdf"
+                file="egymentors_hr.report_payslip_salary_rules_pdf"
+                attachment_use="False"
+                print_report_name="'عناصر أجر الموظفين'"
+        />
+        <report
+                id="hr_award_profit_report"
+                model="hr.award.profit"
+                report_type="qweb-pdf"
+                string="Award/Profit"
+                menu="False"
+                name="egymentors_hr.report_hr_award_profit"
+                file="egymentors_hr.report_hr_award_profit"
+        />
+    </data>
+</odoo>
