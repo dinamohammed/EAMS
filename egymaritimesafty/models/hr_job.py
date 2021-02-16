@@ -6,7 +6,7 @@ from odoo import api, fields, models, _
 class JobPosition(models.Model):
     _inherit = 'hr.job'
 
-    # functional_job_id = fields.Many2one('hr.functional.job', string="Functional Jobs", required=True)
+    # functional_job_id = fields.Many2one('hr.functional.job', string="Functional Job Group", required=True)
     # qualitative_job_id = fields.Many2one('hr.qualitative.job', string="Qualitative Jobs", required=True)
     job_title_id = fields.Many2one('hr.title', string="Job Title", required=True)
     name = fields.Char(string='Job Position', required=False, index=True, translate=True)
@@ -41,7 +41,7 @@ class QualitativeJob(models.Model):
     _name = "hr.qualitative.job"
     _description = "Qualitative Job Groups"
 
-    functional_job_id = fields.Many2one('hr.functional.job', string="Functional Jobs", required=True)
+    functional_job_id = fields.Many2one('hr.functional.job', string="Functional Job Group", required=True)
     name = fields.Char(string="Qualitative Job Group", required=True)
     job_title_ids = fields.One2many(comodel_name="hr.title", inverse_name="qualitative_job_id", string="Job Titles")
 
@@ -55,7 +55,7 @@ class JobTitle(models.Model):
     _name = "hr.title"
     _describtion = "Job Title"
 
-    functional_job_id = fields.Many2one('hr.functional.job', string="Functional Jobs", required=True)
+    functional_job_id = fields.Many2one('hr.functional.job', string="Functional Job Group", required=True)
     qualitative_job_id = fields.Many2one('hr.qualitative.job', string="Qualitative Jobs", required=True)
     name = fields.Char(string="Job Title", required=True)
     emp_no = fields.Integer(compute="_compute_emp_dep_count")
@@ -103,7 +103,7 @@ class JobCareer(models.Model):
     _description = "HR Career"
 
     name = fields.Char(string="Career")
-    functional_job_id = fields.Many2one('hr.functional.job', string="Functional Jobs")
+    functional_job_id = fields.Many2one('hr.functional.job', string="Functional Job Group")
     hierarchical_order_id = fields.Many2one('hr.hierarchical.order', string="Hierarchical Order")
 
 

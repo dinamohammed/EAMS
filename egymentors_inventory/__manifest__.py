@@ -29,14 +29,14 @@
     'description': """
 """,
     'version': '10.0',
-    'depends': ['base', 'stock', 'purchase', 'purchase_requisition', 'report_xlsx', 'purchase_discount','product'],
+    'depends': ['base', 'stock', 'purchase', 'purchase_requisition', 'report_xlsx', 'purchase_discount', 'product'],
     'data': [
         'data/inventory_adjustment_data.xml',
         'data/purchase_request_date.xml',
         'security/purchase_request_security.xml',
         'security/ir.model.access.csv',
         'reports/reports.xml',
-    
+
         # 'views/res_config_view_changes.xml',
         'views/stock_inventory_view_changes.xml',
         'views/purchase_request_view.xml',

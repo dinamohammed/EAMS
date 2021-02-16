@@ -14,7 +14,8 @@
                                 <field name="name" string="Training Name"/>
                                 <field name="categ_id" string="Training Category"/>
                                 <separator/>
-                                <field name="training_place_id" string="Training Place"/>
+                                <field name="training_place_id" string="Training Place"
+                                       context="{'default_subject_id': active_id}"/>
                                 <field name="in_comp_training_check" invisible="1"/>
                                 <field name="responsible_id" string="Trainer"/>
                                 <field name="trainer_type" string="Trainer Type"
@@ -38,6 +39,16 @@
                             <pae string="Participant">
                                 <field name="participant_ids" string="Participant"/>
                             </pae>
+                            <pae string="Evaluation">
+                                <field name="evaluation_ids">
+                                    <tree create="false" delete="false">
+                                        <field name="trainee_id" string="Employee"/>
+                                        <field name="subject_id" string="Training"/>
+                                        <field name="grade" string="Grade"/>
+                                        <field name="name" string="Evaluation"/>
+                                    </tree>
+                                </field>
+                            </pae>
                             <page string="Description">
                                 <field name="description" string="Description" nolabel="1"
                                        placeholder="Training description...."/>
@@ -57,7 +68,6 @@
                         <group>
                             <group>
                                 <field name="name" string="Training Place"/>
-                                <field name="subject_id" string="Training"/>
                             </group>
                             <group>
                                 <field name="training" string="Inside/Outside the company" widget="radio"/>
@@ -66,6 +76,9 @@
                                 <field name="training_cost" string="Training Cost"
                                        attrs="{'invisible':[('training_cost_type', '=', 'unpaid')]}"/>
                             </group>
+                        </group>
+                        <group>
+                            <field name="subject_ids" string="Training"/>
                         </group>
                     </sheet>
                 </form>
@@ -103,8 +116,10 @@
                                 <field name="subject_id" string="Training"/>
                                 <field name="instructor_id" string="Trainer"/>
                                 <field name="session_date" string="Session Date"/>
-                                <field name="session_duration" string="Session Date" class="oe_edit_only"/>
-                                <field name="session_duration_display" string="Session Date" class="oe_read_only"/>
+                                <field name="session_duration" string="Session Duration per Hours"
+                                       class="oe_edit_only"/>
+                                <field name="session_duration_display" string="Session Duration per Hours"
+                                       class="oe_read_only"/>
                                 <field name="seats" string="Number of Seats"/>
                             </group>
                             <group/>
@@ -123,11 +138,17 @@
                     <sheet>
                         <group>
                             <group>
-                                <field name="name" string="Evaluation"/>
-                                <!--<field name="evaluation" string="evaluation"/>-->
-                                <field name="subject_id" string="Training"/>
-                                <field name="trainee_id" string="Employee"/>
                                 <field name="grade" string="Grade"/>
+                                <!--<field name="evaluation" string="evaluation"/>-->
+                                <field name="trainee_id" string="Employee"/>
+                                <field name="subject_id" string="Training"/>
+                                <div class="oe_title">
+                                    <group>
+                                        <h1>
+                                            <field name="name"/>
+                                        </h1>
+                                    </group>
+                                </div>
                             </group>
                         </group>
                     </sheet>
@@ -156,7 +177,6 @@
                 <tree string="Training Course Place">
                     <field name="name" string="Training Place"/>
                     <field name="training" string="Inside/Outside the company"/>
-                    <field name="subject_id" string="Training Course"/>
                     <field name="training_cost_type" string="Training Cost Type"/>
                 </tree>
             </field>
@@ -191,11 +211,11 @@
             <field name="name">hr.training.evaluation</field>
             <field name="model">hr.training.evaluation</field>
             <field name="arch" type="xml">
-                <tree string="Evaluations">
-                    <field name="name" string="Evaluation"/>
-                    <field name="subject_id" string="Training"/>
+                <tree string="Evaluations" create="false" delete="false">
                     <field name="trainee_id" string="Employee"/>
+                    <field name="subject_id" string="Training"/>
                     <field name="grade" string="Grade"/>
+                    <field name="name" string="Evaluation"/>
                 </tree>
             </field>
         </record>
@@ -256,12 +276,12 @@
         <record id="open_view_hr_training_evaluation" model="ir.actions.act_window">
             <field name="name">Evaluations</field>
             <field name="res_model">hr.training.evaluation</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree</field>
             <field name="domain">[]</field>
             <field name="context">{}</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">
-                    Create Evaluation...
+                    First, Add participant in the Training Course view and add there evaluation...
                 </p>
             </field>
         </record>
