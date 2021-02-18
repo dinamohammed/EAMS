@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0+e-20210126\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-16 11:53+0000\n"
-"PO-Revision-Date: 2021-02-16 11:53+0000\n"
+"POT-Creation-Date: 2021-02-18 10:41+0000\n"
+"PO-Revision-Date: 2021-02-18 10:41+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -120,7 +120,7 @@ msgstr ""
 #. module: material_internal_requisition
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.material_internal_requisition_form_view
 msgid "<span class=\"o_stat_text\">Internal Picking</span>"
-msgstr ""
+msgstr "<span class=\"o_stat_text\">طلبات الصرف الداخلية</span>"
 
 #. module: material_internal_requisition
 #: model:ir.model.fields,field_description:material_internal_requisition.field_material_internal_requisition__access_warning
@@ -166,38 +166,30 @@ msgstr ""
 #. module: material_internal_requisition
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.material_internal_requisition_form_view
 msgid "Approve"
-msgstr ""
-
-#. module: material_internal_requisition
-#: model_terms:ir.ui.view,arch_db:material_internal_requisition.material_internal_requisition_search_view
-msgid "Approve By"
-msgstr ""
+msgstr "موافقة"
 
 #. module: material_internal_requisition
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.internal_requisition
-msgid "Approve Signature:____________________"
-msgstr ""
+msgid "Approval Signature:____________________"
+msgstr "إمضاء المدير العام:____________________"
 
 #. module: material_internal_requisition
 #: model:ir.model.fields.selection,name:material_internal_requisition.selection__material_internal_requisition__state__approve
 msgid "Approved"
-msgstr ""
+msgstr "معتمد"
 
 #. module: material_internal_requisition
+#: model:ir.model.fields,field_description:material_internal_requisition.field_material_internal_requisition__approve_employee_id
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.internal_requisition
+#: model_terms:ir.ui.view,arch_db:material_internal_requisition.material_internal_requisition_search_view
 msgid "Approved By"
-msgstr ""
+msgstr "الموافقة من طرف"
 
 #. module: material_internal_requisition
 #: model:ir.model.fields,field_description:material_internal_requisition.field_material_internal_requisition__date_user_approved
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.internal_requisition
 msgid "Approved Date"
-msgstr ""
-
-#. module: material_internal_requisition
-#: model:ir.model.fields,field_description:material_internal_requisition.field_material_internal_requisition__approve_employee_id
-msgid "Approved by"
-msgstr ""
+msgstr "تاريخ الموافقة"
 
 #. module: material_internal_requisition
 #: model:ir.model.fields,field_description:material_internal_requisition.field_material_internal_requisition__message_attachment_count
@@ -207,7 +199,7 @@ msgstr ""
 #. module: material_internal_requisition
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.material_internal_requisition_form_view
 msgid "Cancel"
-msgstr ""
+msgstr "الغاء"
 
 #. module: material_internal_requisition
 #: model:ir.model.fields.selection,name:material_internal_requisition.selection__material_internal_requisition__state__cancel
@@ -219,33 +211,29 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.internal_requisition
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.material_internal_requisition_search_view
 msgid "Company"
-msgstr "هيئة السلامة"
+msgstr "اسم الشركة"
 
 #. module: material_internal_requisition
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.material_internal_requisition_form_view
 msgid "Confirm"
-msgstr ""
+msgstr "تأكيد"
 
 #. module: material_internal_requisition
+#: model:ir.model.fields,field_description:material_internal_requisition.field_material_internal_requisition__employee_confirm_id
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.internal_requisition
 msgid "Confirmed By"
-msgstr ""
+msgstr "تأكيد من طرف"
 
 #. module: material_internal_requisition
 #: model:ir.model.fields,field_description:material_internal_requisition.field_material_internal_requisition__date_confirm
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.internal_requisition
 msgid "Confirmed Date"
-msgstr ""
-
-#. module: material_internal_requisition
-#: model:ir.model.fields,field_description:material_internal_requisition.field_material_internal_requisition__employee_confirm_id
-msgid "Confirmed by"
-msgstr ""
+msgstr "تاريخ التأكيد"
 
 #. module: material_internal_requisition
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.material_internal_requisition_form_view
 msgid "Create Picking"
-msgstr ""
+msgstr "إنشاء طلب للمخزن"
 
 #. module: material_internal_requisition
 #: model_terms:ir.actions.act_window,help:material_internal_requisition.action_material_internal_requisition
@@ -294,7 +282,7 @@ msgstr ""
 #. module: material_internal_requisition
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.internal_requisition
 msgid "Date:____________________"
-msgstr ""
+msgstr "التاريخ:____________________"
 
 #. module: material_internal_requisition
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.material_internal_requisition_search_view
@@ -307,13 +295,13 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.internal_requisition
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.material_internal_requisition_search_view
 msgid "Department"
-msgstr "القسم"
+msgstr "اسم القسم"
 
 #. module: material_internal_requisition
 #: model:ir.model.fields,field_description:material_internal_requisition.field_material_internal_requisition__date_manager_approved
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.internal_requisition
 msgid "Department Approval Date"
-msgstr ""
+msgstr "تاريخ الموافقة الادارية"
 
 #. module: material_internal_requisition
 #: model:mail.template,subject:material_internal_requisition.email_template_to_employee
@@ -323,14 +311,14 @@ msgstr ""
 #. module: material_internal_requisition
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.material_internal_requisition_form_view
 msgid "Department Approve"
-msgstr ""
+msgstr "الموافقة الادارية"
 
 #. module: material_internal_requisition
 #: model:ir.model.fields,field_description:material_internal_requisition.field_material_internal_requisition__approve_manager_id
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.internal_requisition
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.material_internal_requisition_search_view
 msgid "Department Manager"
-msgstr ""
+msgstr "مدير قسم"
 
 #. module: material_internal_requisition
 #: model:ir.model.fields,field_description:material_internal_requisition.field_material_internal_requisition__reject_manager_id
@@ -341,7 +329,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:material_internal_requisition.field_material_internal_requisition_line__description
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.internal_requisition
 msgid "Description"
-msgstr ""
+msgstr "الوصف"
 
 #. module: material_internal_requisition
 #: model:ir.model.fields,field_description:material_internal_requisition.field_hr_employee__dest_location_id
@@ -349,7 +337,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.internal_requisition
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.material_internal_requisition_search_view
 msgid "Destination Location"
-msgstr ""
+msgstr "المنصرف الي"
 
 #. module: material_internal_requisition
 #: model:ir.model.fields,field_description:material_internal_requisition.field_hr_employee__display_name
@@ -367,12 +355,12 @@ msgstr "الاسم المعروض"
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.internal_requisition
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.material_internal_requisition_search_view
 msgid "Employee"
-msgstr "الموظف"
+msgstr "اسم الموظف"
 
 #. module: material_internal_requisition
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.internal_requisition
 msgid "Employee Signature:____________________"
-msgstr ""
+msgstr "إمضاء الموظف:____________________"
 
 #. module: material_internal_requisition
 #: model:ir.model.fields,field_description:material_internal_requisition.field_material_internal_requisition__message_follower_ids
@@ -406,7 +394,7 @@ msgstr ""
 #. module: material_internal_requisition
 #: model:ir.model.fields,field_description:material_internal_requisition.field_material_internal_requisition_line__virtual_available
 msgid "Forecasted"
-msgstr ""
+msgstr "المتوقع"
 
 #. module: material_internal_requisition
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.material_internal_requisition_search_view
@@ -456,7 +444,7 @@ msgstr ""
 #: model:ir.model.fields.selection,name:material_internal_requisition.selection__material_internal_requisition_line__requisition_type__internal
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.internal_requisition
 msgid "Internal Picking"
-msgstr ""
+msgstr "طلبات الصرف الداخلية"
 
 #. module: material_internal_requisition
 #: model:ir.actions.report,name:material_internal_requisition.report_internal_requisition
@@ -550,7 +538,7 @@ msgstr ""
 #. module: material_internal_requisition
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.internal_requisition
 msgid "Manager Signature:____________________"
-msgstr ""
+msgstr "إمضاء المدير:____________________"
 
 #. module: material_internal_requisition
 #: model:ir.model.fields,field_description:material_internal_requisition.field_res_users__internal_requisition_ids
@@ -640,24 +628,24 @@ msgstr ""
 #. module: material_internal_requisition
 #: model:ir.model.fields,field_description:material_internal_requisition.field_material_internal_requisition_line__qty_available
 msgid "On Hand"
-msgstr ""
+msgstr "الكمية الموجودة"
 
 #. module: material_internal_requisition
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.internal_requisition
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.material_internal_requisition_form_view
 msgid "Other Information"
-msgstr ""
+msgstr "معلومات اخري"
 
 #. module: material_internal_requisition
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.internal_requisition
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.material_internal_requisition_form_view
 msgid "Picking Details"
-msgstr ""
+msgstr "مسار الصرف والتخزين"
 
 #. module: material_internal_requisition
 #: model:ir.model.fields,field_description:material_internal_requisition.field_material_internal_requisition__custom_picking_type_id
 msgid "Picking Type"
-msgstr ""
+msgstr "نوع العملية\المخزن"
 
 #. module: material_internal_requisition
 #: code:addons/material_internal_requisition/models/internal_requisition.py:0
@@ -674,40 +662,36 @@ msgstr ""
 #: model:ir.model.fields,field_description:material_internal_requisition.field_material_internal_requisition_line__product_id
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.internal_requisition
 msgid "Product"
-msgstr ""
+msgstr "المنتج"
 
 #. module: material_internal_requisition
 #: model:ir.model.fields,field_description:material_internal_requisition.field_material_internal_requisition_line__qty
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.internal_requisition
 msgid "Quantity"
-msgstr ""
+msgstr "الكمية"
 
 #. module: material_internal_requisition
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.material_internal_requisition_search_view
 msgid "Reason"
-msgstr ""
-
-#. module: material_internal_requisition
-#: model_terms:ir.ui.view,arch_db:material_internal_requisition.internal_requisition
-msgid "Reason for Requisition"
-msgstr ""
+msgstr "السبب"
 
 #. module: material_internal_requisition
 #: model:ir.model.fields,field_description:material_internal_requisition.field_material_internal_requisition__note
-msgid "Reason for Requisitions"
-msgstr ""
+#: model_terms:ir.ui.view,arch_db:material_internal_requisition.internal_requisition
+msgid "Reason for Requisition"
+msgstr "سبب طلب الصرف"
 
 #. module: material_internal_requisition
 #: model:ir.model.fields.selection,name:material_internal_requisition.selection__material_internal_requisition__state__receive
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.material_internal_requisition_form_view
 msgid "Received"
-msgstr ""
+msgstr "استلم"
 
 #. module: material_internal_requisition
 #: model:ir.model.fields,field_description:material_internal_requisition.field_material_internal_requisition__date_receive
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.internal_requisition
 msgid "Received Date"
-msgstr ""
+msgstr "تاريخ الاستلام"
 
 #. module: material_internal_requisition
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.material_internal_requisition_form_view
@@ -717,33 +701,19 @@ msgstr ""
 #. module: material_internal_requisition
 #: model:ir.model.fields.selection,name:material_internal_requisition.selection__material_internal_requisition__state__reject
 msgid "Rejected"
-msgstr ""
+msgstr "رفض"
 
 #. module: material_internal_requisition
+#: model:ir.model.fields,field_description:material_internal_requisition.field_material_internal_requisition__reject_employee_id
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.internal_requisition
 msgid "Rejected By"
-msgstr ""
+msgstr "رفض من طرف"
 
 #. module: material_internal_requisition
 #: model:ir.model.fields,field_description:material_internal_requisition.field_material_internal_requisition__date_user_reject
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.internal_requisition
 msgid "Rejected Date"
-msgstr ""
-
-#. module: material_internal_requisition
-#: model:ir.model.fields,field_description:material_internal_requisition.field_material_internal_requisition__reject_employee_id
-msgid "Rejected by"
-msgstr ""
-
-#. module: material_internal_requisition
-#: model_terms:ir.ui.view,arch_db:material_internal_requisition.material_internal_requisition_search_view
-msgid "Reqisition Date"
-msgstr ""
-
-#. module: material_internal_requisition
-#: model_terms:ir.ui.view,arch_db:material_internal_requisition.material_internal_requisition_search_view
-msgid "Reqisition Dedline"
-msgstr ""
+msgstr "تاريخ الرفض"
 
 #. module: material_internal_requisition
 #: model:mail.template,subject:material_internal_requisition.email_template_to_department_manager
@@ -753,51 +723,49 @@ msgstr ""
 #. module: material_internal_requisition
 #: model:ir.model.fields.selection,name:material_internal_requisition.selection__material_internal_requisition__state__stock
 msgid "Requested"
-msgstr ""
+msgstr "طلب"
 
 #. module: material_internal_requisition
 #: model:ir.model.fields,field_description:material_internal_requisition.field_material_internal_requisition_line__requisition_type
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.internal_requisition
 msgid "Requisition Action"
-msgstr ""
+msgstr "نوع الطلب"
 
 #. module: material_internal_requisition
 #: model:ir.model.fields,field_description:material_internal_requisition.field_material_internal_requisition__date_request
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.internal_requisition
+#: model_terms:ir.ui.view,arch_db:material_internal_requisition.material_internal_requisition_search_view
 msgid "Requisition Date"
 msgstr "تاريخ الطلب"
 
 #. module: material_internal_requisition
 #: model:ir.model.fields,field_description:material_internal_requisition.field_material_internal_requisition__date_end
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.internal_requisition
+#: model_terms:ir.ui.view,arch_db:material_internal_requisition.material_internal_requisition_search_view
 msgid "Requisition Deadline"
 msgstr "تاريخ انتهاء الطلب"
 
 #. module: material_internal_requisition
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.internal_requisition
+#: model_terms:ir.ui.view,arch_db:material_internal_requisition.material_internal_requisition_form_view
 msgid "Requisition Lines"
-msgstr ""
+msgstr "بنود الطلب"
 
 #. module: material_internal_requisition
 #: model:ir.model.fields,field_description:material_internal_requisition.field_material_internal_requisition__requisition_responsible_id
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.internal_requisition
 msgid "Requisition Responsible"
-msgstr ""
+msgstr "مسؤول الطلب"
 
 #. module: material_internal_requisition
 #: model:ir.model.fields,field_description:material_internal_requisition.field_material_internal_requisition_line__requisition_id
 #: model:ir.ui.menu,name:material_internal_requisition.menu_internal_requisition
 msgid "Requisitions"
-msgstr "طلبات الصرف"
+msgstr "طلبات صرف"
 
 #. module: material_internal_requisition
 #: model:ir.model.fields,field_description:material_internal_requisition.field_stock_move__custom_requisition_line_id
 msgid "Requisitions Line"
-msgstr ""
-
-#. module: material_internal_requisition
-#: model_terms:ir.ui.view,arch_db:material_internal_requisition.material_internal_requisition_form_view
-msgid "Requisitions Lines"
 msgstr ""
 
 #. module: material_internal_requisition
@@ -824,25 +792,25 @@ msgstr ""
 #: code:addons/material_internal_requisition/models/internal_requisition.py:0
 #, python-format
 msgid "Select Destination location under the picking details."
-msgstr ""
+msgstr "اختر مكان الصرف الي في مسار الصرف والتخزين."
 
 #. module: material_internal_requisition
 #: code:addons/material_internal_requisition/models/internal_requisition.py:0
 #, python-format
 msgid "Select Picking Type under the picking details."
-msgstr ""
+msgstr "أختر نوع العملية\المخزن في مسار الصرف والتخزين."
 
 #. module: material_internal_requisition
 #: code:addons/material_internal_requisition/models/internal_requisition.py:0
 #, python-format
 msgid "Select Source location under the picking details."
-msgstr ""
+msgstr "اختر مكان المخزن في مسار الصرف والتخزين."
 
 #. module: material_internal_requisition
 #: model:ir.model.fields,field_description:material_internal_requisition.field_material_internal_requisition__location_id
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.internal_requisition
 msgid "Source Location"
-msgstr ""
+msgstr "مكان المخزن"
 
 #. module: material_internal_requisition
 #: model:ir.model.fields,field_description:material_internal_requisition.field_material_internal_requisition__state
@@ -878,7 +846,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:material_internal_requisition.field_material_internal_requisition_line__uom
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.internal_requisition
 msgid "Unit of Measure"
-msgstr ""
+msgstr "وحدة القياس"
 
 #. module: material_internal_requisition
 #: model:ir.model.fields,field_description:material_internal_requisition.field_material_internal_requisition__message_unread
@@ -909,12 +877,12 @@ msgstr ""
 #. module: material_internal_requisition
 #: model:ir.model.fields.selection,name:material_internal_requisition.selection__material_internal_requisition__state__dept_confirm
 msgid "Waiting Department Approval"
-msgstr ""
+msgstr "انتظار الموافقة الادارية"
 
 #. module: material_internal_requisition
 #: model:ir.model.fields.selection,name:material_internal_requisition.selection__material_internal_requisition__state__ir_approve
 msgid "Waiting IR Approved"
-msgstr ""
+msgstr "موافقة ادارة المخازن"
 
 #. module: material_internal_requisition
 #: model:ir.model.fields,field_description:material_internal_requisition.field_material_internal_requisition__website_message_ids
@@ -930,14 +898,14 @@ msgstr ""
 #: code:addons/material_internal_requisition/models/internal_requisition.py:0
 #, python-format
 msgid ""
-"You can not delete Internal Requisition which is not in draft or cancelled "
-"or rejected state."
+"You cannot delete an internal requisition unless the status of the request "
+"is new, canceled, or rejected."
 msgstr ""
 
 #. module: material_internal_requisition
 #: model_terms:ir.ui.view,arch_db:material_internal_requisition.material_internal_requisition_form_view
 msgid "confirm"
-msgstr ""
+msgstr "تأكيد"
 
 #. module: material_internal_requisition
 #: model:ir.model,name:material_internal_requisition.model_material_internal_requisition_line
