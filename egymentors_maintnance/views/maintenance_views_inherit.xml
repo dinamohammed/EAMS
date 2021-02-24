@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="view_hr_equipment_request_stock_custom" model="ir.ui.view">
+            <field name="name">maintenance.request.form.stock</field>
+            <field name="model">maintenance.request</field>
+            <field name="inherit_id" ref="maintenance.hr_equipment_request_view_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <field name="equipment_id" position="before">
+                        <field name="maintenance_project_id"/>
+                        <field name="stock_location_id"/>
+                        <field name="project_equipment_id"/>
+                        <field name="equipment_part_ids" widget="many2many_tags"/>
+                    </field>
+                </data>
+            </field>
+        </record>
+
+    </data>
+</openerp>

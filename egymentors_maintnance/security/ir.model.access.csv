@@ -1,0 +1,15 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_maintenance_project_user,maintenance.project.user,model_maintenance_project,base.group_user,1,0,0,0
+access_maintenance_project_manager,maintenance.project.manager,model_maintenance_project,maintenance.group_equipment_manager,1,1,1,1
+access_maintenance_project_type_user,maintenance.project.type.user,model_maintenance_project_type,base.group_user,1,0,0,0
+access_maintenance_project_type_manager,maintenance.project.type.manager,model_maintenance_project_type,maintenance.group_equipment_manager,1,1,1,1
+access_maintenance_project_equipment_user,maintenance.project.equipment.user,model_maintenance_project_equipment,base.group_user,1,0,0,0
+access_maintenance_project_equipment_manager,maintenance.project.equipment.manager,model_maintenance_project_equipment,maintenance.group_equipment_manager,1,1,1,1
+access_maintenance_equipment_parts_user,maintenance.equipment.parts.user,model_maintenance_equipment_parts,base.group_user,1,0,0,0
+access_maintenance_equipment_parts_manager,maintenance.equipment.parts.manager,model_maintenance_equipment_parts,maintenance.group_equipment_manager,1,1,1,1
+access_maintenance_task_line_user,maintenance.task.line.user,model_maintenance_task_line,base.group_user,1,0,0,0
+access_maintenance_task_line_manager,maintenance.task.line.manager,model_maintenance_task_line,maintenance.group_equipment_manager,1,1,1,1
+access_maintenance_task_user,maintenance.task.user,model_maintenance_task,base.group_user,1,0,0,0
+access_maintenance_task_manager,maintenance.task.manager,model_maintenance_task,maintenance.group_equipment_manager,1,1,1,1
+access_task_categ_user,task.categ.user,model_task_categ,base.group_user,1,0,0,0
+access_task_categ_manager,task.categ.manager,model_task_categ,maintenance.group_equipment_manager,1,1,1,1
