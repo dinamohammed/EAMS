@@ -9,10 +9,10 @@
             <field name="arch" type="xml">
                 <data>
                     <field name="equipment_id" position="before">
-                        <field name="maintenance_project_id"/>
-                        <field name="stock_location_id"/>
-                        <field name="project_equipment_id"/>
-                        <field name="equipment_part_ids" widget="many2many_tags"/>
+                        <field name="project_id"/>
+                        <field name="location_id"/>
+                        <field name="equipment_id"/>
+                        <field name="part_ids" widget="many2many_tags"/>
                     </field>
                 </data>
             </field>

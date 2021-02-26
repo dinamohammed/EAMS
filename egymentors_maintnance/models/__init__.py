@@ -3,4 +3,3 @@
 from . import maintenance_inheritance
 from . import maintenance_project
 from . import product_template_inherit
-from . import stock_location_inherit
