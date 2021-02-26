@@ -6,34 +6,34 @@ from odoo import models, fields, api
 class EquipmentRequestInherit(models.Model):
     _inherit = 'maintenance.request'
 
-    maintenance_project_id = fields.Many2one(comodel_name="maintenance.project", string="Project Name")
-    stock_location_id = fields.Many2one(comodel_name="stock.location", string="Maintenance Location")
-    project_equipment_id = fields.Many2one(comodel_name="maintenance.project.equipment", string="Project Equipment")
-    equipment_part_ids = fields.Many2many(comodel_name="maintenance.equipment.parts", string='Equipment Parts')
+    project_id = fields.Many2one(comodel_name="maintenance.project", string="Project Name")
+    location_id = fields.Many2one(comodel_name="stock.location", string="Maintenance Location")
+    equipment_id = fields.Many2one(comodel_name="maintenance.equipment", string="Project Equipment")
+    part_ids = fields.Many2many(comodel_name="maintenance.equipment.parts", string='Equipment Parts')
 
-    @api.onchange('maintenance_project_id')
-    def onchange_maintenance_project_id(self):
+    @api.onchange('project_id')
+    def onchange_project_id(self):
         for rec in self:
-            rec.stock_location_id = False
-            rec.project_equipment_id = False
-            rec.equipment_part_ids = False
+            rec.location_id = False
+            rec.equipment_id = False
+            rec.part_ids = False
             return {'domain': {
-                'stock_location_id': [('maintenance_project_id', '=', rec.maintenance_project_id.id),
-                                      ('usage', '=', 'maintenance')],
-                'project_equipment_id': [('stock_location_id', '=', rec.stock_location_id.id)],
+                'location_id': [('project_id', '=', rec.project_id.id),
+                                ('usage', '=', 'maintenance')],
+                'equipment_id': [('location_id', '=', rec.location_id.id)],
             }}
 
-    @api.onchange('stock_location_id')
-    def onchange_stock_location_id(self):
+    @api.onchange('location_id')
+    def onchange_location_id(self):
         for rec in self:
-            rec.project_equipment_id = False
-            rec.equipment_part_ids = False
+            rec.equipment_id = False
+            rec.part_ids = False
             return {'domain': {
-                'project_equipment_id': [('stock_location_id', '=', rec.stock_location_id.id)],
+                'equipment_id': [('location_id', '=', rec.location_id.id)],
             }}
 
-    @api.onchange('project_equipment_id')
-    def onchange_project_equipment_id(self):
+    @api.onchange('equipment_id')
+    def onchange_equipment_id(self):
         for rec in self:
-            rec.equipment_part_ids = False
-            return {'domain': {'equipment_part_ids': [('id', '=', rec.project_equipment_id.id)]}}
+            rec.part_ids = False
+            return {'domain': {'part_ids': [('id', '=', rec.equipment_id.id)]}}
