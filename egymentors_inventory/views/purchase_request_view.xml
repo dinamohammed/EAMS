@@ -85,6 +85,8 @@
                                         <field name="product_qty"/>
                                         <field name="reason"/>
                                         <field name="note"/>
+                                        <field name="item_value"/>
+                                        <field name="item_type"/>
                                         <field name="state" optional="hide"/>
                                         <field name="req_dep_id" optional="hide"/>
                                         <field name="company_id" optional="hide"/>
