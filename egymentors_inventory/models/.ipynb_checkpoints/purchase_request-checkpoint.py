@@ -114,7 +114,7 @@ class PurchaseRequestLine(models.Model):
                                    help="Depicts the date where the Quotation should be validated and"
                                         " converted into a purchase order.")
     reason = fields.Text(string="Rejection Reason")
-    item_value = fields.Text(string="Item Value")
-    item_type = fields.Text(string="Item Type")
+    item_value = fields.Text(string="قيمة البند")
+    item_type = fields.Text(string="نوع البند")
 
 # Ahmed Salama Code End.
