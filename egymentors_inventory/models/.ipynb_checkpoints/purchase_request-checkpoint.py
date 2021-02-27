@@ -42,7 +42,7 @@ class PurchaseRequest(models.Model):
                              tracking=True)
     request_line = fields.One2many('purchase.request.line', 'request_id', string='Request Lines', readonly=1,
                                    states=READONLY_STATES, copy=True)
-    notes = fields.Text("سبب الشراء", placeholder="Write Notes")
+    notes = fields.Text("الملاحظات", placeholder="Write Notes")
 
     @api.model
     def create(self, vals):
@@ -106,7 +106,7 @@ class PurchaseRequestLine(models.Model):
                                  required=True, ondelete='cascade')
     state = fields.Selection(_STATES, string='Status', readonly=True, index=True, copy=False, default='draft',
                              tracking=True)
-    note = fields.Text("Note")
+    note = fields.Text("سبب الشراء")
     company_id = fields.Many2one('res.company', "Company")
     req_dep_id = fields.Many2one('purchase.request.department', "Requested Department")
     date_request = fields.Datetime('Request Date', required=True, states=READONLY_STATES, index=True, copy=False,
