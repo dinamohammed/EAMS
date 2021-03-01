@@ -11,8 +11,12 @@
                     <field name="equipment_id" position="before">
                         <field name="project_id"/>
                         <field name="location_id"/>
-                        <field name="equipment_id"/>
+                    </field>
+                    <field name="category_id" position="after">
                         <field name="part_ids" widget="many2many_tags"/>
+                    </field>
+                    <field name="category_id" position="attributes">
+                        <attribute name="string">Equipment Category</attribute>
                     </field>
                 </data>
             </field>
