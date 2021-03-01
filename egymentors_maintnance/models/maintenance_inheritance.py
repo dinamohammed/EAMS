@@ -13,27 +13,29 @@ class EquipmentRequestInherit(models.Model):
 
     @api.onchange('project_id')
     def onchange_project_id(self):
-        for rec in self:
-            rec.location_id = False
-            rec.equipment_id = False
-            rec.part_ids = False
+        for request in self:
+            request.location_id = False
+            request.equipment_id = False
+            request.part_ids = False
             return {'domain': {
-                'location_id': [('project_id', '=', rec.project_id.id),
+                'location_id': [('project_id', '=', request.project_id.id),
                                 ('usage', '=', 'maintenance')],
-                'equipment_id': [('location_id', '=', rec.location_id.id)],
+                'equipment_id': [('location_id', '=', request.location_id.id)],
             }}
 
     @api.onchange('location_id')
     def onchange_location_id(self):
-        for rec in self:
-            rec.equipment_id = False
-            rec.part_ids = False
+        for request in self:
+            request.equipment_id = False
+            request.part_ids = False
             return {'domain': {
-                'equipment_id': [('location_id', '=', rec.location_id.id)],
+                'equipment_id': [('location_id', '=', request.location_id.id)],
             }}
 
     @api.onchange('equipment_id')
     def onchange_equipment_id(self):
-        for rec in self:
-            rec.part_ids = False
-            return {'domain': {'part_ids': [('id', '=', rec.equipment_id.id)]}}
+        for request in self:
+            request.part_ids = False
+            return {'domain': {
+                'part_ids': [('product_id', 'in', request.equipment_id.part_ids.mapped('product_id').ids)]
+            }}
