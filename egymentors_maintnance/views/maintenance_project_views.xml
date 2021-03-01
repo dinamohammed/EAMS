@@ -350,6 +350,27 @@
         </field>
     </record>
 
+    <!-- Task Sheet: Tree view -->
+    <record id="maintenance_task_sheet_line_view_tree" model="ir.ui.view">
+        <field name="name">maintenance.task.sheet.line</field>
+        <field name="model">maintenance.task.sheet.line</field>
+        <field name="arch" type="xml">
+            <tree string="Task Sheet Line">
+                <field name="name"/>
+                <field name="task_sheet_id"/>
+                <field name="task_line_id"/>
+                <field name="project_id"/>
+                <field name="location_id"/>
+                <field name="equipment_id"/>
+                <field name="task_categ_id"/>
+                <field name="task_id"/>
+                <field name="date"/>
+                <field name="state"/>
+                <field name="note"/>
+            </tree>
+        </field>
+    </record>
+
     <!-- Task Sheet: Action -->
     <record id="maintenance_task_sheet_action" model="ir.actions.act_window">
         <field name="name">Task Sheet</field>
