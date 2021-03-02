@@ -38,6 +38,7 @@
         'security/ir.model.access.csv',
         'views/maintenance_views_inherit.xml',
         'views/maintenance_project_views.xml',
+        'data/maintenance_cron_inherit.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

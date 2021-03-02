@@ -77,13 +77,8 @@ class EquipmentParts(models.Model):
     _description = 'Equipment Parts'
     _rec_name = 'product_id'
 
-    @api.onchange('product_id')
-    def _product_qty(self):
-        self.product_stock = self.product_id.qty_available
-
     product_id = fields.Many2one('product.product', 'Product')
     qty = fields.Float(string="Quantity")
-    product_stock = fields.Float(string="Product Stock")
     categ_id = fields.Many2one(comodel_name='product.category', string='Product Category',
                                related="product_id.categ_id",
                                help="Select category for the current product")
