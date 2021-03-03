@@ -6,6 +6,7 @@ from odoo.exceptions import ValidationError
 
 class MaintenanceProject(models.Model):
     _name = "maintenance.project"
+    _inherit = ['mail.thread.cc', 'mail.activity.mixin']
     _description = "Maintenance Project"
 
     name = fields.Char(string="Name")
@@ -16,6 +17,7 @@ class MaintenanceProject(models.Model):
 
 class MaintenanceProjectType(models.Model):
     _name = "maintenance.project.type"
+    _inherit = ['mail.thread.cc', 'mail.activity.mixin']
     _description = "Maintenance Project Type"
 
     name = fields.Char(sting="Name")
@@ -74,6 +76,7 @@ class ProjectEquipmentInherit(models.Model):
 
 class EquipmentParts(models.Model):
     _name = 'maintenance.equipment.parts'
+    _inherit = ['mail.thread.cc', 'mail.activity.mixin']
     _description = 'Equipment Parts'
     _rec_name = 'product_id'
 
@@ -99,9 +102,6 @@ class MaintenanceTaskLine(models.Model):
     equipment_id = fields.Many2one(comodel_name="maintenance.equipment", string="Equipment")
     task_categ_id = fields.Many2one(comodel_name="maintenance.task.categ", string="Task Category", required=True)
     task_id = fields.Many2one(comodel_name="maintenance.task", string="Maintenance Task", required=True)
-    date = fields.Date(default=fields.Date.today(), string='Date')
-    state = fields.Selection(string="State", selection=[('yes', 'Yes'), ('no', 'No')])
-    note = fields.Text()
 
     @api.onchange('task_categ_id')
     def onchange_task_categ_id(self):
@@ -114,6 +114,7 @@ class MaintenanceTaskLine(models.Model):
 
 class MaintenanceTaskCategory(models.Model):
     _name = "maintenance.task.categ"
+    _inherit = ['mail.thread.cc', 'mail.activity.mixin']
     _description = "Task Category"
 
     name = fields.Char(string="Name")
@@ -122,10 +123,18 @@ class MaintenanceTaskCategory(models.Model):
 
 class MaintenanceTask(models.Model):
     _name = "maintenance.task"
+    _inherit = ['mail.thread.cc', 'mail.activity.mixin']
     _description = "Maintenance Task"
 
     name = fields.Char()
     task_categ_id = fields.Many2one(comodel_name="maintenance.task.categ", string="Task Category", required=True)
+    equipment_ids = fields.Many2many(comodel_name='maintenance.equipment', string="Equipments",
+                                     compute='_compute_equipments')
+
+    def _compute_equipments(self):
+        task_line_obj = self.env['maintenance.task.line']
+        for task in self:
+            task.equipment_ids = task_line_obj.search([('task_id', '=', task.id)]).mapped('equipment_id')
 
 
 class MaintenanceTaskSheet(models.Model):
@@ -163,15 +172,12 @@ class MaintenanceTaskSheet(models.Model):
 
     @api.onchange('equipment_ids')
     def onchange_equipment_ids(self):
-        task_line_obj = self.env['maintenance.task.line']
+        task_sheet_line_obj = self.env['maintenance.task.sheet.line']
         for task in self:
             task.task_categ_ids = False
-            # categ_ids = self.env['maintenance.task.categ'].search([('id', 'in', task.task_categ_ids.ids)])
-            # equipment_ids = self.env['maintenance.equipment'].search('task_ids')
-            # categ_ids = task.equipment_ids.task_ids.mapped('task_categ_id')
-            task_lines = task_line_obj.search([('equipment_id', 'in', task.equipment_ids.ids)])
+            task_sheet_lines = task_sheet_line_obj.search([('equipment_id', 'in', task.equipment_ids.ids)])
             return {'domain': {
-                'task_categ_ids': [('id', 'in', task_lines.mapped('task_categ_id').ids)],
+                'task_categ_ids': [('id', 'in', task_sheet_lines.mapped('task_categ_id').ids)],
             }}
 
     @api.onchange('project_ids', 'location_ids', 'equipment_ids', 'task_categ_ids')
@@ -185,45 +191,28 @@ class MaintenanceTaskSheet(models.Model):
                     if task_sheet.project_ids:
                         domain.append(('project_id', 'in', task_sheet.project_ids.ids))
                     if task_sheet.location_ids:
-                        if len(domain) > 0:
-                            domain = ['|'] + domain
-                            domain.append(('location_id', 'in', task_sheet.location_ids.ids))
-                        else:
-                            domain.append(('location_id', 'in', task_sheet.location_ids.ids))
+                        domain.append(('location_id', 'in', task_sheet.location_ids.ids))
                     if task_sheet.equipment_ids:
-                        if len(domain) > 0:
-                            domain = ['|'] + domain
-                            domain.append(('equipment_id', 'in', task_sheet.equipment_ids.ids))
-                        else:
-                            domain.append(('equipment_id', 'in', task_sheet.equipment_ids.ids))
+                        domain.append(('equipment_id', 'in', task_sheet.equipment_ids.ids))
                     if task_sheet.task_categ_ids:
-                        if len(domain) > 0:
-                            domain = ['|'] + domain
-                            domain.append(('task_categ_id', 'in', task_sheet.task_categ_ids.ids))
-                        else:
-                            domain.append(('task_categ_id', 'in', task_sheet.task_categ_ids.ids))
+                        domain.append(('task_categ_id', 'in', task_sheet.task_categ_ids.ids))
 
-                    task_lines = self.env['maintenance.task.line'].search(domain)
+                    task_lines = self.env['maintenance.task.line'].search(domain,
+                                                                          order='project_id ASC, location_id ASC, equipment_id ASC, task_categ_id ASC')
 
                     task_sheet.task_sheet_line_ids = False
 
                     for task_line in task_lines:
                         task_sheet.task_sheet_line_ids.create({
-                            'name': task_sheet.name,
+                            'name': 'Task sheet line :' + task_sheet.name,
                             'task_sheet_id': task_sheet.id,
                             'task_line_id': task_line.id,
                         })
-                    # task.task_sheet_line_ids = [(6, 0, task_line_ids)]
-
-                    # task.write({'task_sheet_line_ids': [(6, 0, task_lines.mapped('id'))]})
-                    # cls.journal.edi_format_ids = [(6, 0, cls.edi_format.ids)]
-                    # task.task_sheet_line_ids.write({
-                    # })
-                    # x = task_sheet.task_sheet_line_ids
 
 
 class MaintenanceTaskSheetLine(models.Model):
     _name = "maintenance.task.sheet.line"
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = "Maintenance Task Sheet Line"
 
     name = fields.Char(string="Name", required=False)
@@ -233,8 +222,8 @@ class MaintenanceTaskSheetLine(models.Model):
     project_id = fields.Many2one(comodel_name="maintenance.project", related='task_line_id.project_id')
     location_id = fields.Many2one(comodel_name="stock.location", related='task_line_id.location_id')
     equipment_id = fields.Many2one(comodel_name="maintenance.equipment", related='task_line_id.equipment_id')
-    task_id = fields.Many2one(comodel_name="maintenance.task", related='task_line_id.task_id')
     task_categ_id = fields.Many2one(comodel_name="maintenance.task.categ", related='task_id.task_categ_id')
+    task_id = fields.Many2one(comodel_name="maintenance.task", related='task_line_id.task_id')
 
     date = fields.Date(string='Date', default=fields.Date.today())
     state = fields.Selection(string="State", selection=[('yes', 'Yes'), ('no', 'No')])
