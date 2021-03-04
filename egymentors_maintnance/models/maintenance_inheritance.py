@@ -10,6 +10,8 @@ class EquipmentRequestInherit(models.Model):
     location_id = fields.Many2one(comodel_name="stock.location", string="Maintenance Location")
     equipment_id = fields.Many2one(comodel_name="maintenance.equipment", string="Project Equipment")
     part_ids = fields.Many2many(comodel_name="maintenance.equipment.parts", string='Equipment Parts')
+    task_sheet_line_ids = fields.One2many(comodel_name='maintenance.task.sheet.line', inverse_name='request_id',
+                                          string="Task Sheet Lines")
 
     @api.onchange('project_id')
     def onchange_project_id(self):
