@@ -9,10 +9,14 @@ class MaintenanceProject(models.Model):
     _inherit = ['mail.thread.cc', 'mail.activity.mixin']
     _description = "Maintenance Project"
 
-    name = fields.Char(string="Name")
+    name = fields.Char(string="Name", required=True)
     project_type_id = fields.Many2one(comodel_name='maintenance.project.type', string="Project Type")
     location_ids = fields.One2many(comodel_name='stock.location', inverse_name="project_id",
                                    string='Project Location')
+
+    _sql_constraints = [
+        ('name_uniq', 'unique (name)', 'Project Name must be unique.')
+    ]
 
 
 class MaintenanceProjectType(models.Model):
@@ -20,11 +24,16 @@ class MaintenanceProjectType(models.Model):
     _inherit = ['mail.thread.cc', 'mail.activity.mixin']
     _description = "Maintenance Project Type"
 
-    name = fields.Char(sting="Name")
+    name = fields.Char(sting="Name", required=True)
+
+    _sql_constraints = [
+        ('name_uniq', 'unique (name)', 'Project Type must be unique.')
+    ]
 
 
 class LocationInherit(models.Model):
-    _inherit = 'stock.location'
+    _name = 'stock.location'
+    _inherit = ['stock.location', 'mail.thread', 'mail.activity.mixin']
 
     project_id = fields.Many2one(comodel_name="maintenance.project", string="Maintenance Project")
     equipment_ids = fields.One2many(comodel_name='maintenance.equipment',
@@ -96,7 +105,7 @@ class MaintenanceTaskLine(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = "Maintenance Task"
 
-    name = fields.Char(string="Name", required=False)
+    name = fields.Char(string="Name", required=True)
     project_id = fields.Many2one(comodel_name="maintenance.project", related='equipment_id.project_id')
     location_id = fields.Many2one(comodel_name="stock.location", related='equipment_id.location_id')
     equipment_id = fields.Many2one(comodel_name="maintenance.equipment", string="Equipment")
@@ -117,8 +126,12 @@ class MaintenanceTaskCategory(models.Model):
     _inherit = ['mail.thread.cc', 'mail.activity.mixin']
     _description = "Task Category"
 
-    name = fields.Char(string="Name")
+    name = fields.Char(string="Name", required=True)
     task_ids = fields.One2many(comodel_name="maintenance.task", inverse_name="task_categ_id", string="Tasks")
+
+    _sql_constraints = [
+        ('name_uniq', 'unique (name)', 'Task Category must be unique.')
+    ]
 
 
 class MaintenanceTask(models.Model):
@@ -126,10 +139,14 @@ class MaintenanceTask(models.Model):
     _inherit = ['mail.thread.cc', 'mail.activity.mixin']
     _description = "Maintenance Task"
 
-    name = fields.Char()
+    name = fields.Char(string="Task", required=True)
     task_categ_id = fields.Many2one(comodel_name="maintenance.task.categ", string="Task Category", required=True)
     equipment_ids = fields.Many2many(comodel_name='maintenance.equipment', string="Equipments",
                                      compute='_compute_equipments')
+
+    _sql_constraints = [
+        ('name_uniq', 'unique (name, task_categ_id)', 'Task Name and Task Category must be unique.')
+    ]
 
     def _compute_equipments(self):
         task_line_obj = self.env['maintenance.task.line']
@@ -215,8 +232,9 @@ class MaintenanceTaskSheetLine(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = "Maintenance Task Sheet Line"
 
-    name = fields.Char(string="Name", required=False)
+    name = fields.Char(string="Name", required=True)
     task_sheet_id = fields.Many2one(comodel_name="maintenance.task.sheet", string="Task Sheet")
+    request_id = fields.Many2one(comodel_name='maintenance.request', string="Maintenance Request")
 
     task_line_id = fields.Many2one(comodel_name="maintenance.task.line", string="Task Line")
     project_id = fields.Many2one(comodel_name="maintenance.project", related='task_line_id.project_id')

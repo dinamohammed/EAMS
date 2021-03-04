@@ -99,35 +99,53 @@
 
 
     <!--Location-->
-    <!-- Location: Form view inherit -->
-    <record id="view_maintenance_location_form_inherit" model="ir.ui.view">
-        <field name="name">stock.location.form.inherit</field>
+    <!-- Location: Form view -->
+    <record id="view_maintenance_location_form" model="ir.ui.view">
+        <field name="name">maintenance.stock.location.form</field>
         <field name="model">stock.location</field>
-        <field name="inherit_id" ref="stock.view_location_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='return_location']" position="after">
-                <field name="project_id" readonly="1"
-                       attrs="{'invisible': [('usage', '!=', 'maintenance')]}"/>
-            </xpath>
-            <xpath expr="//field[@name='return_location']" position="attributes">
-                <attribute name="attrs">{'invisible': [('usage', '=', 'maintenance')]}</attribute>
-            </xpath>
-            <xpath expr="//field[@name='comment']" position="after">
-                <notebook attrs="{'invisible': [('usage', '!=', 'maintenance')]}">
-                    <page string="Maintenance Equipments">
-                        <field name="equipment_ids" nolable="1">
-                            <tree>
-                                <field name="name"/>
-                                <field name="project_id"/>
-                                <field name="location_id"/>
-                            </tree>
-                        </field>
-                    </page>
-                </notebook>
-            </xpath>
-            <field name="usage" position="attributes">
-                <attribute name="invisible">1</attribute>
-            </field>
+            <form string="Stock Location" create="false">
+                <sheet>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                            attrs="{'invisible': [('active', '=', True)]}"/>
+                    <label for="name" class="oe_edit_only"/>
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                    <label for="location_id" class="oe_edit_only"/>
+                    <h2>
+                        <field name="location_id" options="{'no_create': True}"/>
+                    </h2>
+                    <group>
+                        <group string="Additional Information" name="additional_info">
+                            <field name="active" invisible="1"/>
+                            <field name="usage" readonly="1"/>
+                            <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
+                        </group>
+                        <group>
+                            <field name="project_id" readonly="1"
+                                   attrs="{'invisible': [('usage', '!=', 'maintenance')]}"/>
+                        </group>
+                    </group>
+                    <field name="comment" placeholder="External note..."/>
+                    <notebook>
+                        <page string="Maintenance Equipments">
+                            <field name="equipment_ids" nolable="1">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="project_id"/>
+                                    <field name="location_id"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
         </field>
     </record>
 
@@ -147,7 +165,9 @@
     <record id="project_location_action" model="ir.actions.act_window">
         <field name="name">Project Location</field>
         <field name="res_model">stock.location</field>
-        <field name="context">{'default_usage': 'maintenance'}</field>
+        <field name="context">
+            {'default_usage': 'maintenance'}
+        </field>
         <field name="domain">[('usage','=','maintenance')]</field>
         <field name="view_mode">tree,form</field>
         <field name="help" type="html">
@@ -349,7 +369,7 @@
     <record id="maintenance_task_sheet_action" model="ir.actions.act_window">
         <field name="name">Task Sheet</field>
         <field name="res_model">maintenance.task.sheet</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">kanban,tree,form</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
                 Add a new maintenance task sheet
