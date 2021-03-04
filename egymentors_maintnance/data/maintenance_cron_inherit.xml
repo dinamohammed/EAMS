@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ir.cron -->
+    <record id="maintenance.maintenance_requests_cron" model="ir.cron" forcecreate="True">
+
+    </record>
+</odoo>
