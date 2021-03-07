@@ -36,7 +36,8 @@
                 name="egymentors_inventory.report_purchase_order_check"
                 file="egymentors_inventory.report_purchase_order_check"
                 attachment_use="False"
-        /><report
+        />
+        <report
                 id="purchase_order_note_report"
                 model="purchase.order"
                 string="مذكره شراء"
@@ -47,14 +48,14 @@
         />
         <record id="po_paperformat" model="report.paperformat">
             <field name="name">PO Paper Format</field>
-            <field name="default" eval="True" />
+            <field name="default" eval="True"/>
             <field name="format">A4</field>
             <field name="orientation">Portrait</field>
             <field name="margin_top">40</field>
             <field name="margin_bottom">15</field>
             <field name="margin_left">7</field>
             <field name="margin_right">7</field>
-            <field name="header_line" eval="False" />
+            <field name="header_line" eval="False"/>
             <field name="header_spacing">35</field>
             <field name="dpi">140</field>
         </record>
@@ -72,15 +73,25 @@
                 'Purchase Order - %s' % (object.name))"
         />
         <report
-            string="Request for Quotation"
-            id="purchase.report_purchase_quotation"
-            model="purchase.order"
-            report_type="qweb-pdf"
-            name="purchase.report_purchaseorder"
-            file="purchase.report_purchaseorder"
-            attachment_use="False"
-            print_report_name="'Request for Quotation - %s' % (object.name)"
+                string="Request for Quotation"
+                id="purchase.report_purchase_quotation"
+                model="purchase.order"
+                report_type="qweb-pdf"
+                name="purchase.report_purchaseorder"
+                file="purchase.report_purchaseorder"
+                attachment_use="False"
+                print_report_name="'Request for Quotation - %s' % (object.name)"
         />
+
+        <report
+                id="report_inventory_adjustment_xlsx"
+                string="Inventory Adjustment Excel"
+                model="stock.inventory"
+                report_type="xlsx"
+                name="egymentors_inventory.report_inventory_adjustment_xlsx"
+                file="egymentors_inventory.report_inventory_adjustment_xlsx"
+                attachment_use="False"
+                print_report_name="'Inventory Adjustment - %s' % (object.name)"/>
 
     </data>
 </odoo>
