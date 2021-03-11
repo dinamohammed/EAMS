@@ -2,12 +2,14 @@
 <odoo>
     <template id="report_purchaseorder_document_eams2">
         <t t-call="web.external_layout">
-            <div class="page text-right" style="text-align: right !important;direction:rtl; font-size:20px;" >
+            <div class="page text-right" style="text-align: right !important;direction:rtl; font-size:20px;">
                 <div class="row">
                     <div class="col-4"/>
                     <div class="col-4 text-center">
                         <p style="width:100%;block:">
-                            <strong><u>طلب توريد أصناف محلياً</u></strong>
+                            <strong>
+                                <u>Request to supply local items</u>
+                            </strong>
                         </p>
                     </div>
                 </div>
@@ -16,64 +18,93 @@
                     <div class="col-4"/>
                     <div class="col-4"/>
                     <div class="col-4">
-                        <p style="width:100%;block:">رقم القيد:</p>
-                        <p style="width:100%;block:">عدد المرفقات:</p>
+                        <p style="width:100%;block:">Registration number:</p>
+                        <p style="width:100%;block:">Number of attachments:</p>
                     </div>
                 </div>
                 <br/>
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-12">
                         <strong style="width:100%;block:">
-                             الإسكندرية في <span t-if="o.date_order" t-field="o.date_order" t-options='{"widget":"date"}'/> 
+                            Alexandria in
+                            <span t-if="o.date_order" t-field="o.date_order" t-options='{"widget":"date"}'/>
                         </strong>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-12">
                         <strong style="width:100%;block:">
-                            إلى/ شركه
+                            To company/
+                            <span t-if="o.partner_id" t-field="o.partner_id"/>
                         </strong>
                     </div>
                 </div>
-                <br/><br/>
+                <br/>
+                <br/>
                 <div class="row ">
                     <p>
-                        المرجو توريد الأصناف الأتي بيانها فور إستلام أمر الدفع الإلكتروني:-
+                        Please supply the following items as soon as you receive the electronic payment order: -
                     </p>
                 </div>
                 <table class="table table-sm o_main_table ">
                     <thead>
-                        <tr  class="text-center">
-                            <th><span>م</span></th>
-                            <th><span>إسم الصنف</span></th>
-                            <th><span>الوحده</span></th>
-                            <th><span>المقدار</span></th>
-                            <th><span>السعر</span></th>
-                            <th><span>الإجمالي</span></th>
-                            <th><span>ملاحظات</span></th>
+                        <tr class="text-center">
+                            <th>
+                                <span>Ser.</span>
+                            </th>
+                            <th>
+                                <span>Product Name</span>
+                            </th>
+                            <th>
+                                <span>Unit</span>
+                            </th>
+                            <th>
+                                <span>Quantity</span>
+                            </th>
+                            <th>
+                                <span>Price</span>
+                            </th>
+                            <th>
+                                <span>Total</span>
+                            </th>
+                            <th>
+                                <span>Notes</span>
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
                         <t t-set="count" t-value="1"/>
-                        <tr t-foreach="o.order_line" t-as="line" >
-                            <td class="text-center"><span t-esc="count"/></td>
-                            <td  class="text-center" style="text-align: right !important;">
+                        <tr t-foreach="o.order_line" t-as="line">
+                            <td class="text-center">
+                                <span t-esc="count"/>
+                            </td>
+                            <td class="text-center" style="text-align: right !important;">
                                 <span t-if="line.product_id" t-esc="line.product_id.display_name"/>
                             </td>
-                            <td class="text-center"><span t-if="line.product_uom" t-esc="line.product_uom.name"/></td>
-                            <td class="text-center"><span t-esc="line.product_qty"/></td>
-                            <td class="text-center"><span t-if="line.price_unit" t-esc="line.price_unit"/></td>
-                            <td class="text-center"><span t-if="line.price_subtotal" t-esc="line.price_subtotal"/></td>
+                            <td class="text-center">
+                                <span t-if="line.product_uom" t-esc="line.product_uom.name"/>
+                            </td>
+                            <td class="text-center">
+                                <span t-esc="line.product_qty"/>
+                            </td>
+                            <td class="text-center">
+                                <span t-if="line.price_unit" t-esc="line.price_unit"/>
+                            </td>
+                            <td class="text-center">
+                                <span t-if="line.price_subtotal" t-esc="line.price_subtotal"/>
+                            </td>
                             <td class="tex-center"/>
                             <t t-set="count" t-value="count+1"/>
                         </tr>
                         <tr>
                             <td class="text-center"/>
-                            <td  class="text-center"/>
                             <td class="text-center"/>
                             <td class="text-center"/>
                             <td class="text-center"/>
-                            <td class="text-center"><span t-if="o.amount_total" t-esc="o.amount_total"/></td>
+                            <td class="text-center"/>
+                            <td class="text-center">
+                                <span t-if="o.amount_total" t-esc="o.amount_total"/>
+                            </td>
                             <td class="tex-center"/>
                         </tr>
                     </tbody>
@@ -81,33 +112,83 @@
                 <br/>
                 <div class="row">
                     <div class="col-12">
-                    <p>
-                        وهذه الأثمان تشمل كل المصاريف والتسليم يكون محلاتكم. مع العلم بأنه سيصير فحص الأصنافبمعرفة مندوبي الهيئة قبل الإقرار على
-                    </p>
-                    <p>
-                        الإستلام نهائياَ, وعند التسليم نرجو إرسال فاتورتكم مننسختين
-                    </p>
+                        <p>
+                            1- These prices include all expenses and the delivery will be at your stores or at the
+                            authority’s stores. Knowing that the items will be examined with the knowledge of the
+                            authority’s representatives before the receipt is finally acknowledged.
+                        </p>
                     </div>
                 </div>
                 <br/>
                 <div class="row">
-                <div class="col-4"/>
-                <div class="col-4 text-center">
-                        <p style="width:100%;block:">
-                            <strong>وتقبلوا منا فائق الإحترام, </strong>
+                    <div class="col-12">
+                        <p>
+                            <strong>2- Supplying duration:</strong>
+                            <span t-if="o.requisition_id.schedule_date" t-field="o.requisition_id.schedule_date"/>
                         </p>
+                    </div>
                 </div>
+                <br/>
+                <div class="row">
+                    <div class="col-12">
+                        <strong>3- Payment by electronic payment order:</strong>
+                        <br/>
+                        <p>
+                            - Receipt after receiving the payment order
+                            <br/>
+                            - Receipt after examination and receipt of the payment order
+                            <br/>
+                            - Receipt after examination and receipt
+                        </p>
+                    </div>
                 </div>
+                <br/>
+                <div class="row">
+                    <div class="col-12">
+                        <strong>4- Receipt:</strong>
+                        <br/>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" value=""/>
+                                After receiving the payment order
+                            </label>
+                            <br/>
+                            <label>
+                                <input type="checkbox" value=""/>
+                                After the examination and receipt of the payment order
+                            </label>
+                            <br/>
+                            <label>
+                                <input type="checkbox" value=""/>
+                                After examination and reception
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <br/>
                 <div class="row">
                     <div class="col-4"/>
-                    <div class="col-4"/>
-                    <div class="col-4"/>
+                    <div class="col-4 text-center">
+                        <p style="width:100%;block:">
+                            <strong>With the highest consideration and respect,</strong>
+                        </p>
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
                     <div class="col-4">
                         <p>
-                            مدير/
+                            Employee/
                         </p>
+                    </div>
+                    <div class="col-4">
                         <p>
-                            الإحتياجات والمخازن
+                            Auditor/
+                        </p>
+                    </div>
+                    <div class="col-4">
+                        <p>
+                            Purchases Manager/
                         </p>
                     </div>
                 </div>
