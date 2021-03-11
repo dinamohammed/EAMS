@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="category_id_diesel_generator" model="maintenance.equipment.category">
+            <field name="name">مولد الديزل</field>
+        </record>
+
+        <record id="category_id_airconditions" model="maintenance.equipment.category">
+            <field name="name">التكييفات</field>
+        </record>
+
+        <record id="category_id_airconditions" model="maintenance.equipment.category">
+            <field name="name"> جهاز ال UPS</field>
+        </record>
+
+    </data>
+</odoo>
