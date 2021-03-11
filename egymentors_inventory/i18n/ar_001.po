@@ -6,14 +6,44 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0+e-20210126\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-18 14:15+0000\n"
-"PO-Revision-Date: 2021-02-18 14:15+0000\n"
+"POT-Creation-Date: 2021-03-10 12:23+0000\n"
+"PO-Revision-Date: 2021-03-10 12:23+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: egymentors_inventory
+#: model:ir.actions.report,print_report_name:egymentors_inventory.report_inventory_adjustment_xlsx
+msgid "'Inventory Adjustment - %s' % (object.name)"
+msgstr "'جرد الأصناف - %s' % (object.name)"
+
+#. module: egymentors_inventory
+#: model:ir.actions.report,print_report_name:egymentors_inventory.report_inventory_adjustment_arabic_xlsx
+msgid "'Inventory Adjustment Arabic - %s' % (object.name)"
+msgstr ""
+
+#. module: egymentors_inventory
+#: code:addons/egymentors_inventory/reports/inventory_adjustment_xlsx.py:0
+#, python-format
+msgid "(Form No. 9 Inventory government)"
+msgstr "(نموزج: 9 مخازن حكومة)"
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchaseorder_document_eams2
+msgid ""
+"- Receipt after receiving the payment order\n"
+"                            <br/>\n"
+"                            - Receipt after examination and receipt of the payment order\n"
+"                            <br/>\n"
+"                            - Receipt after examination and receipt"
+msgstr ""
+"- إيصال بعد استلام أمر الدفع                             <br/> - الاستلام "
+"بعد الفحص واستلام أمر الدفع"
+"                                                         <br/>  الاستلام بعد"
+" الفحص والاستلام                            "
 
 #. module: egymentors_inventory
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_requisition_price_doc
@@ -35,6 +65,17 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_requisition_price_doc
 msgid "- يرفق صوره من بطاقة التسجيل في ضريبه القيمه المضافه"
 msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchaseorder_document_eams2
+msgid ""
+"1- These prices include all expenses and the delivery will be at your stores or at the\n"
+"                            authority’s stores. Knowing that the items will be examined with the knowledge of the\n"
+"                            authority’s representatives before the receipt is finally acknowledged."
+msgstr ""
+"1- وهذه الأثمان تشمل كل المصاريف والتسليم يكون محلاتكم او في مخازن الهيئة. "
+"مع العلم بأنه سيصير فحصا للأصناف بمعرفة مندوبي الهيئة قبل الإقرار على "
+"الإستلام َ نهائيا. "
 
 #. module: egymentors_inventory
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_check_doc
@@ -142,10 +183,44 @@ msgid ""
 msgstr ""
 
 #. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchaseorder_document_eams2
+msgid "<span>Notes</span>"
+msgstr "<span>ملاحظات</span>"
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchaseorder_document_eams2
+msgid "<span>Price</span>"
+msgstr "<span>السعر</span>"
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchaseorder_document_eams2
+msgid "<span>Product Name</span>"
+msgstr "<span>إسم الصنف</span>"
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchaseorder_document_eams2
+msgid "<span>Quantity</span>"
+msgstr "<span>المقدار</span>"
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchaseorder_document_eams2
+msgid "<span>Ser.</span>"
+msgstr "م"
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchaseorder_document_eams2
+msgid "<span>Total</span>"
+msgstr "<span>الإجمالي</span>"
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchaseorder_document_eams2
+msgid "<span>Unit</span>"
+msgstr "<span>الوحده</span>"
+
+#. module: egymentors_inventory
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_check_doc
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_request_doc
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_requisition_price_doc
-#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchaseorder_document_eams2
 msgid "<span>إسم الصنف</span>"
 msgstr ""
 
@@ -155,13 +230,7 @@ msgid "<span>الإجمالى</span>"
 msgstr ""
 
 #. module: egymentors_inventory
-#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchaseorder_document_eams2
-msgid "<span>الإجمالي</span>"
-msgstr ""
-
-#. module: egymentors_inventory
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_check_doc
-#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchaseorder_document_eams2
 msgid "<span>السعر</span>"
 msgstr ""
 
@@ -173,13 +242,7 @@ msgid "<span>الكميه</span>"
 msgstr ""
 
 #. module: egymentors_inventory
-#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchaseorder_document_eams2
-msgid "<span>المقدار</span>"
-msgstr ""
-
-#. module: egymentors_inventory
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_requisition_price_doc
-#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchaseorder_document_eams2
 msgid "<span>الوحده</span>"
 msgstr ""
 
@@ -196,7 +259,6 @@ msgstr ""
 #. module: egymentors_inventory
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_request_doc
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_requisition_price_doc
-#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchaseorder_document_eams2
 msgid "<span>ملاحظات</span>"
 msgstr ""
 
@@ -204,9 +266,9 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchaseorder_document_eams2
 msgid ""
 "<strong style=\"width:100%;block:\">\n"
-"                            إلى/ شركه\n"
+"                            To company/\n"
 "                        </strong>"
-msgstr ""
+msgstr "الي شركة/"
 
 #. module: egymentors_inventory
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_requisition_price_doc
@@ -215,6 +277,14 @@ msgid ""
 "                            السيد/_ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n"
 "                        </strong>"
 msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchaseorder_document_eams2
+msgid ""
+"<strong>\n"
+"                                <u>Request to supply local items</u>\n"
+"                            </strong>"
+msgstr "طلب توريد أصناف محلياً"
 
 #. module: egymentors_inventory
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_check_doc
@@ -242,8 +312,23 @@ msgstr ""
 
 #. module: egymentors_inventory
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchaseorder_document_eams2
-msgid "<strong><u>طلب توريد أصناف محلياً</u></strong>"
+msgid "<strong>2- Supplying duration:</strong>"
+msgstr "<strong>2- مدد التوريد: </strong>"
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchaseorder_document_eams2
+msgid ""
+"<strong>3- Payment by electronic payment order:</strong>\n"
+"                        <br/>"
 msgstr ""
+"<strong>3- الدفع بأمر الدفع الالكتروني</strong>                        <br/>"
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchaseorder_document_eams2
+msgid ""
+"<strong>4- Receipt:</strong>\n"
+"                        <br/>"
+msgstr "<strong>4- الاستلام:</strong>"
 
 #. module: egymentors_inventory
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_requisition_price_doc
@@ -256,6 +341,11 @@ msgid ""
 "<strong><u>مذكرة مرفوعة للسيد اللواء البحري أ.ح/ رئيس الهيئه المصريه لسلامة "
 "الملاحه البحريه</u></strong>"
 msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchaseorder_document_eams2
+msgid "<strong>With the highest consideration and respect,</strong>"
+msgstr "<strong>وتقبلوا منا فائق الإحترام, </strong>"
 
 #. module: egymentors_inventory
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_check_doc
@@ -318,11 +408,6 @@ msgid "<strong>وتفضلوا بقبول فائق الإحترام ,,,</strong>"
 msgstr ""
 
 #. module: egymentors_inventory
-#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchaseorder_document_eams2
-msgid "<strong>وتقبلوا منا فائق الإحترام, </strong>"
-msgstr ""
-
-#. module: egymentors_inventory
 #: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_order_line__accepted
 msgid "Accepted"
 msgstr "مقبول"
@@ -374,11 +459,31 @@ msgid "Add the Order of print out"
 msgstr ""
 
 #. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchaseorder_document_eams2
+msgid "After examination and reception"
+msgstr "بعد الفحص والاستلام"
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchaseorder_document_eams2
+msgid "After receiving the payment order"
+msgstr "بعد استلام امر الدفع"
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchaseorder_document_eams2
+msgid "After the examination and receipt of the payment order"
+msgstr "بعد الفحص واستلام امر الدفع"
+
+#. module: egymentors_inventory
 #: model:ir.actions.act_window,name:egymentors_inventory.action_agreement_signature
 #: model:ir.ui.menu,name:egymentors_inventory.menu_agreement_signature
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.view_agreement_signature_tree
 msgid "Agreement Signature"
 msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchaseorder_document_eams2
+msgid "Alexandria in"
+msgstr "الإسكندرية في"
 
 #. module: egymentors_inventory
 #: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__message_attachment_count
@@ -394,6 +499,17 @@ msgstr "مراجعه الحسابات"
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.purchase_request_form
 msgid "Audit Approve"
 msgstr "موافقه مدير ادارة المخازن"
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchaseorder_document_eams2
+msgid "Auditor/"
+msgstr "/المراجع"
+
+#. module: egymentors_inventory
+#: code:addons/egymentors_inventory/reports/inventory_adjustment_xlsx.py:0
+#, python-format
+msgid "Authority Name: "
+msgstr "اسم الجهة: "
 
 #. module: egymentors_inventory
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.purchase_request_form
@@ -420,9 +536,11 @@ msgid "Choose Confirmed request and load it's lines on PO"
 msgstr "إختار طلب توريد تم الموافقه عليه لاضافته فى السطور"
 
 #. module: egymentors_inventory
+#: code:addons/egymentors_inventory/reports/inventory_adjustment_xlsx.py:0
 #: model:ir.model.fields,field_description:egymentors_inventory.field_stock_inventory__ref
+#, python-format
 msgid "Code"
-msgstr ""
+msgstr "رقم الصنف"
 
 #. module: egymentors_inventory
 #: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__company_id
@@ -436,6 +554,18 @@ msgstr "الشركه"
 #: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__date_approve
 msgid "Confirmation Date"
 msgstr "تاريخ التأكيد"
+
+#. module: egymentors_inventory
+#: code:addons/egymentors_inventory/reports/inventory_adjustment_xlsx.py:0
+#, python-format
+msgid "Cost"
+msgstr "التكلفة"
+
+#. module: egymentors_inventory
+#: code:addons/egymentors_inventory/reports/inventory_adjustment_xlsx.py:0
+#, python-format
+msgid "Counted"
+msgstr "الموجود من واقع الجرد"
 
 #. module: egymentors_inventory
 #: model_terms:ir.actions.act_window,help:egymentors_inventory.act_purchase_request
@@ -490,9 +620,27 @@ msgid "Currency Unit Name"
 msgstr "اسم وحدة العملة"
 
 #. module: egymentors_inventory
+#: code:addons/egymentors_inventory/reports/inventory_adjustment_xlsx.py:0
+#, python-format
+msgid "Custody Keeper Name: .............."
+msgstr "اسم صاحب العهدة: ..................."
+
+#. module: egymentors_inventory
 #: model:ir.model.fields,help:egymentors_inventory.field_purchase_request__access_url
 msgid "Customer Portal URL"
 msgstr ""
+
+#. module: egymentors_inventory
+#: code:addons/egymentors_inventory/reports/inventory_adjustment_xlsx.py:0
+#, python-format
+msgid "Date"
+msgstr ""
+
+#. module: egymentors_inventory
+#: code:addons/egymentors_inventory/reports/inventory_adjustment_xlsx.py:0
+#, python-format
+msgid "Date To: "
+msgstr "الي: "
 
 #. module: egymentors_inventory
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.purchase_request_filter_line_view
@@ -514,6 +662,12 @@ msgid ""
 msgstr ""
 
 #. module: egymentors_inventory
+#: code:addons/egymentors_inventory/reports/inventory_adjustment_xlsx.py:0
+#, python-format
+msgid "Difference"
+msgstr "الفارق"
+
+#. module: egymentors_inventory
 #: model:ir.model.fields,field_description:egymentors_inventory.field_agreement_signature__display_name
 #: model:ir.model.fields,field_description:egymentors_inventory.field_product_product__display_name
 #: model:ir.model.fields,field_description:egymentors_inventory.field_product_template__display_name
@@ -524,6 +678,8 @@ msgstr ""
 #: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request_line__display_name
 #: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_requisition__display_name
 #: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_requisition_line__display_name
+#: model:ir.model.fields,field_description:egymentors_inventory.field_report_egymentors_inventory_report_inventory_adjustment_ar_xlsx__display_name
+#: model:ir.model.fields,field_description:egymentors_inventory.field_report_egymentors_inventory_report_inventory_adjustment_xlsx__display_name
 #: model:ir.model.fields,field_description:egymentors_inventory.field_report_egymentors_inventory_report_purchase_requisition__display_name
 #: model:ir.model.fields,field_description:egymentors_inventory.field_res_currency__display_name
 #: model:ir.model.fields,field_description:egymentors_inventory.field_stock_inventory__display_name
@@ -536,6 +692,11 @@ msgstr "الاسم المعروض"
 #: model:ir.model.fields.selection,name:egymentors_inventory.selection__purchase_requisition__request_state__done
 msgid "Done"
 msgstr "تم"
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchaseorder_document_eams2
+msgid "Employee/"
+msgstr "/الموظف"
 
 #. module: egymentors_inventory
 #: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__message_follower_ids
@@ -579,6 +740,8 @@ msgstr ""
 #: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request_line__id
 #: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_requisition__id
 #: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_requisition_line__id
+#: model:ir.model.fields,field_description:egymentors_inventory.field_report_egymentors_inventory_report_inventory_adjustment_ar_xlsx__id
+#: model:ir.model.fields,field_description:egymentors_inventory.field_report_egymentors_inventory_report_inventory_adjustment_xlsx__id
 #: model:ir.model.fields,field_description:egymentors_inventory.field_report_egymentors_inventory_report_purchase_requisition__id
 #: model:ir.model.fields,field_description:egymentors_inventory.field_res_currency__id
 #: model:ir.model.fields,field_description:egymentors_inventory.field_stock_inventory__id
@@ -613,6 +776,29 @@ msgid "Inventory"
 msgstr "الجرد"
 
 #. module: egymentors_inventory
+#: code:addons/egymentors_inventory/reports/inventory_adjustment_xlsx.py:0
+#: code:addons/egymentors_inventory/reports/inventory_adjustment_xlsx.py:0
+#, python-format
+msgid "Inventory Adjustment"
+msgstr "محضر جرد الأصناف"
+
+#. module: egymentors_inventory
+#: model:ir.actions.report,name:egymentors_inventory.report_inventory_adjustment_arabic_xlsx
+msgid "Inventory Adjustment Arabic Excel"
+msgstr "محضر جرد عربي اكسل"
+
+#. module: egymentors_inventory
+#: model:ir.actions.report,name:egymentors_inventory.report_inventory_adjustment_xlsx
+msgid "Inventory Adjustment Excel"
+msgstr "محضر جرد"
+
+#. module: egymentors_inventory
+#: code:addons/egymentors_inventory/reports/inventory_adjustment_xlsx.py:0
+#, python-format
+msgid "Inventory Date From: "
+msgstr "تاريخ الجرد من: "
+
+#. module: egymentors_inventory
 #: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__message_is_follower
 msgid "Is Follower"
 msgstr ""
@@ -633,6 +819,8 @@ msgstr ""
 #: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request_line____last_update
 #: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_requisition____last_update
 #: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_requisition_line____last_update
+#: model:ir.model.fields,field_description:egymentors_inventory.field_report_egymentors_inventory_report_inventory_adjustment_ar_xlsx____last_update
+#: model:ir.model.fields,field_description:egymentors_inventory.field_report_egymentors_inventory_report_inventory_adjustment_xlsx____last_update
 #: model:ir.model.fields,field_description:egymentors_inventory.field_report_egymentors_inventory_report_purchase_requisition____last_update
 #: model:ir.model.fields,field_description:egymentors_inventory.field_res_currency____last_update
 #: model:ir.model.fields,field_description:egymentors_inventory.field_stock_inventory____last_update
@@ -699,14 +887,14 @@ msgstr ""
 #. module: egymentors_inventory
 #: model:ir.model.fields,field_description:egymentors_inventory.field_agreement_signature__name
 msgid "Name"
-msgstr ""
+msgstr "الاسم"
 
 #. module: egymentors_inventory
 #: code:addons/egymentors_inventory/models/.ipynb_checkpoints/stock_inventory_changes-checkpoint.py:0
 #: code:addons/egymentors_inventory/models/stock_inventory_changes.py:0
 #, python-format
 msgid "New"
-msgstr "جديد"
+msgstr ""
 
 #. module: egymentors_inventory
 #: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__activity_date_deadline
@@ -724,18 +912,20 @@ msgid "Next Activity Type"
 msgstr ""
 
 #. module: egymentors_inventory
+#: code:addons/egymentors_inventory/models/.ipynb_checkpoints/purchase_requisition_changes-checkpoint.py:0
 #: code:addons/egymentors_inventory/models/purchase_order_changes.py:0
 #: code:addons/egymentors_inventory/models/purchase_requisition_changes.py:0
 #, python-format
 msgid "No Request To load"
-msgstr "لا يوجد اى طلبات لاضافتها"
+msgstr ""
 
 #. module: egymentors_inventory
+#: code:addons/egymentors_inventory/models/.ipynb_checkpoints/purchase_requisition_changes-checkpoint.py:0
 #: code:addons/egymentors_inventory/models/purchase_order_changes.py:0
 #: code:addons/egymentors_inventory/models/purchase_requisition_changes.py:0
 #, python-format
 msgid "No Request To remove"
-msgstr "لا يوجد اى طلبات لحذفها"
+msgstr ""
 
 #. module: egymentors_inventory
 #: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request_line__note
@@ -746,6 +936,11 @@ msgstr "الملاحظات"
 #: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__message_needaction_counter
 msgid "Number of Actions"
 msgstr "عدد الاوامر"
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchaseorder_document_eams2
+msgid "Number of attachments:"
+msgstr "عدد المرفقات:"
 
 #. module: egymentors_inventory
 #: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__message_has_error_counter
@@ -768,6 +963,12 @@ msgid "Number of unread messages"
 msgstr ""
 
 #. module: egymentors_inventory
+#: code:addons/egymentors_inventory/reports/inventory_adjustment_xlsx.py:0
+#, python-format
+msgid "On Hand"
+msgstr "الرصيد الدفتري"
+
+#. module: egymentors_inventory
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.purchase_request_filter_line_view
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.purchase_request_filter_view
 msgid "Open"
@@ -777,6 +978,13 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.purchase_request_form
 msgid "Other Information"
 msgstr "معلومات اخرى"
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchaseorder_document_eams2
+msgid ""
+"Please supply the following items as soon as you receive the electronic "
+"payment order: -"
+msgstr "المرجو توريد الأصناف الأتي بيانها فور إستلام أمر الدفع الإلكتروني:-"
 
 #. module: egymentors_inventory
 #: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__access_url
@@ -794,6 +1002,19 @@ msgstr "طباعه"
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.purchase_request_filter_line_view
 msgid "Product"
 msgstr "المنتج"
+
+#. module: egymentors_inventory
+#: code:addons/egymentors_inventory/reports/inventory_adjustment_xlsx.py:0
+#, python-format
+msgid "Product Name"
+msgstr "اسم الصنف"
+
+#. module: egymentors_inventory
+#: code:addons/egymentors_inventory/reports/inventory_adjustment_xlsx.py:0
+#: code:addons/egymentors_inventory/reports/inventory_adjustment_xlsx.py:0
+#, python-format
+msgid "Product State"
+msgstr "حالة الصنف"
 
 #. module: egymentors_inventory
 #: model:ir.model,name:egymentors_inventory.model_product_template
@@ -829,7 +1050,7 @@ msgstr "أمر شراء"
 #. module: egymentors_inventory
 #: model:ir.model,name:egymentors_inventory.model_purchase_order_line
 msgid "Purchase Order Line"
-msgstr "بند أمر التوريد"
+msgstr "بند أمر الشراء"
 
 #. module: egymentors_inventory
 #: model:ir.ui.menu,name:egymentors_inventory.menu_purchase_form_action_pr
@@ -895,6 +1116,11 @@ msgid "Purchase request Lines"
 msgstr "سطر طلب الشراء"
 
 #. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchaseorder_document_eams2
+msgid "Purchases Manager/"
+msgstr "مدير المشتريات/"
+
+#. module: egymentors_inventory
 #: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request_line__product_qty
 msgid "Quantity"
 msgstr "الكميه"
@@ -919,6 +1145,11 @@ msgstr "المرجع"
 #: model:ir.model.fields,field_description:egymentors_inventory.field_product_template__ref_2
 msgid "Reference 2"
 msgstr ""
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchaseorder_document_eams2
+msgid "Registration number:"
+msgstr "رقم القيد:"
 
 #. module: egymentors_inventory
 #: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request_line__reason
@@ -1027,10 +1258,12 @@ msgid "Signatures Lines"
 msgstr ""
 
 #. module: egymentors_inventory
+#: code:addons/egymentors_inventory/reports/inventory_adjustment_xlsx.py:0
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.purchase_request_filter_line_view
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.purchase_request_filter_view
+#, python-format
 msgid "State"
-msgstr ""
+msgstr "الحالة"
 
 #. module: egymentors_inventory
 #: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__state
@@ -1089,11 +1322,18 @@ msgid "Unread Messages Counter"
 msgstr ""
 
 #. module: egymentors_inventory
+#: code:addons/egymentors_inventory/reports/inventory_adjustment_xlsx.py:0
+#, python-format
+msgid "UoM"
+msgstr "الوحدة"
+
+#. module: egymentors_inventory
 #: model:res.groups,name:egymentors_inventory.group_purchase_request_user
 msgid "User"
 msgstr "مستخدم"
 
 #. module: egymentors_inventory
+#: code:addons/egymentors_inventory/models/.ipynb_checkpoints/purchase_requisition_changes-checkpoint.py:0
 #: code:addons/egymentors_inventory/models/purchase_requisition_changes.py:0
 #, python-format
 msgid ""
@@ -1108,6 +1348,18 @@ msgid ""
 "User Changed Qty for this product [%s]\n"
 " Please Make it's qty bigger than purchase request line qty:%s"
 msgstr ""
+
+#. module: egymentors_inventory
+#: code:addons/egymentors_inventory/reports/inventory_adjustment_xlsx.py:0
+#, python-format
+msgid "Value"
+msgstr "القيمة"
+
+#. module: egymentors_inventory
+#: code:addons/egymentors_inventory/reports/inventory_adjustment_xlsx.py:0
+#, python-format
+msgid "Warehouse: "
+msgstr "المخزن: "
 
 #. module: egymentors_inventory
 #: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__website_message_ids
@@ -1145,6 +1397,16 @@ msgid "draft"
 msgstr "مبدئي"
 
 #. module: egymentors_inventory
+#: model:ir.model,name:egymentors_inventory.model_report_egymentors_inventory_report_inventory_adjustment_ar_xlsx
+msgid "report.egymentors_inventory.report_inventory_adjustment_ar_xlsx"
+msgstr ""
+
+#. module: egymentors_inventory
+#: model:ir.model,name:egymentors_inventory.model_report_egymentors_inventory_report_inventory_adjustment_xlsx
+msgid "report.egymentors_inventory.report_inventory_adjustment_xlsx"
+msgstr "محضر جرد الأصناف"
+
+#. module: egymentors_inventory
 #: model:ir.model,name:egymentors_inventory.model_report_egymentors_inventory_report_purchase_requisition
 msgid "report.egymentors_inventory.report_purchase_requisition"
 msgstr ""
@@ -1170,23 +1432,8 @@ msgid "ا/محمد مصطفى المعدلي"
 msgstr ""
 
 #. module: egymentors_inventory
-#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchaseorder_document_eams2
-msgid "الإحتياجات والمخازن"
-msgstr ""
-
-#. module: egymentors_inventory
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_requisition_price_doc
 msgid "الإرتباط بالسعر:"
-msgstr ""
-
-#. module: egymentors_inventory
-#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchaseorder_document_eams2
-msgid "الإستلام نهائياَ, وعند التسليم نرجو إرسال فاتورتكم مننسختين"
-msgstr ""
-
-#. module: egymentors_inventory
-#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchaseorder_document_eams2
-msgid "الإسكندرية في"
 msgstr ""
 
 #. module: egymentors_inventory
@@ -1220,11 +1467,6 @@ msgstr ""
 msgid ""
 "القانون رقم 182 لسنة 2018 ولائحته التنفيذيه, على ألا تقل مدة سريان العطاء عن"
 " اسبوع"
-msgstr ""
-
-#. module: egymentors_inventory
-#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchaseorder_document_eams2
-msgid "المرجو توريد الأصناف الأتي بيانها فور إستلام أمر الدفع الإلكتروني:-"
 msgstr ""
 
 #. module: egymentors_inventory
@@ -1268,11 +1510,6 @@ msgid "رقم العطاء:"
 msgstr ""
 
 #. module: egymentors_inventory
-#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchaseorder_document_eams2
-msgid "رقم القيد:"
-msgstr ""
-
-#. module: egymentors_inventory
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_note_doc
 msgid "شراء"
 msgstr ""
@@ -1290,11 +1527,6 @@ msgstr ""
 #. module: egymentors_inventory
 #: model:ir.actions.report,name:egymentors_inventory.purchase_requisition_price_report
 msgid "طلب عرض سعر"
-msgstr ""
-
-#. module: egymentors_inventory
-#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchaseorder_document_eams2
-msgid "عدد المرفقات:"
 msgstr ""
 
 #. module: egymentors_inventory
@@ -1330,11 +1562,6 @@ msgid "مدير عام الإدارة العامه للشئون الماليه"
 msgstr ""
 
 #. module: egymentors_inventory
-#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchaseorder_document_eams2
-msgid "مدير/"
-msgstr ""
-
-#. module: egymentors_inventory
 #: model:ir.actions.report,name:egymentors_inventory.purchase_order_note_report
 msgid "مذكره شراء"
 msgstr ""
@@ -1353,13 +1580,6 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_request_doc
 msgid ""
 "والأمر مرفوع لسيادتكم للتكرم بالتنبيه بسرعه إتخاذ اللازم لعدم تعطل العمل"
-msgstr ""
-
-#. module: egymentors_inventory
-#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchaseorder_document_eams2
-msgid ""
-"وهذه الأثمان تشمل كل المصاريف والتسليم يكون محلاتكم. مع العلم بأنه سيصير فحص"
-" الأصنافبمعرفة مندوبي الهيئة قبل الإقرار على"
 msgstr ""
 
 #. module: egymentors_inventory

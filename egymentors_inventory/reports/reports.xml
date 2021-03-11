@@ -93,5 +93,15 @@
                 attachment_use="False"
                 print_report_name="'Inventory Adjustment - %s' % (object.name)"/>
 
+        <report
+                id="report_inventory_adjustment_arabic_xlsx"
+                string="Inventory Adjustment Arabic Excel"
+                model="stock.inventory"
+                report_type="xlsx"
+                name="egymentors_inventory.report_inventory_adjustment_ar_xlsx"
+                file="egymentors_inventory.report_inventory_adjustment_ar_xlsx"
+                attachment_use="False"
+                print_report_name="'Inventory Adjustment Arabic - %s' % (object.name)"/>
+
     </data>
 </odoo>
