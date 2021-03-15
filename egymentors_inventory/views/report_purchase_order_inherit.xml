@@ -8,7 +8,7 @@
                     <div class="col-4 text-center">
                         <p style="width:100%;block:">
                             <strong>
-                                <u>Request to supply local items</u>
+                                <u>Supply Request</u>
                             </strong>
                         </p>
                     </div>
@@ -18,57 +18,76 @@
                     <div class="col-4"/>
                     <div class="col-4"/>
                     <div class="col-4">
-                        <p style="width:100%;block:">Registration number:</p>
-                        <p style="width:100%;block:">Number of attachments:</p>
+                        <h6 style="width:100%;block:">Registration number:</h6>
+                        <h6 style="width:100%;block:">Number of attachments:</h6>
                     </div>
                 </div>
                 <br/>
                 <div class="row">
                     <div class="col-12">
-                        <strong style="width:100%;block:">
-                            Alexandria in
-                            <span t-if="o.date_order" t-field="o.date_order" t-options='{"widget":"date"}'/>
-                        </strong>
+                        <h6>
+                            <strong style="width:100%;block:">
+                                Alexandria in
+                                <span t-if="o.date_order" t-field="o.date_order" t-options='{"widget":"date"}'/>
+                            </strong>
+                        </h6>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <strong style="width:100%;block:">
-                            To company/
-                            <span t-if="o.partner_id" t-field="o.partner_id"/>
-                        </strong>
+                        <h6>
+                            <strong style="width:100%;block:">
+                                To company/
+                                <span t-if="o.partner_id" t-field="o.partner_id"/>
+                            </strong>
+                        </h6>
                     </div>
                 </div>
                 <br/>
-                <br/>
-                <div class="row ">
-                    <p>
-                        Please supply the following items as soon as you receive the electronic payment order: -
-                    </p>
+                <div class="row">
+                    <div class="col-12">
+                        <h6>
+                            Please supply the following items as soon as you receive the electronic payment order:
+                        </h6>
+                    </div>
                 </div>
                 <table class="table table-sm o_main_table ">
                     <thead>
                         <tr class="text-center">
                             <th>
-                                <span>Ser.</span>
+                                <span>
+                                    <h6>Ser.</h6>
+                                </span>
                             </th>
                             <th>
-                                <span>Product Name</span>
+                                <span>
+                                    <h6>Product Name</h6>
+                                </span>
                             </th>
                             <th>
-                                <span>Unit</span>
+                                <span>
+                                    <h6>Unit</h6>
+                                </span>
                             </th>
                             <th>
-                                <span>Quantity</span>
+                                <span>
+                                    <h6>Quantity</h6>
+                                </span>
                             </th>
                             <th>
-                                <span>Price</span>
+                                <span>
+                                    <h6>Price</h6>
+                                </span>
                             </th>
                             <th>
-                                <span>Total</span>
+                                <span>
+                                    <h6>Total</h6>
+                                </span>
                             </th>
                             <th>
-                                <span>Notes</span>
+                                <span>
+                                    <h6>Notes</h6>
+                                </span>
                             </th>
                         </tr>
                     </thead>
@@ -76,22 +95,34 @@
                         <t t-set="count" t-value="1"/>
                         <tr t-foreach="o.order_line" t-as="line">
                             <td class="text-center">
-                                <span t-esc="count"/>
+                                <h6>
+                                    <span t-esc="count"/>
+                                </h6>
                             </td>
                             <td class="text-center" style="text-align: right !important;">
-                                <span t-if="line.product_id" t-esc="line.product_id.display_name"/>
+                                <h6>
+                                    <span t-if="line.product_id" t-esc="line.product_id.display_name"/>
+                                </h6>
                             </td>
                             <td class="text-center">
-                                <span t-if="line.product_uom" t-esc="line.product_uom.name"/>
+                                <h6>
+                                    <span t-if="line.product_uom" t-esc="line.product_uom.name"/>
+                                </h6>
                             </td>
                             <td class="text-center">
-                                <span t-esc="line.product_qty"/>
+                                <h6>
+                                    <span t-esc="line.product_qty"/>
+                                </h6>
                             </td>
                             <td class="text-center">
-                                <span t-if="line.price_unit" t-esc="line.price_unit"/>
+                                <h6>
+                                    <span t-if="line.price_unit" t-esc="line.price_unit"/>
+                                </h6>
                             </td>
                             <td class="text-center">
-                                <span t-if="line.price_subtotal" t-esc="line.price_subtotal"/>
+                                <h6>
+                                    <span t-if="line.price_subtotal" t-esc="line.price_subtotal"/>
+                                </h6>
                             </td>
                             <td class="tex-center"/>
                             <t t-set="count" t-value="count+1"/>
@@ -103,65 +134,76 @@
                             <td class="text-center"/>
                             <td class="text-center"/>
                             <td class="text-center">
-                                <span t-if="o.amount_total" t-esc="o.amount_total"/>
+                                <h6>
+                                    <strong>
+                                        <span t-if="o.amount_total" t-esc="o.amount_total"/>
+                                    </strong>
+                                </h6>
                             </td>
                             <td class="tex-center"/>
                         </tr>
                     </tbody>
                 </table>
-                <br/>
                 <div class="row">
                     <div class="col-12">
-                        <p>
+                        <h6>
                             1- These prices include all expenses and the delivery will be at your stores or at the
                             authority’s stores. Knowing that the items will be examined with the knowledge of the
                             authority’s representatives before the receipt is finally acknowledged.
-                        </p>
+                        </h6>
                     </div>
                 </div>
                 <br/>
                 <div class="row">
                     <div class="col-12">
-                        <p>
+                        <h6>
                             <strong>2- Supplying duration:</strong>
                             <span t-if="o.requisition_id.schedule_date" t-field="o.requisition_id.schedule_date"/>
-                        </p>
+                        </h6>
                     </div>
                 </div>
                 <br/>
                 <div class="row">
                     <div class="col-12">
-                        <strong>3- Payment by electronic payment order:</strong>
-                        <br/>
-                        <p>
+                        <h6>
+                            <strong>3- Payment by electronic payment order:</strong>
+                        </h6>
+                        <h6>
                             - Receipt after receiving the payment order
-                            <br/>
+                        </h6>
+                        <h6>
                             - Receipt after examination and receipt of the payment order
-                            <br/>
+                        </h6>
+                        <h6>
                             - Receipt after examination and receipt
-                        </p>
+                        </h6>
                     </div>
                 </div>
                 <br/>
                 <div class="row">
                     <div class="col-12">
-                        <strong>4- Receipt:</strong>
-                        <br/>
+                        <h6>
+                            <strong>4- Receipt:</strong>
+                        </h6>
                         <div class="checkbox">
-                            <label>
-                                <input type="checkbox" value=""/>
-                                After receiving the payment order
-                            </label>
-                            <br/>
-                            <label>
-                                <input type="checkbox" value=""/>
-                                After the examination and receipt of the payment order
-                            </label>
-                            <br/>
-                            <label>
-                                <input type="checkbox" value=""/>
-                                After examination and reception
-                            </label>
+                            <h6>
+                                <label>
+                                    <input type="checkbox" value=""/>
+                                    After receiving the payment order
+                                </label>
+                            </h6>
+                            <h6>
+                                <label>
+                                    <input type="checkbox" value=""/>
+                                    After the examination and receipt of the payment order
+                                </label>
+                            </h6>
+                            <h6>
+                                <label>
+                                    <input type="checkbox" value=""/>
+                                    After examination and reception
+                                </label>
+                            </h6>
                         </div>
                     </div>
                 </div>
@@ -169,33 +211,33 @@
                 <div class="row">
                     <div class="col-4"/>
                     <div class="col-4 text-center">
-                        <p style="width:100%;block:">
+                        <h6 style="width:100%;block:">
                             <strong>With the highest consideration and respect,</strong>
-                        </p>
+                        </h6>
                     </div>
                 </div>
                 <br/>
                 <div class="row">
                     <div class="col-4">
-                        <p>
+                        <h6>
                             Employee/
-                        </p>
+                        </h6>
                     </div>
                     <div class="col-4">
-                        <p>
+                        <h6>
                             Auditor/
-                        </p>
+                        </h6>
                     </div>
                     <div class="col-4">
-                        <p>
+                        <h6>
                             Purchases Manager/
-                        </p>
+                        </h6>
                     </div>
                 </div>
-                <br/>
             </div>
         </t>
     </template>
+
     <template id="purchase.report_purchaseorder">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="o">
