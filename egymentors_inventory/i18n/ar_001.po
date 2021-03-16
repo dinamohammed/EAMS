@@ -6,24 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0+e-20210126\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-14 21:55+0000\n"
-"PO-Revision-Date: 2021-03-14 21:55+0000\n"
+"POT-Creation-Date: 2021-03-16 03:00+0000\n"
+"PO-Revision-Date: 2021-03-16 03:00+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
-
-#. module: egymentors_inventory
-#: model:ir.actions.report,print_report_name:egymentors_inventory.report_inventory_adjustment_xlsx
-msgid "'Inventory Adjustment - %s' % (object.name)"
-msgstr "'جرد الأصناف - %s' % (object.name)"
-
-#. module: egymentors_inventory
-#: model:ir.actions.report,print_report_name:egymentors_inventory.report_inventory_adjustment_arabic_xlsx
-msgid "'Inventory Adjustment Arabic - %s' % (object.name)"
-msgstr ""
 
 #. module: egymentors_inventory
 #: code:addons/egymentors_inventory/reports/inventory_adjustment_xlsx.py:0
@@ -464,8 +454,8 @@ msgstr "المراجع/"
 #. module: egymentors_inventory
 #: code:addons/egymentors_inventory/reports/inventory_adjustment_xlsx.py:0
 #, python-format
-msgid "Authority Name: "
-msgstr "اسم الجهة: "
+msgid "Authority Name"
+msgstr ""
 
 #. module: egymentors_inventory
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.purchase_request_form
@@ -587,18 +577,6 @@ msgid "Customer Portal URL"
 msgstr ""
 
 #. module: egymentors_inventory
-#: code:addons/egymentors_inventory/reports/inventory_adjustment_xlsx.py:0
-#, python-format
-msgid "Date"
-msgstr ""
-
-#. module: egymentors_inventory
-#: code:addons/egymentors_inventory/reports/inventory_adjustment_xlsx.py:0
-#, python-format
-msgid "Date To: "
-msgstr "الي: "
-
-#. module: egymentors_inventory
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.purchase_request_filter_line_view
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.purchase_request_filter_view
 msgid "Date(month)"
@@ -634,7 +612,7 @@ msgstr "الفارق"
 #: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request_line__display_name
 #: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_requisition__display_name
 #: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_requisition_line__display_name
-#: model:ir.model.fields,field_description:egymentors_inventory.field_report_egymentors_inventory_report_inventory_adjustment_ar_xlsx__display_name
+#: model:ir.model.fields,field_description:egymentors_inventory.field_report_egymentors_inventory_report_inv_adj_ar_xlsx__display_name
 #: model:ir.model.fields,field_description:egymentors_inventory.field_report_egymentors_inventory_report_inventory_adjustment_xlsx__display_name
 #: model:ir.model.fields,field_description:egymentors_inventory.field_report_egymentors_inventory_report_purchase_requisition__display_name
 #: model:ir.model.fields,field_description:egymentors_inventory.field_res_currency__display_name
@@ -696,7 +674,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request_line__id
 #: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_requisition__id
 #: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_requisition_line__id
-#: model:ir.model.fields,field_description:egymentors_inventory.field_report_egymentors_inventory_report_inventory_adjustment_ar_xlsx__id
+#: model:ir.model.fields,field_description:egymentors_inventory.field_report_egymentors_inventory_report_inv_adj_ar_xlsx__id
 #: model:ir.model.fields,field_description:egymentors_inventory.field_report_egymentors_inventory_report_inventory_adjustment_xlsx__id
 #: model:ir.model.fields,field_description:egymentors_inventory.field_report_egymentors_inventory_report_purchase_requisition__id
 #: model:ir.model.fields,field_description:egymentors_inventory.field_res_currency__id
@@ -739,20 +717,21 @@ msgid "Inventory Adjustment"
 msgstr "محضر جرد الأصناف"
 
 #. module: egymentors_inventory
-#: model:ir.actions.report,name:egymentors_inventory.report_inventory_adjustment_arabic_xlsx
-msgid "Inventory Adjustment Arabic Excel"
-msgstr "محضر جرد عربي اكسل"
-
-#. module: egymentors_inventory
 #: model:ir.actions.report,name:egymentors_inventory.report_inventory_adjustment_xlsx
 msgid "Inventory Adjustment Excel"
-msgstr "محضر جرد"
+msgstr ""
 
 #. module: egymentors_inventory
 #: code:addons/egymentors_inventory/reports/inventory_adjustment_xlsx.py:0
 #, python-format
-msgid "Inventory Date From: "
-msgstr "تاريخ الجرد من: "
+msgid "Inventory Date"
+msgstr "تاريخ الجرد"
+
+#. module: egymentors_inventory
+#: code:addons/egymentors_inventory/reports/inventory_adjustment_xlsx.py:0
+#, python-format
+msgid "Inventory Reference"
+msgstr ""
 
 #. module: egymentors_inventory
 #: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__message_is_follower
@@ -775,7 +754,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request_line____last_update
 #: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_requisition____last_update
 #: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_requisition_line____last_update
-#: model:ir.model.fields,field_description:egymentors_inventory.field_report_egymentors_inventory_report_inventory_adjustment_ar_xlsx____last_update
+#: model:ir.model.fields,field_description:egymentors_inventory.field_report_egymentors_inventory_report_inv_adj_ar_xlsx____last_update
 #: model:ir.model.fields,field_description:egymentors_inventory.field_report_egymentors_inventory_report_inventory_adjustment_xlsx____last_update
 #: model:ir.model.fields,field_description:egymentors_inventory.field_report_egymentors_inventory_report_purchase_requisition____last_update
 #: model:ir.model.fields,field_description:egymentors_inventory.field_res_currency____last_update
@@ -838,11 +817,6 @@ msgstr "متعدد"
 #: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_order__multi_requisition
 #: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_requisition__multi_requisition
 msgid "Multi Requests"
-msgstr ""
-
-#. module: egymentors_inventory
-#: model_terms:ir.ui.view,arch_db:egymentors_inventory.external_layout_boxed_inherit
-msgid "My changes"
 msgstr ""
 
 #. module: egymentors_inventory
@@ -964,6 +938,11 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.purchase_request_form
 msgid "Print"
 msgstr "طباعه"
+
+#. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.view_inventory_form_inherit
+msgid "Print Excel"
+msgstr "طباعة اكسل"
 
 #. module: egymentors_inventory
 #: model:ir.model,name:egymentors_inventory.model_product_product
@@ -1234,10 +1213,8 @@ msgid "Signatures Lines"
 msgstr ""
 
 #. module: egymentors_inventory
-#: code:addons/egymentors_inventory/reports/inventory_adjustment_xlsx.py:0
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.purchase_request_filter_line_view
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.purchase_request_filter_view
-#, python-format
 msgid "State"
 msgstr "الحالة"
 
@@ -1348,8 +1325,8 @@ msgstr "القيمة"
 #. module: egymentors_inventory
 #: code:addons/egymentors_inventory/reports/inventory_adjustment_xlsx.py:0
 #, python-format
-msgid "Warehouse: "
-msgstr "المخزن: "
+msgid "Warehouse"
+msgstr ""
 
 #. module: egymentors_inventory
 #: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request__website_message_ids
@@ -1387,14 +1364,14 @@ msgid "draft"
 msgstr "مبدئي"
 
 #. module: egymentors_inventory
-#: model:ir.model,name:egymentors_inventory.model_report_egymentors_inventory_report_inventory_adjustment_ar_xlsx
-msgid "report.egymentors_inventory.report_inventory_adjustment_ar_xlsx"
+#: model:ir.model,name:egymentors_inventory.model_report_egymentors_inventory_report_inv_adj_ar_xlsx
+msgid "report.egymentors_inventory.report_inv_adj_ar_xlsx"
 msgstr ""
 
 #. module: egymentors_inventory
 #: model:ir.model,name:egymentors_inventory.model_report_egymentors_inventory_report_inventory_adjustment_xlsx
 msgid "report.egymentors_inventory.report_inventory_adjustment_xlsx"
-msgstr "محضر جرد الأصناف"
+msgstr ""
 
 #. module: egymentors_inventory
 #: model:ir.model,name:egymentors_inventory.model_report_egymentors_inventory_report_purchase_requisition

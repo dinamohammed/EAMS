@@ -10,3 +10,6 @@ class StockInventoryInherit(models.Model):
 	def action_validate(self):
 		self.ref = self.env['ir.sequence'].sudo().next_by_code('stock.inventory.code') or _('New')
 		return super(StockInventoryInherit, self).action_validate()
+
+	def action_print_inventory_adjustment_excel(self):
+		return self.env.ref('egymentors_inventory.report_inv_adj_ar_xlsx').report_action(self)
