@@ -11,6 +11,10 @@
                 <xpath expr="//h1" position="after">
                     <h3 attrs="{'invisible':[('state','!=', 'done')]}"><field name="ref" readonly="1"/></h3>
                 </xpath>
+                <xpath expr="//header" position="inside">
+                    <button name="action_print_inventory_adjustment_excel" string="Print Excel" type="object"
+                            class="oe_highlight"/>
+                </xpath>
 
             </field>
         </record>

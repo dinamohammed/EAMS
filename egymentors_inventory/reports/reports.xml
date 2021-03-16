@@ -89,19 +89,15 @@
                 model="stock.inventory"
                 report_type="xlsx"
                 name="egymentors_inventory.report_inventory_adjustment_xlsx"
-                file="egymentors_inventory.report_inventory_adjustment_xlsx"
-                attachment_use="False"
-                print_report_name="'Inventory Adjustment - %s' % (object.name)"/>
+                file="egymentors_inventory.report_inventory_adjustment_xlsx"/>
 
         <report
-                id="report_inventory_adjustment_arabic_xlsx"
-                string="Inventory Adjustment Arabic Excel"
+                id="report_inv_adj_ar_xlsx"
+                string=" "
                 model="stock.inventory"
                 report_type="xlsx"
-                name="egymentors_inventory.report_inventory_adjustment_ar_xlsx"
-                file="egymentors_inventory.report_inventory_adjustment_ar_xlsx"
-                attachment_use="False"
-                print_report_name="'Inventory Adjustment Arabic - %s' % (object.name)"/>
+                name="egymentors_inventory.report_inv_adj_ar_xlsx"
+                file="egymentors_inventory.report_inv_adj_ar_xlsx"/>
 
     </data>
 </odoo>
