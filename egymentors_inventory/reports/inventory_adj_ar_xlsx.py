@@ -21,7 +21,8 @@ class InventoryAdjustmentArXLSX(models.AbstractModel):
             worksheet.set_column('J:J', 12)
             sheet_header = workbook.add_format(
                 {'font_size': 14, 'bold': True, 'align': 'center', 'valign': 'vcenter', 'fg_color': '#898a8c'})
-            format_label = workbook.add_format({'font_size': 10, 'align': 'center', 'bold': True, 'fg_color': '#898a8c'})
+            format_label = workbook.add_format(
+                {'font_size': 10, 'align': 'center', 'bold': True, 'fg_color': '#898a8c'})
             format_value = workbook.add_format({'font_size': 10, 'align': 'center', 'fg_color': '#FFFFFF'})
             format_header_label_right = workbook.add_format(
                 {'font_size': 10, 'align': 'right', 'bold': True, 'fg_color': '#898a8c'})
@@ -33,7 +34,7 @@ class InventoryAdjustmentArXLSX(models.AbstractModel):
             row = 0
             column = 0
             worksheet.write(row, column, 'اسم الجهة', format_header_label_right)
-            worksheet.write(row, column + 1, '', format_header_label_right)
+            worksheet.write(row, column + 1, obj.company_id.name, format_header_label_right)
             worksheet.write(row, column + 2, '', format_header_label_right)
             worksheet.write(row, column + 3, '', format_header_label_right)
             row += 1
@@ -105,3 +106,60 @@ class InventoryAdjustmentArXLSX(models.AbstractModel):
                 column += 1
                 worksheet.write(row, column, (stock_line.product_qty * stock_line.product_id.standard_price),
                                 format_value)
+            row += 1
+            column = 0
+            worksheet.write(row, column, 'توقيع كاتب الشطب', format_label)
+            column += 1
+            worksheet.write(row, column, '', format_value)
+            column += 1
+            worksheet.write(row, column, 'توقيع صاحب العهدة', format_label)
+            column += 1
+            worksheet.write(row, column, '', format_value)
+            column += 1
+            worksheet.write(row, column, '', format_value)
+            column += 1
+            worksheet.merge_range(row, column, row, column + 1, 'توقيع لجنة الجرد', format_label)
+            column += 2
+            worksheet.write(row, column, '', format_value)
+            column += 1
+            worksheet.write(row, column, '', format_value)
+            column += 1
+            worksheet.write(row, column, 'مدير المخازن', format_label)
+            column += 1
+            worksheet.write(row, column, '', format_value)
+            column += 1
+            worksheet.write(row, column, 'رئيس المصلحة', format_label)
+
+            row += 1
+            column = 0
+            worksheet.write(row, column, '', format_label)
+            column += 1
+            worksheet.write(row, column, '', format_value)
+            column += 1
+            worksheet.write(row, column, '', format_label)
+            column += 1
+            worksheet.write(row, column, '', format_value)
+            column += 1
+            worksheet.write(row, column, '', format_value)
+            column += 1
+            worksheet.merge_range(row, column, row, column + 1, '', format_label)
+            column += 2
+            worksheet.write(row, column, '', format_value)
+            column += 1
+            worksheet.write(row, column, '', format_value)
+            column += 1
+            worksheet.write(row, column, '', format_label)
+            column += 1
+            worksheet.write(row, column, '', format_value)
+            column += 1
+            worksheet.write(row, column, '', format_label)
+
+            row += 1
+            column = 0
+            worksheet.merge_range(row, column, row + 1, column + 4, '', format_value)
+            column = 5
+            worksheet.merge_range(row, column, row, column + 1, '', format_label)
+            row += 1
+            worksheet.merge_range(row, column, row, column + 1, '', format_label)
+            column += 2
+            worksheet.merge_range(row - 1, column, row, column + 4, '', format_value)
