@@ -83,7 +83,10 @@
                                                attrs="{'readonly': [('state', 'in', ('done', 'cancel'))]}"
                                                force_save="1" domain="[('purchase_ok', '=', True), '|', ('company_id', '=', False), ('company_id', '=', parent.company_id)]"/>
                                         <field name="product_qty"/>
-                                        <field name="note" />
+                                        <field name="reason"/>
+                                        <field name="note"/>
+                                        <field name="item_value"/>
+                                        <field name="item_type"/>
                                         <field name="state" optional="hide"/>
                                         <field name="req_dep_id" optional="hide"/>
                                         <field name="company_id" optional="hide"/>
