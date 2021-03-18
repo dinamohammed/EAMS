@@ -108,6 +108,10 @@ class InventoryAdjustmentArXLSX(models.AbstractModel):
                                 format_value)
             row += 1
             column = 0
+            worksheet.merge_range(row, column, row, column + 11, '', format_label)
+            row += 1
+            worksheet.merge_range(row, column, row, column + 11, '', format_value)
+            row += 1
             worksheet.write(row, column, 'توقيع كاتب الشطب', format_label)
             column += 1
             worksheet.write(row, column, '', format_value)
@@ -132,34 +136,4 @@ class InventoryAdjustmentArXLSX(models.AbstractModel):
 
             row += 1
             column = 0
-            worksheet.write(row, column, '', format_label)
-            column += 1
-            worksheet.write(row, column, '', format_value)
-            column += 1
-            worksheet.write(row, column, '', format_label)
-            column += 1
-            worksheet.write(row, column, '', format_value)
-            column += 1
-            worksheet.write(row, column, '', format_value)
-            column += 1
-            worksheet.merge_range(row, column, row, column + 1, '', format_label)
-            column += 2
-            worksheet.write(row, column, '', format_value)
-            column += 1
-            worksheet.write(row, column, '', format_value)
-            column += 1
-            worksheet.write(row, column, '', format_label)
-            column += 1
-            worksheet.write(row, column, '', format_value)
-            column += 1
-            worksheet.write(row, column, '', format_label)
-
-            row += 1
-            column = 0
-            worksheet.merge_range(row, column, row + 1, column + 4, '', format_value)
-            column = 5
-            worksheet.merge_range(row, column, row, column + 1, '', format_label)
-            row += 1
-            worksheet.merge_range(row, column, row, column + 1, '', format_label)
-            column += 2
-            worksheet.merge_range(row - 1, column, row, column + 4, '', format_value)
+            worksheet.merge_range(row, column, row + 3, column + 11, '', format_value)
