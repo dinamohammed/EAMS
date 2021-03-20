@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>        
-        <report
-            id="report_internal_requisition"
-            model="material.internal.requisition" 
-            string="Internal Requisition" 
-            report_type="qweb-pdf"
-            name="material_internal_requisition.internal_requisition" 
-            file="material_internal_requisition.internal_requisition"
-        />                
-  </data>
+    <data>
+        <record id="report_internal_requisition" model="ir.actions.report">
+            <field name="name">Internal Requisition</field>
+            <field name="model">material.internal.requisition</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">material_internal_requisition.internal_requisition</field>
+            <field name="report_file">material_internal_requisition.internal_requisition</field>
+            <field name="binding_model_id" ref="model_material_internal_requisition"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
 </odoo>

@@ -202,6 +202,7 @@ class MaterialInternalRequisition(models.Model):
                         'picking_id': stock_id.id,
                         'custom_requisition_line_id': line.id
                     })
+                    line.stock_move_id = move_id
                 rec.state = 'stock'
 
 
@@ -219,6 +220,9 @@ class MaterialInternalRequisitionLine(models.Model):
     ], string='Requisition Action', default='internal', required=True, )
     virtual_available = fields.Float(related='product_id.virtual_available', string='Forecasted')
     qty_available = fields.Float(related='product_id.qty_available', string='On Hand')
+    stock_move_id = fields.Many2one(comodel_name='stock.move', string="Move")
+    product_uom_qty = fields.Float(related='stock_move_id.product_uom_qty')
+    quantity_done = fields.Float(related='stock_move_id.quantity_done')
 
     @api.onchange('product_id')
     def onchange_product_id(self):
