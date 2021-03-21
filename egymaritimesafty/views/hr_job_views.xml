@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!--Form Views-->
+        <record id="view_hr_job_employee_form" model="ir.ui.view">
+            <field name="name">hr.job.employee.form</field>
+            <field name="model">hr.job</field>
+            <field name="arch" type="xml">
+                <form string="Job">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <group>
+                                <h1>
+                                    <field name="name" readonly="0"/>
+                                </h1>
+                            </group>
+                        </div>
+                        <group>
+                            <group>
+                                <!--<field name="functional_job_id" string="Functional Job Group" options="{'no_create': True}"/>-->
+                                <!--<field name="qualitative_job_id" string="Qualitative Job Group" options="{'no_create': True}"/>-->
+                                <field name="job_title_id" string="Job Title" options="{'no_create': True}"/>
+                                <field name="emp_no" string="Number of Employees"/>
+                            </group>
+                            <group name="recruitment">
+                                <field name="company_id" options="{'no_create': True}"
+                                       groups="base.group_multi_company" invisible="1"/>
+                                <field name="department_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" options="{'open_attachments': True}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_hr_functional_job_form" model="ir.ui.view">
+            <field name="name">hr.functional.job.form</field>
+            <field name="model">hr.functional.job</field>
+            <field name="arch" type="xml">
+                <form string="Functional Job Group">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" string="Name of the functional job group"/>
+                            </group>
+                            <group>
+                                <field name="qualitative_job_ids"
+                                       string="The qualitative groups subdivided from this Functional Job Group:"
+                                       widget="one2many"
+                                       create="false">
+                                    <tree create="false">
+                                        <field name="name" nolabel="1"/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_hr_qualitative_job_form" model="ir.ui.view">
+            <field name="name">hr.qualitative.job.form</field>
+            <field name="model">hr.qualitative.job</field>
+            <field name="arch" type="xml">
+                <form string="Qualitative Job Group">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="functional_job_id" string="Functional Job Group"/>
+                                <field name="name" string="Qualitative Job Group Name"/>
+                            </group>
+                            <group>
+                                <field name="job_title_ids"
+                                       string="Job titles subdivided from this Qualitative Job Group:"
+                                       widget="one2many">
+                                    <tree create="false">
+                                        <field name="name" nolabel="1"/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_hr_job_title_form" model="ir.ui.view">
+            <field name="name">hr.job.title.form</field>
+            <field name="model">hr.title</field>
+            <field name="arch" type="xml">
+                <form string="Jobs">
+                    <sheet>
+                        <div class="oe_title">
+                            <group>
+                                <h1>
+                                    <field name="job_full_name"/>
+                                </h1>
+                            </group>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="functional_job_id" string="Functional Job Group"/>
+                                <field name="qualitative_job_id" string="Qualitative Job Group"/>
+                                <field name="name" string="Job Name"/>
+                                <field name="emp_no" string="Number of Employees"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_hr_job_career_form" model="ir.ui.view">
+            <field name="name">hr.job.job.creer.form</field>
+            <field name="model">hr.career</field>
+            <field name="arch" type="xml">
+                <form string="Job Career">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" string="Job Career"/>
+                                <field name="functional_job_id" string="Functional Job Group"/>
+                                <field name="hierarchical_order_id" string="Hierarchical Order"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_hr_hierarchical_order_form" model="ir.ui.view">
+            <field name="name">hr.hierarchical.order.form</field>
+            <field name="model">hr.hierarchical.order</field>
+            <field name="arch" type="xml">
+                <form string="Hierarchical Order">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" string="Hierarchical Order"/>
+                                <field name="degree" string="Degree"/>
+                                <field name="duration" string="Duration"/>
+                                <field name="financial_rank" string="Financial Rank"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree Views-->
+        <record id="view_hr_functional_job_tree" model="ir.ui.view">
+            <field name="name">hr.functional.job.tree</field>
+            <field name="model">hr.functional.job</field>
+            <field name="arch" type="xml">
+                <tree string="Functional Job Groups">
+                    <field name="name" string="Functional Job Groups"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_hr_qualitative_job_tree" model="ir.ui.view">
+            <field name="name">hr.qualitative.job.tree</field>
+            <field name="model">hr.qualitative.job</field>
+            <field name="arch" type="xml">
+                <tree string="Qualitative Job Groups">
+                    <field name="name" string="Qualitative Job Groups"/>
+                    <field name="functional_job_id" string="Functional Job Groups"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_hr_title_tree" model="ir.ui.view">
+            <field name="name">hr.title</field>
+            <field name="model">hr.title</field>
+            <field name="arch" type="xml">
+                <tree string="Job Titles">
+                    <field name="functional_job_id" string="Functional Job Groups"/>
+                    <field name="qualitative_job_id" string="Qualitative Job Groups"/>
+                    <field name="name" string="Job Titles"/>
+                    <field name="emp_no" string="Number of Employees"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_hr_career_tree" model="ir.ui.view">
+            <field name="name">hr.career</field>
+            <field name="model">hr.career</field>
+            <field name="arch" type="xml">
+                <tree string="Job Careers">
+                    <field name="name" string="Job Career"/>
+                    <field name="functional_job_id" string="Functional Job Groups"/>
+                    <field name="hierarchical_order_id" string="Hierarchical Order"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_hr_hierarchical_order_tree" model="ir.ui.view">
+            <field name="name">hr.hierarchical.order</field>
+            <field name="model">hr.hierarchical.order</field>
+            <field name="arch" type="xml">
+                <tree string="Hierarchical Orders">
+                    <field name="name" string="Hierarchical Order"/>
+                    <field name="degree" string="Degree"/>
+                    <field name="duration" string="Duration"/>
+                    <field name="financial_rank" string="Financial Rank"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Actions-->
+        <record id="action_open_hr_job" model="ir.actions.act_window">
+            <field name="name">Job Positions</field>
+            <field name="res_model">hr.job</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p>
+                    Create Job Position...
+                </p>
+            </field>
+        </record>
+
+        <record id="action_open_functional_job" model="ir.actions.act_window">
+            <field name="name">Functional Job Groups</field>
+            <field name="res_model">hr.functional.job</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create Functional Job Group...
+                </p>
+            </field>
+        </record>
+
+        <record id="action_open_qualitative_job" model="ir.actions.act_window">
+            <field name="name">Qualitative Job Groups</field>
+            <field name="res_model">hr.qualitative.job</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create Qualitative Job Group...
+                </p>
+            </field>
+        </record>
+
+        <record id="action_open_job_title" model="ir.actions.act_window">
+            <field name="name">Job Titles</field>
+            <field name="res_model">hr.title</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create Job Title...
+                </p>
+            </field>
+        </record>
+
+        <record id="action_open_job_career" model="ir.actions.act_window">
+            <field name="name">Job Career</field>
+            <field name="res_model">hr.career</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create Job Career...
+                </p>
+            </field>
+        </record>
+
+        <record id="action_open_hr_hierarchical_order" model="ir.actions.act_window">
+            <field name="name">Hierarchical Order</field>
+            <field name="res_model">hr.hierarchical.order</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create Hierarchical Order...
+                </p>
+            </field>
+        </record>
+
+        <!--MenuItems-->
+        <menuitem
+                id="menu_hr_job"
+                name="Jobs"
+                parent="hr.menu_hr_root"
+                sequence="5"/>
+
+        <menuitem
+                id="menu_hr_job_employee_user"
+                name="Job Positions"
+                action="action_open_hr_job"
+                parent="menu_hr_job"
+                sequence="1"/>
+
+        <menuitem
+                id="menu_hr_functional_jobs"
+                name="Functional Job Groups"
+                action="action_open_functional_job"
+                parent="menu_hr_job"
+                sequence="2"/>
+
+        <menuitem
+                id="menu_hr_qualitative_jobs"
+                name="Qualitative Job Groups"
+                action="action_open_qualitative_job"
+                parent="menu_hr_job"
+                sequence="3"/>
+
+        <menuitem
+                id="menu_hr_job_title"
+                name="Job Titles"
+                action="action_open_job_title"
+                parent="menu_hr_job"
+                sequence="4"/>
+
+        <menuitem
+                id="menu_hr_job_career"
+                name="Job Careers"
+                action="action_open_job_career"
+                parent="menu_hr_job"
+                sequence="5"/>
+
+        <menuitem
+                id="menu_hr_hierarchical_order"
+                name="Hierarchical Order"
+                action="action_open_hr_hierarchical_order"
+                parent="menu_hr_job"
+                sequence="6"/>
+
+    </data>
+</odoo>

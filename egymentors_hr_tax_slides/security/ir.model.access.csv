@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+account_hr_tax_slide_manager,hr_tax_slide_access_full,model_hr_tax_slide,hr.group_hr_manager,1,1,1,1
+account_hr_tax_slide_line_manager,hr_tax_slide_line_access_full,model_hr_tax_slide_line,hr.group_hr_manager,1,1,1,1
+account_hr_tax_slide_user,hr_tax_slide_access_limited,model_hr_tax_slide,,1,0,0,0
+account_hr_tax_slide_line_user,hr_tax_slide_line_access_limited,model_hr_tax_slide_line,,1,0,0,0

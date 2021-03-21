@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="custome_payslip.list">
+      <field name="name">custome_payslip list</field>
+      <field name="model">custome_payslip.custome_payslip</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="custome_payslip.action_window">
+      <field name="name">custome_payslip window</field>
+      <field name="res_model">custome_payslip.custome_payslip</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="custome_payslip.action_server">
+      <field name="name">custome_payslip server</field>
+      <field name="model_id" ref="model_custome_payslip_custome_payslip"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="custome_payslip" id="custome_payslip.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="custome_payslip.menu_1" parent="custome_payslip.menu_root"/>
+    <menuitem name="Menu 2" id="custome_payslip.menu_2" parent="custome_payslip.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="custome_payslip.menu_1_list" parent="custome_payslip.menu_1"
+              action="custome_payslip.action_window"/>
+    <menuitem name="Server to list" id="custome_payslip" parent="custome_payslip.menu_2"
+              action="custome_payslip.action_server"/>
+-->
+  </data>
+</odoo>

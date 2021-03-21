@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_hr_trans_allowance_doc">
+        <t t-call="web.external_layout">
+            <t t-set="o" t-value="o.with_context(lang=lang)" />
+            <div class="page">
+                <h2 class="text-center">Transportation Allowance Report</h2>
+                <h3 class="text-center">--<span t-esc="o.name"/>--</h3>
+                <div class="row mt32 mb32" >
+                    <div class="col-auto mw-100 mb-2" t-if="o.date" name="date">
+                        <strong>Date:</strong>
+                        <p class="m-0" t-field="o.date"/>
+                    </div>
+                    <div class="col-auto mw-100 mb-2" t-if="o.period_month" name="period_month">
+                        <strong>Month:</strong>
+                        <p class="m-0" t-field="o.period_month"/>
+                    </div>
+                    <div class="col-auto mw-100 mb-2" t-if="o.work_location_id" name="work_location">
+                        <strong>Work Location:</strong>
+                        <p class="m-0" t-field="o.work_location_id.name"/>
+                    </div>
+                </div>
+                <table class="table table-sm o_main_table" name="Transportation Allowance_line_table">
+                    <thead>
+                        <tr>
+                            <!-- TODO: remove in master -->
+                            <th name="th_count" class="text-center"><span>Ser.</span></th>
+                            <th name="th_emp" class="text-left"><span>Employee</span></th>
+                            <th name="th_amount" class="text-center"><span>Internal Days Num.</span></th>
+                            <th name="th_amount" class="text-center"><span>Internal Amount</span></th>
+                            <th name="th_amount" class="text-center"><span>External Amount</span></th>
+                            <th name="th_notes" class="text-left"><span>Notes</span></th>
+                        </tr>
+                    </thead>
+                    <tbody class="invoice_tbody">
+                        <t t-set="count" t-value="1"/>
+                        <tr t-foreach="o.line_ids" t-as="line">
+                            <td class="text-center"><span t-esc="count"/></td>
+                            <td class="text-left"><span t-if="line.employee_id" t-esc="line.employee_id.name"/></td>
+                            <td class="text-center"><span t-esc="line.int_days_num"/></td>
+                            <td class="text-center"><span t-esc="line.int_amount"/></td>
+                            <td class="text-center"><span t-esc="line.ext_amount"/></td>
+                            <td class="text-center"><span t-esc="line.notes"/></td>
+                            <t t-set="count" t-value="count+1"/>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="clearfix">
+                    <div id="total" class="row">
+                        <div t-attf-class="#{'col-4' if report_type != 'html' else 'col-sm-7 col-md-5'} ml-auto">
+                            <table class="table table-sm;page-break-inside: avoid;">
+                                <tr class="border-black o_subtotal" style="">
+                                    <td><strong>Internal</strong></td>
+                                    <td class="text-right">
+                                        <span t-field="o.total_trans_internal"/>
+                                    </td>
+                                </tr>
+                                <tr class="border-black o_subtotal" style="">
+                                    <td><strong>External</strong></td>
+                                    <td class="text-right">
+                                        <span t-field="o.total_trans_external"/>
+                                    </td>
+                                </tr>
+                                <tr class="border-black o_total">
+                                    <td><strong>Total</strong></td>
+                                    <td class="text-right">
+                                        <span t-field="o.total_trans_allowance"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+    <template id="report_hr_trans_allowance">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-set="lang" t-value="user.partner_id.lang"/>
+                <t t-call="egymentors_hr.report_hr_trans_allowance_doc" t-lang="lang"/>
+            </t>
+        </t>
+    </template>
+
+
+</odoo>

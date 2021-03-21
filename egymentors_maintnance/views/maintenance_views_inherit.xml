@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="view_hr_equipment_request_stock_custom" model="ir.ui.view">
+            <field name="name">maintenance.request.form.stock</field>
+            <field name="model">maintenance.request</field>
+            <field name="inherit_id" ref="maintenance.hr_equipment_request_view_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <field name="equipment_id" position="before">
+                        <field name="project_id"/>
+                        <field name="location_id"/>
+                    </field>
+                    <field name="category_id" position="after">
+                        <field name="part_ids" widget="many2many_tags"/>
+                    </field>
+                    <field name="category_id" position="attributes">
+                        <attribute name="string">Equipment Category</attribute>
+                    </field>
+                    <field name="description" position="after">
+                        <notebook>
+                            <page name="task_sheet" string="Task Sheet">
+                                <field name="task_sheet_line_ids" context="{'default_equipment_id': equipment_id}">
+                                    <tree editable="bottom" create="1" edit="1" delete="1" multi_edit="1" sample="1">
+                                        <field name="task_line_id" domain="[('equipment_id', '=', equipment_id)]"/>
+                                        <field name="project_id"/>
+                                        <field name="location_id"/>
+                                        <field name="equipment_id"/>
+                                        <field name="task_categ_id"/>
+                                        <field name="task_id"/>
+                                        <field name="date"/>
+                                        <field name="state"/>
+                                        <field name="note"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </field>
+                </data>
+            </field>
+        </record>
+
+    </data>
+</openerp>

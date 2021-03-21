@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_functional_job,hr.functional.job,model_hr_functional_job,,1,1,1,1
+access_hr_qualitative_job,hr.qualitative.job,model_hr_qualitative_job,,1,1,1,1
+access_hr_title,job.title,model_hr_title,,1,1,1,1
+access_hr_career,hr.career,model_hr_career,,1,1,1,1
+access_hr_hierarchical_order,hr.hierarchical.order,model_hr_hierarchical_order,,1,1,1,1
+access_hr_training_place,hr.training.place,model_hr_training_place,,1,1,1,1
+access_hr_training_subject,hr.training.subject,model_hr_training_subject,,1,1,1,1
+access_hr_subject_catg,hr.subject.catg,model_hr_subject_catg,,1,1,1,1
+access_hr_session,hr.session,model_hr_session,,1,1,1,1
+access_hr_training_evaluation,hr_training_evaluation,model_hr_training_evaluation,,1,1,1,1
+access_hr_reassignment,hr_reassignment,model_hr_reassignment,,1,1,1,1

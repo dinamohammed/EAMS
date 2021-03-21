@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="hr_payroll_account.hr_contract_view_form" model="ir.ui.view">
+            <field name="name">hr.payroll.contract.form.inherit</field>
+            <field name="model">hr.contract</field>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='duration_group']" position="after">
+                    <group string="Accounting" groups="analytic.group_analytic_accounting,analytic.group_analytic_tags">
+                        <field name="analytic_account_id" groups="analytic.group_analytic_accounting"
+                               domain="['|', ('company_id', '=', company_id),('company_id', '=', False)]"/>
+                        <field name="analytic_tag_id" groups="analytic.group_analytic_tags"
+                               domain="['|', ('company_id', '=', company_id), ('company_id', '=', False)]"/>
+                    </group>
+
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

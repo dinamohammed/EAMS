@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--Form View-->
+    <record id="view_employee_form_inherit" model="ir.ui.view">
+        <field name="name">hr.employee.form.inherit</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <field name="job_title" position="replace">
+                <field name="job_title_id" placeholder="Job Title"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_hr_reassignment_form" model="ir.ui.view">
+        <field name="name">hr.reassignment</field>
+        <field name="model">hr.reassignment</field>
+        <field name="arch" type="xml">
+            <form string="Reassignment">
+                <sheet>
+                    <div class="oe_title">
+                        <group>
+                            <h1>
+                                <field name="name" readonly="0"/>
+                            </h1>
+                        </group>
+                    </div>
+                    <group>
+                        <group string="Employee Description">
+                            <field name="employee_id" string="Employee"/>
+                            <field name="job_full_name" string="Current Job"/>
+                            <field name="certificate" string="Current Certificate"/>
+                        </group>
+                        <group string="New Job">
+                            <field name="date_reassignment" string="Date"/>
+                            <field name="new_certificate" string="New Certificate"/>
+                            <separator/>
+                            <field name="functional_job_id" string="Functional Job Group"/>
+                            <field name="qualitative_job_id" string="Qualitative Job Group"
+                                   context="{'default_functional_job_id': functional_job_id}"/>
+                            <field name="job_title_id" string="Job"
+                                   context="{'default_functional_job_id': functional_job_id, 'default_qualitative_job_id': qualitative_job_id}"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--Tree View-->
+    <record id="view_hr_reassignment_tree" model="ir.ui.view">
+        <field name="name">hr.reassignment</field>
+        <field name="model">hr.reassignment</field>
+        <field name="arch" type="xml">
+            <tree string="Reassignment">
+                <field name="employee_id" string="Employee"/>
+                <field name="certificate" string="Current Certificate"/>
+                <field name="new_certificate" string="New Certificate"/>
+                <field name="date_reassignment" string="Date"/>
+                <field name="functional_job_id" string="Functional Job Group"/>
+                <field name="qualitative_job_id" string="Qualitative Job Group"/>
+                <field name="job_title_id" string="Job"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--Action-->
+    <record id="open_view_hr_reassignment" model="ir.actions.act_window">
+        <field name="name">Reassignment</field>
+        <field name="res_model">hr.reassignment</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create reassignment...
+            </p>
+        </field>
+    </record>
+
+    <!--Menuitems-->
+    <menuitem
+            id="menu_hr_reassignment"
+            name="Reassignment"
+            action="open_view_hr_reassignment"
+            parent="hr.menu_hr_employee_payroll"
+            sequence="5"/>
+
+</odoo>
