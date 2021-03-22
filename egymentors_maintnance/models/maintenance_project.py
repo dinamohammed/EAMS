@@ -147,6 +147,12 @@ class MaintenanceTaskLine(models.Model):
                 'task_id': [('task_categ_id', '=', task.task_categ_id.id)]
             }}
 
+    @api.onchange('task_id')
+    def onchange_task_id(self):
+        for task in self:
+            if task.task_id:
+                task.name = "Equipment Task: " + task.task_id.name
+
 
 class MaintenanceTaskCategory(models.Model):
     _name = "maintenance.task.categ"
@@ -193,6 +199,10 @@ class MaintenanceTaskSheet(models.Model):
     task_categ_ids = fields.Many2many(comodel_name="maintenance.task.categ", string="Task Category")
     task_sheet_line_ids = fields.One2many(comodel_name="maintenance.task.sheet.line", inverse_name="task_sheet_id",
                                           string="Task Sheet Line")
+    last_technical_state = fields.Text(string="Last Technical State")
+    state_after_maintenance = fields.Text(string="State After Maintenance")
+    repeated_errors = fields.Text(string="Repeated Errors")
+    repeated_error_number = fields.Integer(string="Recurring Error During Contract")
 
     @api.onchange('project_ids')
     def onchange_project_ids(self):
@@ -241,8 +251,9 @@ class MaintenanceTaskSheet(models.Model):
                     if task_sheet.task_categ_ids:
                         domain.append(('task_categ_id', 'in', task_sheet.task_categ_ids.ids))
 
-                    task_lines = self.env['maintenance.task.line'].search(domain,
-                                                                          order='project_id ASC, location_id ASC, equipment_id ASC, task_categ_id ASC')
+                    task_lines = self.env['maintenance.task.line'].search(
+                        domain, order='project_id ASC, location_id ASC, equipment_id ASC, task_categ_id ASC'
+                    )
 
                     task_sheet.task_sheet_line_ids = False
 
@@ -272,4 +283,5 @@ class MaintenanceTaskSheetLine(models.Model):
 
     date = fields.Date(string='Date', default=fields.Date.today())
     state = fields.Selection(string="State", selection=[('yes', 'Yes'), ('no', 'No')])
+    readings = fields.Char(string="Readings")
     note = fields.Text(string="Note")
