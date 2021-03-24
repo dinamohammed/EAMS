@@ -15,3 +15,5 @@ access_maintenance_task_sheet_user,maintenance.task.sheet.user,model_maintenance
 access_maintenance_task_sheet_manager,maintenance.task.sheet.manager,model_maintenance_task_sheet,maintenance.group_equipment_manager,1,1,1,1
 access_maintenance_task_sheet_line_user,maintenance.task.sheet.line.user,model_maintenance_task_sheet_line,base.group_user,1,0,0,0
 access_maintenance_task_sheet_line_manager,maintenance.task.sheet.line.manager,model_maintenance_task_sheet_line,maintenance.group_equipment_manager,1,1,1,1
+access_maintenance_technical_status_user,maintenance.technical.status.user,model_maintenance_technical_status,base.group_user,1,0,0,0
+access_maintenance_technical_status_manager,maintenance.technical.status.manager,model_maintenance_technical_status,maintenance.group_equipment_manager,1,1,1,1
