@@ -36,6 +36,7 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
+        'reports/reports.xml',
         'views/maintenance_views_inherit.xml',
         'views/maintenance_project_views.xml',
         'data/maintenance_cron_inherit.xml',

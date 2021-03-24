@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+
+        <record id="report_detailed_task_sheet_excel" model="ir.actions.report">
+            <field name="name">Detailed Task Sheet Excel Report</field>
+            <field name="model">maintenance.task.sheet</field>
+            <field name="report_type">xlsx</field>
+            <field name="report_name">egymentors_maintnance.detailed_task_sheet_excel_report</field>
+            <field name="report_file">detailed_task_sheet_excel_report</field>
+            <field name="binding_model_id" ref="model_maintenance_task_sheet"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="report_summary_task_sheet_excel" model="ir.actions.report">
+            <field name="name">Summary Task Sheet Excel Report</field>
+            <field name="model">maintenance.task.sheet</field>
+            <field name="report_type">xlsx</field>
+            <field name="report_name">egymentors_maintnance.summary_task_sheet_excel_report</field>
+            <field name="report_file">summary_task_sheet_excel_report</field>
+            <field name="binding_model_id" ref="model_maintenance_task_sheet"/>
+            <field name="binding_type">report</field>
+        </record>
+
+    </data>
+</odoo>
