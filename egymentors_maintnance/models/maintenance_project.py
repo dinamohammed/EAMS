@@ -77,6 +77,7 @@ class ProjectEquipmentInherit(models.Model):
     category_id = fields.Many2one(comodel_name='maintenance.equipment.category', string='Equipment Category',
                                   tracking=True, group_expand='_read_group_category_ids', required=True)
     equipment_type = fields.Many2one(comodel_name='maintenance.equipment.type', string="Equipment Type")
+
     brand = fields.Char(string="Brand")
     country_id = fields.Many2one(string="Country of Origin", comodel_name='res.country')
     engine_type = fields.Char(string="Engine type")
@@ -147,6 +148,12 @@ class MaintenanceTaskLine(models.Model):
                 'task_id': [('task_categ_id', '=', task.task_categ_id.id)]
             }}
 
+    @api.onchange('task_id')
+    def onchange_task_id(self):
+        for task in self:
+            if task.task_id:
+                task.name = "Equipment Task: " + task.task_id.name
+
 
 class MaintenanceTaskCategory(models.Model):
     _name = "maintenance.task.categ"
@@ -186,13 +193,19 @@ class MaintenanceTaskSheet(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = "Maintenance Task Sheet"
 
-    name = fields.Char(string="Name", required=True)
+    name = fields.Char(string="Name", required=True, default="Task Sheet: ")
     project_ids = fields.Many2many(comodel_name="maintenance.project", string="Project", required=True)
     location_ids = fields.Many2many(comodel_name="stock.location", string="Location")
     equipment_ids = fields.Many2many(comodel_name="maintenance.equipment", string="Equipment")
     task_categ_ids = fields.Many2many(comodel_name="maintenance.task.categ", string="Task Category")
     task_sheet_line_ids = fields.One2many(comodel_name="maintenance.task.sheet.line", inverse_name="task_sheet_id",
                                           string="Task Sheet Line")
+    technical_status_ids = fields.One2many(comodel_name="maintenance.technical.status", inverse_name="task_sheet_id",
+                                           string="Task Sheet Line")
+
+    _sql_constraints = [
+        ('name', "CHECK(name)", "Task Sheet name cannot be duplicated."),
+    ]
 
     @api.onchange('project_ids')
     def onchange_project_ids(self):
@@ -227,6 +240,7 @@ class MaintenanceTaskSheet(models.Model):
     @api.onchange('project_ids', 'location_ids', 'equipment_ids', 'task_categ_ids')
     def compute_task_sheet_lines_domain(self):
         domain = []
+        task_line_obj = self.env['maintenance.task.line']
         for task_sheet in self:
             if task_sheet.project_ids:
                 if task_sheet.project_ids or task_sheet.location_ids or task_sheet.equipment_ids or task_sheet.task_categ_ids:
@@ -241,16 +255,30 @@ class MaintenanceTaskSheet(models.Model):
                     if task_sheet.task_categ_ids:
                         domain.append(('task_categ_id', 'in', task_sheet.task_categ_ids.ids))
 
-                    task_lines = self.env['maintenance.task.line'].search(domain,
-                                                                          order='project_id ASC, location_id ASC, equipment_id ASC, task_categ_id ASC')
+                    task_lines = task_line_obj.search(
+                        domain, order='project_id ASC, location_id ASC, equipment_id ASC, task_categ_id ASC'
+                    )
 
                     task_sheet.task_sheet_line_ids = False
-
                     for task_line in task_lines:
                         task_sheet.task_sheet_line_ids.create({
                             'name': 'Task sheet line :' + task_sheet.name,
                             'task_sheet_id': task_sheet.id,
                             'task_line_id': task_line.id,
+                        })
+
+                    task_sheet.technical_status_ids = False
+                    equip_list = []
+                    for proj in task_sheet.project_ids:
+                        for loc in proj.location_ids:
+                            for equip in loc.equipment_ids:
+                                if equip not in equip_list:
+                                    equip_list.append(equip)
+                    for equipment in task_sheet.equipment_ids if task_sheet.equipment_ids else equip_list:
+                        task_sheet.technical_status_ids.create({
+                            'equipment_id': equipment._origin.id,
+                            'name': equipment.name + ' technical status' + " for " + task_sheet.name,
+                            'task_sheet_id': task_sheet.id,
                         })
 
 
@@ -272,4 +300,19 @@ class MaintenanceTaskSheetLine(models.Model):
 
     date = fields.Date(string='Date', default=fields.Date.today())
     state = fields.Selection(string="State", selection=[('yes', 'Yes'), ('no', 'No')])
+    readings = fields.Char(string="Readings")
     note = fields.Text(string="Note")
+
+
+class MaintenanceTechnicalStatus(models.Model):
+    _name = "maintenance.technical.status"
+    _inherit = ['mail.thread', 'mail.activity.mixin']
+    _description = "Maintenance Technical Status"
+
+    name = fields.Char(string="Name", help="task sheet name + date")
+    task_sheet_id = fields.Many2one(comodel_name="maintenance.task.sheet", string="Task Sheet")
+    equipment_id = fields.Many2one(comodel_name='maintenance.equipment', string="Equipment")
+    date_state = fields.Date(string="Last Maintenance State Date", default=fields.Date.today())
+    last_technical_state = fields.Text(string="Last Technical State")
+    state_after_maintenance = fields.Text(string="State After Maintenance")
+    repeated_errors = fields.Text(string="Frequent Faults")
