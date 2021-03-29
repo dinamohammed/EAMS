@@ -1,144 +1,145 @@
 <odoo>
-  <data>
-    <record model="ir.ui.view" id="employee_view_tax_base_form">
-        <field name="name">hr.employee.tax.form</field>
-        <field name="model">hr.employee</field>
-        <field name="inherit_id" ref="hr.view_employee_form"/>
-        <field name="priority" eval="1"/>
-        <field name="arch" type="xml">
-            <xpath expr="/form/sheet/notebook/page[@name='public']/div/div/group/field[@name='work_location']" position="before">
-                 <field name="tax_base" readonly="True"/>
-            </xpath>
-            <xpath expr="/form/sheet/group/group[2]/field[@name='parent_id']" position="after">
-<!--<field name="levels"/>-->
-                 <field name="level_id"/>
-            </xpath>
-            
-            <xpath expr="/form/sheet/notebook/page[@name='personal_information']" position="inside">
-                <group string="Military Service Status" name="military_status">
-                <field name="military_service_status" options="{'no_create': True, 'no_create_edit':True}"/>
-                </group>
-            </xpath>
-            
-            <xpath expr="/form/sheet/notebook/page[@name='personal_information']/group/group[2]/field[@name='identification_id']" position="after">
-                <field name="issue_date"/>
-                <field name="expiry_date"/>
-            </xpath>
-            
-            <xpath expr="/form/sheet/notebook/page[@name='personal_information']/group/group[7]/field[@name='certificate']" position="replace">
-                 <field name="certificate_level"/>
-            </xpath>
-            <xpath expr="/form/sheet/notebook/page[@name='personal_information']/group/group[7]/field[@name='study_school']" position="replace">
-                 <field name="grade_level"/>
-            </xpath>
-            <xpath expr="/form/sheet/notebook/page[@name='personal_information']/group/group[7]/field[@name='grade_level']" position="after">
-                 <field name="grade_year"/>
-            </xpath>
-            <xpath expr="/form/sheet/notebook/page[@name='hr_settings']" position="after">
-                 <page name="insurance_information" string = "Insurance Information" groups="hr.group_hr_user">
-                     <group string="Insurance Data">
-                           <field name="social_insurance_no"/>
-                           <field name="insurance_date"/>
-                           <field name="start_date"/>
-                           <field name="end_date"/>
-                           <field name="medical_insurance_no"/>
-                           <field name="medical_location"/>
-                     </group>
-                </page>
-            </xpath>
-            <xpath expr="/form/sheet/group/group[1]/field[@name='company_id']" position="after">
-                 <field name="work_location_id"/>
-                 <field name="location_type" widget="radio" options="{'horizontal': true}"/>
-            </xpath>
-        </field>
-    </record>
-<!--     <record model="ir.ui.view" id="employee_cust_list">
-        <field name="name">hr.employee.cust.tree</field>
-        <field name="model">hr.employee</field>
-        <field name="inherit_id" ref="hr.view_employee_tree"/>
-        <field name="priority" eval="1"/>
-        <field name="arch" type="xml">
-            <xpath expr="/tree" position="replace">
-                 <tree string="Employees_cust">
-                    <field name="name"/>
-                    <field name="birthday"/>
+    <data>
+        <record model="ir.ui.view" id="employee_view_tax_base_form">
+            <field name="name">hr.employee.tax.form</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="priority" eval="1"/>
+            <field name="arch" type="xml">
+                <xpath expr="/form/sheet/notebook/page[@name='public']/div/div/group/field[@name='work_location']"
+                       position="before">
+                    <field name="tax_base" readonly="True"/>
+                </xpath>
+                <xpath expr="/form/sheet/group/group[2]/field[@name='parent_id']" position="after">
+                    <field name="level_id"/>
+                </xpath>
+
+                <xpath expr="/form/sheet/notebook/page[@name='personal_information']" position="inside">
+                    <group string="Military Service Status" name="military_status">
+                        <field name="military_service_status" options="{'no_create': True, 'no_create_edit':True}"/>
+                    </group>
+                </xpath>
+
+                <xpath expr="/form/sheet/notebook/page[@name='personal_information']/group/group[2]/field[@name='identification_id']"
+                       position="after">
+                    <field name="issue_date"/>
+                    <field name="expiry_date"/>
+                </xpath>
+
+                <xpath expr="/form/sheet/notebook/page[@name='personal_information']/group/group[7]/field[@name='certificate']"
+                       position="replace">
+                    <field name="certificate_level"/>
+                </xpath>
+                <xpath expr="/form/sheet/notebook/page[@name='personal_information']/group/group[7]/field[@name='study_school']"
+                       position="replace">
+                    <field name="grade_level"/>
+                </xpath>
+                <xpath expr="/form/sheet/notebook/page[@name='personal_information']/group/group[7]/field[@name='grade_level']"
+                       position="after">
+                    <field name="grade_year"/>
+                </xpath>
+                <xpath expr="/form/sheet/notebook/page[@name='hr_settings']" position="after">
+                    <page name="insurance_information" string="Insurance Information" groups="hr.group_hr_user">
+                        <group string="Insurance Data">
+                            <field name="social_insurance_no"/>
+                            <field name="insurance_date"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="medical_insurance_no"/>
+                            <field name="medical_location"/>
+                        </group>
+                    </page>
+                </xpath>
+                <xpath expr="/form/sheet/group/group[1]/field[@name='company_id']" position="after">
                     <field name="work_location_id"/>
-                    <field name="job_id"/>
-                </tree>
-            </xpath>
-        </field>
-    </record> -->
-      
-    <record model="ir.ui.view" id="payslip_view_tax_base_form">
-        <field name="name">hr.payslip.tax.form</field>
-        <field name="model">hr.payslip</field>
-        <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
-        <field name="priority" eval="1"/>
-        <field name="arch" type="xml">
-            <xpath expr="/form/sheet/notebook/page[@name='account_info']/group/group[2]/field[@name='paid']" position="before">
-                 <field name="tax_base_temp" readonly="True"/>
-            </xpath>
-        </field>
-    </record>
-      
-    <record model="ir.ui.view" id="contact_view_fields_form">
-        <field name="name">hr.contract.fields.form</field>
-        <field name="model">hr.contract</field>
-        <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
-        <field name="priority" eval="1"/>
-        <field name="arch" type="xml">
-            <xpath expr="/form/sheet/notebook/page[@name='information']" position="after">
-                 <page string="Salary Elements" name="salary_elements">
-                            <group name="main_info">
-                                 <group name="allowance" string="Allowance">
-                                    <field name="internal_transportation_value"/>
-                                    <field name="external_transportation_value"/>
-                                     <!--
-                                    <field name="veracity_value"/>
-                                    <field name="meal_value"/>
-                                    <field name="rest_allowance"/>
-                                    <field name="supervision_allowance"/>
-                                    <field name="security_days"/>
-                                    <field name="company_pay"/>
-                                    <field name="allowance_apecial"/>
--->
-                                    <field name="allowance_1"/>
-                                    <field name="allowance_2"/>
-                                    <field name="allowance_3"/>
-                                    <field name="allowance_4"/>
-                                    <field name="allowance_5"/>
-                                    <field name="allowance_6"/>
-                                </group>
-                                <group name="deduction" string="Deduction">
-                                    <!--
-                                    <field name="absence_value"/>
-                                    <field name="total_institution_Value"/>
-                                    <field name="house_deduction"/>
--->
-                                    <field name="deduction_1"/>
-                                    <field name="deduction_2"/>
-                                    <field name="deduction_3"/>
-                                    <!--
-                                    <field name="allowance_7"/>
-                                    <field name="allowance_8"/>
--->
-                                </group>
-                                <!--
-                                <group name="incentive" string="Incentive">
-                                    <field name="effort_allowance"/>
-                                    <field name="manufacturing_allowance"/>
-                                    <field name="additional_allowance"/>
-                                    <field name="traveling_days"/>
-                                    <field name="transportation_expenses"/>
-                                </group>
--->
+                    <field name="location_type" widget="radio" options="{'horizontal': true}"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="payslip_view_tax_base_form">
+            <field name="name">hr.payslip.tax.form</field>
+            <field name="model">hr.payslip</field>
+            <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
+            <field name="priority" eval="1"/>
+            <field name="arch" type="xml">
+                <xpath expr="/form/sheet/notebook/page[@name='account_info']/group/group[2]/field[@name='paid']"
+                       position="before">
+                    <field name="tax_base_temp" readonly="True"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="contact_view_fields_form">
+            <field name="name">hr.contract.fields.form</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+            <field name="priority" eval="1"/>
+            <field name="arch" type="xml">
+                <xpath expr="/form/sheet/notebook/page[@name='information']" position="after">
+                    <page string="Salary Elements" name="salary_elements">
+                        <group name="main_info">
+                            <group name="allowance" string="Allowance">
+                                <field name="allowance_1"/>
+                                <field name="allowance_2"/>
+                                <field name="allowance_3"/>
+                                <field name="allowance_4"/>
+                                <field name="allowance_5"/>
+                                <field name="allowance_6"/>
+                                <field name="allowance_7"/>
+                                <field name="allowance_8"/>
+                                <field name="allowance_9"/>
+                                <field name="allowance_10"/>
+                                <field name="allowance_11"/>
+                                <field name="allowance_12"/>
+                                <field name="allowance_13"/>
+                                <field name="allowance_14"/>
+                                <field name="allowance_15"/>
+                                <field name="allowance_16"/>
+                                <field name="allowance_17"/>
+                                <field name="allowance_18"/>
+                                <field name="allowance_19"/>
                             </group>
-                        </page>
-            </xpath>
-            <xpath expr="/form/sheet/group/group[1]/field[@name='company_id']" position="before">
-                <field name="contract_type_id"/>
-            </xpath>
-        </field>
-    </record>
-  </data>
+                            <group name="deduction" string="Deduction">
+                                <field name="deduction_1"/>
+                                <field name="deduction_2"/>
+                                <field name="deduction_3"/>
+                                <field name="deduction_4"/>
+                                <field name="deduction_5"/>
+                                <field name="deduction_6"/>
+                                <field name="deduction_7"/>
+                                <field name="deduction_8"/>
+                                <field name="deduction_9"/>
+                                <field name="deduction_10"/>
+                                <field name="deduction_11"/>
+                                <field name="deduction_12"/>
+                                <field name="deduction_13"/>
+                                <field name="deduction_14"/>
+                                <field name="deduction_15"/>
+                                <field name="deduction_16"/>
+                                <field name="deduction_17"/>
+                                <field name="deduction_18"/>
+                                <field name="deduction_19"/>
+                                <field name="deduction_20"/>
+                                <field name="deduction_21"/>
+                                <field name="deduction_22"/>
+                                <field name="deduction_23"/>
+                                <field name="deduction_24"/>
+                                <field name="deduction_25"/>
+                                <field name="deduction_26"/>
+                                <field name="deduction_27"/>
+                                <field name="deduction_28"/>
+                                <field name="deduction_29"/>
+                                <field name="deduction_30"/>
+                                <field name="deduction_31"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+                <xpath expr="/form/sheet/group/group[1]/field[@name='company_id']" position="before">
+                    <field name="contract_type_id"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
 </odoo>
