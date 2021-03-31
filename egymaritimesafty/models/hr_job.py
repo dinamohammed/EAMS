@@ -6,112 +6,184 @@ from odoo import api, fields, models, _
 class JobPosition(models.Model):
     _inherit = 'hr.job'
 
-    # functional_job_id = fields.Many2one('hr.functional.job', string="Functional Job Group", required=True)
-    # qualitative_job_id = fields.Many2one('hr.qualitative.job', string="Qualitative Jobs", required=True)
-    job_title_id = fields.Many2one('hr.title', string="Job Title", required=True)
+    job_title_degree_id = fields.Many2one(comodel_name='hr.job.degree', string="Job Title - Degree", required=True)
+    job_functional_id = fields.Many2one(related='job_title_degree_id.job_functional_id')
+    job_qualitative_id = fields.Many2one(related='job_title_degree_id.job_qualitative_id')
+    job_title_id = fields.Many2one(related='job_title_degree_id.job_title_id')
+    job_degree = fields.Char(related='job_title_degree_id.name')
     name = fields.Char(string='Job Position', required=False, index=True, translate=True)
-    emp_no = fields.Integer()
-
-    _sql_constraints = [
-        ('Job_position_uniq', 'unique (qualitative_job_id, qualitative_job_id, job_title_id)',
-         'يجب أن يكون المسمي الوظيفي فريدًا في المجموعة الوظيفية في المجموعة النوعية!')
-    ]
-
-    def _compute_emp_dep_count(self):
-        """this function computes the number fo employees within the department"""
-        for dep in self:
-            dep.emp_no = self.env['hr.employee'].search_count([('department_id', '=', dep.id)])
-
-
-class FunctionalJob(models.Model):
-    _name = "hr.functional.job"
-    _description = "Functional Job Groups"
-
-    name = fields.Char(string="Functional Job Group", required=True)
-    qualitative_job_ids = fields.One2many(comodel_name="hr.qualitative.job", inverse_name="functional_job_id",
-                                          string="Qualitative Job Groups")
-
-    _sql_constraints = [
-        ('Job_title_uniq', 'unique (name)',
-         'يجب أن تكون المجموعة الوظيفية فريدة!')
-    ]
-
-
-class QualitativeJob(models.Model):
-    _name = "hr.qualitative.job"
-    _description = "Qualitative Job Groups"
-
-    functional_job_id = fields.Many2one('hr.functional.job', string="Functional Job Group", required=True)
-    name = fields.Char(string="Qualitative Job Group", required=True)
-    job_title_ids = fields.One2many(comodel_name="hr.title", inverse_name="qualitative_job_id", string="Job Titles")
-
-    _sql_constraints = [
-        ('Job_title_uniq', 'unique (name, functional_job_id)',
-         'يجب أن تكون المجموعة النوعية فريدة لكل مجموعة وظيفية!')
-    ]
-
-
-class JobTitle(models.Model):
-    _name = "hr.title"
-    _describtion = "Job Title"
-
-    functional_job_id = fields.Many2one('hr.functional.job', string="Functional Job Group", required=True)
-    qualitative_job_id = fields.Many2one('hr.qualitative.job', string="Qualitative Jobs", required=True)
-    name = fields.Char(string="Job Title", required=True)
-    emp_no = fields.Integer(compute="_compute_emp_dep_count")
-    job_full_name = fields.Char(string="Job Full Name", compute='_compute_job_full_name')
-
-    def _compute_job_full_name(self):
-        for rec in self:
-            rec.job_full_name = ' / '.join([rec.functional_job_id.name, rec.qualitative_job_id.name, rec.name])
-
-    @api.onchange('functional_job_id')
-    def onchange_functional_job_id(self):
-        for rec in self:
-            rec.qualitative_job_id = False
-            # rec.job_title_id = False
-            return {'domain': {'qualitative_job_id': [('functional_job_id', '=', rec.functional_job_id.id)]}}
-
-    @api.onchange('qualitative_job_id')
-    def onchange_qualitative_job_id(self):
-        for rec in self:
-            # rec.job_title_id = False
-            return {'domain': {'job_title_id': [('qualitative_job_id', '=', rec.qualitative_job_id.id)]}}
-
-    # @api.onchange('job_title_id')
-    # def onchange_job_title_id(self):
-    #     for rec in self:
-    #         if rec.job_title_id.functional_job_id.name and rec.job_title_id.qualitative_job_id.name and rec.job_title_id.name:
-    #             job_name = ' / '.join(
-    #                 [rec.job_title_id.functional_job_id.name, rec.job_title_id.qualitative_job_id.name,
-    #                  rec.job_title_id.name])
-    #             rec.name = job_name
-
-    def _compute_emp_dep_count(self):
-        """this function computes the number fo employees within the department"""
-        for dep in self:
-            dep.emp_no = self.env['hr.employee'].search_count([('department_id', '=', dep.id)])
-
-    # _sql_constraints = [
-    #     ('Job_title_uniq', 'unique (name, qualitative_job_id, functional_job_id)',
-    #      'يجب أن يكون المسمي الوظيفي فريدًا لكل مجموعة نوعية في كل مجموعة وظيفية!')
-    # ]
-
-
-class JobCareer(models.Model):
-    _name = "hr.career"
-    _description = "HR Career"
-
-    name = fields.Char(string="Career")
-    functional_job_id = fields.Many2one('hr.functional.job', string="Functional Job Group")
-    hierarchical_order_id = fields.Many2one('hr.hierarchical.order', string="Hierarchical Order")
-
-
-class HierarchicalOrder(models.Model):
-    _name = "hr.hierarchical.order"
-    _description = "Hierarchical Order"
-
-    name = fields.Char(string="Hierarchical Order")
-    degree = fields.Integer(string="Job Degree")
+    emp_no = fields.Integer(string="Number of Employees", compute='_compute_job_count')
+    financial_degree = fields.Char(string="Financial Degree")
+    starting_degree_salary = fields.Float(string="Starting Degree Salary")
     duration = fields.Integer(string="Duration")
-    financial_rank = fields.Char(string="Financial Rank")
+    promotion_percent = fields.Char(string="Promotion Percent")
+    monthly_salary = fields.Float(string="Monthly Salary")
+
+    _sql_constraints = [
+        ('Job_position_uniq', 'unique (name)',
+         "The job position must be unique!")
+    ]
+
+    @api.onchange('job_title_degree_id', 'department_id')
+    def compute_jop_position_name(self):
+        for job in self:
+            job_title = job.job_title_id.name if job.job_title_id.name else ''
+            job_degree = job.job_degree if job.job_degree else ''
+            job_department = job.department_id.name if job.department_id.name else ''
+            job.name = " - ".join([job_title, job_degree, job_department])
+
+    def _compute_job_count(self):
+        """this function computes the number fo employees with this jop position"""
+        for job in self:
+            job.emp_no = self.env['hr.employee'].search_count([('job_id', '=', job.id)])
+
+
+class HRJobFunctional(models.Model):
+    _name = "hr.job.functional"
+    _description = "Job Functional Groups"
+
+    name = fields.Char(string="Job Functional Group", required=True)
+    full_name = fields.Char(string="Job Full Name", compute='_compute_full_name')
+    job_qualitative_ids = fields.One2many(comodel_name="hr.job.qualitative", inverse_name="job_functional_id",
+                                          string="Job Qualitative Groups")
+    emp_no = fields.Integer(string="Number of Employees", compute="_compute_emp_func_count")
+
+    _sql_constraints = [
+        ('Job_functional_uniq', 'unique (name)',
+         "The functional group must be unique!")
+    ]
+
+    def _compute_full_name(self):
+        for rec in self:
+            rec.full_name = ' / '.join([rec.name])
+
+    def _compute_emp_func_count(self):
+        """this function computes the number fo employees with this functional group"""
+        for func in self:
+            job_list = self.env['hr.job'].search([('job_functional_id', '=', func.id)]).ids
+            func.emp_no = self.env['hr.employee'].search_count([('job_id', 'in', job_list)])
+
+
+class HRJobQualitative(models.Model):
+    _name = "hr.job.qualitative"
+    _description = "Job Qualitative Groups"
+
+    job_functional_id = fields.Many2one('hr.job.functional', string="Job Functional Group", required=True)
+    name = fields.Char(string="Job Qualitative Group", required=True)
+    full_name = fields.Char(string="Job Full Name", compute='_compute_full_name')
+    job_title_ids = fields.One2many(comodel_name="hr.job.title", inverse_name="job_qualitative_id", string="Job Titles")
+    emp_no = fields.Integer(string="Number of Employees", compute="_compute_emp_qual_count")
+
+    _sql_constraints = [
+        ('Job_qualitative_uniq', 'unique (name, job_functional_id)',
+         "The qualitative group should be unique for each functional group!")
+    ]
+
+    def _compute_full_name(self):
+        for rec in self:
+            rec.full_name = ' / '.join([rec.job_functional_id.name, rec.name])
+
+    @api.onchange('job_functional_id')
+    def onchange_job_functional_id(self):
+        for rec in self:
+            rec.name = False
+
+    def _compute_emp_qual_count(self):
+        """this function computes the number fo employees with this functional group"""
+        for qual in self:
+            job_list = self.env['hr.job'].search([('job_qualitative_id', '=', qual.id)]).ids
+            qual.emp_no = self.env['hr.employee'].search_count([('job_id', 'in', job_list)])
+
+
+class HRJobTitle(models.Model):
+    _name = "hr.job.title"
+    _description = "Job Title"
+
+    job_functional_id = fields.Many2one('hr.job.functional', string="Job Functional Group", required=True)
+    job_qualitative_id = fields.Many2one('hr.job.qualitative', string="Job Qualitative", required=True)
+    name = fields.Char(string="Job Title", required=True)
+    emp_no = fields.Integer(string="Number of Employees", compute="_compute_emp_title_count")
+    full_name = fields.Char(string="Job Full Name", compute='_compute_full_name')
+    job_degree_ids = fields.One2many(comodel_name='hr.job.degree', inverse_name='job_title_id', string="Job Degrees")
+
+    _sql_constraints = [
+        ('Job_title_uniq', 'unique (name, job_qualitative_id, job_functional_id)',
+         'Job title should be unique for each qualitative group in each functional group!')
+    ]
+
+    def _compute_full_name(self):
+        for rec in self:
+            rec.full_name = ' / '.join([rec.job_functional_id.name, rec.job_qualitative_id.name, rec.name])
+
+    @api.onchange('job_functional_id')
+    def onchange_job_functional_id(self):
+        for rec in self:
+            rec.job_qualitative_id = False
+            rec.name = False
+            return {'domain': {'job_qualitative_id': [('job_functional_id', '=', rec.job_functional_id.id)]}}
+
+    @api.onchange('job_qualitative_id')
+    def onchange_job_qualitative_id(self):
+        for rec in self:
+            rec.name = False
+
+    def _compute_emp_title_count(self):
+        """this function computes the number fo employees with this job title"""
+        for title in self:
+            job_list = self.env['hr.job'].search([('job_title_id', '=', title.id)]).ids
+            title.emp_no = self.env['hr.employee'].search_count([('job_id', 'in', job_list)])
+
+
+class HRJobJobDegree(models.Model):
+    _name = "hr.job.degree"
+    _description = "HR Job Degree"
+
+    def name_get(self):
+        result = []
+        for degree in self:
+            name = degree.job_title_id.name + ' - ' + degree.name
+            result.append((degree.id, name))
+        return result
+
+    job_functional_id = fields.Many2one('hr.job.functional', string="Job Functional Group", required=True)
+    job_qualitative_id = fields.Many2one('hr.job.qualitative', string="Job Qualitative", required=True)
+    job_title_id = fields.Many2one('hr.job.title', string="Job Title", required=True)
+    name = fields.Char(string="Job Degree", required=True)
+    full_name = fields.Char(string="Job Full Name", compute='_compute_full_name')
+    emp_no = fields.Integer(string="Number of Employees", compute="_compute_emp_degree_count")
+
+    _sql_constraints = [
+        ('Job_degree_uniq', 'unique (name, job_title_id, job_qualitative_id, job_functional_id)',
+         'Job Degree should be unique for each job title in each qualitative group in each functional group!')
+    ]
+
+    def _compute_full_name(self):
+        for rec in self:
+            rec.full_name = ' / '.join(
+                [rec.job_functional_id.name, rec.job_qualitative_id.name, rec.job_title_id.name, rec.name])
+
+    @api.onchange('job_functional_id')
+    def onchange_job_functional_id(self):
+        for rec in self:
+            rec.job_qualitative_id = False
+            rec.job_title_id = False
+            rec.name = False
+            return {'domain': {'job_qualitative_id': [('job_functional_id', '=', rec.job_functional_id.id)]}}
+
+    @api.onchange('job_qualitative_id')
+    def onchange_job_qualitative_id(self):
+        for rec in self:
+            rec.job_title_id = False
+            rec.name = False
+            return {'domain': {'job_title_id': [('job_qualitative_id', '=', rec.job_qualitative_id.id)]}}
+
+    @api.onchange('job_title_id')
+    def onchange_job_title_id(self):
+        for rec in self:
+            rec.name = False
+
+    def _compute_emp_degree_count(self):
+        """this function computes the number fo employees with this job degree"""
+        for degree in self:
+            job_list = self.env['hr.job'].search([('job_title_degree_id', '=', degree.id)]).ids
+            degree.emp_no = self.env['hr.employee'].search_count([('job_id', 'in', job_list)])

@@ -4,10 +4,13 @@ from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError, AccessError
 
 
-class HrEmployeePrivate(models.Model):
+class HrEmployeeInherit(models.Model):
     _inherit = 'hr.employee'
 
-    job_title_id = fields.Many2one('hr.title', string="Job Title")
+    job_id = fields.Many2one(comodel_name='hr.job', string="Job Position")
+    job_title_id = fields.Many2one(comodel_name='hr.job.title', string="Job Title")
+    job_department_id = fields.Many2one(related='job_id.department_id')
+    syndicate_id = fields.Many2one(comodel_name='hr.syndicate', string="Syndicate Subscription")
 
 
 class TrainingSubject(models.Model):
@@ -75,7 +78,7 @@ class TrainingPlace(models.Model):
     _name = "hr.training.place"
     _description = "HR Training Place"
 
-    name = fields.Char(string="Trainning Place", required='True')
+    name = fields.Char(string="Training Place", required='True')
     training = fields.Selection(string="In or Out company",
                                 selection=[('in_company', 'Inside the company'),
                                            ('out_company', 'Outside the company'), ])
@@ -139,22 +142,22 @@ class TrainingEvaluation(models.Model):
         for rec in self:
             if rec.grade:
                 if rec.grade < 60:
-                    rec.name = ''
+                    rec.name = ""
                 elif 60 <= rec.grade <= 65:
-                    rec.name = 'مقبول'
+                    rec.name = ""
                 elif 66 <= rec.grade <= 75:
-                    rec.name = 'جيد'
+                    rec.name = "Good"
                 elif 76 <= rec.grade <= 89:
-                    rec.name = 'جيد جدا'
+                    rec.name = "Very Good"
                 elif 90 <= rec.grade <= 100:
-                    rec.name = 'ممتاز'
+                    rec.name = "Excellent"
                 else:
-                    raise ValidationError(_("ادخل رقم صحيح..."))
+                    raise ValidationError(_("Enter a valid number ..."))
 
 
 class Reassignment(models.Model):
     _name = "hr.reassignment"
-    _descreption = "HR Reassignment"
+    _description = "HR Reassignment"
 
     name = fields.Char(string="Reassignment")
     employee_id = fields.Many2one('hr.employee', string="Employee Name", required=True)
@@ -170,48 +173,48 @@ class Reassignment(models.Model):
         ('other', 'other'),
     ], 'New Certificate Level', required=True, tracking=True)
     date_reassignment = fields.Date(string="Reassignment Date", default=fields.Date.today())
-    functional_job_id = fields.Many2one('hr.functional.job', string="Functional Job Group")
-    qualitative_job_id = fields.Many2one('hr.qualitative.job', string="Qualitative Jobs")
-    job_title_id = fields.Many2one('hr.title', string="Job Title", required=True)
-    job_full_name = fields.Char('Job Full Name', related='employee_id.job_title_id.job_full_name')
+    job_functional_id = fields.Many2one('hr.job.functional', string="Job Functional Group")
+    job_qualitative_id = fields.Many2one('hr.job.qualitative', string="Job Qualitative")
+    job_title_id = fields.Many2one('hr.job.title', string="Job Title", required=True)
+    full_name = fields.Char('Job Full Name', related='employee_id.job_title_id.full_name')
 
     @api.onchange('employee_id')
     def onchange_employee_id(self):
         """
         This function -onchange the employee_id- change the value of:
             certeficate = employee certeficate
-            functional_job_id = employee functional_job_id
-            qualitative_job_id = employee qualitative_job_id
+            job_functional_id = employee job_functional_id
+            job_qualitative_id = employee job_qualitative_id
             job_title_id = employee job_title_id
             name = employee name + the new job position
         """
         for rec in self:
             if rec.employee_id:
-                rec.functional_job_id = False
-                rec.qualitative_job_id = False
+                rec.job_functional_id = False
+                rec.job_qualitative_id = False
                 rec.job_title_id = False
                 rec.name = rec.employee_id.name + " / " + rec.employee_id.name
 
-    @api.onchange('functional_job_id')
-    def onchange_functional_job_id(self):
+    @api.onchange('job_functional_id')
+    def onchange_job_functional_id(self):
         """
-        This function filters qualitative_job_id domain according the value in  functional_job_id.
+        This function filters job_qualitative_id domain according the value in  job_functional_id.
         :return: domain
         """
         for rec in self:
-            rec.qualitative_job_id = False
+            rec.job_qualitative_id = False
             rec.job_title_id = False
-            return {'domain': {'qualitative_job_id': [('functional_job_id', '=', rec.functional_job_id.id)]}}
+            return {'domain': {'job_qualitative_id': [('job_functional_id', '=', rec.job_functional_id.id)]}}
 
-    @api.onchange('qualitative_job_id')
-    def onchange_qualitative_job_id(self):
+    @api.onchange('job_qualitative_id')
+    def onchange_job_qualitative_id(self):
         """
-        This function filters job_title_id domain according the value in  qualitative_job_id.
+        This function filters job_title_id domain according the value in  job_qualitative_id.
         :return: domain
         """
         for rec in self:
             rec.job_title_id = False
-            return {'domain': {'job_title_id': [('qualitative_job_id', '=', rec.qualitative_job_id.id)]}}
+            return {'domain': {'job_title_id': [('job_qualitative_id', '=', rec.job_qualitative_id.id)]}}
 
     @api.onchange('job_title_id')
     def onchange_job_title_id(self):
@@ -241,3 +244,11 @@ class Reassignment(models.Model):
             employee.job_title_id = values.get('job_title_id', self.job_title_id)
             employee.certificate = values.get('new_certificate', self.new_certificate)
         return super(Reassignment, self).write(values)
+
+
+class HRSyndicate(models.Model):
+    _name = "hr.syndicate"
+    _description = "HR Syndicate"
+
+    name = fields.Char(string="Syndicate Subscription", required=True)
+    code = fields.Char(string="Code", required=True)

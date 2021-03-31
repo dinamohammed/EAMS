@@ -8,7 +8,13 @@
         <field name="inherit_id" ref="hr.view_employee_form"/>
         <field name="arch" type="xml">
             <field name="job_title" position="replace">
-                <field name="job_title_id" placeholder="Job Title"/>
+                <field name="job_id" placeholder="Job Position"/>
+            </field>
+            <field name="coach_id" position="after">
+                <field name="syndicate_id"/>
+            </field>
+            <field name="department_id" position="replace">
+                <field name="job_department_id"/>
             </field>
         </field>
     </record>
@@ -29,18 +35,18 @@
                     <group>
                         <group string="Employee Description">
                             <field name="employee_id" string="Employee"/>
-                            <field name="job_full_name" string="Current Job"/>
+                            <field name="full_name" string="Current Job"/>
                             <field name="certificate" string="Current Certificate"/>
                         </group>
                         <group string="New Job">
                             <field name="date_reassignment" string="Date"/>
                             <field name="new_certificate" string="New Certificate"/>
                             <separator/>
-                            <field name="functional_job_id" string="Functional Job Group"/>
-                            <field name="qualitative_job_id" string="Qualitative Job Group"
-                                   context="{'default_functional_job_id': functional_job_id}"/>
+                            <field name="job_functional_id" string="Functional Job Group"/>
+                            <field name="job_qualitative_id" string="Qualitative Job Group"
+                                   context="{'default_job_functional_id': job_functional_id}"/>
                             <field name="job_title_id" string="Job"
-                                   context="{'default_functional_job_id': functional_job_id, 'default_qualitative_job_id': qualitative_job_id}"/>
+                                   context="{'default_job_functional_id': job_functional_id, 'default_job_qualitative_id': job_qualitative_id}"/>
                         </group>
                     </group>
                 </sheet>
@@ -58,8 +64,8 @@
                 <field name="certificate" string="Current Certificate"/>
                 <field name="new_certificate" string="New Certificate"/>
                 <field name="date_reassignment" string="Date"/>
-                <field name="functional_job_id" string="Functional Job Group"/>
-                <field name="qualitative_job_id" string="Qualitative Job Group"/>
+                <field name="job_functional_id" string="Functional Job Group"/>
+                <field name="job_qualitative_id" string="Qualitative Job Group"/>
                 <field name="job_title_id" string="Job"/>
             </tree>
         </field>
@@ -79,6 +85,19 @@
         </field>
     </record>
 
+    <record id="action_hr_syndicate" model="ir.actions.act_window">
+        <field name="name">Syndicate</field>
+        <field name="res_model">hr.syndicate</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create syndicate subscription...
+            </p>
+        </field>
+    </record>
+
     <!--Menuitems-->
     <menuitem
             id="menu_hr_reassignment"
@@ -86,5 +105,12 @@
             action="open_view_hr_reassignment"
             parent="hr.menu_hr_employee_payroll"
             sequence="5"/>
+
+    <menuitem
+            id="menu_hr_syndicate"
+            name="Syndicate"
+            action="action_hr_syndicate"
+            parent="hr.menu_human_resources_configuration"
+            sequence="2"/>
 
 </odoo>
