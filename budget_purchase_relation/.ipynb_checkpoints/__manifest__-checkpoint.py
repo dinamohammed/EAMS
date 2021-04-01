@@ -15,7 +15,9 @@
     'depends': ['base','account_budget','purchase'],
 
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
         'views/views.xml',
+        'data/data.xml',
+
     ],
 }
