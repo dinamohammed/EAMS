@@ -13,6 +13,17 @@
                 </xpath>
             </field>
         </record>
+      
+      <record id="crossovered_budget_view_form_budget" model="ir.ui.view">
+            <field name="name">crossovered.budget.view.form.budget</field>
+            <field name="model">crossovered.budget</field>
+            <field name="inherit_id" ref="account_budget.crossovered_budget_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='user_id']" position="after">
+                    <field name = "budget_type"/>
+                </xpath>
+            </field>
+        </record>
     
   </data>
 </odoo>
