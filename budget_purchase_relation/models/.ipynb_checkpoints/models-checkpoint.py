@@ -28,6 +28,14 @@ class CrossoveredBudget(models.Model):
                                    ('expense','Expense')],
                                    string = 'Type', default='expense', required='True')
     
+    
+class CrossoveredBudgetLines(models.Model):
+    _inherit = "crossovered.budget.lines"
+    
+    reserve_amount = fields.Float('Reserve Amount')
+    commitment_amount = fields.Float('Commitment Amount')
+    available_amount = fields.Float('Available Amount')
+    
 class BudgetEntry(models.Model):
     _name = "budget.entry"
     
@@ -45,6 +53,9 @@ class BudgetEntry(models.Model):
     
     state = fields.Selection([('draft','Draft'),
                              ('approved','Approved')], string = 'State', default = 'draft')
+    
+    budget_allocation_ids = fields.Many2many('budget.allocation', 'budget_entry_allocation_rel', 'budget_entry_id',
+                                             'budget_allocation_id', 'Budget Allocations')
     
     def button_confirm(self):
         self.write({'state':'approved'})
