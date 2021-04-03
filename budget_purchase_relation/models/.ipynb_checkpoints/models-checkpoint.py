@@ -53,10 +53,10 @@ class BudgetEntry(models.Model):
     def create(self, vals):
         if vals.get('name', 'New') == 'New':
             seq_date = None
-            if 'date_order' in vals:
-                seq_date = fields.Datetime.context_timestamp(self, fields.Datetime.to_datetime(vals['date_order']))
-            vals['name'] = self.env['ir.sequence'].next_by_code('purchase.order', sequence_date=seq_date) or '/'
-        return super(PurchaseOrder, self).create(vals)
+            if 'date_budget' in vals:
+                seq_date = fields.Datetime.context_timestamp(self, fields.Datetime.to_datetime(vals['date_budget']))
+            vals['name'] = self.env['ir.sequence'].next_by_code('budget.entry', sequence_date=seq_date) or '/'
+        return super(BudgetEntry, self).create(vals)
 
     
 class BudgetAllocation(models.Model):
