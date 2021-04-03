@@ -62,7 +62,7 @@
         <field name="name">budget.entry.tree</field>
         <field name="model">budget.entry</field>
         <field name="arch" type="xml">
-            <tree string="Budget Entry" create="0">
+            <tree string="Budget Entry">
                 <field name="name"/>
                 <field name="budget_id"/>
                 <field name="date_budget"/>
