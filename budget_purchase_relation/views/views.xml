@@ -24,6 +24,64 @@
                 </xpath>
             </field>
         </record>
+      <record model="ir.ui.view" id="view_budget_entry_form">
+        <field name="name">budget.entry.form</field>
+        <field name="model">budget.entry</field>
+        <field name="arch" type="xml">
+            <form string="Budget Lines">
+                <header>
+                    <button string="Confirm" name="button_confirm" states="draft" type="object"
+                            class="oe_highlight"/>
+                    <field name="state" widget="statusbar" />
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="budget_id"/>
+                        <field name="date_budget"/>
+                        <field name="budget_entry_type"/>
+                    </group>
+                    <group name = "budget allocation" string = "Budget Allocations">
+                        <field name="budget_allocation_ids">
+                            <tree>
+                                <field name="analytic_account_id"/>
+                                <field name="general_budget_id"/>
+                                <field name="start_date_budget"/>
+                                <field name="end_date_budget"/>
+                                <field name="amount"/>
+                                <field name="budget_type"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+      
+      <record model="ir.ui.view" id="view_budget_entry_tree">
+        <field name="name">budget.entry.tree</field>
+        <field name="model">budget.entry</field>
+        <field name="arch" type="xml">
+            <tree string="Budget Entry" create="0">
+                <field name="name"/>
+                <field name="budget_id"/>
+                <field name="date_budget"/>
+                <field name="budget_entry_type"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+      
+      <record model="ir.actions.act_window" id="act_budget_entry_view">
+        <field name="name">Budgets Entry</field>
+        <field name="res_model">budget.entry</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" eval="view_budget_entry_tree"/>
+    </record>
+      
+      <menuitem parent="account.account_reports_management_menu"
+              id="menu_budget_entry_view"
+              action="act_budget_entry_view" sequence="22"/>
     
   </data>
 </odoo>
