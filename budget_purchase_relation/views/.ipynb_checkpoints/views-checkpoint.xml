@@ -7,9 +7,13 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='partner_ref']" position="after">
                     <field name = "budget_id"/>
+                    <field name = "budget_entry"/>
                 </xpath>
                 <xpath expr="//field[@name='account_analytic_id']" position="before">
                     <field name = "budget_position_id" optional="hide"/>
+                </xpath>
+                <xpath expr="//header" position="inside">
+                    <button name="button_approve_budget" states="draft" string="Approve Budget" type="object"/>
                 </xpath>
             </field>
         </record>
@@ -43,7 +47,7 @@
                     </group>
                     <group name = "budget allocation" string = "Budget Allocations">
                         <field name="budget_allocation_ids">
-                            <tree>
+                            <tree editable="bottom">
                                 <field name="analytic_account_id"/>
                                 <field name="general_budget_id"/>
                                 <field name="start_date_budget"/>
