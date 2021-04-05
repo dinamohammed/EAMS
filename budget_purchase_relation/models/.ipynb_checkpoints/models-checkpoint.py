@@ -9,8 +9,8 @@ class PurchaseOrder(models.Model):
     _inherit = 'purchase.order'
     
     budget_id = fields.Many2one('crossovered.budget', 'Budget')
-    confirm_budget = fields.Boolean('Confirm Budget', default = False)
-    reserve_budget_entry = fields.Many2one('budget.entry','Reserve Budget Entry', readonly = True)
+    confirm_budget = fields.Boolean('Confirm Budget', default = False, copy=False)
+    reserve_budget_entry = fields.Many2one('budget.entry','Reserve Budget Entry', readonly = True, copy=False)
     
     budgetary_amount = fields.Monetary(related = 'budget_id.total_available')
         
@@ -170,7 +170,7 @@ class AccountMove(models.Model):
     budget_id = fields.Many2one(related='invoice_line_ids.budget_id',store=True)
     
     reserve_budget_entry = fields.Many2one(related='invoice_line_ids.reserve_budget_entry',store=True)
-    commitment_budget_entry = fields.Many2one(related='invoice_line_ids.reserve_budget_entry',store=True)
+    commitment_budget_entry = fields.Many2one(related='invoice_line_ids.commitment_budget_entry',store=True)
     
     
     @api.model_create_multi
@@ -198,24 +198,18 @@ class AccountMoveLine(models.Model):
 class AccountPaymentRegister(models.TransientModel):
     _inherit = 'account.payment.register'
     
-#     budget_id = fields.Many2one('crossovered.budget', 'Budget',  readonly=True, copy=False)
+    budget_id = fields.Many2one('crossovered.budget', 'Budget',  readonly=True, copy=False)
+    reserve_budget_entry = fields.Many2one('budget.entry','Reserve Budget Entry')
     
-    ####### Override method to add budget_id
-#     def _create_payment_vals_from_wizard(self):
-#         payment_vals = {
-#             'date': self.payment_date,
-#             'amount': self.amount,
-#             'payment_type': self.payment_type,
-#             'partner_type': self.partner_type,
-#             'ref': self.communication,
-#             'journal_id': self.journal_id.id,
-#             'currency_id': self.currency_id.id,
-#             'partner_id': self.partner_id.id,
-#             'partner_bank_id': self.partner_bank_id.id,
-#             'payment_method_id': self.payment_method_id.id,
-#             'destination_account_id': self.line_ids[0].account_id.id,
-#             'budget_id': self.line_ids[0].budget_id.id
-#         }
+        ####### Override method to add budget_id
+
+    def _create_payment_vals_from_wizard(self):
+        # OVERRIDE
+        payment_vals = super()._create_payment_vals_from_wizard()
+        payment_vals['budget_id'] = self.line_ids[0].move_id.budget_id.id
+        payment_vals['reserve_budget_entry'] = self.line_ids[0].move_id.reserve_budget_entry.id
+#         raise ValidationError('wait - %s'%self.line_ids[0].move_id.reserve_budget_entry)
+        return payment_vals
         
 class AccountPayment(models.Model):
     _inherit = 'account.payment'
@@ -231,22 +225,98 @@ class AccountPayment(models.Model):
         # OVERRIDE
         payments = super(AccountPayment, self).create(vals_list)
         for payment in payments:
-            if payment.move_id.budget_id:
-                payment.write({'budget_id':payment.move_id.budget_id})
-                payment.write({'reserve_budget_entry':payment.move_id.reserve_budget_entry})
+            if payment.budget_id:
+                payment.write({'budget_id':payment.budget_id})
+                payment.write({'reserve_budget_entry':payment.reserve_budget_entry})
+#                 raise ValidationError('%s'%payment.reserve_budget_entry.budget_allocation_ids)
                 allocation_id = payment.reserve_budget_entry.budget_allocation_ids[0]
                 payment.env['budget.entry'].create({'budget_id':payment.move_id.budget_id,
                                                     'budget_entry_type':'commitment',
                                                     'state':'approved',
-                                                    'budget_allocation_ids':[(0,0,allocation_id,
-                                                                    {
-                                                                    'analytic_account_id':allocation_id.account_analytic_id.id,
+                                                    'budget_allocation_ids':[(0,0,{
+                                                                    'analytic_account_id':allocation_id.analytic_account_id.id,
+                                                                    'general_budget_id':allocation_id.budget_position_id.id,
+                                                                    'amount': -allocation_id.amount,
+                                                                    'budget_type':'reserve'}),
+                                                                             (0,0,{
+                                                                    'analytic_account_id':allocation_id.analytic_account_id.id,
                                                                     'general_budget_id':allocation_id.budget_position_id.id,
                                                                     'amount':payment.amount,
-                                                                    'budget_type':'commitment'})],})
+                                                                    'budget_type':'commitment'})]})
                 
                 line_id = payment.budget_id.crossovered_budget_line[0]
                 available = line_id.available_amount - line.amount
                 line_id.write({'available_amount':available})
                 
         return payments
+
+
+#     def payment_budget_vals(self,payment):
+#         raise ValidationError('%s'%payment.move_id.budget_id)
+#         if payment.move_id.budget_id:
+#                 payment.write({'budget_id':payment.move_id.budget_id})
+#                 payment.write({'reserve_budget_entry':payment.move_id.reserve_budget_entry})
+#                 allocation_id = payment.reserve_budget_entry.budget_allocation_ids[0]
+#                 payment.env['budget.entry'].create({'budget_id':payment.move_id.budget_id,
+#                                                     'budget_entry_type':'commitment',
+#                                                     'state':'approved',
+#                                                     'budget_allocation_ids':[(0,0,allocation_id,
+#                                                                     {
+#                                                                     'analytic_account_id':allocation_id.account_analytic_id.id,
+#                                                                     'general_budget_id':allocation_id.budget_position_id.id,
+#                                                                     'amount':payment.amount,
+#                                                                     'budget_type':'commitment'})],})
+                
+#                 line_id = payment.budget_id.crossovered_budget_line[0]
+#                 available = line_id.available_amount - line.amount
+#                 line_id.write({'available_amount':available})
+        
+    
+#     @api.model_create_multi
+#     def create(self, vals_list):
+#         # OVERRIDE
+#         write_off_line_vals_list = []
+
+#         for vals in vals_list:
+
+#             # Hack to add a custom write-off line.
+#             write_off_line_vals_list.append(vals.pop('write_off_line_vals', None))
+
+#             # Force the move_type to avoid inconsistency with residual 'default_move_type' inside the context.
+#             vals['move_type'] = 'entry'
+
+#             # Force the computation of 'journal_id' since this field is set on account.move but must have the
+#             # bank/cash type.
+#             if 'journal_id' not in vals:
+#                 vals['journal_id'] = self._get_default_journal().id
+
+#             # Since 'currency_id' is a computed editable field, it will be computed later.
+#             # Prevent the account.move to call the _get_default_currency method that could raise
+#             # the 'Please define an accounting miscellaneous journal in your company' error.
+#             if 'currency_id' not in vals:
+#                 journal = self.env['account.journal'].browse(vals['journal_id'])
+#                 vals['currency_id'] = journal.currency_id.id or journal.company_id.currency_id.id
+
+#         payments = super().create(vals_list)
+
+#         for i, pay in enumerate(payments):
+#             write_off_line_vals = write_off_line_vals_list[i]
+
+#             # Write payment_id on the journal entry plus the fields being stored in both models but having the same
+#             # name, e.g. partner_bank_id. The ORM is currently not able to perform such synchronization and make things
+#             # more difficult by creating related fields on the fly to handle the _inherits.
+#             # Then, when partner_bank_id is in vals, the key is consumed by account.payment but is never written on
+#             # account.move.
+#             to_write = {'payment_id': pay.id}
+#             for k, v in vals_list[i].items():
+#                 if k in self._fields and self._fields[k].store and k in pay.move_id._fields and pay.move_id._fields[k].store:
+#                     to_write[k] = v
+
+#             if 'line_ids' not in vals_list[i]:
+#                 to_write['line_ids'] = [(0, 0, line_vals) for line_vals in pay._prepare_move_line_default_vals(write_off_line_vals=write_off_line_vals)]
+
+#             pay.move_id.write(to_write)
+            
+#             pay.payment_budget_vals(pay)
+
+#         return payments
