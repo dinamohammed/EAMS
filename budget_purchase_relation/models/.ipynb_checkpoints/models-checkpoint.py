@@ -10,15 +10,15 @@ class PurchaseOrder(models.Model):
     
     budget_id = fields.Many2one('crossovered.budget', 'Budget')
     confirm_budget = fields.Boolean('Confirm Budget', default = False)
-    budget_entry = fields.Many2one('budget.entry','Budget Entry')
+    reserve_budget_entry = fields.Many2one('budget.entry','Reserve Budget Entry', readonly = True)
     
     budgetary_amount = fields.Monetary(related = 'budget_id.total_available')
-    
+        
     def button_approve_budget(self):
         for record in self:
             for line in record.order_line:
                 if record.budgetary_amount >= record.amount_total:
-                    record.budget_id.approve_budget(record.amount_total, record.budget_id,
+                    record.reserve_budget_entry = record.budget_id.approve_budget(record.amount_total, record.budget_id,
                                                 line.budget_position_id, line.account_analytic_id)
                 else:
                     raise ValidationError('No avaliable Budgetary amount')
@@ -30,6 +30,8 @@ class PurchaseOrder(models.Model):
             if order.budget_id and order.confirm_budget:
                 continue
             elif order.budget_id and not order.confirm_budget:
+#                 order.write({'budget_id': rec.budget_id.id})
+#                 order.move_ids_without_package.write({'budget_id': rec.budget_id.id})
                 raise ValidationError('Need to Approve Budget first.')
             elif not order.budget_id and order.confirm_budget:
                 continue
@@ -44,6 +46,18 @@ class PurchaseOrderLine(models.Model):
     
     budget_position_id = fields.Many2one('account.budget.post', 'Budgetary Position')
     
+    budget_id = fields.Many2one(related='order_id.budget_id',store=True)
+    
+    reserve_budget_entry = fields.Many2one(related='order_id.reserve_budget_entry',store=True)
+    
+    def _prepare_account_move_line(self, move):
+        res = super(PurchaseOrderLineInherit, self)._prepare_account_move_line(move)
+        self.ensure_one()
+        
+        res['budget_id'] = self.order_id.budget_id.id
+        res['reserve_budget_entry'] = self.order_id.reserve_budget_entry.id
+        
+        return res
 
     
     
@@ -67,15 +81,16 @@ class CrossoveredBudget(models.Model):
     def approve_budget(self, amount_total, budget_id, budget_position_id, account_analytic_id):
         #### create budget entry ###
         for record in self:
-            record.env['budget.entry'].create({'budget_id':budget_id,
-                                            'budget_entry_type':'reserve',
-                                            'state':'approved',
-                                            'budget_allocation_ids':[(0,0,
+            budget_entry = record.env['budget.entry'].create({'budget_id':budget_id.id,
+                                                              'budget_entry_type':'reserve',
+                                                              'state':'approved',
+                                                              'budget_allocation_ids':[(0,0,
                                                                       {'analytic_account_id':account_analytic_id.id,
                                                                       'general_budget_id':budget_position_id.id,
                                                                       'amount':amount_total,
                                                                       'budget_type':'reserve'})],})
-    
+            return budget_entry
+
     
 class CrossoveredBudgetLines(models.Model):
     _inherit = "crossovered.budget.lines"
@@ -110,11 +125,13 @@ class BudgetEntry(models.Model):
             if record.budget_entry_type == 'budget':
                 ##### Add line in budget module
                 for line in record.budget_allocation_ids:
-                    record.budget_id.env['crossovered.budget.lines'].create({'general_budget_id':line.general_budget_id,
-                                                                             'analytic_account_id':line.analytic_account_id,
-                                                                             'start_date': line.start_date_budget,
-                                                                             'end_date': line.end_date_budget,
-                                                                             'available_amount':line.amount})
+                    record.budget_id.write({'crossovered_budget_line' : [(0,0,
+                                                                         {'general_budget_id':line.general_budget_id.id,
+                                                                          'analytic_account_id':line.analytic_account_id.id,
+                                                                          'date_from': line.start_date_budget,
+                                                                          'date_to': line.end_date_budget,
+                                                                          'available_amount':line.amount,
+                                                                          'planned_amount':0.0})]})
             record.write({'state':'approved'})
         
     @api.model
@@ -150,13 +167,85 @@ class BudgetAllocation(models.Model):
 class AccountMove(models.Model):
     _inherit = "account.move"
     
+    budget_id = fields.Many2one(related='invoice_line_ids.budget_id',store=True)
+    
+    reserve_budget_entry = fields.Many2one(related='invoice_line_ids.reserve_budget_entry',store=True)
+    commitment_budget_entry = fields.Many2one(related='invoice_line_ids.reserve_budget_entry',store=True)
+    
+
+class AccountMoveLine(models.Model):
+    _inherit = "account.move.line"
+    
+    budget_id = fields.Many2one('crossovered.budget', 'Budget')
+    
+    reserve_budget_entry = fields.Many2one('budget.entry','Reserve Budget Entry')
+    commitment_budget_entry = fields.Many2one('budget.entry','Commitment Budget Entry')
+
+    
+    @api.model_create_multi
+    def create(self, vals_list):
+        # OVERRIDE
+        moves = super(AccountInvoiceInherit, self).create(vals_list)
+        for move in moves:
+            for line in move.line_ids:
+                if line.purchase_line_id:
+                    line['budget_id'] = line.purchase_line_id.budget_id.id
+                    line['reserve_budget_entry'] = line.purchase_line_id.reserve_budget_entry.id
+        return moves
     
     
 class AccountPaymentRegister(models.TransientModel):
     _inherit = 'account.payment.register'
     
-    def _create_payments(self):
+    budget_id = fields.Many2one('crossovered.budget', 'Budget',  readonly=True, copy=False)
+    
+    ####### Override method to add budget_id
+    def _create_payment_vals_from_wizard(self):
+        payment_vals = {
+            'date': self.payment_date,
+            'amount': self.amount,
+            'payment_type': self.payment_type,
+            'partner_type': self.partner_type,
+            'ref': self.communication,
+            'journal_id': self.journal_id.id,
+            'currency_id': self.currency_id.id,
+            'partner_id': self.partner_id.id,
+            'partner_bank_id': self.partner_bank_id.id,
+            'payment_method_id': self.payment_method_id.id,
+            'destination_account_id': self.line_ids[0].account_id.id,
+            'budget_id': self.line_ids[0].budget_id.id
+        }
         
-        
-        
-        return super(AccountPaymentRegister)._create_payments()
+class AccountPayment(models.Model):
+    _inherit = 'account.payment'
+    
+    budget_id = fields.Many2one('crossovered.budget', 'Budget',  readonly=True, copy=False)
+    
+    reserve_budget_entry = fields.Many2one('budget.entry','Reserve Budget Entry')
+    
+    commitment_budget_entry = fields.Many2one('budget.entry','Commitment Budget Entry')
+    
+    @api.model_create_multi
+    def create(self, vals_list):
+        # OVERRIDE
+        payments = super(AccountPayment, self).create(vals_list)
+        for payment in payments:
+            if payment.move_id.budget_id:
+                payment.write({'budget_id':payment.move_id.budget_id})
+                payment.write({'reserve_budget_entry':payment.move_id.reserve_budget_entry})
+                allocation_id = payment.reserve_budget_entry.budget_allocation_ids[0]
+                payment.env['budget.entry'].create({'budget_id':payment.move_id.budget_id,
+                                                    'budget_entry_type':'commitment',
+                                                    'state':'approved',
+                                                    'budget_allocation_ids':[(0,0,allocation_id,
+                                                                    {
+                                                                    'analytic_account_id':allocation_id.account_analytic_id.id,
+                                                                    'general_budget_id':allocation_id.budget_position_id.id,
+                                                                    'amount':payment.amount,
+                                                                    'budget_type':'commitment'})],})
+                
+                line_id = payment.budget_id.crossovered_budget_line[0]
+                available = line_id.available_amount - line.amount
+                line_id.write({'available_amount':available})
+                
+        return payments
