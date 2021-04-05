@@ -160,7 +160,8 @@ class BudgetAllocation(models.Model):
     
     budget_type = fields.Selection([('reserve','Reserve'),
                                    ('expense','Expense'),
-                                   ('budget','Budget')],
+                                   ('budget','Budget'),
+                                   ('commitment','Commitment')],
                                    string = 'Type', default='expense', required='True')
     
     
@@ -230,22 +231,22 @@ class AccountPayment(models.Model):
                 payment.write({'reserve_budget_entry':payment.reserve_budget_entry})
 #                 raise ValidationError('%s'%payment.reserve_budget_entry.budget_allocation_ids)
                 allocation_id = payment.reserve_budget_entry.budget_allocation_ids[0]
-                payment.env['budget.entry'].create({'budget_id':payment.move_id.budget_id,
+                payment.env['budget.entry'].create({'budget_id':payment.budget_id,
                                                     'budget_entry_type':'commitment',
                                                     'state':'approved',
                                                     'budget_allocation_ids':[(0,0,{
                                                                     'analytic_account_id':allocation_id.analytic_account_id.id,
-                                                                    'general_budget_id':allocation_id.budget_position_id.id,
+                                                                    'general_budget_id':allocation_id.general_budget_id.id,
                                                                     'amount': -allocation_id.amount,
                                                                     'budget_type':'reserve'}),
                                                                              (0,0,{
                                                                     'analytic_account_id':allocation_id.analytic_account_id.id,
-                                                                    'general_budget_id':allocation_id.budget_position_id.id,
+                                                                    'general_budget_id':allocation_id.general_budget_id.id,
                                                                     'amount':payment.amount,
                                                                     'budget_type':'commitment'})]})
                 
                 line_id = payment.budget_id.crossovered_budget_line[0]
-                available = line_id.available_amount - line.amount
+                available = line_id.available_amount - payment.amount
                 line_id.write({'available_amount':available})
                 
         return payments
