@@ -7,7 +7,7 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='partner_ref']" position="after">
                     <field name = "budget_id"/>
-                    <field name = "budget_entry"/>
+                    <field name = "reserve_budget_entry"/>
                 </xpath>
                 <xpath expr="//field[@name='account_analytic_id']" position="before">
                     <field name = "budget_position_id" optional="hide"/>
@@ -25,6 +25,11 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='user_id']" position="after">
                     <field name = "budget_type"/>
+                </xpath>
+                <xpath expr="//field[@name='percentage']" position="after">
+                    <field name = "reserve_amount"/>
+                    <field name = "commitment_amount"/>
+                    <field name = "available_amount"/>
                 </xpath>
             </field>
         </record>

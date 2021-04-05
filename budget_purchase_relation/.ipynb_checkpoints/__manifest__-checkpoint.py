@@ -12,7 +12,7 @@
     'website': "http://www.egymentors.com",
     'category': 'Accounting',
     'version': '0.1',
-    'depends': ['base','account_budget','purchase'],
+    'depends': ['base','account_budget','purchase','account_payment','account','account_accountant'],
 
     'data': [
         'security/ir.model.access.csv',
