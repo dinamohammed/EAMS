@@ -1,0 +1,114 @@
+<odoo>
+  <data>
+      <record id="view_purchase_order_form_budget" model="ir.ui.view">
+            <field name="name">purchase.order.form.budget</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_ref']" position="after">
+                    <field name = "budget_id"/>
+                    <field name = "reserve_budget_entry"/>
+                </xpath>
+                <xpath expr="//field[@name='account_analytic_id']" position="before">
+                    <field name = "budget_position_id" optional="hide"/>
+                </xpath>
+                <xpath expr="//header" position="inside">
+                    <button name="button_approve_budget" states="draft" string="Approve Budget" type="object"/>
+                </xpath>
+            </field>
+        </record>
+      
+      <record id="crossovered_budget_view_form_budget" model="ir.ui.view">
+            <field name="name">crossovered.budget.view.form.budget</field>
+            <field name="model">crossovered.budget</field>
+            <field name="inherit_id" ref="account_budget.crossovered_budget_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='user_id']" position="after">
+                    <field name = "budget_type"/>
+                </xpath>
+                <xpath expr="//field[@name='percentage']" position="after">
+                    <field name = "reserve_amount"/>
+                    <field name = "commitment_amount"/>
+                    <field name = "available_amount"/>
+                </xpath>
+            </field>
+        </record>
+      <record model="ir.ui.view" id="view_budget_entry_form">
+        <field name="name">budget.entry.form</field>
+        <field name="model">budget.entry</field>
+        <field name="arch" type="xml">
+            <form string="Budget Lines">
+                <header>
+                    <button string="Confirm" name="button_confirm" states="draft" type="object"
+                            class="oe_highlight"/>
+                    <field name="state" widget="statusbar" />
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="budget_id"/>
+                        <field name="date_budget"/>
+                        <field name="budget_entry_type"/>
+                    </group>
+                    <group name = "budget allocation" string = "Budget Allocations">
+                        <field name="budget_allocation_ids">
+                            <tree editable="bottom">
+                                <field name="analytic_account_id"/>
+                                <field name="general_budget_id"/>
+                                <field name="start_date_budget"/>
+                                <field name="end_date_budget"/>
+                                <field name="amount"/>
+                                <field name="budget_type"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+      
+      <record model="ir.ui.view" id="view_budget_entry_tree">
+        <field name="name">budget.entry.tree</field>
+        <field name="model">budget.entry</field>
+        <field name="arch" type="xml">
+            <tree string="Budget Entry">
+                <field name="name"/>
+                <field name="budget_id"/>
+                <field name="date_budget"/>
+                <field name="budget_entry_type"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+      
+      <record model="ir.actions.act_window" id="act_budget_entry_view">
+        <field name="name">Budgets Entry</field>
+        <field name="res_model">budget.entry</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" eval="view_budget_entry_tree"/>
+    </record>
+      
+      <menuitem parent="account.account_reports_management_menu"
+              id="menu_budget_entry_view"
+              action="act_budget_entry_view" sequence="22"/>
+    
+      <record id="view_move_form_inherit_222" model="ir.ui.view">
+            <field name="name">account.move.form.222222</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='invoice_payment_term_id']" position="after">
+                    <field name = "budget_id"/>
+                    <field name = "reserve_budget_entry"/>
+                    <field name = "commitment_budget_entry"/>
+                </xpath>
+                <xpath expr="//field[@name='analytic_account_id']" position="after">
+                    <field name = "budget_id"/>
+                    <field name = "reserve_budget_entry"/>
+                    <field name = "commitment_budget_entry"/>
+                </xpath>
+            </field>
+        </record>
+
+  </data>
+</odoo>
