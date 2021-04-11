@@ -139,6 +139,10 @@
                 <xpath expr="/form/sheet/group/group[1]/field[@name='company_id']" position="before">
                     <field name="contract_type_id"/>
                 </xpath>
+                <xpath expr="//group[@name='yearly_advantages']" position="inside">
+                    <field name="leave_level_id"/>
+                    <field name="holidays"/>
+                </xpath>
             </field>
         </record>
     </data>

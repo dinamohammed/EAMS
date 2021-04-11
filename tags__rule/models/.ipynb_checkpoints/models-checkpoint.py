@@ -4,7 +4,7 @@ import base64
 
 from datetime import datetime
 
-from odoo import models, fields, _
+from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
 from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
 from odoo.tools.safe_eval import safe_eval
@@ -264,9 +264,28 @@ class HrContract(models.Model):
     
     def Daily_Check_Contract_Value(self):
         settings = self.env['res.settings.config'].get_values()
-        clearance_date = datetime.strptime(settings['days_to_clear'], '%m/%d/%Y')
+        clearance_date = datetime.strptime(settings['days_to_clear'], '%m-%d-%Y')
         
         Current_Date = datetime.now()
         if Current_Date.day == clearance_date.day and Current_Date.month == clearance_date.month :
             cont_rec = self.env['hr.contract'].search([])
             cont_rec.write({'holidays': 0.0})
+            
+    ##################################################################################
+    # Calculate the number of Leaves an employee should get
+    
+    leave_level_id = fields.Many2one('hr.leave.level', string = 'Leave Level', compute = 'define_leave_level_id')
+    holidays = fields.Integer(string='Paid Time Off', related = 'leave_level_id.days',
+        help="Number of days of paid leaves the employee gets per year.")
+    
+    @api.depends('first_contract_date')
+    def define_leave_level_id(self):
+        no_of_years = 0
+        for contract in self:
+            no_of_years = (datetime.today() - contract.first_contract_date).year
+            levels = self.env['hr.leave.level'].search([])
+            for level in levels:
+                if level.years <= no_of_years:
+                    contract.leave_level_id = level.id
+                    contract.holidays = level.days
+        
