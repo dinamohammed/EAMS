@@ -1,0 +1,51 @@
+<odoo>
+    <data>
+        <record id="view__leave_level_form" model="ir.ui.view">
+            <field name="name">hr.leave.level.form</field>
+            <field name="model">hr.leave.level</field>
+            <field name="arch" type="xml">
+                <form string="Leave Level Form">
+                    <sheet>
+                        <group col="4">
+                            <field name="name"/>
+                            <field name="days"/>
+                            <field name="years"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_leave_level_tree" model="ir.ui.view">
+            <field name="name">hr.leave.level.tree</field>
+            <field name="model">hr.leave.level</field>
+            <field name="arch" type="xml">
+                <tree string="Leave Level Tree">
+                    <field name="name"/>
+                    <field name="days"/>
+                    <field name="years"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="open_module_tree_leave_level" model="ir.actions.act_window">
+            <field name="name">Leave Levels</field>
+            <field name="res_model">hr.leave.level</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Create a new Leave level
+              </p><p>
+                Tha holidays of an employee depends upon leav levels.
+              </p>
+            </field>
+        </record>
+
+        <menuitem
+                id="menu_hr_leave_level_tree"
+                action="open_module_tree_leave_level"
+                parent="hr.menu_human_resources_configuration"
+                sequence="15"
+                groups="base.group_user"/>
+    </data>
+</odoo>
