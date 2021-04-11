@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_agreement_signature_tree">
+            <field name="name">Agreement Signature</field>
+            <field name="model">agreement.signature</field>
+            <field name="arch" type="xml">
+                <tree string="Agreement Signature" editable="bottom">
+                    <field name="name"/>
+                    <field name="title"/>
+                    <field name="rank"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="action_agreement_signature">
+            <field name="name">Agreement Signature</field>
+            <field name="res_model">agreement.signature</field>
+            <field name="view_mode">tree</field>
+        </record>
+        <menuitem id="menu_agreement_signature"
+                  parent="purchase.menu_purchase_config"
+                  name="Agreement Signature"
+                  action="action_agreement_signature"
+                  sequence="200"/>
+
+    </data>
+</odoo>

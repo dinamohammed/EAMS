@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_tender_requisition_price_doc">
+        <t t-call="web.external_layout">
+            <div class="page text-right" style="text-align: right !important;direction:rtl; font-size:20px;" >
+                <div class="row">
+                    <div class="col-4"/>
+                    <div class="col-4 text-center">
+                        <p style="width:100%;block:">
+                            <strong><u>طلب عرض أسعار</u></strong>
+                        </p>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col-4"/>
+                    <div class="col-4"/>
+                    <div class="col-4"/>
+                    <div class="col-4">
+                        <p style="width:100%;block:">رقم العطاء:</p>
+                        <p style="width:100%;block:">التاريخ:</p>
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="col-4">
+                        <strong style="width:100%;block:">
+                            السيد/_ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                        </strong>
+                    </div>
+                </div>
+                <br/><br/>
+                <div class="row ">
+                    <p>
+                        برجاء موافاتنا بأسعاركم وشروطكم لتوريد الآتي:-
+                    </p>
+                </div>
+                <table class="table table-sm o_main_table ">
+                    <thead>
+                        <tr  class="text-center">
+                            <th><span>رقم</span></th>
+                            <th><span>الوحده</span></th>
+                            <th><span>الكميه</span></th>
+                            <th><span>إسم الصنف</span></th>
+                            <th><span>سعر الوحده</span></th>
+                            <th><span>ملاحظات</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-set="count" t-value="1"/>
+                        <tr t-foreach="o.line_ids" t-as="line" >
+                            <td class="text-center"><span t-esc="count"/></td>
+                            <td class="text-center"><span t-if="line.product_uom_id" t-esc="line.product_uom_id.name"/></td>
+                            <td class="text-center"><span t-esc="line.product_qty"/></td>
+                            
+                            <td  class="text-center" style="text-align: right !important;">
+                                <span t-if="line.product_id" t-esc="line.product_id.display_name"/>
+                            </td>
+                            <td class="text-center"><span t-if="line.price_unit" t-esc="line.price_unit"/></td>
+                            <td class="text-center"/>
+                            <t t-set="count" t-value="count+1"/>
+                        </tr>
+                    </tbody>
+                </table>
+                <br/>
+                <div class="row">
+                    <div class="col-12">
+                    <p>
+                        - العطاء خاضع لأحكام القانون رقم 182 لسنة 2018 ولائحته التنفيذيه
+                    </p>
+                    <p>
+                        - يدون على العطاء رقم الملف الضريبي والبطاقه الضريبيه
+                    </p>
+                    <p>
+                        - يرفق صوره من بطاقة التسجيل في ضريبه القيمه المضافه
+                    </p>
+                    <p>
+                        - يدون على العطاء رقم الحساب البنكي حيث سيتم السداد عن طريق الدفع الإلكتروني
+                    </p>
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="col-6">
+                        <p>
+                            الإرتباط بالسعر:
+                        </p>
+                        <p>
+                            شروط الدفع:
+                        </p>
+                    </div>
+                    <div class="col-6">
+                        <p>
+                            ميعاد التوريد:
+                        </p>
+                        <p>
+                            التسليم:
+                        </p>
+
+                    </div>
+                </div>
+                <br/>
+            </div>
+        </t>
+    </template>
+    <template id="report_tender_requisition_price">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-set="lang" t-value="user.partner_id.lang"/>
+                <t t-call="egymentors_tender.report_tender_requisition_price_doc" t-lang="lang"/>
+            </t>
+        </t>
+    </template>
+</odoo>

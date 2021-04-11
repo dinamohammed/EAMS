@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_tender_order_note_doc">
+        <t t-call="web.external_layout">
+            <!--            <t t-set="o" t-value="o.with_context(lang=lang)" />-->
+            <t t-set="productname" t-value=""/>
+            <t t-foreach="o.order_line" t-as="line" >
+                <t t-set="productname" t-value="line.product_id.display_name"/>
+            </t>
+            <div class="page text-right" style="text-align: right !important;direction:rtl;font-size:20px;">
+                <div class="row" >
+                    <div class="col-4"/>
+                    <div class="col-4"/>
+                    <div class="col-4"/>
+                    <div class="col-4 text-center">
+                        <p style="width:100%;block:">
+                            رقم الصادر:
+                        </p>
+                        <p style="width:100%;block:">
+                            التاريخ:
+                        </p>
+                        <p style="width:100%;block:">
+                            المرفقات:
+                        </p>
+                    </div>
+                </div>
+                <br/>
+                <div class="row" >
+                    <p style="width:100%;block">
+                        <strong><u>مذكرة مرفوعة للسيد اللواء البحري أ.ح/ رئيس الهيئه المصريه لسلامة الملاحه البحريه</u></strong>
+                    </p>
+                </div>
+                <div class="row" >
+                    <div class="col-12">
+                        <b><u>الموضوع:-</u></b>
+                        <p>  شراء <span><t t-esc="productname"/></span></p>
+                    </div>
+                </div>
+                <br/>
+                <div class="row" >
+                    <div class="col-12">
+                        <b><u>العرض:-</u></b>
+                        <p>يرجى التكرم بالعلم بأن إدارة _ _ _ _ _ _ _ _ _  قد طلبت منّا شراء <span><t t-esc="productname"/></span> لزوم</p>
+                        <p>_ _ _ _ _ _ _ بموجب _ _ _ _ _ _ معتمدة من قبل سيادته (مرفق طيه صورة)</p>
+                    </div>
+                </div>
+                <br/>
+                <div class="row" >
+                    <div class="col-12">
+                        <b><u>الرأي</u></b>
+                        <p>لذا نرجو بالموافقة على العمليه سالفه الذكر بطريقة الإتفاق المباشر طبقاً للمادة _ _ _ _ _ من</p>
+                        <p>القانون رقم 182 لسنة 2018 ولائحته التنفيذيه, على ألا تقل مدة سريان العطاء عن اسبوع</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4"/>
+                    <div class="col-4 text-center">
+                        <p style="width:100%;block:">
+                            <strong>وتفضلوا بقبول فائق الإحترام ,,,</strong>
+                        </p>
+                    </div>
+                </div>
+                <br/>
+                <br/>
+                <div class="row" style="font-size:12px">
+                    <table class="table-sm" style="width:75%;border-collapse: collapse;">
+                        <thead style="border: 1px solid black;">
+                            <tr style="border-bottom: 1px;">
+                                <th style="border-right: 1px solid black;">محاسب ثان</th>
+                                <th></th>
+                                <th style="border-right: 1px solid black;">مدير المشتريات</th>
+                                <th></th>
+                                <th style="border-right: 1px solid black;">مدير الإحتياجات والمخازن</th>
+                                <th></th>
+                                <th style="border-right: 1px solid black;">مدير عام الإدارة العامه للشئون الماليه</th>
+                                <th style="border-left: 1px solid black;"></th>
+                            </tr>
+                        </thead>
+                        <tbody style="border: 1px solid black;">
+                            <tr style="border-bottom: 1px solid black;">
+                                <td style="border-right: 1px solid black;">الإسم</td>
+                                <td style="border-right: 1px solid black;">التوقيع</td>
+                                <td style="border-right: 1px solid black;">الإسم</td>
+                                <td style="border-right: 1px solid black;">التوقيع</td>
+                                <td style="border-right: 1px solid black;">الإسم</td>
+                                <td style="border-right: 1px solid black;">التوقيع</td>
+                                <td style="border-right: 1px solid black;">الإسم</td>
+                                <td style="border-right: 1px solid black;">التوقيع</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid black;">
+                                <td style="border-right: 1px solid black;">ا/محمد مصطفى المعدلي</td>
+                                <td style="border-right: 1px solid black;"></td>
+                                <td style="border-right: 1px solid black;">ا/امل حامد المغربي</td>
+                                <td style="border-right: 1px solid black;"></td>
+                                <td style="border-right: 1px solid black;">ا/جاكلين حنا رفله</td>
+                                <td style="border-right: 1px solid black;"></td>
+                                <td style="border-right: 1px solid black;">ا/صفيه محمد جاد</td>
+                                <td style="border-right: 1px solid black;"></td>
+                            </tr>
+                        </tbody>
+                </table>
+            </div>
+            </div>     
+        </t>
+    </template>
+    <template id="report_tender_order_note">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-set="lang" t-value="user.partner_id.lang"/>
+                <t t-call="egymentors_tender.report_tender_order_note_doc" t-lang="lang"/>
+            </t>
+        </t>
+    </template>
+</odoo>

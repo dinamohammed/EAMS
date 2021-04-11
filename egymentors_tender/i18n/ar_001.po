@@ -1,0 +1,2242 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* egymentors_tender
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e-20210126\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-04-06 15:21+0000\n"
+"PO-Revision-Date: 2021-04-06 15:21+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: egymentors_tender
+#: code:addons/egymentors_tender/reports/inventory_adjustment_xlsx.py:0
+#, python-format
+msgid "(Form No. 9 Inventory government)"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchaseorder_document_eams2
+msgid "- Receipt after examination and receipt"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchaseorder_document_eams2
+msgid "- Receipt after examination and receipt of the payment order"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchaseorder_document_eams2
+msgid "- Receipt after receiving the payment order"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_requisition_price_doc
+msgid "- العطاء خاضع لأحكام القانون رقم 182 لسنة 2018 ولائحته التنفيذيه"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_requisition_price_doc
+msgid ""
+"- يدون على العطاء رقم الحساب البنكي حيث سيتم السداد عن طريق الدفع الإلكتروني"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_requisition_price_doc
+msgid "- يدون على العطاء رقم الملف الضريبي والبطاقه الضريبيه"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_requisition_price_doc
+msgid "- يرفق صوره من بطاقة التسجيل في ضريبه القيمه المضافه"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchaseorder_document_eams2
+msgid ""
+"1- These prices include all expenses and the delivery will be at your stores or at the\n"
+"                            authority’s stores. Knowing that the items will be examined with the knowledge of the\n"
+"                            authority’s representatives before the receipt is finally acknowledged."
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_check_doc
+msgid ""
+"<b class=\"pull-right text-center\">\n"
+"                            وتفضلوا سيادتكم بقبول فائق الإحترام,,,\n"
+"                        </b>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_request_doc
+msgid ""
+"<b class=\"pull-right text-center\">\n"
+"                            ولسيادتكم جزيل الشكر,,,\n"
+"                        </b>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_request_doc
+msgid ""
+"<b class=\"text-center\">\n"
+"                            بعد التحيه,,,\n"
+"                        </b>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_request_doc
+msgid ""
+"<b style=\"width:100%;block\">\n"
+"                            السيد المهندس/ رئيس الشئون الفنيه\n"
+"                        </b>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_check_doc
+msgid "<b> بالإحاله إلى توريد رقم (</b>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_check_doc
+msgid "<b>) وذلك حسب البيان الأتى:-</b>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_note_doc
+msgid "<b><u>الرأي</u></b>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_note_doc
+msgid "<b><u>العرض:-</u></b>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_note_doc
+msgid "<b><u>الموضوع:-</u></b>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_check_doc
+msgid "<b><u>طلب إستخراج شيك </u></b>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_check_doc
+msgid "<b>الشئون الفنيه</b>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_check_doc
+msgid "<b>المشتريات والمخازن</b>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_check_doc
+msgid "<b>برجاء التكرم بالموافقه على إستخراج شيك بإسم/ </b>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_check_doc
+msgid "<b>بمبلغ (</b>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_check_doc
+msgid "<b>مراجعه ماليه</b>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_request_doc
+msgid "<b>ملاحظات:</b>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.tender_request_form
+msgid "<span class=\"o_form_label\">Tender Request</span>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_check_doc
+msgid ""
+"<span>/2020</span>\n"
+"                        <b> ) بخصوص</b>\n"
+"                        <b style=\"color:white\">-------------------</b>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_check_doc
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_request_doc
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_requisition_price_doc
+msgid "<span>إسم الصنف</span>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_check_doc
+msgid "<span>الإجمالى</span>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_check_doc
+msgid "<span>السعر</span>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_check_doc
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_request_doc
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_requisition_price_doc
+msgid "<span>الكميه</span>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_requisition_price_doc
+msgid "<span>الوحده</span>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_requisition_price_doc
+msgid "<span>رقم</span>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_requisition_price_doc
+msgid "<span>سعر الوحده</span>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_request_doc
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_requisition_price_doc
+msgid "<span>ملاحظات</span>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_requisition_price_doc
+msgid ""
+"<strong style=\"width:100%;block:\">\n"
+"                            السيد/_ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n"
+"                        </strong>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchaseorder_document_eams2
+msgid ""
+"<strong>\n"
+"                                <u>Supply Request</u>\n"
+"                            </strong>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_check_doc
+msgid ""
+"<strong> الإسكندرية فى: </strong>\n"
+"                            <span style=\"color:white\">----------</span>\n"
+"                            <span>/</span>\n"
+"                            <span style=\"color:white\">----------</span>\n"
+"                            <span>/</span>\n"
+"                            <span style=\"color:white\">----------</span>\n"
+"                            <span>20</span>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_request_doc
+msgid "<strong> التاريخ</strong>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_check_doc
+msgid ""
+"<strong> الموضوع: </strong>\n"
+"                            <span>شيك بإسم/ </span>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchaseorder_document_eams2
+msgid "<strong>2- Supplying duration:</strong>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchaseorder_document_eams2
+msgid "<strong>3- Payment by electronic payment order:</strong>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchaseorder_document_eams2
+msgid "<strong>4- Receipt:</strong>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_requisition_price_doc
+msgid "<strong><u>طلب عرض أسعار</u></strong>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_note_doc
+msgid ""
+"<strong><u>مذكرة مرفوعة للسيد اللواء البحري أ.ح/ رئيس الهيئه المصريه لسلامة "
+"الملاحه البحريه</u></strong>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchaseorder_document_eams2
+msgid "<strong>With the highest consideration and respect,</strong>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_check_doc
+msgid "<strong>إجمالى المستحق</strong>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_check_doc
+msgid "<strong>الإجمالى بعد الخصم</strong>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_check_doc
+msgid "<strong>الإجمالى</strong>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_request_doc
+msgid "<strong>الجهه الطالبه</strong>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_request_doc
+msgid "<strong>رئيس الشئون الفنيه</strong>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_request_doc
+msgid "<strong>رقم طلب الشراء</strong>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_request_doc
+msgid "<strong>مدير الورشه</strong>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_request_doc
+msgid "<strong>مراقب المخزون</strong>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_request_doc
+msgid "<strong>مسئول المخزن</strong>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_request_doc
+msgid "<strong>مسئول المراجعه / الفحص</strong>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_request_doc
+msgid "<strong>مهندس الورشه</strong>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_note_doc
+msgid "<strong>وتفضلوا بقبول فائق الإحترام ,,,</strong>"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,help:egymentors_tender.field_tender_order_line__product_type
+msgid ""
+"A storable product is a product for which you manage stock. The Inventory app has to be installed.\n"
+"A consumable product is a product for which stock is not managed.\n"
+"A service is a non-material product you provide."
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order_line__accepted
+msgid "Accepted"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__access_warning
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request__access_warning
+msgid "Access warning"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,help:egymentors_tender.field_tender_order_line__qty_received_method
+msgid ""
+"According to product configuration, the received quantity can be automatically computed by mechanism :\n"
+"  - Manual: the quantity is set manually on the line\n"
+"  - Stock Moves: the quantity comes from confirmed pickings\n"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__message_needaction
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request__message_needaction
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__activity_ids
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request__activity_ids
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__activity_exception_decoration
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request__activity_exception_decoration
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__activity_state
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request__activity_state
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__activity_type_icon
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request__activity_type_icon
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.tender_order_form_inherit
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.view_purchase_requisition_form_inherit
+msgid "Add PR Lines"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,help:egymentors_tender.field_purchase_requisition__signatures_ids
+msgid "Add signatures to be added in printouts"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,help:egymentors_tender.field_agreement_signature__rank
+msgid "Add the Order of print out"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchaseorder_document_eams2
+msgid "After examination and reception"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchaseorder_document_eams2
+msgid "After receiving the payment order"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchaseorder_document_eams2
+msgid "After the examination and receipt of the payment order"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__date_end
+msgid "Agreement Deadline"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.actions.act_window,name:egymentors_tender.action_agreement_signature
+#: model:ir.ui.menu,name:egymentors_tender.menu_agreement_signature
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.view_agreement_signature_tree
+msgid "Agreement Signature"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__type_id
+msgid "Agreement Type"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchaseorder_document_eams2
+msgid "Alexandria in"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order_line__account_analytic_id
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition_line__account_analytic_id
+msgid "Analytic Account"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order_line__analytic_tag_ids
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition_line__analytic_tag_ids
+msgid "Analytic Tags"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__message_attachment_count
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request__message_attachment_count
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:res.groups,name:egymentors_tender.group_tender_request_audit
+msgid "Audit"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields.selection,name:egymentors_tender.selection__tender_request__state__audit
+#: model:ir.model.fields.selection,name:egymentors_tender.selection__tender_request_line__state__audit
+msgid "Audit Approval"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.tender_request_form
+msgid "Audit Approve"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchaseorder_document_eams2
+msgid "Auditor/"
+msgstr ""
+
+#. module: egymentors_tender
+#: code:addons/egymentors_tender/reports/inventory_adjustment_xlsx.py:0
+#, python-format
+msgid "Authority Name"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,help:egymentors_tender.field_tender_order__receipt_reminder_email
+msgid ""
+"Automatically send a confirmation email to the vendor X days before the "
+"expected receipt date, asking him to confirm the exact date."
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__invoice_count
+msgid "Bill Count"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order_line__invoice_lines
+msgid "Bill Lines"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order_line__qty_invoiced
+msgid "Billed Qty"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__invoice_status
+msgid "Billing Status"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__invoice_ids
+msgid "Bills"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.tender_request_form
+msgid "Cancel"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields.selection,name:egymentors_tender.selection__tender_request__state__cancel
+#: model:ir.model.fields.selection,name:egymentors_tender.selection__tender_request_line__state__cancel
+#: model:ir.model.fields.selection,name:egymentors_tender.selection__purchase_requisition__request_state__cancel
+msgid "Cancelled"
+msgstr ""
+
+#. module: egymentors_tender
+#: code:addons/egymentors_tender/models/tender_order.py:0
+#, python-format
+msgid "Cannot delete a tender order line which is in state '%s'."
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order_line__product_uom_category_id
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition_line__product_uom_category_id
+msgid "Category"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,help:egymentors_tender.field_tender_order__request_id
+#: model:ir.model.fields,help:egymentors_tender.field_purchase_requisition__request_id
+msgid "Choose Confirmed request and load it's lines on PO"
+msgstr ""
+
+#. module: egymentors_tender
+#: code:addons/egymentors_tender/reports/inventory_adjustment_xlsx.py:0
+#: model:ir.model.fields,field_description:egymentors_tender.field_stock_inventory__ref
+#, python-format
+msgid "Code"
+msgstr "رقم الصنف"
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__company_id
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order_line__company_id
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request__company_id
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request_line__company_id
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__company_id
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition_line__company_id
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.tender_request_filter_line_view
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.tender_request_filter_view
+msgid "Company"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,help:egymentors_tender.field_tender_order__effective_date
+msgid "Completion date of the first receipt order."
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__date_approve
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request__date_approve
+msgid "Confirmation Date"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,help:egymentors_tender.field_tender_order_line__product_uom_category_id
+#: model:ir.model.fields,help:egymentors_tender.field_purchase_requisition_line__product_uom_category_id
+msgid ""
+"Conversion between Units of Measure can only occur if they belong to the "
+"same category. The conversion will be made based on the ratios."
+msgstr ""
+
+#. module: egymentors_tender
+#: code:addons/egymentors_tender/reports/inventory_adjustment_xlsx.py:0
+#, python-format
+msgid "Cost"
+msgstr ""
+
+#. module: egymentors_tender
+#: code:addons/egymentors_tender/reports/inventory_adjustment_xlsx.py:0
+#, python-format
+msgid "Counted"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.actions.act_window,help:egymentors_tender.act_tender_request
+msgid "Create a Tender request"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.actions.act_window,help:egymentors_tender.act_tender_request_line
+msgid "Create a Tender request Line"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_agreement_signature__create_uid
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__create_uid
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order_line__create_uid
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request__create_uid
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request_department__create_uid
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request_line__create_uid
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__create_uid
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition_line__create_uid
+msgid "Created by"
+msgstr "إنشي بواسطه"
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_agreement_signature__create_date
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__create_date
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order_line__create_date
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request__create_date
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request_department__create_date
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request_line__create_date
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__create_date
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition_line__create_date
+msgid "Created on"
+msgstr "انشئ فى"
+
+#. module: egymentors_tender
+#: model:ir.model,name:egymentors_tender.model_res_currency
+#: model:ir.model.fields,field_description:egymentors_tender.field_res_currency__name
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__currency_id
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order_line__currency_id
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. module: egymentors_tender
+#: model:ir.model.fields,help:egymentors_tender.field_res_currency__name
+msgid "Currency Code (ISO 4217)"
+msgstr "رمز العملة (ISO 4217)"
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__currency_rate
+msgid "Currency Rate"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_res_currency__currency_submit_label
+msgid "Currency Submit Label"
+msgstr "العمله"
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_res_currency__currency_unit_label
+msgid "Currency Unit"
+msgstr "وحدة العملة"
+
+#. module: egymentors_tender
+#: model:ir.model.fields,help:egymentors_tender.field_res_currency__currency_unit_label
+msgid "Currency Unit Name"
+msgstr "اسم وحدة العملة"
+
+#. module: egymentors_tender
+#: code:addons/egymentors_tender/reports/inventory_adjustment_xlsx.py:0
+#, python-format
+msgid "Custody Keeper Name: .............."
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order_line__product_description_variants
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition_line__product_description_variants
+msgid "Custom Description"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,help:egymentors_tender.field_tender_order__access_url
+#: model:ir.model.fields,help:egymentors_tender.field_tender_request__access_url
+msgid "Customer Portal URL"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__date_calendar_start
+msgid "Date Calendar Start"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.tender_request_filter_line_view
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.tender_request_filter_view
+msgid "Date(month)"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__reminder_date_before_receipt
+msgid "Days Before Receipt"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__picking_type_id
+msgid "Deliver To"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order_line__date_planned
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__schedule_date
+msgid "Delivery Date"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,help:egymentors_tender.field_tender_order_line__date_planned
+msgid ""
+"Delivery date expected from vendor. This date respectively defaults to "
+"vendor pricelist lead time then today's date."
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,help:egymentors_tender.field_tender_order__date_planned
+msgid ""
+"Delivery date promised by vendor. This date is used to determine expected "
+"arrival of products."
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request_department__name
+msgid "Department"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,help:egymentors_tender.field_tender_request__date_request
+#: model:ir.model.fields,help:egymentors_tender.field_tender_request_line__date_request
+msgid ""
+"Depicts the date where the Quotation should be validated and converted into "
+"a tender order."
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,help:egymentors_tender.field_tender_order__date_order
+#: model:ir.model.fields,help:egymentors_tender.field_tender_order_line__date_order
+msgid ""
+"Depicts the date within which the Quotation should be confirmed and "
+"converted into a purchase order."
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order_line__name
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__description
+msgid "Description"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__default_location_dest_id_usage
+msgid "Destination Location Type"
+msgstr ""
+
+#. module: egymentors_tender
+#: code:addons/egymentors_tender/reports/inventory_adjustment_xlsx.py:0
+#, python-format
+msgid "Difference"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order_line__discount
+msgid "Discount (%)"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_agreement_signature__display_name
+#: model:ir.model.fields,field_description:egymentors_tender.field_hr_employee__display_name
+#: model:ir.model.fields,field_description:egymentors_tender.field_product_product__display_name
+#: model:ir.model.fields,field_description:egymentors_tender.field_product_template__display_name
+#: model:ir.model.fields,field_description:egymentors_tender.field_report_egymentors_tender_report_inv_adj_ar_xlsx__display_name
+#: model:ir.model.fields,field_description:egymentors_tender.field_report_egymentors_tender_report_inventory_adjustment_xlsx__display_name
+#: model:ir.model.fields,field_description:egymentors_tender.field_report_egymentors_tender_report_purchase_requisition__display_name
+#: model:ir.model.fields,field_description:egymentors_tender.field_res_currency__display_name
+#: model:ir.model.fields,field_description:egymentors_tender.field_stock_inventory__display_name
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__display_name
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order_line__display_name
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request__display_name
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request_department__display_name
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request_line__display_name
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__display_name
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition_line__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order_line__display_type
+msgid "Display Type"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields.selection,name:egymentors_tender.selection__tender_request__state__done
+#: model:ir.model.fields.selection,name:egymentors_tender.selection__tender_request_line__state__done
+#: model:ir.model.fields.selection,name:egymentors_tender.selection__purchase_requisition__request_state__done
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.tender_request_form
+msgid "Done"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition_line__move_dest_id
+msgid "Downstream Move"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order_line__move_dest_ids
+msgid "Downstream Moves"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__dest_address_id
+msgid "Drop Ship Address"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__effective_date
+msgid "Effective Date"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model,name:egymentors_tender.model_hr_employee
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request__employee_responsible
+msgid "Employee Responsible"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchaseorder_document_eams2
+msgid "Employee/"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__fiscal_position_id
+msgid "Fiscal Position"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__message_follower_ids
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request__message_follower_ids
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__message_channel_ids
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request__message_channel_ids
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__message_channel_ids
+msgid "Followers (Channels)"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__message_partner_ids
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request__message_partner_ids
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,help:egymentors_tender.field_tender_order__activity_type_icon
+#: model:ir.model.fields,help:egymentors_tender.field_tender_request__activity_type_icon
+#: model:ir.model.fields,help:egymentors_tender.field_purchase_requisition__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:res.groups,name:egymentors_tender.group_tender_request_general_manager
+msgid "General Manager"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields.selection,name:egymentors_tender.selection__tender_request__state__g_manager
+#: model:ir.model.fields.selection,name:egymentors_tender.selection__tender_request_line__state__g_manager
+msgid "General Manager Approval"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.tender_request_form
+msgid "General Manager Approve"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.tender_request_filter_line_view
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.tender_request_filter_view
+msgid "Group By"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.module.category,description:egymentors_tender.module_category_operations_tender_request
+msgid "Helps you manage tender request users."
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_agreement_signature__id
+#: model:ir.model.fields,field_description:egymentors_tender.field_hr_employee__id
+#: model:ir.model.fields,field_description:egymentors_tender.field_product_product__id
+#: model:ir.model.fields,field_description:egymentors_tender.field_product_template__id
+#: model:ir.model.fields,field_description:egymentors_tender.field_report_egymentors_tender_report_inv_adj_ar_xlsx__id
+#: model:ir.model.fields,field_description:egymentors_tender.field_report_egymentors_tender_report_inventory_adjustment_xlsx__id
+#: model:ir.model.fields,field_description:egymentors_tender.field_report_egymentors_tender_report_purchase_requisition__id
+#: model:ir.model.fields,field_description:egymentors_tender.field_res_currency__id
+#: model:ir.model.fields,field_description:egymentors_tender.field_stock_inventory__id
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__id
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order_line__id
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request__id
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request_department__id
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request_line__id
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__id
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition_line__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__activity_exception_icon
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request__activity_exception_icon
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,help:egymentors_tender.field_tender_order__activity_exception_icon
+#: model:ir.model.fields,help:egymentors_tender.field_tender_request__activity_exception_icon
+#: model:ir.model.fields,help:egymentors_tender.field_purchase_requisition__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,help:egymentors_tender.field_tender_order__message_needaction
+#: model:ir.model.fields,help:egymentors_tender.field_tender_order__message_unread
+#: model:ir.model.fields,help:egymentors_tender.field_tender_request__message_needaction
+#: model:ir.model.fields,help:egymentors_tender.field_tender_request__message_unread
+#: model:ir.model.fields,help:egymentors_tender.field_purchase_requisition__message_needaction
+#: model:ir.model.fields,help:egymentors_tender.field_purchase_requisition__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,help:egymentors_tender.field_tender_order__message_has_error
+#: model:ir.model.fields,help:egymentors_tender.field_tender_order__message_has_sms_error
+#: model:ir.model.fields,help:egymentors_tender.field_tender_request__message_has_error
+#: model:ir.model.fields,help:egymentors_tender.field_tender_request__message_has_sms_error
+#: model:ir.model.fields,help:egymentors_tender.field_purchase_requisition__message_has_error
+#: model:ir.model.fields,help:egymentors_tender.field_purchase_requisition__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__incoterm_id
+msgid "Incoterm"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,help:egymentors_tender.field_tender_order__incoterm_id
+msgid ""
+"International Commercial Terms are a series of predefined commercial terms "
+"used in international transactions."
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model,name:egymentors_tender.model_stock_inventory
+msgid "Inventory"
+msgstr "المخازن"
+
+#. module: egymentors_tender
+#: code:addons/egymentors_tender/reports/inventory_adjustment_xlsx.py:0
+#: code:addons/egymentors_tender/reports/inventory_adjustment_xlsx.py:0
+#, python-format
+msgid "Inventory Adjustment"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.actions.report,name:egymentors_tender.report_inventory_adjustment_xlsx
+msgid "Inventory Adjustment Excel"
+msgstr ""
+
+#. module: egymentors_tender
+#: code:addons/egymentors_tender/reports/inventory_adjustment_xlsx.py:0
+#, python-format
+msgid "Inventory Date"
+msgstr ""
+
+#. module: egymentors_tender
+#: code:addons/egymentors_tender/reports/inventory_adjustment_xlsx.py:0
+#, python-format
+msgid "Inventory Reference"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__message_is_follower
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request__message_is_follower
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__is_shipped
+msgid "Is Shipped"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request_line__item_value
+msgid "Item Value"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request_line__item_type
+msgid "Item type"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_agreement_signature__title
+msgid "Job Position"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_agreement_signature____last_update
+#: model:ir.model.fields,field_description:egymentors_tender.field_hr_employee____last_update
+#: model:ir.model.fields,field_description:egymentors_tender.field_product_product____last_update
+#: model:ir.model.fields,field_description:egymentors_tender.field_product_template____last_update
+#: model:ir.model.fields,field_description:egymentors_tender.field_report_egymentors_tender_report_inv_adj_ar_xlsx____last_update
+#: model:ir.model.fields,field_description:egymentors_tender.field_report_egymentors_tender_report_inventory_adjustment_xlsx____last_update
+#: model:ir.model.fields,field_description:egymentors_tender.field_report_egymentors_tender_report_purchase_requisition____last_update
+#: model:ir.model.fields,field_description:egymentors_tender.field_res_currency____last_update
+#: model:ir.model.fields,field_description:egymentors_tender.field_stock_inventory____last_update
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order____last_update
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order_line____last_update
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request____last_update
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request_department____last_update
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request_line____last_update
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition____last_update
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition_line____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_agreement_signature__write_uid
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__write_uid
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order_line__write_uid
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request__write_uid
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request_department__write_uid
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request_line__write_uid
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__write_uid
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition_line__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_agreement_signature__write_date
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__write_date
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order_line__write_date
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request__write_date
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request_department__write_date
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request_line__write_date
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__write_date
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition_line__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__lines_discount_amount
+msgid "Lines Discount"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields.selection,name:egymentors_tender.selection__tender_request__state__locked
+#: model:ir.model.fields.selection,name:egymentors_tender.selection__tender_request_line__state__locked
+#: model:ir.model.fields.selection,name:egymentors_tender.selection__purchase_requisition__request_state__locked
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.tender_request_filter_line_view
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.tender_request_filter_view
+msgid "Locked"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__message_main_attachment_id
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request__message_main_attachment_id
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:res.groups,name:egymentors_tender.group_tender_request_manager
+msgid "Manager"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields.selection,name:egymentors_tender.selection__tender_request__state__manager
+#: model:ir.model.fields.selection,name:egymentors_tender.selection__tender_request_line__state__manager
+msgid "Manager Approval"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.tender_request_form
+msgid "Manager Approve"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order_line__qty_received_manual
+msgid "Manual Received Qty"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__message_has_error
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request__message_has_error
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__message_ids
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request__message_ids
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.tender_order_form_inherit
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.view_purchase_requisition_form_inherit
+msgid "Multi"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__multi_requisition
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__multi_requisition
+msgid "Multi Requests"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_agreement_signature__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: egymentors_tender
+#: code:addons/egymentors_tender/models/stock_inventory_inherit.py:0
+#, python-format
+msgid "New"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__activity_date_deadline
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request__activity_date_deadline
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__activity_summary
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request__activity_summary
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__activity_type_id
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request__activity_type_id
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: egymentors_tender
+#: code:addons/egymentors_tender/models/tender_order.py:0
+#: code:addons/egymentors_tender/models/purchase_requisition.py:0
+#, python-format
+msgid "No Request To load"
+msgstr ""
+
+#. module: egymentors_tender
+#: code:addons/egymentors_tender/models/tender_order.py:0
+#: code:addons/egymentors_tender/models/purchase_requisition.py:0
+#, python-format
+msgid "No Request To remove"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request__notes
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchaseorder_document_eams2
+msgid "Notes"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__message_needaction_counter
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request__message_needaction_counter
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__order_count
+msgid "Number of Orders"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchaseorder_document_eams2
+msgid "Number of attachments:"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,help:egymentors_tender.field_tender_order__reminder_date_before_receipt
+msgid "Number of days to send reminder email before the promised receipt date"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__message_has_error_counter
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request__message_has_error_counter
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,help:egymentors_tender.field_tender_order__message_needaction_counter
+#: model:ir.model.fields,help:egymentors_tender.field_tender_request__message_needaction_counter
+#: model:ir.model.fields,help:egymentors_tender.field_purchase_requisition__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,help:egymentors_tender.field_tender_order__message_has_error_counter
+#: model:ir.model.fields,help:egymentors_tender.field_tender_request__message_has_error_counter
+#: model:ir.model.fields,help:egymentors_tender.field_purchase_requisition__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,help:egymentors_tender.field_tender_order__message_unread_counter
+#: model:ir.model.fields,help:egymentors_tender.field_tender_request__message_unread_counter
+#: model:ir.model.fields,help:egymentors_tender.field_purchase_requisition__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: egymentors_tender
+#: code:addons/egymentors_tender/reports/inventory_adjustment_xlsx.py:0
+#, python-format
+msgid "On Hand"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__on_time_rate
+msgid "On-Time Delivery Rate"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.tender_request_filter_line_view
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.tender_request_filter_view
+msgid "Open"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__picking_type_id
+msgid "Operation Type"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order_line__date_order
+msgid "Order Date"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__date_order
+msgid "Order Deadline"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__order_line
+msgid "Order Lines"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__name
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order_line__order_id
+msgid "Order Reference"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition_line__qty_ordered
+msgid "Ordered Quantities"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__ordering_date
+msgid "Ordering Date"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order_line__orderpoint_id
+msgid "Orderpoint"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.tender_request_form
+msgid "Other Information"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,help:egymentors_tender.field_tender_order__on_time_rate
+msgid ""
+"Over the past 12 months; the number of products received on time divided by "
+"the number of ordered products."
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order_line__partner_id
+msgid "Partner"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__payment_term_id
+msgid "Payment Terms"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__picking_count
+msgid "Picking count"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchaseorder_document_eams2
+msgid ""
+"Please supply the following items as soon as you receive the electronic "
+"payment order:"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__access_url
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request__access_url
+msgid "Portal Access URL"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchaseorder_document_eams2
+msgid "Price"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.tender_request_form
+msgid "Print"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.view_inventory_form_inherit
+msgid "Print Excel"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__priority
+msgid "Priority"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__group_id
+msgid "Procurement Group"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model,name:egymentors_tender.model_product_product
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__product_id
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order_line__product_id
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request_line__product_id
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__product_id
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition_line__product_id
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.tender_request_filter_line_view
+msgid "Product"
+msgstr "المنتج"
+
+#. module: egymentors_tender
+#: code:addons/egymentors_tender/reports/inventory_adjustment_xlsx.py:0
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchaseorder_document_eams2
+#, python-format
+msgid "Product Name"
+msgstr ""
+
+#. module: egymentors_tender
+#: code:addons/egymentors_tender/reports/inventory_adjustment_xlsx.py:0
+#: code:addons/egymentors_tender/reports/inventory_adjustment_xlsx.py:0
+#, python-format
+msgid "Product State"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model,name:egymentors_tender.model_product_template
+msgid "Product Template"
+msgstr "قالب المنتج"
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order_line__product_type
+msgid "Product Type"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition_line__product_uom_id
+msgid "Product Unit of Measure"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.tender_request_form
+msgid "Products"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__line_ids
+msgid "Products to Tender"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order_line__propagate_cancel
+msgid "Propagate cancellation"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__requisition_id
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition_line__requisition_id
+msgid "Purchase Agreement"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.ui.menu,name:egymentors_tender.menu_purchase_requisition_pro_mgt_tr
+msgid "Purchase Agreements"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__purchase_ids
+#: model:ir.ui.menu,name:egymentors_tender.menu_tender_form_action_tr
+msgid "Purchase Orders"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__user_id
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__user_id
+msgid "Purchase Representative"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.actions.report,name:egymentors_tender.purchase_request_report
+msgid "Purchase Request"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchaseorder_document_eams2
+msgid "Purchases Manager/"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,help:egymentors_tender.field_tender_order__dest_address_id
+msgid ""
+"Put an address if you want to deliver directly from the vendor to the "
+"customer. Otherwise, keep empty to deliver to your own company."
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__is_quantity_copy
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__is_quantity_copy
+msgid "Quantities"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order_line__product_qty
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request_line__product_qty
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition_line__product_qty
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchaseorder_document_eams2
+msgid "Quantity"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_agreement_signature__rank
+msgid "Rank"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,help:egymentors_tender.field_tender_order__currency_rate
+msgid "Ratio between the purchase order currency and the company currency"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__date_planned
+msgid "Receipt Date"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__receipt_reminder_email
+msgid "Receipt Reminder Email"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order_line__qty_received
+msgid "Received Qty"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order_line__qty_received_method
+msgid "Received Qty Method"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__mail_reception_confirmed
+msgid "Reception Confirmed"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__picking_ids
+msgid "Receptions"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__name
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.tender_request_view_tree
+msgid "Reference"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_product_product__ref_2
+#: model:ir.model.fields,field_description:egymentors_tender.field_product_template__ref_2
+msgid "Reference 2"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,help:egymentors_tender.field_tender_order__origin
+msgid ""
+"Reference of the document that generated this purchase order request (e.g. a"
+" sales order)"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,help:egymentors_tender.field_tender_order__partner_ref
+msgid ""
+"Reference of the sales order or bid sent by the vendor. It's used to do the "
+"matching when you receive the products as this reference is usually written "
+"on the delivery order sent by your vendor."
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchaseorder_document_eams2
+msgid "Registration number:"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request_line__reason
+msgid "Rejection Reason"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__mail_reminder_confirmed
+msgid "Reminder Confirmed"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.tender_order_form_inherit
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.view_purchase_requisition_form_inherit
+msgid "Remove PR Lines"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__request_ids
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__request_ids
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.tender_request_filter_line_view
+msgid "Request"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__request_added
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__request_added
+msgid "Request Added"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request__date_request
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request_line__date_request
+msgid "Request Date"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition_line__request_line_ids
+msgid "Request Line"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order_line__request_line_ids
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request__request_line
+msgid "Request Lines"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request__name
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request_line__request_id
+msgid "Request Reference"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__request_state
+msgid "Request State"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request__req_dep_id
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request_line__req_dep_id
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.tender_request_filter_line_view
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.tender_request_filter_view
+msgid "Requested Department"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.ui.menu,name:egymentors_tender.menu_tender_rfq_tr
+msgid "Requests for Quotation"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order_line__requisition_line_id
+msgid "Requisition Line"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order_line__move_ids
+msgid "Reservation"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__activity_user_id
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request__activity_user_id
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__message_has_sms_error
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request__message_has_sms_error
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition_line__schedule_date
+msgid "Scheduled Date"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__access_token
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request__access_token
+msgid "Security Token"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order_line__sequence
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request_line__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchaseorder_document_eams2
+msgid "Ser."
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.tender_request_form
+msgid "Set to Draft"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__signatures_ids
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.view_purchase_requisition_form_inherit
+msgid "Signatures"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.view_purchase_requisition_form_inherit
+msgid "Signatures Lines"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__origin
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__origin
+msgid "Source Document"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.tender_request_filter_line_view
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.tender_request_filter_view
+msgid "State"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__state_blanket_order
+msgid "State Blanket Order"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__state
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order_line__state
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request__state
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request_line__state
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__state
+msgid "Status"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,help:egymentors_tender.field_tender_order__activity_state
+#: model:ir.model.fields,help:egymentors_tender.field_tender_request__activity_state
+#: model:ir.model.fields,help:egymentors_tender.field_purchase_requisition__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order_line__price_subtotal
+msgid "Subtotal"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition_line__supplier_info_ids
+msgid "Supplier Info"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order_line__price_tax
+msgid "Tax"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__amount_by_group
+msgid "Tax amount by group"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__amount_tax
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order_line__taxes_id
+msgid "Taxes"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields.selection,name:egymentors_tender.selection__purchase_requisition__request_state__first
+msgid "Technical Approve"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,help:egymentors_tender.field_tender_order_line__display_type
+msgid "Technical field for UX purpose."
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,help:egymentors_tender.field_tender_order__default_location_dest_id_usage
+msgid "Technical field used to display the Drop Ship Address"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.ui.menu,name:egymentors_tender.menu_tender_request_main
+#: model:ir.ui.menu,name:egymentors_tender.menu_tender_request_root
+msgid "Tender"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request__requisition_id
+msgid "Tender Agreement"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request__tender_order_id
+msgid "Tender Order"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request__user_id
+msgid "Tender Representative"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.actions.act_window,name:egymentors_tender.act_tender_request
+#: model:ir.model,name:egymentors_tender.model_tender_request
+#: model:ir.model.fields,field_description:egymentors_tender.field_hr_employee__tender_request_id
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__request_id
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__request_id
+#: model:ir.module.category,name:egymentors_tender.module_category_operations_tender_request
+#: model:ir.ui.menu,name:egymentors_tender.menu_tender_request
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.tender_request_filter_view
+msgid "Tender Request"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.tender_request_line_view_pivot
+msgid "Tender Request Analysis"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model,name:egymentors_tender.model_tender_request_department
+msgid "Tender Request Department"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.actions.act_window,name:egymentors_tender.act_tender_request_line
+#: model:ir.model,name:egymentors_tender.model_tender_request_line
+#: model:ir.ui.menu,name:egymentors_tender.menu_tender_request_line
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.tender_request_filter_line_view
+msgid "Tender Request Line"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request_line__note
+msgid "Tender reason"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.tender_request_form
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.tender_request_view_tree
+msgid "Tender request"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.tender_request_form
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.tender_request_line_tree_view
+msgid "Tender request Lines"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__notes
+msgid "Terms and Conditions"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,help:egymentors_tender.field_purchase_requisition__schedule_date
+msgid ""
+"The expected and scheduled delivery date where all the products are received"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.actions.act_window,help:egymentors_tender.act_tender_request
+#: model_terms:ir.actions.act_window,help:egymentors_tender.act_tender_request_line
+msgid ""
+"The quotation contains the history of the discussion\n"
+"                    you had with your vendor."
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,help:egymentors_tender.field_tender_order__picking_type_id
+msgid "This will determine operation type of incoming shipment"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order_line__qty_to_invoice
+msgid "To Invoice Quantity"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchaseorder_document_eams2
+msgid "To company/"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__amount_total
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order_line__price_total
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchaseorder_document_eams2
+msgid "Total"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__discount_amount
+msgid "Total Discount"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order_line__product_uom_qty
+msgid "Total Quantity"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,help:egymentors_tender.field_tender_order__mail_reception_confirmed
+msgid "True if PO reception is confirmed by the vendor."
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,help:egymentors_tender.field_tender_order__mail_reminder_confirmed
+msgid "True if the reminder email is confirmed by the vendor."
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,help:egymentors_tender.field_tender_order__activity_exception_decoration
+#: model:ir.model.fields,help:egymentors_tender.field_tender_request__activity_exception_decoration
+#: model:ir.model.fields,help:egymentors_tender.field_purchase_requisition__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchaseorder_document_eams2
+msgid "Unit"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order_line__price_unit
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition_line__price_unit
+msgid "Unit Price"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order_line__product_uom
+msgid "Unit of Measure"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__message_unread
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request__message_unread
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__message_unread_counter
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request__message_unread_counter
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__amount_untaxed
+msgid "Untaxed Amount"
+msgstr ""
+
+#. module: egymentors_tender
+#: code:addons/egymentors_tender/reports/inventory_adjustment_xlsx.py:0
+#, python-format
+msgid "UoM"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:res.groups,name:egymentors_tender.group_tender_request_user
+msgid "User"
+msgstr ""
+
+#. module: egymentors_tender
+#: code:addons/egymentors_tender/models/purchase_requisition.py:0
+#, python-format
+msgid ""
+"User Changed Qty for this product [%s]\n"
+" Please Make it's qty bigger than Requisition request line qty:%s"
+msgstr ""
+
+#. module: egymentors_tender
+#: code:addons/egymentors_tender/models/tender_order.py:0
+#, python-format
+msgid ""
+"User Changed Qty for this product [%s]\n"
+" Please Make it's qty bigger than tender request line qty:%s"
+msgstr ""
+
+#. module: egymentors_tender
+#: code:addons/egymentors_tender/reports/inventory_adjustment_xlsx.py:0
+#, python-format
+msgid "Value"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__partner_id
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__vendor_id
+msgid "Vendor"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__partner_ref
+msgid "Vendor Reference"
+msgstr ""
+
+#. module: egymentors_tender
+#: code:addons/egymentors_tender/reports/inventory_adjustment_xlsx.py:0
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__warehouse_id
+#, python-format
+msgid "Warehouse"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_order__website_message_ids
+#: model:ir.model.fields,field_description:egymentors_tender.field_tender_request__website_message_ids
+#: model:ir.model.fields,field_description:egymentors_tender.field_purchase_requisition__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,help:egymentors_tender.field_tender_order__website_message_ids
+#: model:ir.model.fields,help:egymentors_tender.field_tender_request__website_message_ids
+#: model:ir.model.fields,help:egymentors_tender.field_purchase_requisition__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: egymentors_tender
+#: code:addons/egymentors_tender/models/tender_order.py:0
+#, python-format
+msgid ""
+"You Can't accept this line: %s\n"
+"It's already accepted on Quotation[%s] from vendor: %s."
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields,help:egymentors_tender.field_tender_order__partner_id
+#: model:ir.model.fields,help:egymentors_tender.field_tender_order_line__partner_id
+msgid "You can find a vendor by its Name, TIN, Email or Internal Reference."
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_note_doc
+msgid "_ _ _ _ _ _ _ بموجب _ _ _ _ _ _ معتمدة من قبل سيادته (مرفق طيه صورة)"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model,name:egymentors_tender.model_agreement_signature
+msgid "agreement.signature"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model.fields.selection,name:egymentors_tender.selection__tender_request__state__draft
+#: model:ir.model.fields.selection,name:egymentors_tender.selection__tender_request_line__state__draft
+#: model:ir.model.fields.selection,name:egymentors_tender.selection__purchase_requisition__request_state__draft
+msgid "draft"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model,name:egymentors_tender.model_report_egymentors_tender_report_inv_adj_ar_xlsx
+msgid "report.egymentors_tender.report_inv_adj_ar_xlsx"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model,name:egymentors_tender.model_report_egymentors_tender_report_inventory_adjustment_xlsx
+msgid "report.egymentors_tender.report_inventory_adjustment_xlsx"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model,name:egymentors_tender.model_report_egymentors_tender_report_purchase_requisition
+msgid "report.egymentors_tender.report_purchase_requisition"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model,name:egymentors_tender.model_tender_order
+msgid "tender.order"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model,name:egymentors_tender.model_tender_order_line
+msgid "tender.order.line"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model,name:egymentors_tender.model_purchase_requisition
+msgid "purchase.requisition"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.model,name:egymentors_tender.model_purchase_requisition_line
+msgid "purchase.requisition.line"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_note_doc
+msgid "ا/امل حامد المغربي"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_note_doc
+msgid "ا/جاكلين حنا رفله"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_note_doc
+msgid "ا/صفيه محمد جاد"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_note_doc
+msgid "ا/محمد مصطفى المعدلي"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_requisition_price_doc
+msgid "الإرتباط بالسعر:"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_note_doc
+msgid "الإسم"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_note_doc
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_requisition_price_doc
+msgid "التاريخ:"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_requisition_price_doc
+msgid "التسليم:"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_note_doc
+msgid "التوقيع"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_check_doc
+msgid "الخصم الإجمالى"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_note_doc
+msgid ""
+"القانون رقم 182 لسنة 2018 ولائحته التنفيذيه, على ألا تقل مدة سريان العطاء عن"
+" اسبوع"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_note_doc
+msgid "المرفقات:"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_check_doc
+msgid "الملاحظات:"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_requisition_price_doc
+msgid "برجاء موافاتنا بأسعاركم وشروطكم لتوريد الآتي:-"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.actions.report,name:egymentors_tender.purchase_requisition_xlsx_report
+msgid "تفريغ عروض الأسعار"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_check_doc
+msgid "خصومات السطور"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_note_doc
+msgid "رقم الصادر:"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_requisition_price_doc
+msgid "رقم العطاء:"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_note_doc
+msgid "شراء"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_requisition_price_doc
+msgid "شروط الدفع:"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.actions.report,name:egymentors_tender.purchase_order_check_report
+msgid "طلب إستخراج شيك"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.actions.report,name:egymentors_tender.purchase_requisition_price_report
+msgid "طلب عرض سعر"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_note_doc
+msgid ""
+"لذا نرجو بالموافقة على العمليه سالفه الذكر بطريقة الإتفاق المباشر طبقاً "
+"للمادة _ _ _ _ _ من"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_note_doc
+msgid "لزوم"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_note_doc
+msgid "محاسب ثان"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_note_doc
+msgid "مدير الإحتياجات والمخازن"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_note_doc
+msgid "مدير المشتريات"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_note_doc
+msgid "مدير عام الإدارة العامه للشئون الماليه"
+msgstr ""
+
+#. module: egymentors_tender
+#: model:ir.actions.report,name:egymentors_tender.purchase_order_note_report
+msgid "مذكره شراء"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_requisition_price_doc
+msgid "ميعاد التوريد:"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_request_doc
+msgid "نرجو من سيادتكم الموافقه على توفير قطع الغيار التاليه:"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_request_doc
+msgid ""
+"والأمر مرفوع لسيادتكم للتكرم بالتنبيه بسرعه إتخاذ اللازم لعدم تعطل العمل"
+msgstr ""
+
+#. module: egymentors_tender
+#: model_terms:ir.ui.view,arch_db:egymentors_tender.report_purchase_order_note_doc
+msgid "يرجى التكرم بالعلم بأن إدارة _ _ _ _ _ _ _ _ _  قد طلبت منّا شراء"
+msgstr ""
