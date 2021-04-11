@@ -26,6 +26,6 @@
         'views/hr_leave_level.xml',
         'views/contractType.xml',
         'views/search.xml',
-#         'views/res_config_settings_view.xml',
+        'views/res_config_settings_view.xml',
     ],
 }
