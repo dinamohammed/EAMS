@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <report
+                id="tender_request_report"
+                model="tender.request"
+                report_type="qweb-pdf"
+                string="Tender Request"
+                menu="False"
+                name="egymentors_tender.report_tender_request"
+                file="egymentors_tender.report_tender_request"
+        />
+        <report
+                id="purchase_requisition_xlsx_report"
+                model="purchase.requisition"
+                string="Dumping Quotations"
+                report_type="xlsx"
+                name="egymentors_tender.report_purchase_requisition"
+                file="egymentors_tender.report_purchase_requisition"
+                attachment_use="False"
+        />
+        <report
+                id="tender_requisition_price_report"
+                model="purchase.requisition"
+                string="Request for Quotation"
+                report_type="qweb-pdf"
+                name="egymentors_tender.report_tender_requisition_price"
+                file="egymentors_tender.report_tender_requisition_price"
+                attachment_use="False"
+        />
+        <report
+                id="tender_order_check_report"
+                model="tender.order"
+                string="Request to Issue Check"
+                report_type="qweb-pdf"
+                name="egymentors_tender.report_tender_order_check"
+                file="egymentors_tender.report_tender_order_check"
+                attachment_use="False"
+        />
+        <report
+                id="tender_order_note_report"
+                model="tender.order"
+                string="Purchase Note"
+                report_type="qweb-pdf"
+                name="egymentors_tender.report_tender_order_note"
+                file="egymentors_tender.report_purchase_order_note"
+                attachment_use="False"
+        />
+        <record id="po_paperformat" model="report.paperformat">
+            <field name="name">PO Paper Format</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">40</field>
+            <field name="margin_bottom">15</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">35</field>
+            <field name="dpi">140</field>
+        </record>
+
+        <report
+                id="purchase.action_report_purchase_order"
+                model="purchase.order"
+                string="Purchase Order"
+                report_type="qweb-pdf"
+                name="purchase.report_purchaseorder"
+                file="purchase.report_purchaseorder"
+                attachment_use="False"
+                print_report_name="
+                (object.state in ('draft', 'sent') and 'Request for Quotation - %s' % (object.name) or
+                'Purchase Order - %s' % (object.name))"
+        />
+        <report
+                string="Request for Quotation"
+                id="purchase.report_purchase_quotation"
+                model="purchase.order"
+                report_type="qweb-pdf"
+                name="purchase.report_purchaseorder"
+                file="purchase.report_purchaseorder"
+                attachment_use="False"
+                print_report_name="'Request for Quotation - %s' % (object.name)"
+        />
+
+        <report
+                id="report_inventory_adjustment_xlsx"
+                string="Inventory Adjustment Excel"
+                model="stock.inventory"
+                report_type="xlsx"
+                name="egymentors_tender.report_inventory_adjustment_xlsx"
+                file="egymentors_tender.report_inventory_adjustment_xlsx"/>
+
+        <report
+                id="report_inv_adj_ar_xlsx"
+                string=" "
+                model="stock.inventory"
+                report_type="xlsx"
+                name="egymentors_tender.report_inv_adj_ar_xlsx"
+                file="egymentors_tender.report_inv_adj_ar_xlsx"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+    
+        <record id="view_users_form_tender_request_inherit" model="ir.ui.view">
+            <field name="name">res.users.form.tender.request.inherit</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">                
+                <xpath expr="//notebook[last()]" position="inside">
+                    <page string="Tender Requests" name="tender_request">
+                        <group string="Tender Requests" groups="base.group_no_one">
+                            <group>
+                                <field name="tender_request_ids" widget="many2many_tags" readonly="1"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+        
+    </data>
+</odoo>
