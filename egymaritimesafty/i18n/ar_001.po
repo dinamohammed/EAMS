@@ -308,7 +308,7 @@ msgstr "خريج"
 #. module: egymaritimesafty
 #: model:ir.model,name:egymaritimesafty.model_hr_job_degree
 msgid "HR Job Degree"
-msgstr "الدرجة الوظيفية"
+msgstr "المستويات الوظيفية"
 
 #. module: egymaritimesafty
 #: model:ir.model,name:egymaritimesafty.model_hr_reassignment
@@ -408,7 +408,7 @@ msgstr "الوظيفة"
 #: model_terms:ir.ui.view,arch_db:egymaritimesafty.view_hr_job_degree_tree
 #: model_terms:ir.ui.view,arch_db:egymaritimesafty.view_hr_job_employee_form
 msgid "Job Degree"
-msgstr "الدرجة الوظيفي"
+msgstr "المستوي الوظيفي"
 
 #. module: egymaritimesafty
 #: model:ir.model.constraint,message:egymaritimesafty.constraint_hr_job_degree_Job_degree_uniq
@@ -422,7 +422,7 @@ msgstr ""
 #: model:ir.ui.menu,name:egymaritimesafty.menu_hr_job_degree
 #: model_terms:ir.ui.view,arch_db:egymaritimesafty.view_hr_job_degree_tree
 msgid "Job Degrees"
-msgstr "الدرجات الوظيفية"
+msgstr "المستويات الوظيفية"
 
 #. module: egymaritimesafty
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_job_degree__full_name
@@ -524,7 +524,7 @@ msgstr "المسمي الوظيفي"
 #. module: egymaritimesafty
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_job__job_title_degree_id
 msgid "Job Title - Degree"
-msgstr "المسمي الوظيفي والدرجة"
+msgstr "المسمي الوظيفي والمستوي"
 
 #. module: egymaritimesafty
 #: model:ir.actions.act_window,name:egymaritimesafty.action_open_job_title
