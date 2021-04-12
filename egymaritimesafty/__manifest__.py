@@ -22,7 +22,7 @@
     'version': '14.0.1.0.0',
 
     # any module necessary for this one to work correctly
-    'depends': ['hr', 'base', 'mail'],
+    'depends': ['hr', 'hr_contract', 'base', 'mail'],
 
     # always loaded
     'data': [
@@ -32,6 +32,7 @@
         'views/hr_job_views.xml',
         'views/hr_employee_views.xml',
         'views/hr_views.xml',
+        'views/hr_contract_view_inherit.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
