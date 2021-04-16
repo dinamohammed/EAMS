@@ -11,11 +11,8 @@ except ImportError:
     num2words = None
 
 
-# Ahmed Salama Code Start ---->
-
-
 class PartnerXlsx(models.AbstractModel):
-    _name = 'report.egymentors_inventory.report_purchase_requisition'
+    _name = 'report.egymentors_inventory.report_purchase_req_technical'
     _inherit = 'report.report_xlsx.abstract'
 
     def generate_xlsx_report(self, workbook, data, partners):
@@ -46,18 +43,18 @@ class PartnerXlsx(models.AbstractModel):
             # Fill Vendors Dict
             vendors_dict = []
             for order in purchase_ids:
-                if any(acc for acc in order.order_line.mapped('accepted')):
+                if any(acc for acc in order.order_line.mapped('accepted_tender')):
                     vendors_dict.append({
                         'id': order.id,
                         'vendor': order.partner_id.name,
                         'total_after_tax': sum(l.price_total for l in
-                                               order.order_line.filtered(lambda l: l.accepted))})
+                                               order.order_line.filtered(lambda l: l.accepted_tender))})
 
-            # Print Accepted Data
+            # Print Accepted Tender Data
             for vendor_line in vendors_dict:
                 worksheet.merge_range(row, 2, row, 3, "إجمالى عرض شركه", cell_format_right_bold)
                 worksheet.merge_range(row, 4, row, 5, vendor_line['vendor'], cell_format_right_bold)
-                worksheet.write(row, 6, "%s %s" % (vendor_line['total_after_tax'], obj.currency_id.symbol), bold)
+                # worksheet.write(row, 6, "%s %s" % (vendor_line['total_after_tax'], obj.currency_id.symbol), bold)
                 amount_text = obj.currency_id.with_context({'lang': self.env.user.lang}).amount_to_text(
                     vendor_line['total_after_tax'])
                 if self.env.user.lang in ['ar', 'ar_SY', 'ar_001']:
@@ -100,7 +97,7 @@ class PartnerXlsx(models.AbstractModel):
             cell_format_header.set_center_across()
             col_purchase_end = len(obj.purchase_ids) * 2 + 3
             worksheet.merge_range(row, 0, row, 3, 'بيانات عرض الأسعار', cell_format_header)
-            worksheet.merge_range(row, 4, row, col_purchase_end, 'بيانات عروض الموردين', cell_format_header)
+            # worksheet.merge_range(row, 4, row, col_purchase_end, 'بيانات عروض الموردين', cell_format_header)
             row += 1
             worksheet.merge_range(row, 0, row + 1, 0, 'م', cell_format_header)
             worksheet.merge_range(row, 1, row + 1, 1, 'إسم الصنف', cell_format_header)
@@ -114,10 +111,10 @@ class PartnerXlsx(models.AbstractModel):
             for idx, order in enumerate(purchase_ids):
                 col = (idx * 2) + 4
                 supplier = order.partner_id and order.partner_id.name or ('%s المورد' % idx)
-                worksheet.merge_range(row - 1, col, row - 1, col + 1, '%s' % supplier, cell_format_header)
+                # worksheet.merge_range(row - 1, col, row - 1, col + 1, '%s' % supplier, cell_format_header)
                 # worksheet.write(row, col,  'الكميه', cell_format_header)
                 # worksheet.write(row, col+1, 'السعر', cell_format_header)
-                worksheet.merge_range(row, col, row, col + 1, 'السعر', cell_format_header)
+                # worksheet.merge_range(row, col, row, col + 1, 'السعر', cell_format_header)
             row += 1
 
             # Print Lines
@@ -132,62 +129,62 @@ class PartnerXlsx(models.AbstractModel):
                 for y, order in enumerate(purchase_ids):
                     col = (y * 2) + 4
                     order_line_id = order.order_line.filtered(lambda l: l.requisition_line_id.id == line.id)
-                    if order_line_id:
+                    # if order_line_id:
                         # worksheet.write(row, col, order_line_id.product_qty, cell_format_row)
                         # worksheet.write(row, col+1, "%s %s" % (order_line_id.price_unit, obj.currency_id.symbol), cell_format_row)
-                        worksheet.merge_range(row, col, row, col + 1,
-                                              "%s %s" % (order_line_id.price_unit, obj.currency_id.symbol),
-                                              cell_format_row)
+                        # worksheet.merge_range(row, col, row, col + 1,
+                        #                       "%s %s" % (order_line_id.price_unit, obj.currency_id.symbol),
+                        #                       cell_format_row)
                 row += 1
 
-            # Print Accepted Lines
+            # Print Accepted Tender Lines
             total_taxes = 0.0
             total_after_taxes = 0.0
             for line_col, order in enumerate(purchase_ids):
                 if order.id in [v['id'] for v in vendors_dict]:
                     header_added = False
                     for line_row, line in enumerate(obj.line_ids):
-                        accepted_line_id = order.order_line.filtered(lambda l: l.accepted and
+                        accepted_tender_line_id = order.order_line.filtered(lambda l: l.accepted_tender and
                                                                                l.requisition_line_id.id == line.id)
-                        total_taxes += accepted_line_id.price_tax
-                        total_after_taxes += accepted_line_id.price_total
-                        if accepted_line_id:
+                        total_taxes += accepted_tender_line_id.price_tax
+                        total_after_taxes += accepted_tender_line_id.price_total
+                        if accepted_tender_line_id:
                             if not header_added:
                                 header_added = True
                                 supplier = order.partner_id and order.partner_id.name or ('%s المورد' % idx)
-                                worksheet.merge_range(first_line_row - 2, first_line_col, first_line_row - 2,
-                                                      first_line_col + 1,
-                                                      'إجمالى عرض الشركه', cell_format_header)
-                                worksheet.merge_range(first_line_row - 1, first_line_col, first_line_row - 1,
-                                                      first_line_col + 1,
-                                                      '%s' % supplier, cell_format_header)
+                                # worksheet.merge_range(first_line_row - 2, first_line_col, first_line_row - 2,
+                                #                       first_line_col + 1,
+                                #                       'إجمالى عرض الشركه', cell_format_header)
+                                # worksheet.merge_range(first_line_row - 1, first_line_col, first_line_row - 1,
+                                #                       first_line_col + 1,
+                                #                       '%s' % supplier, cell_format_header)
 
-                            worksheet.merge_range(first_line_row + line_row, first_line_col, first_line_row + line_row,
-                                                  first_line_col + 1,
-                                                  "%s %s" % (accepted_line_id.price_subtotal, obj.currency_id.symbol),
-                                                  cell_format_header)
-                    worksheet.merge_range(row, first_line_col, row, first_line_col + 1,
-                                          "%s %s" % (sum(l.price_subtotal for l in
-                                                         order.order_line.filtered(lambda l: l.accepted)),
-                                                     obj.currency_id.symbol),
-                                          cell_format_header)
-                    worksheet.merge_range(row + 1, first_line_col, row + 1, first_line_col + 1,
-                                          "%s %s" % (sum(l.price_tax for l in
-                                                         order.order_line.filtered(lambda l: l.accepted)),
-                                                     obj.currency_id.symbol),
-                                          cell_format_header)
-                    worksheet.merge_range(row + 2, first_line_col, row + 2, first_line_col + 1,
-                                          "%s %s" % (sum(l.price_total for l in
-                                                         order.order_line.filtered(lambda l: l.accepted)),
-                                                     obj.currency_id.symbol),
-                                          cell_format_header)
+                    #         worksheet.merge_range(first_line_row + line_row, first_line_col, first_line_row + line_row,
+                    #                               first_line_col + 1,
+                    #                               "%s %s" % (accepted_tender_line_id.price_subtotal, obj.currency_id.symbol),
+                    #                               cell_format_header)
+                    # worksheet.merge_range(row, first_line_col, row, first_line_col + 1,
+                    #                       "%s %s" % (sum(l.price_subtotal for l in
+                    #                                      order.order_line.filtered(lambda l: l.accepted_tender)),
+                    #                                  obj.currency_id.symbol),
+                    #                       cell_format_header)
+                    # worksheet.merge_range(row + 1, first_line_col, row + 1, first_line_col + 1,
+                    #                       "%s %s" % (sum(l.price_tax for l in
+                    #                                      order.order_line.filtered(lambda l: l.accepted_tender)),
+                    #                                  obj.currency_id.symbol),
+                    #                       cell_format_header)
+                    # worksheet.merge_range(row + 2, first_line_col, row + 2, first_line_col + 1,
+                    #                       "%s %s" % (sum(l.price_total for l in
+                    #                                      order.order_line.filtered(lambda l: l.accepted_tender)),
+                    #                                  obj.currency_id.symbol),
+                    #                       cell_format_header)
                     first_line_col += 2
-            if vendors_dict:
-                worksheet.merge_range(first_line_row - 3, col_purchase_end + 1, first_line_row - 3, first_line_col - 1,
-                                      'بيانات العروض المقبوله', cell_format_header)
+            # if vendors_dict:
+                # worksheet.merge_range(first_line_row - 3, col_purchase_end + 1, first_line_row - 3, first_line_col - 1,
+                #                       'بيانات العروض المقبوله', cell_format_header)
 
             # Print Total Line
-            worksheet.merge_range(row, col_purchase_end, row, col_purchase_end - 1, 'الإجمـالـى', cell_format_header)
+            # worksheet.merge_range(row, col_purchase_end, row, col_purchase_end - 1, 'الإجمـالـى', cell_format_header)
             # worksheet.write(row, 2, sum(l.product_qty for l in obj.line_ids), cell_format_header)
             # worksheet.write(row, 3, "%s %s" % (sum(l.price_unit for l in obj.line_ids), obj.currency_id.symbol),
             #                 cell_format_header)
@@ -198,18 +195,18 @@ class PartnerXlsx(models.AbstractModel):
             # 	worksheet.write(row, col+1, "%s %s" % (sum(l.price_unit for l in lines), obj.currency_id.symbol),
             # 	                cell_format_header)
             row += 1
-            worksheet.merge_range(row, col_purchase_end, row, col_purchase_end - 1, "إجمالي الضريبه",
-                                  cell_format_header)
+            # worksheet.merge_range(row, col_purchase_end, row, col_purchase_end - 1, "إجمالي الضريبه",
+            #                       cell_format_header)
             # worksheet.write(row, 2, "%s %s" % (total_taxes, obj.currency_id.symbol), cell_format_header)
             row += 1
-            worksheet.merge_range(row, col_purchase_end, row, col_purchase_end - 1, "الإجمالى بعد الضريبه",
-                                  cell_format_header)
+            # worksheet.merge_range(row, col_purchase_end, row, col_purchase_end - 1, "الإجمالى بعد الضريبه",
+            #                       cell_format_header)
             # worksheet.write(row, 2, "%s %s" % (total_after_taxes, obj.currency_id.symbol), cell_format_header)
 
-            # Print Accepted Data final data
+            # Print Accepted Tender Data final data
             if vendors_dict:
                 row += 2
-                worksheet.merge_range(row, 0, row, 2, "رأى اللجنه الفنيه الماليه", cell_format_right_bold)
+                worksheet.merge_range(row, 0, row, 2, "رأى اللجنه الفنيه", cell_format_right_bold)
                 row += 1
                 for vendor_line in vendors_dict:
                     worksheet.merge_range(row, 0, row, 1, " تري اللجنه إختيار العرض المقدم من  ",
@@ -219,23 +216,23 @@ class PartnerXlsx(models.AbstractModel):
                     row += 1
 
                 row += 2
-                # Signatures
-                worksheet.merge_range(row, 0, row, 1, "توقيعات اعضاء اللجنه", cell_format_right_bold)
+                # Signatures Technical
+                worksheet.merge_range(row, 0, row, 1, "توقيعات اعضاء اللجنه الفنية", cell_format_right_bold)
                 worksheet.merge_range(row, 5, row, 6, "رئيس اللجنه", cell_format_right_bold)
                 row += 1
                 col = 0
-                signatures_ranked = []
-                signatures = list(obj.signatures_ids).copy()
-                while signatures:
-                    minimum = signatures[0]
-                    for line in signatures:
+                signatures_technical_ranked = []
+                signatures_technical = list(obj.signatures_technical_ids).copy()
+                while signatures_technical:
+                    minimum = signatures_technical[0]
+                    for line in signatures_technical:
                         if line.rank < minimum.rank:
                             minimum = line
-                    signatures_ranked.append(minimum)
-                    signatures.remove(minimum)
-                for line in signatures_ranked:
+                    signatures_technical_ranked.append(minimum)
+                    signatures_technical.remove(minimum)
+                for line in signatures_technical_ranked:
                     worksheet.merge_range(row, col, row, col + 1, "%s" % line.title, cell_format_right_bold)
-                    worksheet.merge_range(row + 1, col, row + 1, col + 1, "%s" % line.name.name, cell_format_right_bold)
+                    worksheet.merge_range(row + 1, col, row + 1, col + 1, "%s" % line.name, cell_format_right_bold)
                     col += 2
 
                 row += 2
@@ -251,7 +248,7 @@ class PartnerXlsx(models.AbstractModel):
             row += 2
             worksheet.merge_range(row, 0, row, 1, "الشروط والاحكام", cell_format_header)
             row += 1
-            worksheet.merge_range(row, 0, row, 1, obj.description)
+            worksheet.merge_range(row, 0, row, 1, order.notes)
 
 
 class ResCurrencyInherit(models.Model):
@@ -260,4 +257,3 @@ class ResCurrencyInherit(models.Model):
     name = fields.Char(translate=True)
     currency_unit_label = fields.Char(translate=True)
     currency_submit_label = fields.Char(translate=True)
-# Ahmed Salama Code End.

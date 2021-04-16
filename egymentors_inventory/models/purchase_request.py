@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 
-from odoo import api, fields, models, _
-from odoo.exceptions import Warning
+from odoo import api, fields, models
 
 _STATES = [('draft', 'draft'),
-           ('first', 'Technical Approve'),
+           ('audit', 'Audit Approval'),
+           ('manager', 'Manager Approval'),
+           ('g_manager', 'General Manager Approval'),
            ('done', 'Done'),
            ('locked', 'Locked'),
            ('cancel', 'Cancelled')]
@@ -12,9 +13,6 @@ _STATES = [('draft', 'draft'),
 READONLY_STATES = {
     'draft': [('readonly', False)],
 }
-
-
-# Ahmed Salama Code Start ---->
 
 
 class PurchaseRequest(models.Model):
@@ -33,16 +31,16 @@ class PurchaseRequest(models.Model):
     purchase_order_id = fields.Many2one('purchase.order', "Purchase Order", readonly=1)
     requisition_id = fields.Many2one('purchase.requisition', 'Purchase Agreement', readonly=1)
 
-    user_id = fields.Many2one(
-        'res.users', string='Purchase Representative', index=True, tracking=True,
-        default=lambda self: self.env.user, check_company=True)
+    user_id = fields.Many2one('res.users', string='Purchase Representative', index=True, tracking=True,
+                              default=lambda self: self.env.user, check_company=True)
     company_id = fields.Many2one('res.company', 'Company', required=True, index=True, states=READONLY_STATES,
                                  default=lambda self: self.env.company.id)
     state = fields.Selection(_STATES, string='Status', readonly=True, index=True, copy=False, default='draft',
                              tracking=True)
     request_line = fields.One2many('purchase.request.line', 'request_id', string='Request Lines', readonly=1,
                                    states=READONLY_STATES, copy=True)
-    notes = fields.Text("الملاحظات", placeholder="Write Notes")
+    notes = fields.Text("Note", placeholder="Write Notes")
+    responsible_ids = fields.Many2many(comodel_name='res.users', string="Responsible")
 
     @api.model
     def create(self, vals):
@@ -64,15 +62,19 @@ class PurchaseRequest(models.Model):
     def print_request(self):
         return self.env.ref('egymentors_inventory.purchase_request_report').report_action(self)
 
-    def button_first_confirm(self):
-        # for request in self:
-        # 	if not request.request_line:
-        # 		raise Warning(_("You should add line at least to approve request!!!"))
-        self.write({'state': 'first'})
+    def button_audit_approval(self):
+        self.write({'state': 'audit'})
 
-    def button_second_confirm(self):
-        self.write({'state': 'done',
+    def button_manager_approval(self):
+        self.write({'state': 'manager',
                     'date_approve': fields.Datetime.now()})
+
+    def button_general_manager_approval(self):
+        self.write({'state': 'g_manager',
+                    'date_approve': fields.Datetime.now()})
+
+    def button_done(self):
+        self.write({'state': 'done'})
 
     def button_draft(self):
         self.write({'state': 'draft'})
@@ -80,9 +82,6 @@ class PurchaseRequest(models.Model):
 
     def button_cancel(self):
         self.write({'state': 'cancel'})
-
-    def button_open(self):
-        self.write({'state': 'done'})
 
 
 class PurchaseRequestDepartment(models.Model):
@@ -106,7 +105,7 @@ class PurchaseRequestLine(models.Model):
                                  required=True, ondelete='cascade')
     state = fields.Selection(_STATES, string='Status', readonly=True, index=True, copy=False, default='draft',
                              tracking=True)
-    note = fields.Text("سبب الشراء")
+    note = fields.Text("Purchase Cause")
     company_id = fields.Many2one('res.company', "Company")
     req_dep_id = fields.Many2one('purchase.request.department', "Requested Department")
     date_request = fields.Datetime('Request Date', required=True, states=READONLY_STATES, index=True, copy=False,
@@ -114,7 +113,5 @@ class PurchaseRequestLine(models.Model):
                                    help="Depicts the date where the Quotation should be validated and"
                                         " converted into a purchase order.")
     reason = fields.Text(string="Rejection Reason")
-    item_value = fields.Text(string="قيمة البند")
-    item_type = fields.Text(string="نوع البند")
-
-# Ahmed Salama Code End.
+    item_value = fields.Text(string="Item Value")
+    item_type = fields.Text(string="Item Type")
