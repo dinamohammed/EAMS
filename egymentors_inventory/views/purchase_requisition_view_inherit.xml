@@ -26,24 +26,55 @@
                         ('state','in',('open','done', 'cancel'))],
                         'invisible':[('multi_requisition','=',False)]}" widget="many2many_tags" class="oe_inline"/>
 
-                         <button name="load_pr_lines" string="Add PR Lines" type="object"
-                                class="oe_inline"  icon="fa-plus"
+                        <button name="load_pr_lines" string="Add PR Lines" type="object"
+                                class="oe_inline" icon="fa-plus"
                                 attrs="{'invisible':['|',('state','in',('open','done', 'cancel')),
                                 ('request_added','=',True)]}"/>
                         <button name="remove_pr_lines" string="Remove PR Lines" type="object"
-                                class="oe_inline oe_edit_only"  icon="fa-random"
+                                class="oe_inline oe_edit_only" icon="fa-random"
                                 attrs="{'invisible':['|',('state','in',('open','done', 'cancel')),
                                 ('request_added','=',False)]}"/>
+                    </div>
+                    <label for="tender_request_id"/>
+                    <div class="o_row">
+                        <field name="tender_request_added" invisible="1"/>
+                        <label for="tender_multi_requisition" string="Multi Tender" class="oe_inline oe_edit_only"/>
+                        <field name="tender_multi_requisition" class="oe_inline oe_edit_only"/>
+                        <field name="tender_request_id" attrs="{'readonly':['|',('tender_request_added','=',True),
+                        ('state','in',('open','done', 'cancel'))],
+                        'invisible':[('tender_multi_requisition','=',True)]}" class="oe_inline"/>
+                        <field name="tender_request_ids" attrs="{'readonly':['|',('tender_request_added','=',True),
+                        ('state','in',('open','done', 'cancel'))],
+                        'invisible':[('tender_multi_requisition','=',False)]}" widget="many2many_tags"
+                               class="oe_inline"/>
+
+                        <button name="load_tr_lines" string="Add TR Lines" type="object"
+                                class="oe_inline" icon="fa-plus"
+                                attrs="{'invisible':['|',('state','in',('open','done', 'cancel')),
+                                ('tender_request_added','=',True)]}"/>
+                        <button name="remove_tr_lines" string="Remove TR Lines" type="object"
+                                class="oe_inline oe_edit_only" icon="fa-random"
+                                attrs="{'invisible':['|',('state','in',('open','done', 'cancel')),
+                                ('tender_request_added','=',False)]}"/>
                     </div>
                 </xpath>
                 <xpath expr="//field[@name='line_ids']/tree" position="inside">
                     <field name="request_line_ids" optional="hide" widget="many2many_tags"/>
                 </xpath>
-                
+
                 <xpath expr="//page[@name='products']" position="after">
-                    <page string = "Signatures" name = "agreement_signatures">
+                    <page string="Financial Signatures" name="agreement_signatures_financial">
                         <field name="signatures_ids" widget="section_and_note_one2many" mode="tree">
-                            <tree string="Signatures Lines" editable="bottom">
+                            <tree string="Financial Signatures Lines" editable="bottom">
+                                <field name="name"/>
+                                <field name="title"/>
+                                <field name="rank"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page string="Technical Signatures" name="agreement_signatures_technical">
+                        <field name="signatures_technical_ids" widget="section_and_note_one2many" mode="tree">
+                            <tree string="Technical Signatures Lines" editable="bottom">
                                 <field name="name"/>
                                 <field name="title"/>
                                 <field name="rank"/>

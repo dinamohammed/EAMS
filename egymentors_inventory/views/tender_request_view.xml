@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <!-- Purchase Request-->
-        <record id="purchase_request_form" model="ir.ui.view">
-            <field name="name">purchase.request.form</field>
-            <field name="model">purchase.request</field>
+        <!-- Tender Request-->
+
+        <record id="tender_request_form" model="ir.ui.view">
+            <field name="name">tender.request.form</field>
+            <field name="model">tender.request</field>
             <field name="arch" type="xml">
-                <form string="Purchase request" class="o_purchase_request">
+                <form string="Tender request" class="o_purchase_request">
                     <header>
                         <button name="button_audit_approval" states="draft" string="Audit Approve"
                                 class="oe_highlight" type="object"
@@ -31,7 +32,7 @@
                     </header>
                     <sheet>
                         <div class="oe_title">
-                            <span class="o_form_label">Purchase Request</span>
+                            <span class="o_form_label">Tender Request</span>
                             <h1>
                                 <field name="name" readonly="1"/>
                             </h1>
@@ -45,10 +46,10 @@
                             <group>
                                 <field name="date_request" attrs="{'invisible': [('state','=','purchase')]}"/>
                                 <field name="date_approve" attrs="{'invisible': [('state','!=','purchase')]}"/>
-                                <field name="purchase_order_id"
-                                       attrs="{'invisible': [('purchase_order_id','=',False)]}"/>
+                                <field name="tender_order_id"
+                                       attrs="{'invisible': [('tender_order_id','=',False)]}"/>
                                 <field name="requisition_id" attrs="{'invisible': [('requisition_id','=',False)]}"/>
-                                <field name="responsible_ids" widget="many2many_tags"
+                                <field name="tender_responsible_ids" widget="many2many_tags"
                                        groups="egymentors_inventory.group_purchase_request_manager"/>
                             </group>
                         </group>
@@ -56,11 +57,11 @@
                         <field name="notes" style="direction:rtl"/>
                         <notebook>
                             <page string="Products">
-                                <field name="request_line"
+                                <field name="tender_request_line"
                                        attrs="{'readonly': [('state', 'in', ('done', 'cancel'))]}"
                                        context="{'default_req_dep_id':req_dep_id, 'company_id':company_id,
                                         'date_request':date_request}">
-                                    <tree string="Purchase request Lines" editable="bottom">
+                                    <tree string="Tender request Lines" editable="bottom">
                                         <field name="sequence" widget="handle"/>
                                         <field name="product_id"
                                                attrs="{'readonly': [('state', 'in', ('done', 'cancel'))]}"
@@ -79,7 +80,7 @@
                                 </field>
                                 <div class="oe_clear"/>
                             </page>
-                            <page string="Other Information" name="purchase_delivery_invoice">
+                            <page string="Other Information" name="tender_delivery_invoice">
                                 <group>
                                     <group name="other_info">
                                         <field name="user_id"/>
@@ -98,34 +99,28 @@
             </field>
         </record>
 
-        <record id="purchase_request_view_tree" model="ir.ui.view">
-            <field name="name">purchase.request.view.tree</field>
-            <field name="model">purchase.request</field>
+        <record id="tender_request_view_tree" model="ir.ui.view">
+            <field name="name">tender.request.view.tree</field>
+            <field name="model">tender.request</field>
             <field name="arch" type="xml">
                 <tree decoration-bf="state=='draft'" decoration-muted="state in ('cancel','locked')"
                       decoration-info="state=='audit'" decoration-success="state=='done'"
-                      string="Purchase request" class="o_purchase_request">
+                      string="Tender request" class="o_purchase_request">
                     <field name="name" string="Reference" readonly="1"/>
                     <field name="date_request" invisible="not context.get('quotation_only', False)" optional="show"/>
                     <field name="date_approve" invisible="context.get('quotation_only', False)" optional="show"/>
-                    <field name="purchase_order_id" optional="show"/>
+                    <field name="tender_order_id" optional="show"/>
                     <field name="user_id" optional="show"/>
                     <field name="state" optional="show"/>
                 </tree>
             </field>
         </record>
 
-        <menuitem id="menu_purchase_request_root"
-                  name="Purchase Request"
-                  groups="group_purchase_request_user"
-                  web_icon="egymentors_inventory,static/description/pr_icon.png"
-                  sequence="26"/>
-
-        <record id="purchase_request_filter_view" model="ir.ui.view">
-            <field name="name">purchase.request.filter.view</field>
-            <field name="model">purchase.request</field>
+        <record id="tender_request_filter_view" model="ir.ui.view">
+            <field name="name">tender.request.filter.view</field>
+            <field name="model">tender.request</field>
             <field name="arch" type="xml">
-                <search string="Purchase Request">
+                <search string="Tender Request">
                     <field name="name"/>
                     <filter string="Locked" name="locked" domain="[('state','=','locked')]"/>
                     <filter string="Open" name="unlocked" domain="[('state','!=','locked')]"/>
@@ -140,18 +135,18 @@
             </field>
         </record>
 
-        <record id="act_purchase_request" model="ir.actions.act_window">
-            <field name="name">Purchase Request</field>
+        <record id="act_tender_request" model="ir.actions.act_window">
+            <field name="name">Tender Request</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model">purchase.request</field>
+            <field name="res_model">tender.request</field>
             <field name="view_mode">tree,form</field>
-            <field name="view_id" ref="purchase_request_view_tree"/>
+            <field name="view_id" ref="tender_request_view_tree"/>
             <field name="domain">[]</field>
             <field name="context">{}</field>
-            <!--            <field name="search_view_id" ref="view_purchase_request_filter"/>-->
+            <!--            <field name="search_view_id" ref="view_tender_request_filter"/>-->
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">
-                    Create a Purchase request
+                    Create a Tender request
                 </p>
                 <p>
                     The quotation contains the history of the discussion
@@ -160,26 +155,32 @@
             </field>
         </record>
 
-        <menuitem id="menu_purchase_request_main"
-                  name="Purchase"
+        <!--        <menuitem id="menu_tender_request_root"-->
+        <!--                  name="Tender"-->
+        <!--                  groups="group_purchase_request_user"-->
+        <!--                  web_icon="egymentors_inventory,static/description/pr_icon.jpeg"-->
+        <!--                  sequence="27"/>-->
+
+        <menuitem id="menu_tender_request_main"
+                  name="Tender"
                   parent="menu_purchase_request_root"
+                  sequence="2"/>
+
+        <menuitem id="menu_tender_request"
+                  action="act_tender_request"
+                  parent="menu_tender_request_main"
                   sequence="1"/>
 
-        <menuitem id="menu_purchase_request"
-                  action="act_purchase_request"
-                  parent="menu_purchase_request_main"
-                  sequence="1"/>
-
-        <!-- Purchase Request Line-->
-        <record id="purchase_request_line_tree_view" model="ir.ui.view">
-            <field name="name">purchase.request.line.tree</field>
-            <field name="model">purchase.request.line</field>
+        <!-- Tender Request Line-->
+        <record id="tender_request_line_tree_view" model="ir.ui.view">
+            <field name="name">tender.request.line.tree</field>
+            <field name="model">tender.request.line</field>
             <field name="arch" type="xml">
                 <tree decoration-bf="state=='draft'" decoration-muted="state in ('cancel','locked')"
                       decoration-info="state=='audit'" decoration-success="state=='done'"
-                      string="Purchase request Lines" class="o_purchase_request">
+                      string="Tender request Lines" class="o_purchase_request">
                     <field name="sequence" widget="handle"/>
-                    <field name="request_id"/>
+                    <field name="tender_request_id"/>
                     <field name="product_id"/>
                     <field name="product_qty"/>
                     <field name="state" optional="show"/>
@@ -189,29 +190,27 @@
                 </tree>
             </field>
         </record>
-
-        <record id="purchase_request_line_view_pivot" model="ir.ui.view">
-            <field name="name">purchase.request.line.pivot</field>
-            <field name="model">purchase.request.line</field>
+        <record id="tender_request_line_view_pivot" model="ir.ui.view">
+            <field name="name">tender.request.line.pivot</field>
+            <field name="model">tender.request.line</field>
             <field name="arch" type="xml">
-                <pivot string="Purchase Request Analysis">
+                <pivot string="Tender Request Analysis">
                     <field name="product_id"/>
                     <field name="product_qty" type="measure"/>
                 </pivot>
             </field>
         </record>
-
-        <record id="purchase_request_filter_line_view" model="ir.ui.view">
-            <field name="name">purchase.request.line.filter.view</field>
-            <field name="model">purchase.request.line</field>
+        <record id="tender_request_filter_line_view" model="ir.ui.view">
+            <field name="name">tender.request.line.filter.view</field>
+            <field name="model">tender.request.line</field>
             <field name="arch" type="xml">
-                <search string="Purchase Request Line">
+                <search string="Tender Request Line">
                     <field name="product_id"/>
-                    <field name="request_id"/>
+                    <field name="tender_request_id"/>
                     <filter string="Locked" name="locked" domain="[('state','=','locked')]"/>
                     <filter string="Open" name="unlocked" domain="[('state','!=','locked')]"/>
                     <group expand="0" string="Group By">
-                        <filter string="Request" name="request" domain="[]" context="{'group_by':'request_id'}"/>
+                        <filter string="Request" name="request" domain="[]" context="{'group_by':'tender_request_id'}"/>
                         <filter string="Product" name="product" domain="[]" context="{'group_by':'product_id'}"/>
                         <separator/>
                         <filter string="State" name="state" domain="[]" context="{'group_by':'state'}"/>
@@ -223,17 +222,16 @@
                 </search>
             </field>
         </record>
-
-        <record id="act_purchase_request_line" model="ir.actions.act_window">
-            <field name="name">Purchase Request Line</field>
+        <record id="act_tender_request_line" model="ir.actions.act_window">
+            <field name="name">Tender Request Line</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model">purchase.request.line</field>
+            <field name="res_model">tender.request.line</field>
             <field name="view_mode">tree,pivot</field>
             <field name="domain">[]</field>
             <field name="context">{'search_default_request':1}</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">
-                    Create a Purchase request Line
+                    Create a Tender request Line
                 </p>
                 <p>
                     The quotation contains the history of the discussion
@@ -241,10 +239,8 @@
                 </p>
             </field>
         </record>
-
-        <menuitem action="act_purchase_request_line" id="menu_purchase_request_line"
-                  parent="menu_purchase_request_main"
+        <menuitem action="act_tender_request_line" id="menu_tender_request_line"
+                  parent="menu_tender_request_main"
                   sequence="2"/>
-
     </data>
 </odoo>

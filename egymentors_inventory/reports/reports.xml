@@ -11,18 +11,27 @@
                 file="egymentors_inventory.report_purchase_request"
         />
         <report
-                id="purchase_requisition_xlsx_report"
+                id="purchase_requisition_financial_xlsx_report"
                 model="purchase.requisition"
-                string="تفريغ عروض الأسعار"
+                string="Dumping Quotations Financial Report"
                 report_type="xlsx"
-                name="egymentors_inventory.report_purchase_requisition"
-                file="egymentors_inventory.report_purchase_requisition"
+                name="egymentors_inventory.report_purchase_req_financial"
+                file="egymentors_inventory.report_purchase_req_financial"
+                attachment_use="False"
+        />
+        <report
+                id="purchase_requisition_technical_xlsx_report"
+                model="purchase.requisition"
+                string="Dumping Quotations Technical Report"
+                report_type="xlsx"
+                name="egymentors_inventory.report_purchase_req_technical"
+                file="egymentors_inventory.report_purchase_req_technical"
                 attachment_use="False"
         />
         <report
                 id="purchase_requisition_price_report"
                 model="purchase.requisition"
-                string="طلب عرض سعر"
+                string="Request for Quotation"
                 report_type="qweb-pdf"
                 name="egymentors_inventory.report_purchase_requisition_price"
                 file="egymentors_inventory.report_purchase_requisition_price"
@@ -31,7 +40,7 @@
         <report
                 id="purchase_order_check_report"
                 model="purchase.order"
-                string="طلب إستخراج شيك"
+                string="Request to Extract Check"
                 report_type="qweb-pdf"
                 name="egymentors_inventory.report_purchase_order_check"
                 file="egymentors_inventory.report_purchase_order_check"
@@ -40,7 +49,7 @@
         <report
                 id="purchase_order_note_report"
                 model="purchase.order"
-                string="مذكره شراء"
+                string="Purchase Note"
                 report_type="qweb-pdf"
                 name="egymentors_inventory.report_purchase_order_note"
                 file="egymentors_inventory.report_purchase_order_note"
