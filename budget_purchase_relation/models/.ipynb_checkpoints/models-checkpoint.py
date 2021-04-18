@@ -105,6 +105,24 @@ class CrossoveredBudget(models.Model):
                                                                       'amount':amount_total,
                                                                       'budget_type':'reserve'})],})
             return budget_entry
+        
+        
+    transfers_count = fields.Integer(compute='compute_count')
+    
+    def compute_count(self):
+        for record in self:
+            record.transfers_count = self.env['crossovered.budget.transfer'].search_count([('crossovered_budget_id', '=', self.id)])
+            
+    def get_transfers(self):
+        self.ensure_one()
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Transfers',
+            'view_mode': 'tree',
+            'res_model': 'crossovered.budget.transfer',
+            'domain': [('crossovered_budget_id', '=', self.id)],
+            'context': "{'create': False}"
+        }
 
     
 class CrossoveredBudgetLines(models.Model):
