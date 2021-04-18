@@ -36,6 +36,10 @@
                 <xpath expr="//field[@name='general_budget_id']" position="after">
                     <field name = "dependable_amount"/>
                 </xpath>
+                <xpath expr="//header" position="inside">
+                    <button name="%(action_budget_transfer)d" string="Transfer" class="btn btn-link" type="action"/>
+
+                </xpath>
             </field>
         </record>
       <record model="ir.ui.view" id="view_budget_entry_form">

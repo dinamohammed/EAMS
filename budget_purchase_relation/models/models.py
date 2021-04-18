@@ -357,6 +357,19 @@ class AccountBudgetPost(models.Model):
     
     budget_division_id = fields.Many2one('budget.division', string= 'Budget Division')
     
+class CrossoveredBudgetTransfer(models.Model):
+    _name = "crossovered.budget.transfer"
+    _description = "Transfers Budget"
+    
+    
+    name = fields.Char('Name')
+    crossovered_budget_id = fields.Many2one('crossovered.budget','Budget')
+    origin = fields.Char('Origin')
+    budget_line_origin_id = fields.Many2one('crossovered.budget.lines','Budget Line origin')
+    budget_line_dest_id = fields.Many2one('crossovered.budget.lines','Budget Line Destination')
+    currency_id = fields.Many2one('res.currency', default = lambda self: self.env.company.currency_id , readonly=True)
+    amount = fields.Monetary('Amount')
+    
     
 
     
