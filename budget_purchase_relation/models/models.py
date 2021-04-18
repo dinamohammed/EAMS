@@ -84,7 +84,7 @@ class CrossoveredBudget(models.Model):
                 record.crossovered_budget_line.create({'general_budget_id':budget.id,
                                                       'date_from':record.date_from,
                                                       'date_to': record.date_to,
-                                                      'crossovered_budget_id': record.id})
+                                                      'crossovered_budget_id': record.id,})
     
     def _compute_available_budget(self):
         for record in self:
