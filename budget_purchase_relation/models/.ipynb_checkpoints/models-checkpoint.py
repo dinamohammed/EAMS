@@ -332,7 +332,7 @@ class BudgetDivision(models.Model):
     _name = "budget.division"
     _description = "Abwab"
     
-    name = fields.Char('Name' required = True)
+    name = fields.Char('Name', required = True)
     code = fields.Char('Code')
     main_division_bool = fields.Boolean('Main Division', help = "Check if the division is main , uncheck if the division is Sub,"
                                    "used for reporting purpose")
