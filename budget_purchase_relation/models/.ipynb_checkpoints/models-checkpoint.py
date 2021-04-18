@@ -340,6 +340,12 @@ class BudgetDivision(models.Model):
     
     main_division = fields.Many2one('budget.division', string= 'Parent Division')
     
+
+class AccountBudgetPost(models.Model):
+    _inherit = "account.budget.post"
+    
+    budget_division_id = fields.Many2one('budget.division', string= 'Budget Division')
+    
     
 
     
