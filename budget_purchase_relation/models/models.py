@@ -68,6 +68,10 @@ class CrossoveredBudget(models.Model):
                                    ('expense','Expense')],
                                    string = 'Type', default='expense', required='True')
     currency_id = fields.Many2one(related = 'company_id.currency_id', readonly=True)
+    
+    budget_transfer = fields.Selection([('current','Current'),
+                                   ('investment','Investment')],
+                                   string = 'Transfer/Account Type', default='current', required='True')
 
     total_available = fields.Monetary('Total Available', compute = '_compute_available_budget')
     
@@ -95,6 +99,7 @@ class CrossoveredBudget(models.Model):
 class CrossoveredBudgetLines(models.Model):
     _inherit = "crossovered.budget.lines"
     
+    dependable_amount = fields.Monetary('dependable')
     reserve_amount = fields.Monetary('Reserve Amount')
     commitment_amount = fields.Monetary('Commitment Amount')
     available_amount = fields.Monetary('Available Amount')
@@ -321,3 +326,21 @@ class AccountPayment(models.Model):
 #             pay.payment_budget_vals(pay)
 
 #         return payments
+
+
+class BudgetDivision(models.Model):
+    _name = "budget.division"
+    _description = "Abwab"
+    
+    name = fields.Char('Name' required = True)
+    code = fields.Char('Code')
+    main_division_bool = fields.Boolean('Main Division', help = "Check if the division is main , uncheck if the division is Sub,"
+                                   "used for reporting purpose")
+    general_budget_ids = fields.One2many('account.budget.post','budget_division_id', 'Budgetary Position')
+    
+    main_division = fields.Many2one('budget.division', string= 'Parent Division')
+    
+    
+
+    
+    
