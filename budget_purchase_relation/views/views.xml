@@ -130,7 +130,7 @@
                         <field name="name"/>
                         <field name="code"/>
                         <field name="main_division_bool"/>
-                        <field name="main_division" attrs="{'invisible': [('main_division_bool', '=', 'False')]}"/>
+                        <field name="main_division" attrs="{'invisible': [('main_division_bool', '=', False)]}"/>
 <!--                         <field name = "general_budget_ids" widget="many2many"/> -->
                     </group>
                     <group name = "budgetary positions" string = "Budgetary Positions">
