@@ -77,6 +77,12 @@ class CrossoveredBudget(models.Model):
     
     budget_division_id = fields.Many2one('budget.division', string= 'Budget Division')
     
+    @api.onchange('budget_division_id')
+    def _add_budget_positions(self):
+        for record in self:
+            for budget in record.budget_division_id.general_budget_ids:
+                record.crossovered_budget_line.create({'general_budget_id':budget.id})
+    
     def _compute_available_budget(self):
         for record in self:
             total = 0
