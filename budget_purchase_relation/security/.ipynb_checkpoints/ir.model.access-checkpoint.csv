@@ -3,3 +3,5 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_budget_entry_user,budget.entry,model_budget_entry,base.group_user,1,1,1,1
 
 access_budget_allocation_user,budget.allocation,model_budget_allocation,base.group_user,1,1,1,1
+
+access_budget_division_user,budget.division,model_budget_division,base.group_user,1,1,1,1
