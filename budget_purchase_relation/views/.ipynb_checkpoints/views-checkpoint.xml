@@ -26,6 +26,7 @@
                 <xpath expr="//field[@name='user_id']" position="after">
                     <field name = "budget_type"/>
                     <field name = "budget_transfer"/>
+                    <field name = "budget_division_id"/>
                 </xpath>
                 <xpath expr="//field[@name='percentage']" position="after">
                     <field name = "reserve_amount"/>

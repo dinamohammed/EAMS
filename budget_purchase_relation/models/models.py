@@ -75,6 +75,8 @@ class CrossoveredBudget(models.Model):
 
     total_available = fields.Monetary('Total Available', compute = '_compute_available_budget')
     
+    budget_division_id = fields.Many2one('budget.division', string= 'Budget Division')
+    
     def _compute_available_budget(self):
         for record in self:
             total = 0
