@@ -152,10 +152,10 @@ class HRJobJobDegree(models.Model):
     full_name = fields.Char(string="Job Full Name", compute='_compute_full_name')
     emp_no = fields.Integer(string="Number of Employees", compute="_compute_emp_degree_count")
 
-    # _sql_constraints = [
-    #     ('Job_degree_uniq', 'unique (name, job_title_id, job_qualitative_id, job_functional_id)',
-    #      'Job Degree should be unique for each job title in each qualitative group in each functional group!')
-    # ]
+    _sql_constraints = [
+        ('Job_degree_uniq', 'unique (name, job_title_id, job_qualitative_id, job_functional_id)',
+         'Job Degree should be unique for each job title in each qualitative group in each functional group!')
+    ]
 
     def _compute_full_name(self):
         for rec in self:

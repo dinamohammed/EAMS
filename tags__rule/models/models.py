@@ -190,6 +190,13 @@ class HrContract(models.Model):
     allowance_17 = fields.Float(string='Allowance 17')
     allowance_18 = fields.Float(string='Allowance 18')
     allowance_19 = fields.Float(string='Allowance 19')
+    allowance_20 = fields.Float(string='Allowance 20')
+    allowance_21 = fields.Float(string='Allowance 21')
+    allowance_22 = fields.Float(string='Allowance 22')
+    allowance_23 = fields.Float(string='Allowance 23')
+    allowance_24 = fields.Float(string='Allowance 24')
+    allowance_25 = fields.Float(string='Allowance 25')
+    allowance_26 = fields.Float(string='Allowance 26')
 
     # ####################### Deduction Fields # ############### ###############
     absence_value = fields.Float(string='Absence')
@@ -225,6 +232,10 @@ class HrContract(models.Model):
     deduction_29 = fields.Float(string='Deduction 29')
     deduction_30 = fields.Float(string='Deduction 30')
     deduction_31 = fields.Float(string='Deduction 31')
+    deduction_32 = fields.Float(string='Deduction 32')
+    deduction_33 = fields.Float(string='Deduction 33')
+    deduction_34 = fields.Float(string='Deduction 34')
+    deduction_35 = fields.Float(string='Deduction 35')
 
     # ############### ################ 7afeez --> Incentive # ############### ####################
     effort_allowance = fields.Float(string='Effort Allowance')

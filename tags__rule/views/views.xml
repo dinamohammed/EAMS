@@ -80,6 +80,13 @@
                     <page string="Salary Elements" name="salary_elements">
                         <group name="main_info">
                             <group name="allowance" string="Allowance">
+                                <field name="allowance_20"/>
+                                <field name="allowance_21"/>
+                                <field name="allowance_22"/>
+                                <field name="allowance_23"/>
+                                <field name="allowance_24"/>
+                                <field name="allowance_25"/>
+                                <field name="allowance_26"/>
                                 <field name="allowance_1"/>
                                 <field name="allowance_2"/>
                                 <field name="allowance_3"/>
@@ -101,6 +108,10 @@
                                 <field name="allowance_19"/>
                             </group>
                             <group name="deduction" string="Deduction">
+                                <field name="deduction_32"/>
+                                <field name="deduction_33"/>
+                                <field name="deduction_34"/>
+                                <field name="deduction_35"/>
                                 <field name="deduction_1"/>
                                 <field name="deduction_2"/>
                                 <field name="deduction_3"/>

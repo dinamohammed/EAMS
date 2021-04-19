@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0+e-20210126\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-29 07:46+0000\n"
-"PO-Revision-Date: 2021-03-29 07:46+0000\n"
+"POT-Creation-Date: 2021-04-19 20:48+0000\n"
+"PO-Revision-Date: 2021-04-19 20:48+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -95,6 +95,41 @@ msgstr "بدل عدوى"
 #: model:ir.model.fields,field_description:tags__rule.field_hr_contract__allowance_2
 msgid "Allowance 2"
 msgstr "الاثابة"
+
+#. module: tags__rule
+#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__allowance_20
+msgid "Allowance 20"
+msgstr "12% حصة حكومة فى الشيوخة والعجز والوفاة  على الاجر الشامل"
+
+#. module: tags__rule
+#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__allowance_21
+msgid "Allowance 21"
+msgstr "1.25%  حصة الحكومة فى اصابة العمل على الاجر الشامل"
+
+#. module: tags__rule
+#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__allowance_22
+msgid "Allowance 22"
+msgstr "1% حصة الحكومة فى مكافأة نهاية الخدمة على الاجر الشامل"
+
+#. module: tags__rule
+#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__allowance_23
+msgid "Allowance 23"
+msgstr "3% حصة الحكومة فى التأمين الصحى على الاجر الشامل"
+
+#. module: tags__rule
+#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__allowance_24
+msgid "Allowance 24"
+msgstr "9% حصة الموظف فى الشيوخة فى العجز والوفاة  على الاجر الشامل"
+
+#. module: tags__rule
+#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__allowance_25
+msgid "Allowance 25"
+msgstr "1% حصة الموظف فى مكافأة نهاية الخدمة على الاجر الشامل"
+
+#. module: tags__rule
+#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__allowance_26
+msgid "Allowance 26"
+msgstr "1% حصة الموظف فى التأمين الصحى على الاجر الشامل"
 
 #. module: tags__rule
 #: model:ir.model.fields,field_description:tags__rule.field_hr_contract__allowance_3
@@ -343,6 +378,26 @@ msgstr "اقساط التامين"
 #: model:ir.model.fields,field_description:tags__rule.field_hr_contract__deduction_31
 msgid "Deduction 31"
 msgstr "صندوق تكافل العاملين وزارة الثقافة"
+
+#. module: tags__rule
+#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__deduction_32
+msgid "Deduction 32"
+msgstr "12% حصة حكومة فى الشيوخة والعجز والوفاة  على الاجر الشامل"
+
+#. module: tags__rule
+#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__deduction_33
+msgid "Deduction 33"
+msgstr "1.25%  حصة الحكومة فى اصابة العمل على الاجر الشامل"
+
+#. module: tags__rule
+#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__deduction_34
+msgid "Deduction 34"
+msgstr "1% حصة الحكومة فى مكافأة نهاية الخدمة على الاجر الشامل"
+
+#. module: tags__rule
+#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__deduction_35
+msgid "Deduction 35"
+msgstr "3% حصة الحكومة فى التأمين الصحى على الاجر الشامل"
 
 #. module: tags__rule
 #: model:ir.model.fields,field_description:tags__rule.field_hr_contract__deduction_4
