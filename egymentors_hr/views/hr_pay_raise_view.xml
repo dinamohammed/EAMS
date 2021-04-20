@@ -27,24 +27,29 @@
                     <group>
                         <group>
                             <field name="date"/>
+                            <field name="raise_type"/>
                         </group>
                         <group>
                             <field name="contract_type_id" required="1"/>
-                            <label for="percentage"/>
-                            <div>
-                                <field name="percentage" required="1" class="oe_inline"/>
-                                <span style="color:#003a39" class="o_form_label oe_inline"> %</span>
+                            <label for="amount" attrs="{'invisible' : [('raise_type', '!=', 'amount')]}"/>
+                            <div attrs="{'invisible' : [('raise_type', '!=', 'amount')]}">
+                                <field name="amount" required="1" class="oe_inline"/>
                             </div>
-
+                            <label for="percentage" attrs="{'invisible' : [('raise_type', '!=', 'percentage')]}"/>
+                            <div attrs="{'invisible' : [('raise_type', '!=', 'percentage')]}">
+                                <field name="percentage" required="1" class="oe_inline"/>
+                                <span style="color:#003a39" class="o_form_label oe_inline">%</span>
+                            </div>
                         </group>
                     </group>
                     <notebook>
                         <page string="Employee's" name="lines">
                             <field name="line_ids"
-                                   context="{'default_percentage': percentage}"
+                                   context="{'default_percentage': percentage, 'default_amount': amount}"
                                    attrs="{'readonly':[('state','!=','draft')]}">
                                 <tree editable="bottom">
                                     <field name="percentage" invisible="1"/>
+                                    <field name="amount" invisible="1"/>
                                     <field name="currency_id" invisible="1"/>
                                     <field name="state" invisible="1"/>
                                     <field name="contract_id" string="Employee"
@@ -62,7 +67,8 @@
                     </notebook>
                 </sheet>
                 <div class="oe_chatter">
-                    <field name="message_follower_ids" widget="mail_followers" help="Follow this salesteam to automatically track the events associated to users of this team."/>
+                    <field name="message_follower_ids" widget="mail_followers"
+                           help="Follow this salesteam to automatically track the events associated to users of this team."/>
                     <field name="message_ids" widget="mail_thread"/>
                 </div>
             </form>
@@ -76,6 +82,7 @@
                 <field name="name"/>
                 <field name="date"/>
                 <field name="contract_type_id"/>
+                <field name="amount"/>
                 <field name="percentage"/>
                 <field name="state"/>
             </tree>
@@ -89,7 +96,8 @@
                 <field name="name"/>
                 <group expand="0" string="Group By">
                     <filter string="State" name="state" domain="[]" context="{'group_by':'state'}"/>
-                    <filter string="Contract Type" name="contract_type_id" domain="[]" context="{'group_by':'contract_type_id'}"/>
+                    <filter string="Contract Type" name="contract_type_id" domain="[]"
+                            context="{'group_by':'contract_type_id'}"/>
                 </group>
             </search>
         </field>

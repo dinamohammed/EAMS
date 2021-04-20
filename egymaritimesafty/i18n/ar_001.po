@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0+e-20210126\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-31 16:39+0000\n"
-"PO-Revision-Date: 2021-03-31 16:39+0000\n"
+"POT-Creation-Date: 2021-04-20 13:39+0000\n"
+"PO-Revision-Date: 2021-04-20 13:39+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -184,6 +184,7 @@ msgstr "التاريخ"
 
 #. module: egymaritimesafty
 #: model:ir.model,name:egymaritimesafty.model_hr_department
+#: model:ir.model.fields,field_description:egymaritimesafty.field_hr_contract__department_id
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_employee__job_department_id
 msgid "Department"
 msgstr "اسم القسم"
@@ -195,6 +196,7 @@ msgid "Description"
 msgstr "الوصف"
 
 #. module: egymaritimesafty
+#: model:ir.model.fields,field_description:egymaritimesafty.field_hr_contract__display_name
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_employee__display_name
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_job__display_name
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_job_degree__display_name
@@ -217,6 +219,7 @@ msgid "Doctor"
 msgstr "دكتوراه"
 
 #. module: egymaritimesafty
+#: model:ir.model.fields,field_description:egymaritimesafty.field_hr_contract__duration
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_job__duration
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_session__session_duration
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_session__session_duration_display
@@ -232,6 +235,11 @@ msgstr "المدة البينية"
 #: model_terms:ir.ui.view,arch_db:egymaritimesafty.view_hr_training_subject_form
 msgid "Employee"
 msgstr "الموظف"
+
+#. module: egymaritimesafty
+#: model:ir.model,name:egymaritimesafty.model_hr_contract
+msgid "Employee Contract"
+msgstr "عقد الموظف"
 
 #. module: egymaritimesafty
 #: model_terms:ir.ui.view,arch_db:egymaritimesafty.view_hr_reassignment_form
@@ -274,6 +282,7 @@ msgid "External Trainer"
 msgstr "مدرب خارجي (مدرب خارج الهيئة)"
 
 #. module: egymaritimesafty
+#: model:ir.model.fields,field_description:egymaritimesafty.field_hr_contract__financial_degree
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_job__financial_degree
 msgid "Financial Degree"
 msgstr "الدرجة المالية"
@@ -313,7 +322,7 @@ msgstr "المستويات الوظيفية"
 #. module: egymaritimesafty
 #: model:ir.model,name:egymaritimesafty.model_hr_reassignment
 msgid "HR Reassignment"
-msgstr ""
+msgstr "إعادة تعيين"
 
 #. module: egymaritimesafty
 #: model:ir.model,name:egymaritimesafty.model_hr_session
@@ -346,6 +355,7 @@ msgid "HR Training Subject"
 msgstr "موضوع التدريب"
 
 #. module: egymaritimesafty
+#: model:ir.model.fields,field_description:egymaritimesafty.field_hr_contract__id
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_employee__id
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_job__id
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_job_degree__id
@@ -402,6 +412,7 @@ msgstr "الوظيفة"
 
 #. module: egymaritimesafty
 #: model:ir.actions.act_window,name:egymaritimesafty.action_open_job_degree
+#: model:ir.model.fields,field_description:egymaritimesafty.field_hr_contract__job_degree
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_job__job_degree
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_job_degree__name
 #: model_terms:ir.ui.view,arch_db:egymaritimesafty.view_hr_job_degree_form
@@ -425,6 +436,11 @@ msgid "Job Degrees"
 msgstr "المستويات الوظيفية"
 
 #. module: egymaritimesafty
+#: model_terms:ir.ui.view,arch_db:egymaritimesafty.hr_contract_form_view_inherit
+msgid "Job Details"
+msgstr "تفاصيل الوظيفة"
+
+#. module: egymaritimesafty
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_job_degree__full_name
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_job_functional__full_name
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_job_qualitative__full_name
@@ -434,6 +450,7 @@ msgid "Job Full Name"
 msgstr "اسم الوظيفة بالكامل"
 
 #. module: egymaritimesafty
+#: model:ir.model.fields,field_description:egymaritimesafty.field_hr_contract__job_functional_id
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_job__job_functional_id
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_job_degree__job_functional_id
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_job_functional__name
@@ -479,6 +496,7 @@ msgid "Job Positions"
 msgstr "المراكز الوظيفية"
 
 #. module: egymaritimesafty
+#: model:ir.model.fields,field_description:egymaritimesafty.field_hr_contract__job_qualitative_id
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_job__job_qualitative_id
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_job_degree__job_qualitative_id
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_job_title__job_qualitative_id
@@ -512,6 +530,7 @@ msgstr "المجموعات النوعية"
 
 #. module: egymaritimesafty
 #: model:ir.model,name:egymaritimesafty.model_hr_job_title
+#: model:ir.model.fields,field_description:egymaritimesafty.field_hr_contract__job_title_id
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_employee__job_title_id
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_job__job_title_id
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_job_degree__job_title_id
@@ -541,6 +560,8 @@ msgid ""
 "Job title should be unique for each qualitative group in each functional "
 "group!"
 msgstr ""
+"يجب أن يكون المسمى الوظيفي فريدًا لكل مجموعة نوعية في كل مجموعة "
+"!وظيفة"
 
 #. module: egymaritimesafty
 #: model_terms:ir.ui.view,arch_db:egymaritimesafty.view_hr_job_qualitative_form
@@ -560,6 +581,7 @@ msgid "Jobs"
 msgstr "الوظائف"
 
 #. module: egymaritimesafty
+#: model:ir.model.fields,field_description:egymaritimesafty.field_hr_contract____last_update
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_employee____last_update
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_job____last_update
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_job_degree____last_update
@@ -612,6 +634,7 @@ msgid "Master"
 msgstr "دراسات عليا"
 
 #. module: egymaritimesafty
+#: model:ir.model.fields,field_description:egymaritimesafty.field_hr_contract__monthly_salary
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_job__monthly_salary
 msgid "Monthly Salary"
 msgstr "الراتب الشهري"
@@ -692,6 +715,7 @@ msgid "Participants"
 msgstr "المشاركون"
 
 #. module: egymaritimesafty
+#: model:ir.model.fields,field_description:egymaritimesafty.field_hr_contract__promotion_percent
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_job__promotion_percent
 msgid "Promotion Percent"
 msgstr "نسبة الترقية بالختيار الي المستوي"
@@ -720,6 +744,11 @@ msgstr "تاريخ اعادة التعيين"
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_training_subject__responsible_id
 msgid "Responsible"
 msgstr "المسؤل"
+
+#. module: hr_contract
+#: model:ir.model.fields,field_description:hr_contract.field_hr_contract__structure_type_id
+msgid "Salary Structure Type"
+msgstr "نوع هيكل الراتب"
 
 #. module: egymaritimesafty
 #: model:ir.model.fields.selection,name:egymaritimesafty.selection__hr_training_subject__training_type__scholarship
@@ -764,6 +793,7 @@ msgid "Start Date"
 msgstr "تاريخ البدء"
 
 #. module: egymaritimesafty
+#: model:ir.model.fields,field_description:egymaritimesafty.field_hr_contract__starting_degree_salary
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_job__starting_degree_salary
 msgid "Starting Degree Salary"
 msgstr "مربوط الدرجة"
