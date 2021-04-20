@@ -19,18 +19,18 @@
                         </tree>
                     </field>
                 </page>
-                <page name="adequacy" string="Adequacy Report">
-                    <field name="grade_ids">
-                        <tree editable="bottom">
-                            <field name="grade_id" required="1"/>
-                            <field name="year" required="1"/>
-                            <field name="date" invisible="1"/>
-                            <field name="percentage"/>
-                        </tree>
-                    </field>
-                </page>
+<!--                <page name="adequacy" string="Adequacy Report">-->
+<!--                    <field name="grade_ids">-->
+<!--                        <tree editable="bottom">-->
+<!--                            <field name="grade_id" required="1"/>-->
+<!--                            <field name="year" required="1"/>-->
+<!--                            <field name="date" invisible="1"/>-->
+<!--                            <field name="percentage"/>-->
+<!--                        </tree>-->
+<!--                    </field>-->
+<!--                </page>-->
             </xpath>
-            <xpath expr="/form/sheet/notebook/page[@name='public']/div/div/group/field[@name='tax_base']" position="before">
+            <xpath expr="//field[@name='tax_base']" position="before">
                 <field name="previous_wage" readonly="True"/>
             </xpath>
 

@@ -128,10 +128,10 @@
             </p>
         </field>
     </record>
-    <menuitem id="menu_hr_trans_allowance"
-              name="Transportation Allowance"
-              parent="hr.menu_hr_employee_payroll"
-              action="act_hr_trans_allowance"
-              sequence="7"/>
+<!--    <menuitem id="menu_hr_trans_allowance"-->
+<!--              name="Transportation Allowance"-->
+<!--              parent="hr.menu_hr_employee_payroll"-->
+<!--              action="act_hr_trans_allowance"-->
+<!--              sequence="7"/>-->
 
 </odoo>
