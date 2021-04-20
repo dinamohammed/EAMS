@@ -194,9 +194,6 @@ class HrContract(models.Model):
     allowance_21 = fields.Float(string='Allowance 21')
     allowance_22 = fields.Float(string='Allowance 22')
     allowance_23 = fields.Float(string='Allowance 23')
-    allowance_24 = fields.Float(string='Allowance 24')
-    allowance_25 = fields.Float(string='Allowance 25')
-    allowance_26 = fields.Float(string='Allowance 26')
 
     # ####################### Deduction Fields # ############### ###############
     absence_value = fields.Float(string='Absence')
@@ -236,6 +233,12 @@ class HrContract(models.Model):
     deduction_33 = fields.Float(string='Deduction 33')
     deduction_34 = fields.Float(string='Deduction 34')
     deduction_35 = fields.Float(string='Deduction 35')
+    deduction_36 = fields.Float(string='Deduction 36')
+    deduction_37 = fields.Float(string='Deduction 37')
+    deduction_38 = fields.Float(string='Deduction 38')
+
+    allowance_ids = fields.One2many(comodel_name='hr.allowance', inverse_name='contract_id', string="Allowances")
+    deduction_ids = fields.One2many(comodel_name='hr.deduction', inverse_name='contract_id', string="Deductions")
 
     # ############### ################ 7afeez --> Incentive # ############### ####################
     effort_allowance = fields.Float(string='Effort Allowance')
@@ -272,3 +275,46 @@ class HrContract(models.Model):
     # Number of calls : -1
     # Action to Do : Execute Python Code
     # Code to write : Update Multi Contract Value
+
+
+class HRAllowance(models.Model):
+    _name = "hr.allowance"
+    _description = "HR Allowance"
+    _rec_name = 'allowance'
+
+    allowance = fields.Many2one(comodel_name='hr.allowance.confg', string="Allowance")
+    value = fields.Integer(string="Value")
+    contract_id = fields.Many2one(comodel_name='hr.contract', string="Contract")
+
+    _sql_constraints = [
+        ('allowance_uniq', 'unique (allowance,contract_id)',
+         "The allowance must be unique!")
+    ]
+
+
+class HRDeduction(models.Model):
+    _name = "hr.deduction"
+    _description = "HR Deduction"
+
+    deduction = fields.Many2one(comodel_name='hr.deduction.confg', string="Deduction")
+    value = fields.Integer(string="Value")
+    contract_id = fields.Many2one(comodel_name='hr.contract', string="Contract")
+
+    _sql_constraints = [
+        ('deduction_uniq', 'unique (deduction,contract_id)',
+         "The deduction must be unique!")
+    ]
+
+
+class HRAllowanceConfiguration(models.Model):
+    _name = "hr.allowance.confg"
+    _description = "HR Allowance Configuration"
+
+    name = fields.Char(string="Allowance Name")
+
+
+class HRDeductionConfiguration(models.Model):
+    _name = "hr.deduction.confg"
+    _description = "HR Deduction Configuration"
+
+    name = fields.Char(string="Deduction Name")
