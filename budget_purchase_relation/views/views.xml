@@ -25,11 +25,26 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='user_id']" position="after">
                     <field name = "budget_type"/>
+                    <field name = "budget_transfer"/>
+                    <field name = "budget_division_id"/>
                 </xpath>
                 <xpath expr="//field[@name='percentage']" position="after">
                     <field name = "reserve_amount"/>
                     <field name = "commitment_amount"/>
                     <field name = "available_amount"/>
+                </xpath>
+                <xpath expr="//field[@name='general_budget_id']" position="after">
+                    <field name = "dependable_amount"/>
+                </xpath>
+                <xpath expr="//header" position="inside">
+                    <button name="%(action_budget_transfer)d" string="Transfer" class="btn btn-link" type="action"/>
+                </xpath>
+                <xpath expr="//sheet/div[1]" position="before">
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" type="object" icon="fa-bars" name="get_transfers">
+                            <field string="Transfers" name="transfers_count" widget="statinfo"/>
+                        </button>
+                    </div>
                 </xpath>
             </field>
         </record>
@@ -109,6 +124,87 @@
                 </xpath>
             </field>
         </record>
+      
+      <record model="ir.ui.view" id="view_budget_division_form">
+        <field name="name">budget.division.form</field>
+        <field name="model">budget.division</field>
+        <field name="arch" type="xml">
+            <form string="Budget Division">
+                <header>
+<!--                     <button string="Confirm" name="button_confirm" states="draft" type="object"
+                            class="oe_highlight"/>
+                    <field name="state" widget="statusbar" /> -->
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="main_division_bool"/>
+                        <field name="main_division" attrs="{'invisible': [('main_division_bool', '=', False)]}"/>
+<!--                         <field name = "general_budget_ids" widget="many2many"/> -->
+                    </group>
+                    <group name = "budgetary positions" string = "Budgetary Positions">
+                        <field name="general_budget_ids">
+                            <tree editable="bottom">
+                                <field name="name"/>
+                                <field name="company_id"/>
+                                <field name="account_ids" widget="many2many_tags"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+      
+      <record model="ir.ui.view" id="view_budget_division_tree">
+        <field name="name">budget.division.tree</field>
+        <field name="model">budget.division</field>
+        <field name="arch" type="xml">
+            <tree string="Budget Divisions">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="main_division"/>
+            </tree>
+        </field>
+    </record>
+      
+      <record model="ir.actions.act_window" id="act_budget_division_view">
+        <field name="name">Budget Divisions</field>
+        <field name="res_model">budget.division</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" eval="view_budget_division_tree"/>
+    </record>
+      
+      <menuitem parent="account.account_reports_management_menu"
+              id="menu_budget_division_view"
+              action="act_budget_division_view" sequence="25"/>
+      
+      <record model="ir.ui.view" id="view_crossovered_budget_transfer_tree">
+        <field name="name">crossovered.budget.transfer.tree</field>
+        <field name="model">crossovered.budget.transfer</field>
+        <field name="arch" type="xml">
+            <tree string="Budget Transfers">
+                <field name="name"/>
+                <field name="crossovered_budget_id"/>
+                <field name="origin"/>
+                <field name="budget_line_origin_id"/>
+                <field name="budget_line_dest_id"/>
+                <field name="amount"/>
+            </tree>
+        </field>
+    </record>
+      
+      <record model="ir.actions.act_window" id="act_crossovered_budget_transfer_view">
+        <field name="name">Budgets Transfers</field>
+        <field name="res_model">crossovered.budget.transfer</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" eval="view_crossovered_budget_transfer_tree"/>
+    </record>
+      
+      <menuitem parent="account.account_reports_management_menu"
+              id="menu_crossovered_budget_transfer_view"
+              action="act_crossovered_budget_transfer_view" sequence="27"/>
 
   </data>
 </odoo>

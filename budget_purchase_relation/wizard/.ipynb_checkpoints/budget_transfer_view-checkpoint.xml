@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="view_budget_transfer_form" model="ir.ui.view">
+            <field name="name">view.budget.transfer.form</field>
+            <field name="model">budget.transfer</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Budget Transfer">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" required="1"/>
+                                <field name="crossovered_budget_id" required="1"/>
+                                <field name="origin" required="1"/>
+                            </group>
+                            <group>
+                                <field name="budget_line_origin_id" required="1" 
+                                       context="{'default_crossovered_budget_id': crossovered_budget_id}"/>
+                                <field name="budget_line_dest_id" required="1"
+                                       context="{'default_crossovered_budget_id': crossovered_budget_id}"/>
+                                <field name="amount" required="1"/>
+                            </group>
+                        </group>
+                        <footer>
+                            <button name="generate_transfer" string="Generate Transfer" type="object" class="btn-primary"/>
+                            or
+                            <button string="Cancel" class="btn-default" special="cancel"/>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="action_budget_transfer" model="ir.actions.act_window">
+            <field name="name">Budget Transfer</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">budget.transfer</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+</odoo>

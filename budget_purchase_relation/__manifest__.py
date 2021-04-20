@@ -16,6 +16,7 @@
 
     'data': [
         'security/ir.model.access.csv',
+        'wizard/budget_transfer_view.xml',
         'views/views.xml',
         'data/data.xml',
 
