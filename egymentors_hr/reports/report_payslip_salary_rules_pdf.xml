@@ -33,7 +33,7 @@
                     </thead>
                     <tbody class="invoice_tbody">
                         <t t-set="count" t-value="1"/>
-                        <tr t-foreach="docs" t-as="payslip" style="background-color:#D7E4BC; border-bottom:1px black solid">
+                        <tr t-foreach="docs" t-as="payslip" style="border-bottom:1px black solid">
                             <td class="text-center"><span t-esc="count"/></td>
                             <td class="text-right"><span t-if="payslip.employee_id" t-esc="payslip.employee_id.name"/></td>
                             <t t-foreach="payslip.get_parent_amount(parents_dict)" t-as="parent_total">
@@ -49,7 +49,7 @@
                             </td>
                             <t t-set="count" t-value="count+1"/>
                         </tr>
-                        <tr style="background-color:#898a8c; border-bottom:1px black soli">
+                        <tr style="background-color:#898a8c; border-bottom:1px black solid;color:black">
                             <th colspan="2" class="text-center">الإجمالى</th>
                             <t t-foreach="docs.get_parent_amount(parents_dict)" t-as="parent_total">
                                 <th class="text-center"><span t-esc="parent_total"/></th>
@@ -61,6 +61,21 @@
                         </tr>
                     </tbody>
                 </table>
+                <br/>
+                <div class="row text-center" name="signature" style="direction:rtl">
+                    <div class="col-3">
+                        <h4 >الإسـتـحـقـاقـات</h4>
+                    </div>
+                    <div class="col-3">
+                        <h4>مـديـر المـوارد البـشريه</h4>
+                    </div>
+                    <div class="col-3">
+                        <h4>مـراجعـه مـاليـه</h4>
+                    </div>
+                    <div class="col-3">
+                        <h4>مـديـر المـراجعـه</h4>
+                    </div>
+                </div>
             </div>
         </t>
     </template>

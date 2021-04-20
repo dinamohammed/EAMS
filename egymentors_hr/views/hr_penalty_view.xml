@@ -2,7 +2,7 @@
 <odoo>
     <record id="hr_penalty_form_view" model="ir.ui.view">
         <field name="name">hr.penalty.form.view</field>
-        <field name="model">hr.bonus.penalty</field>
+        <field name="model">hr.penalty</field>
         <field name="arch" type="xml">
             <form string="Penalty">
                 <header>
@@ -28,58 +28,57 @@
                         <group>
                             <field name="fixed_amount"/>
                             <div class="oe_inline">
-                                <label for="date" style="font-weight: bold;" string="Date" attrs="{'invisible':[('fixed_amount','=',True)]}"/>
-                                <label for="date" style="font-weight: bold;" string="From Date" attrs="{'invisible':[('fixed_amount','=',False)]}"/>
+                                <label for="date" style="font-weight: bold;" string="Date"
+                                       attrs="{'invisible':[('fixed_amount','=',True)]}"/>
+                                <label for="date" style="font-weight: bold;" string="From Date"
+                                       attrs="{'invisible':[('fixed_amount','=',False)]}"/>
                             </div>
                             <field name="date" nolabel="1"/>
-                        </group>
-                        <group>
-                            <field name="period_month" readonly="1"/>
-                            <field name="extra_type" invisible="1"/>
                             <field name="date_to" readonly="0"
                                    attrs="{'invisible':[('fixed_amount','=',False)],
                                            'required':[('fixed_amount','=',True)]}"/>
+                            <field name="period_month" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="penalty_categ_id" required="1"/>
                         </group>
                     </group>
                     <notebook>
                         <page string="Employee's" name="lines">
-                            <field name="line_ids" attrs="{'readonly':[('state','!=','draft')]}">
+                            <field name="penalty_line_ids"
+                                   attrs="{'readonly':[('state','!=','draft')]}">
                                 <tree editable="bottom"
                                       decoration-primary="state == 'draft'"
                                       decoration-warning="state == 'cancel'"
                                       decoration-info="state == 'confirm'"
                                       decoration-success="state == 'done'">
                                     <field name="employee_id"/>
-                                    <field name="extra_type" invisible="1"/>
                                     <field name="date" invisible="1"/>
-                                    <field name="type_id" domain="[('extra_type','=','penalty'),
-                                                                ('fixed_amount','=',parent.fixed_amount)]"/>
-                                    <field name="days_num" required="1"/>
+                                    <field name="penalty_type_id"
+                                           domain="[('penalty_categ_id','=',parent.penalty_categ_id)]"/>
+                                    <field name="amount"/>
                                     <field name="notes"/>
                                     <field name="state" readonly="1"/>
                                     <field name="payslip_id" readonly="1" optional="hide"
                                            attrs="{'invisible':[('state','!=','done')]}"/>
                                 </tree>
                             </field>
-                            <group class="oe_right">
-                                <group class="oe_subtotal_footer">
-                                    <field name="total_penalties_absence" widget="monetary"/>
-                                    <field name="total_penalties_sick" widget="monetary"/>
-                                    <field name="total_penalties_penalty" widget="monetary"/>
-                                    <field name="total_penalty_unpaid" widget="monetary"/>
-                                    <field name="total_penalties_other" widget="monetary"/>
-<!--                                     <field name="total_penalty_spare_part" widget="monetary"/>
-                                    <field name="total_penalty_expenditure" widget="monetary"/>
-                                    <field name="total_penalty_impairment" widget="monetary"/> -->
-                                    <field name="total_penalty_fixed" widget="monetary"/>
-                                    <field name="total_penalties" widget="monetary" class="oe_subtotal_footer_separator"/>
+                            <group>
+                                <group class="oe_right oe_subtotal_footer">
+                                    <field name="total_penalty_ids" nolabel="1">
+                                        <tree create="false" edit="false" delete="false">
+                                            <field name="penalty_type_id" class="font-weight-bold"/>
+                                            <field name="total" sum="Total"/>
+                                        </tree>
+                                    </field>
                                 </group>
                             </group>
                         </page>
                     </notebook>
                 </sheet>
                 <div class="oe_chatter">
-                    <field name="message_follower_ids" widget="mail_followers" help="Follow this salesteam to automatically track the events associated to users of this team."/>
+                    <field name="message_follower_ids" widget="mail_followers"
+                           help="Follow this salesteam to automatically track the events associated to users of this team."/>
                     <field name="message_ids" widget="mail_thread"/>
                 </div>
             </form>
@@ -87,7 +86,7 @@
     </record>
     <record id="hr_penalty_tree_view" model="ir.ui.view">
         <field name="name">hr.penalty.tree.view</field>
-        <field name="model">hr.bonus.penalty</field>
+        <field name="model">hr.penalty</field>
         <field name="arch" type="xml">
             <tree string="Penalty"
                   decoration-primary="state == 'draft'"
@@ -104,12 +103,8 @@
     <record id="act_hr_penalty" model="ir.actions.act_window">
         <field name="name">Penalties</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">hr.bonus.penalty</field>
+        <field name="res_model">hr.penalty</field>
         <field name="view_mode">tree,form</field>
-        <field name="view_ids" eval="[(5, 0, 0),
-                                            (0, 0, {'view_mode': 'tree', 'view_id': ref('hr_penalty_tree_view')}),
-                                            (0, 0, {'view_mode': 'form', 'view_id': ref('hr_penalty_form_view')})]"/>
-        <field name="context">{'search_default_penalties':1,'default_extra_type':'penalty'}</field>
         <field name="help" type="html">
             <p class="oe_view_nocontent_create">
                 Add New Penalty
@@ -120,15 +115,13 @@
               name="Penalties"
               parent="hr.menu_hr_employee_payroll"
               action="act_hr_penalty"
-              sequence="3"/>
+              sequence="4"/>
 
     <record id="act_hr_penalty_type" model="ir.actions.act_window">
         <field name="name">Penalty Types</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">hr.bonus.penalty.type</field>
+        <field name="res_model">hr.penalty.type</field>
         <field name="view_mode">tree,form</field>
-        <field name="domain">[('extra_type','=', 'penalty')]</field>
-        <field name="context">{'default_extra_type': 'penalty'}</field>
         <field name="help" type="html">
             <p class="oe_view_nocontent_create">
                 Add New penalty Type
@@ -138,5 +131,5 @@
     <menuitem id="menu_hr_penalty_type"
               parent="hr.menu_human_resources_configuration"
               action="act_hr_penalty_type"
-              sequence="13"/>
+              sequence="4"/>
 </odoo>

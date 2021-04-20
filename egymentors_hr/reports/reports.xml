@@ -3,7 +3,7 @@
     <data noupdate="1">
         <report
                 id="hr_bonus_report"
-                model="hr.bonus.penalty"
+                model="hr.bonus"
                 report_type="qweb-pdf"
                 string="Bonus"
                 menu="False"
@@ -12,7 +12,7 @@
         />
         <report
                 id="hr_penalty_report"
-                model="hr.bonus.penalty"
+                model="hr.bonus"
                 report_type="qweb-pdf"
                 string="Penalty"
                 menu="False"

@@ -68,8 +68,23 @@ class CrossoveredBudget(models.Model):
                                    ('expense','Expense')],
                                    string = 'Type', default='expense', required='True')
     currency_id = fields.Many2one(related = 'company_id.currency_id', readonly=True)
+    
+    budget_transfer = fields.Selection([('current','Current'),
+                                   ('investment','Investment')],
+                                   string = 'Transfer/Account Type', default='current', required='True')
 
     total_available = fields.Monetary('Total Available', compute = '_compute_available_budget')
+    
+    budget_division_id = fields.Many2one('budget.division', string= 'Budget Division')
+    
+    @api.onchange('budget_division_id')
+    def _add_budget_positions(self):
+        for record in self:
+            for budget in record.budget_division_id.general_budget_ids:
+                vals =  {'general_budget_id':budget.id,
+                         'date_from':record.date_from,
+                         'date_to': record.date_to,}
+                record.update({'crossovered_budget_line':[(0,0,vals)]})
     
     def _compute_available_budget(self):
         for record in self:
@@ -90,11 +105,30 @@ class CrossoveredBudget(models.Model):
                                                                       'amount':amount_total,
                                                                       'budget_type':'reserve'})],})
             return budget_entry
+        
+        
+    transfers_count = fields.Integer(compute='compute_count')
+    
+    def compute_count(self):
+        for record in self:
+            record.transfers_count = self.env['crossovered.budget.transfer'].search_count([('crossovered_budget_id', '=', self.id)])
+            
+    def get_transfers(self):
+        self.ensure_one()
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Transfers',
+            'view_mode': 'tree',
+            'res_model': 'crossovered.budget.transfer',
+            'domain': [('crossovered_budget_id', '=', self.id)],
+            'context': "{'create': False}"
+        }
 
     
 class CrossoveredBudgetLines(models.Model):
     _inherit = "crossovered.budget.lines"
     
+    dependable_amount = fields.Monetary('dependable')
     reserve_amount = fields.Monetary('Reserve Amount')
     commitment_amount = fields.Monetary('Commitment Amount')
     available_amount = fields.Monetary('Available Amount')
@@ -321,3 +355,40 @@ class AccountPayment(models.Model):
 #             pay.payment_budget_vals(pay)
 
 #         return payments
+
+
+class BudgetDivision(models.Model):
+    _name = "budget.division"
+    _description = "Abwab"
+    
+    name = fields.Char('Name', required = True)
+    code = fields.Char('Code')
+    main_division_bool = fields.Boolean('Main Division', help = "Check if the division is main , uncheck if the division is Sub,"
+                                   "used for reporting purpose")
+    general_budget_ids = fields.One2many('account.budget.post','budget_division_id', 'Budgetary Position')
+    
+    main_division = fields.Many2one('budget.division', string= 'Parent Division')
+    
+
+class AccountBudgetPost(models.Model):
+    _inherit = "account.budget.post"
+    
+    budget_division_id = fields.Many2one('budget.division', string= 'Budget Division')
+    
+class CrossoveredBudgetTransfer(models.Model):
+    _name = "crossovered.budget.transfer"
+    _description = "Transfers Budget"
+    
+    
+    name = fields.Char('Name')
+    crossovered_budget_id = fields.Many2one('crossovered.budget','Budget')
+    origin = fields.Char('Origin')
+    budget_line_origin_id = fields.Many2one('crossovered.budget.lines','Budget Line origin')
+    budget_line_dest_id = fields.Many2one('crossovered.budget.lines','Budget Line Destination')
+    currency_id = fields.Many2one('res.currency', default = lambda self: self.env.company.currency_id , readonly=True)
+    amount = fields.Monetary('Amount')
+    
+    
+
+    
+    
