@@ -150,3 +150,10 @@ class HRTotalBonus(models.Model):
                               default='gross')
     bonus_type_id = fields.Many2one(comodel_name='hr.bonus.type', string="Bonus Type", required=True)
     total = fields.Float(string="Total")
+
+
+class HRBonusPenalty(models.Model):
+    _name = 'hr.bonus.penalty'
+    _description = 'hr.bonus.penalty'
+
+    name = fields.Char()
