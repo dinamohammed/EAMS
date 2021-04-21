@@ -32,9 +32,9 @@
     'depends': ['report_xlsx', 'hr', 'tags__rule', 'hr_payroll_account'],
     'data': [
         'data/hr_grade_date.xml',
-        
+
         'security/ir.model.access.csv',
-        
+
         'views/res_config_view_changes.xml',
         'views/hr_employee_view_changes.xml',
         'views/hr_bonus_view.xml',
