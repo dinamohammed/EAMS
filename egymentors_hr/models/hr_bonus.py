@@ -157,3 +157,10 @@ class HRBonusPenalty(models.Model):
     _description = 'hr.bonus.penalty'
 
     name = fields.Char()
+
+
+class HRBonusPenaltytype(models.Model):
+    _name = 'hr.bonus.penalty.type'
+    _description = 'hr.bonus.penalty.type'
+
+    name = fields.Char()
