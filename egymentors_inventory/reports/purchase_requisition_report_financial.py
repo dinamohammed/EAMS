@@ -235,20 +235,19 @@ class PartnerXlsx(models.AbstractModel):
                     worksheet.merge_range(row + 1, col, row + 1, col + 1, "%s" % line.name, cell_format_right_bold)
                     col += 2
 
-                row += 2
+                row += 3
                 worksheet.merge_range(row, 0, row, 1, "المرفقات", cell_format_right_bold)
                 row += 1
                 for vendor_line in vendors_dict:
-                    worksheet.merge_range(row, 0, row, 1, "عرض سعر شركه  ",
-                                          cell_format_right_bold)
-                    worksheet.write(row, 2, vendor_line['vendor'],
-                                    cell_format_right_bold)
+                    worksheet.merge_range(row, 0, row, 1, "عرض سعر شركه  ", cell_format_right_bold)
+                    worksheet.write(row, 2, vendor_line['vendor'], cell_format_right_bold)
                     row += 1
 
-            row += 2
             worksheet.merge_range(row, 0, row, 1, "الشروط والاحكام", cell_format_header)
             row += 1
-            worksheet.merge_range(row, 0, row, 1, obj.description)
+            for order in purchase_ids:
+                worksheet.merge_range(row, 0, row, 1, order.notes)
+                row += 1
 
 
 class ResCurrencyInherit(models.Model):

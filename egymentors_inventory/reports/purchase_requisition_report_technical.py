@@ -145,7 +145,7 @@ class PartnerXlsx(models.AbstractModel):
                     header_added = False
                     for line_row, line in enumerate(obj.line_ids):
                         accepted_tender_line_id = order.order_line.filtered(lambda l: l.accepted_tender and
-                                                                               l.requisition_line_id.id == line.id)
+                                                                                      l.requisition_line_id.id == line.id)
                         total_taxes += accepted_tender_line_id.price_tax
                         total_after_taxes += accepted_tender_line_id.price_total
                         if accepted_tender_line_id:
@@ -235,7 +235,7 @@ class PartnerXlsx(models.AbstractModel):
                     worksheet.merge_range(row + 1, col, row + 1, col + 1, "%s" % line.name, cell_format_right_bold)
                     col += 2
 
-                row += 2
+                row += 3
                 worksheet.merge_range(row, 0, row, 1, "المرفقات", cell_format_right_bold)
                 row += 1
                 for vendor_line in vendors_dict:
@@ -244,11 +244,13 @@ class PartnerXlsx(models.AbstractModel):
                     worksheet.write(row, 2, vendor_line['vendor'],
                                     cell_format_right_bold)
                     row += 1
-
             row += 2
+
             worksheet.merge_range(row, 0, row, 1, "الشروط والاحكام", cell_format_header)
             row += 1
-            worksheet.merge_range(row, 0, row, 1, order.notes)
+            for order in purchase_ids:
+                worksheet.merge_range(row, 0, row, 1, order.notes)
+                row += 1
 
 
 class ResCurrencyInherit(models.Model):
