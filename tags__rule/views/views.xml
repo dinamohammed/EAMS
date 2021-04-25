@@ -70,8 +70,8 @@
             </field>
         </record>
 
-        <record model="ir.ui.view" id="contact_view_fields_form">
-            <field name="name">hr.contract.fields.form</field>
+        <record model="ir.ui.view" id="contact_view_fields_form_inherit">
+            <field name="name">hr.contract.fields.form.inherit</field>
             <field name="model">hr.contract</field>
             <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
             <field name="priority" eval="1"/>
@@ -152,6 +152,7 @@
                                 <field name="allowance_ids" nolabel="1">
                                     <tree editable="top">
                                         <field name="allowance" options="{'no_open': True, 'no_create': True}"/>
+                                        <field name="code"/>
                                         <field name="value"/>
                                     </tree>
                                 </field>
@@ -160,6 +161,7 @@
                                 <field name="deduction_ids" nolabel="1">
                                     <tree editable="top">
                                         <field name="deduction" options="{'no_open': True, 'no_create': True}"/>
+                                        <field name="code"/>
                                         <field name="value"/>
                                     </tree>
                                 </field>
