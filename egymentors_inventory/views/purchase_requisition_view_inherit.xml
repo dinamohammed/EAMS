@@ -2,10 +2,11 @@
 <odoo>
     <data>
         <!-- Purchase Requisition-->
-        <menuitem id="menu_purchase_requisition_pro_mgt_pr"
-                  groups="purchase.group_purchase_manager,purchase.group_purchase_user"
-                  sequence="5" parent="menu_purchase_request_main"
-                  action="purchase_requisition.action_purchase_requisition"/>
+<!--        <menuitem id="menu_purchase_requisition_pro_mgt_pr"-->
+<!--                  groups="purchase.group_purchase_manager,purchase.group_purchase_user"-->
+<!--                  sequence="5"-->
+<!--                  parent="menu_purchase_request_main"-->
+<!--                  action="purchase_requisition.action_purchase_requisition"/>-->
 
         <record model="ir.ui.view" id="view_purchase_requisition_form_inherit">
             <field name="name">purchase.requisition.form.inherit</field>

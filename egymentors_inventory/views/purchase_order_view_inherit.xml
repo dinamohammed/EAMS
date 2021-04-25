@@ -66,12 +66,12 @@
                 </xpath>
             </field>
         </record>
-        <menuitem action="purchase.purchase_rfq" id="menu_purchase_rfq_pr"
-                  groups="purchase.group_purchase_manager,purchase.group_purchase_user"
-                  parent="menu_purchase_request_main"
-                  sequence="3"/>
-        <menuitem action="purchase.purchase_form_action" id="menu_purchase_form_action_pr"
-                  groups="purchase.group_purchase_manager,purchase.group_purchase_user"
-                  parent="menu_purchase_request_main" sequence="4"/>
+<!--        <menuitem action="purchase.purchase_rfq" id="menu_purchase_rfq_pr"-->
+<!--                  groups="purchase.group_purchase_manager,purchase.group_purchase_user"-->
+<!--                  parent="menu_purchase_request_main"-->
+<!--                  sequence="3"/>-->
+<!--        <menuitem action="purchase.purchase_form_action" id="menu_purchase_form_action_pr"-->
+<!--                  groups="purchase.group_purchase_manager,purchase.group_purchase_user"-->
+<!--                  parent="menu_purchase_request_main" sequence="4"/>-->
     </data>
 </odoo>
