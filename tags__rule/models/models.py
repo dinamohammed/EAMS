@@ -283,7 +283,8 @@ class HRAllowance(models.Model):
     _rec_name = 'allowance'
 
     allowance = fields.Many2one(comodel_name='hr.allowance.confg', string="Allowance")
-    value = fields.Integer(string="Value")
+    code = fields.Char(string="Code")
+    value = fields.Float(string="Value")
     contract_id = fields.Many2one(comodel_name='hr.contract', string="Contract")
 
     _sql_constraints = [
@@ -297,7 +298,8 @@ class HRDeduction(models.Model):
     _description = "HR Deduction"
 
     deduction = fields.Many2one(comodel_name='hr.deduction.confg', string="Deduction")
-    value = fields.Integer(string="Value")
+    code = fields.Char(string="Code")
+    value = fields.Float(string="Value")
     contract_id = fields.Many2one(comodel_name='hr.contract', string="Contract")
 
     _sql_constraints = [
