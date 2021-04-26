@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <report
+                id="report_bab_six"
+                model="crossovered.budget"
+                string="ختامي باب السادس"
+                report_type="xlsx"
+                name="budget_purchase_relation.report_bab_six_doc"
+                file="budget_purchase_relation.report_bab_six_doc"
+                attachment_use="False"
+        />
+</odoo>
