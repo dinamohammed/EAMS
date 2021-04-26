@@ -74,7 +74,7 @@ class ReportXlsxBudgetSix(models.AbstractModel):
             col += 1
             
         worksheet.merge_range(4, 4, 5, col, "الــمـــكـــون الــعــيـــنـــــي", bold_center_wrap)
-        col += 1
+#         col += 1
         worksheet.write(row, col, "الجملة", bold_center_wrap)
         col += 1
         worksheet.merge_range(4, col, 6, col, "جـمـلـــــة الــوفـــر / التــجــاوز", bold_center_wrap)
@@ -84,12 +84,25 @@ class ReportXlsxBudgetSix(models.AbstractModel):
         for roww in rows:
             worksheet.merge_range(row, 0, row , 1, "%s" %roww.name, bold_center_wrap)
             row += 1
-#         for idx, budget in enumerate(budgets):
-#             for line in budget.crossovered_budget_line:
-#                     col = 4
-#                     worksheet.write(row, col, "%s" %line.dependable_amount, bold_center_wrap)
-#                     col += 1
-#                     worksheet.write(row, col, "%s" %line.practical_amount, bold_center_wrap)
-#                     col += 1
+        
+        col = 2
+        for budget in budgets:
+            sum_reserve = difference_reserve = 0
+            for line in budget.crossovered_budget_line:
+                if line.dependable_amount > 0:
+                    difference_reserve = line.dependable_amount - line.practical_amount
+                    sum_reserve += line.reserve_amount
+                    row += 1
+                    worksheet.write(row, col, "%s" %line.dependable_amount, bold_center_wrap)
+                    col += 1
+                    worksheet.write(row, col, "%s" %line.practical_amount, bold_center_wrap)
+                    col += 1
+                    worksheet.write(row, col, "%s" %line.reserve_amount, bold_center_wrap)
+                else:
+                    col+= 1
+                    sum_reserve += line.reserve_amount
+                    worksheet.write(row, col, "%s" %line.reserve_amount, bold_center_wrap)
+                    
+            
                     
                     
