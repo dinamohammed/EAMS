@@ -40,6 +40,10 @@ class ReportXlsxBudgetSix(models.AbstractModel):
         bold_center_wrap.set_font_size(13)
         bold_center_wrap.set_text_wrap()
         
+        bold_center_wrap_gray = workbook.add_format({'bold': True, 'align': 'center', 'bg_color': '#808080'})
+        bold_center_wrap_gray.set_font_size(13)
+        bold_center_wrap_gray.set_text_wrap()
+        
         worksheet.merge_range(0, 0, 0, 1, "وزارة الـنـقــل", bold_center_underline)
         worksheet.merge_range(1, 0, 1, 1, "قـطـاع الـنـقـل الـبـحــرى", bold_center_underline)
         worksheet.merge_range(2, 0, 2, 1, "الهـيـئـة المصـريـة لسـلامـة الـمـلاحـة الـبـحـريـــة", bold_center_underline)
@@ -50,10 +54,10 @@ class ReportXlsxBudgetSix(models.AbstractModel):
         
         
         bold_center_wrap.set_border()
-        worksheet.merge_range(4, 0, 6, 1, "أســــــــــم الــمــشـــــــــــــروع", bold_center_wrap)
+        worksheet.merge_range(4, 0, 6, 1, "أســــــــــم الــمــشـــــــــــــروع", bold_center_wrap_gray)
         worksheet.merge_range(4, 2, 6, 2, "اعـتـمـادات العـام المـالــي %s/%s المـعـدلــة"
-                              %(fields.Date.today().year - 1,fields.Date.today().year), bold_center_wrap)
-        worksheet.merge_range(4, 3, 6, 3, "المنــصـرف الـفـعـلـــي", bold_center_wrap)
+                              %(fields.Date.today().year - 1,fields.Date.today().year), bold_center_wrap_gray)
+        worksheet.merge_range(4, 3, 6, 3, "المنــصـرف الـفـعـلـــي", bold_center_wrap_gray)
         
 #         worksheet.merge_range(4, 4, 5, 11, "الــمـــكـــون الــعــيـــنـــــي", bold_center_wrap)
         columns = []
@@ -70,15 +74,15 @@ class ReportXlsxBudgetSix(models.AbstractModel):
         columns = list(dict.fromkeys(columns))
         rows = list(dict.fromkeys(rows))
         for column in columns:
-            worksheet.write(row, col, "%s" %column.name, bold_center_wrap)
+            worksheet.write(row, col, "%s" %column.name, bold_center_wrap_gray)
             col += 1
             
-        worksheet.merge_range(4, 4, 5, col, "الــمـــكـــون الــعــيـــنـــــي", bold_center_wrap)
+        worksheet.merge_range(4, 4, 5, col, "الــمـــكـــون الــعــيـــنـــــي", bold_center_wrap_gray)
 #         col += 1
-        worksheet.write(row, col, "الجملة", bold_center_wrap)
+        worksheet.write(row, col, "الجملة", bold_center_wrap_gray)
         col += 1
-        worksheet.merge_range(4, col, 6, col, "جـمـلـــــة الــوفـــر / التــجــاوز", bold_center_wrap)
-        
+        worksheet.merge_range(4, col, 6, col, "جـمـلـــــة الــوفـــر / التــجــاوز", bold_center_wrap_gray)
+        last_column = col
         row = 7
         col = 0
         for roww in rows:
@@ -86,22 +90,61 @@ class ReportXlsxBudgetSix(models.AbstractModel):
             row += 1
         
         col = 2
+        row = 6
+        totals = []
+        depend_total = practical_total = sum_total = difference_total = 0
+        
         for budget in budgets:
             sum_reserve = difference_reserve = 0
             for line in budget.crossovered_budget_line:
                 if line.dependable_amount > 0:
+                    col = 2
                     difference_reserve = line.dependable_amount - line.practical_amount
+                    difference_total += difference_reserve
                     sum_reserve += line.reserve_amount
                     row += 1
                     worksheet.write(row, col, "%s" %line.dependable_amount, bold_center_wrap)
+                    depend_total = depend_total + line.dependable_amount
                     col += 1
                     worksheet.write(row, col, "%s" %line.practical_amount, bold_center_wrap)
+                    practical_total = practical_total + line.practical_amount
                     col += 1
                     worksheet.write(row, col, "%s" %line.reserve_amount, bold_center_wrap)
                 else:
-                    col+= 1
+                    col += 1
                     sum_reserve += line.reserve_amount
+                    sum_total += sum_reserve
                     worksheet.write(row, col, "%s" %line.reserve_amount, bold_center_wrap)
+                    col += 1
+                if col == (last_column -1) :
+                    worksheet.write(row, col, '%s' %sum_reserve, bold_center_wrap)
+                    col += 1
+                    worksheet.write(row, col, '%s' %difference_reserve, bold_center_wrap)
+                    sum_reserve = difference_reserve = 0
+            totals.append(depend_total)
+            totals.append(practical_total)
+            for line in budget.crossovered_budget_line:
+                account = line.analytic_account_id
+                total = 0
+                for line2 in budget.crossovered_budget_line:
+                    if account == line2.analytic_account_id:
+                        total += line2.reserve_amount
+                totals.append(total)
+                    
+            totals.pop()
+            totals.pop()
+            totals.append(sum_total)
+            totals.append(difference_total)
+        row += 1
+        col = 2
+        worksheet.merge_range(row, 0, row, 1, "الإجمالي", bold_center_wrap_gray)
+        for x in totals:
+            worksheet.write(row, col, '%s' %x, bold_center_wrap_gray)
+            col += 1
+            
+            
+            
+                    
                     
             
                     

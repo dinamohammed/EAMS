@@ -33,13 +33,13 @@ class BudgetTransfer(models.TransientModel):
     def generate_transfer(self):
         create = False
         for line in self.crossovered_budget_id.crossovered_budget_line:
-            if line.general_budget_id == self.budget_line_origin_id.general_budget_id:
+            if line.id == self.budget_line_origin_id.id:
                 if line.planned_amount >= self.amount :
                     line.write({'planned_amount' : line.planned_amount - self.amount})
                     create = True
                 else:
-                    raise ValidationError("The amount is not avaialble in budgetary position")
-            if line.general_budget_id == self.budget_line_dest_id.general_budget_id:
+                    raise ValidationError("The amount is not avaialble in budgetary position %s - %s" %(line.planned_amount,self.amount))
+            if line.id == self.budget_line_dest_id.id:
                 line.write({'planned_amount' : line.planned_amount + self.amount})
                 
         vals = {
