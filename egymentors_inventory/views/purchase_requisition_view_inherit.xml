@@ -2,17 +2,22 @@
 <odoo>
     <data>
         <!-- Purchase Requisition-->
-<!--        <menuitem id="menu_purchase_requisition_pro_mgt_pr"-->
-<!--                  groups="purchase.group_purchase_manager,purchase.group_purchase_user"-->
-<!--                  sequence="5"-->
-<!--                  parent="menu_purchase_request_main"-->
-<!--                  action="purchase_requisition.action_purchase_requisition"/>-->
-
         <record model="ir.ui.view" id="view_purchase_requisition_form_inherit">
             <field name="name">purchase.requisition.form.inherit</field>
             <field name="model">purchase.requisition</field>
             <field name="inherit_id" ref="purchase_requisition.view_purchase_requisition_form"/>
             <field name="arch" type="xml">
+
+                <xpath expr="//div[@name='button_box']/button[@type='action']" position="after">
+                    <button name="%(egymentors_inventory.action_purchase_financial_record)d" type="action"
+                            class="oe_stat_button" icon="fa-list-alt" attrs="{'invisible': [('state', '!=', 'open')]}">
+                        <field name="financial_rec_count" widget="statinfo" string="Financial Records"/>
+                    </button>
+                    <button name="%(egymentors_inventory.action_purchase_technical_record)d" type="action"
+                            class="oe_stat_button" icon="fa-list-alt" attrs="{'invisible': [('state', '!=', 'open')]}">
+                        <field name="technical_rec_count" widget="statinfo" string="Technical Records"/>
+                    </button>
+                </xpath>
 
                 <xpath expr="//field[@name='currency_id']" position="after">
                     <label for="request_id"/>
@@ -59,6 +64,7 @@
                                 ('tender_request_added','=',False)]}"/>
                     </div>
                 </xpath>
+
                 <xpath expr="//field[@name='line_ids']/tree" position="inside">
                     <field name="request_line_ids" optional="hide" widget="many2many_tags"/>
                 </xpath>
@@ -83,6 +89,12 @@
                         </field>
                     </page>
                 </xpath>
+
+                <!--        <menuitem id="menu_purchase_requisition_pro_mgt_pr"-->
+                <!--                  groups="purchase.group_purchase_manager,purchase.group_purchase_user"-->
+                <!--                  sequence="5"-->
+                <!--                  parent="menu_purchase_request_main"-->
+                <!--                  action="purchase_requisition.action_purchase_requisition"/>-->
 
             </field>
         </record>

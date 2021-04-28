@@ -14,22 +14,5 @@
             </field>
         </record>
 
-        <record id="product_variant_inherit" model="ir.ui.view">
-            <field name="name">product.product.inherit</field>
-            <field name="model">product.product</field>
-            <field name="inherit_id" ref="product.product_normal_form_view"/>
-            <field name="arch" type="xml">
-                <xpath expr="//field[@name='image_1920']" position="after">
-                    <field name="html_color"/>
-                    <group class="oe_right oe_subtotal_footer">
-                        <field name="color_ids" nolabel="1">
-                            <tree>
-                                <field name="html_color" widget="color" nolabel="1"/>
-                            </tree>
-                        </field>
-                    </group>
-                </xpath>
-            </field>
-        </record>
     </data>
 </odoo>

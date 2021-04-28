@@ -80,11 +80,44 @@ class CrossoveredBudget(models.Model):
     @api.onchange('budget_division_id')
     def _add_budget_positions(self):
         for record in self:
-            for budget in record.budget_division_id.general_budget_ids:
-                vals =  {'general_budget_id':budget.id,
-                         'date_from':record.date_from,
-                         'date_to': record.date_to,}
-                record.update({'crossovered_budget_line':[(0,0,vals)]})
+            record.crossovered_budget_line.unlink()
+            if record.budget_division_id.general_budget_ids:
+                for budget in record.budget_division_id.general_budget_ids:
+#                     vals =  {'general_budget_id':budget.id,
+#                              'date_from':record.date_from,
+#                              'date_to': record.date_to,}
+#                     record.update({'crossovered_budget_line':[(0,0,vals)]})
+                    for account in record.budget_division_id.analytic_account_ids:
+                        vals =  {'general_budget_id':budget.id,
+                                 'date_from':record.date_from,
+                                 'date_to': record.date_to,
+                                 'analytic_account_id':account.id,}
+                        record.update({'crossovered_budget_line':[(0,0,vals)]})
+            elif record.budget_division_id.analytic_account_ids:
+                for account in record.budget_division_id.analytic_account_ids:
+                    vals =  {'analytic_account_id':account.id,
+                             'date_from':record.date_from,
+                             'date_to': record.date_to,}
+                    record.update({'crossovered_budget_line':[(0,0,vals)]})
+                    
+#     @api.onchange('budget_division_id')
+#     def _add_budget_positions(self):
+#         vals = {}
+#         for record in self:
+#             record.crossovered_budget_line.unlink()
+#             if record.budget_division_id.general_budget_ids:
+#                 if record.budget_division_id.analytic_account_ids:
+#                     for id , budget in enumerate(record.budget_division_id.general_budget_ids):
+# #                         raise ValidationError('%s'%record.budget_division_id.analytic_account_ids[id].name)
+#                         vals =  {'general_budget_id':budget.id,
+#                                  'date_from':record.date_from,
+#                                  'date_to': record.date_to,
+#                                 'analytic_account_id': record.budget_division_id.analytic_account_ids[id],}
+#                         record.update({'crossovered_budget_line':[(0,0,vals)]})
+#             elif record.budget_division_id.analytic_account_ids:
+#                 for account in record.budget_division_id.analytic_account_ids:
+#                     vals['analytic_account_id'] = account.id
+#                     record.update({'crossovered_budget_line':[(0,0,vals)]})
     
     def _compute_available_budget(self):
         for record in self:
@@ -369,6 +402,11 @@ class BudgetDivision(models.Model):
     
     main_division = fields.Many2one('budget.division', string= 'Parent Division')
     
+    budget_transfer = fields.Selection([('current','Current'),
+                                   ('investment','Investment')],
+                                   string = 'Transfer/Account Type', default='current')
+    analytic_account_ids = fields.One2many('account.analytic.account','budget_division_id', 'Analytic Account')
+    
 
 class AccountBudgetPost(models.Model):
     _inherit = "account.budget.post"
@@ -390,5 +428,7 @@ class CrossoveredBudgetTransfer(models.Model):
     
     
 
+class AccountAnalyticAccount(models.Model):
+    _inherit = "account.analytic.account"
     
-    
+    budget_division_id = fields.Many2one('budget.division', string= 'Budget Division')

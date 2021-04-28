@@ -108,5 +108,25 @@
                 name="egymentors_inventory.report_inv_adj_ar_xlsx"
                 file="egymentors_inventory.report_inv_adj_ar_xlsx"/>
 
+        <record id="action_report_financial_record" model="ir.actions.report">
+            <field name="name">Financial Record Report</field>
+            <field name="model">purchase.financial.record</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">egymentors_inventory.report_financial_record</field>
+            <field name="report_file">egymentors_inventory.report_financial_record</field>
+            <field name="print_report_name">'Financial Record - %s' % (object.requisition_id.name)</field>
+            <field name="binding_model_id" ref="model_purchase_financial_record"/>
+        </record>
+
+        <record id="action_report_technical_record" model="ir.actions.report">
+            <field name="name">Technical Record Report</field>
+            <field name="model">purchase.technical.record</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">egymentors_inventory.report_technical_record</field>
+            <field name="report_file">egymentors_inventory.report_technical_record</field>
+            <field name="print_report_name">'Technical Record - %s' % (object.requisition_id.name)</field>
+            <field name="binding_model_id" ref="model_purchase_technical_record"/>
+        </record>
+
     </data>
 </odoo>
