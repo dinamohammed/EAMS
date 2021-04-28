@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="purchase_financial_record_form_view" model="ir.ui.view">
+            <field name="name">purchase.financial.record.form.view</field>
+            <field name="model">purchase.financial.record</field>
+            <field name="arch" type="xml">
+                <form string="financial Record">
+                    <header>
+                        <button string="Print" class="oe_highlight" name="print_financial_record" type="object"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title text-center">
+                            <label for="name" class="oe_edit_only"/>
+                            <group>
+                                <h1>
+                                    <field name="name"/>
+                                </h1>
+                            </group>
+                        </div>
+                        <group>
+                            <field name="requisition_id"/>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="record_no"/>
+                                <field name="year"/>
+                                <field name="date"/>
+                            </group>
+                            <group>
+                                <field name="manager_id"/>
+                                <field name="job_title_id"/>
+                                <field name="department_id"/>
+                            </group>
+                            <group>
+                                <field name="signatures_financial_ids" string="Financial Signature">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="title"/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="committee_reviewed"/>
+                        </group>
+                        <group>
+                            <field name="committee_recommend"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="purchase_technical_record_form_view" model="ir.ui.view">
+            <field name="name">purchase.technical.record.form.view</field>
+            <field name="model">purchase.technical.record</field>
+            <field name="arch" type="xml">
+                <form string="Technical Record">
+                    <header>
+                        <button string="Print" class="oe_highlight" name="print_technical_record" type="object"/>
+                    </header>
+                    <sheet>
+                        <h5 class="text-center">
+                            Record of the meeting of the Committee for Deciding on Public Tender No.
+                            <field name="record_no" readonly="1"/>
+                            of
+                            <field name="year" readonly="1"/>
+                        </h5>
+                        <div class="oe_title text-center">
+                            <label for="name" class="oe_edit_only"/>
+                            <group>
+                                <h1>
+                                    <field name="name"/>
+                                </h1>
+                            </group>
+                        </div>
+                        <field name="requisition_id"/>
+                        <group>
+                            <group>
+                                <field name="record_no"/>
+                                <field name="year"/>
+                                <field name="date"/>
+                            </group>
+                            <group>
+                                <field name="manager_id"/>
+                                <field name="job_title_id"/>
+                                <field name="department_id"/>
+                            </group>
+                            <group>
+                                <field name="signatures_technical_ids" string="Technical Signature">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="title"/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </group>
+                        <h5 class="text-center">
+                            To carry out the task of deciding on Public Tender No.
+                            <field name="record_no" readonly="1"/>
+                            of
+                            <field name="year" readonly="1"/>
+                            for
+                            <field name="name" readonly="1"/>
+                        </h5>
+                        <group>
+                            <field name="committee_reviewed"/>
+                        </group>
+                        <group>
+                            <field name="committee_recommend"/>
+                        </group>
+                        <h5 class="font-weight-bold">
+                            The committee has taken into account in all its work the provisions of Law No. 182 of 2018.
+                        </h5>
+                        <h5 class="font-weight-bold">
+                            It is referred to the competent authority to take what it deems necessary in this
+                            regard.
+                        </h5>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_purchase_financial_record" model="ir.actions.act_window">
+            <field name="name">Financial Record</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">purchase.financial.record</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('requisition_id','=',active_id)]</field>
+            <field name="context">{
+                "default_requisition_id":active_id,
+                }
+            </field>
+        </record>
+
+        <record id="action_purchase_technical_record" model="ir.actions.act_window">
+            <field name="name">Technical Record</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">purchase.technical.record</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('requisition_id','=',active_id)]</field>
+            <field name="context">{
+                "default_requisition_id":active_id,
+                }
+            </field>
+        </record>
+
+    </data>
+</odoo>
