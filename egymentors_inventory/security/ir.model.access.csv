@@ -31,3 +31,5 @@ access_tender_request_department_g_manager,tender.request.department.g_manager,m
 access_tender_request_department_portal,tender.request.department.portal,model_tender_request_department,base.group_portal,1,0,0,0
 access_agreement_signature_user,agreement.signature,model_agreement_signature,base.group_user,1,1,1,1
 access_agreement_signature_technical_user,agreement.signature.technical,model_agreement_signature_technical,base.group_user,1,1,1,1
+access_purchase_financial_record_user,purchase.financial.record,model_purchase_financial_record,base.group_user,1,1,1,1
+access_purchase_technical_record_user,purchase.technical.record,model_purchase_technical_record,base.group_user,1,1,1,1

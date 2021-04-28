@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_technical_record_doc">
+        <t t-call="web.external_layout">
+            <div class="oe_structure"/>
+
+            <div class="row" style="text-align:center;" name="title_1">
+                <div class="col-12">
+                    <strong>
+                        Record of the meeting of the Committee for Deciding on Public Tender No.
+                        <span t-field="o.record_no"/>
+                        of
+                        <span t-field="o.year"/>
+                    </strong>
+                </div>
+            </div>
+
+            <div class="row" style="text-align:center;" name="title_2">
+                <div class="col-12">
+                    <strong>
+                        <u>
+                            <span t-field="o.name" style="direction:ltr"/>
+                        </u>
+                    </strong>
+                </div>
+            </div>
+            <br/>
+
+            <div class="row" name="date">
+                <div class="col-12">
+                    On
+<!--                    <span t-esc="o.date.strftime('%A')"/>-->
+                    ,
+                    <span t-esc="o.date"/>
+                    the committee formed by Administrative Resolution No. (7) of 2020
+                </div>
+            </div>
+            <br/>
+
+            <div class="row" t-if="o.manager_id" name="manager">
+                <div class="col-4">
+                    <strong>
+                        <u>Managed by:</u>
+                    </strong>
+                    <span t-field="o.manager_id"/>
+                </div>
+                <div class="col-4">
+                    <span t-field="o.job_title_id"/>
+                </div>
+                <div class="col-4">
+                    <span t-field="o.department_id"/>
+                </div>
+            </div>
+            <br/>
+
+            <div class="row" name="members_label">
+                <strong class="col-12">
+                    <u>Membership:</u>
+                </strong>
+            </div>
+
+            <div class="row" name="members">
+                <table width="100%" class="table table-sm">
+                    <tbody>
+                        <t t-foreach="o.signatures_technical_ids" t-as="emp">
+                            <tr>
+                                <td>
+                                    <span t-field="emp.name"/>
+                                </td>
+                                <td>
+                                    <span t-field="emp.title"/>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="row" name="task">
+                <div class="col-12">
+                    To carry out the task of deciding on Public Tender No.
+                    <span t-field="o.record_no"/>
+                    of
+                    <span t-field="o.year"/>
+                    for
+                    <span t-field="o.name"/>.
+                </div>
+            </div>
+            <br/>
+
+            <div class="row" name="review_label">
+                <strong class="col-12">
+                    <u>The committee has reviewed the following:</u>
+                </strong>
+            </div>
+
+            <div class="row" name="review">
+                <div class="col-12">
+                    <pre t-esc="o.committee_reviewed" style="font-family:Verdana;"/>
+                </div>
+            </div>
+            <br/>
+
+            <div class="row" name="recommend_label">
+                <strong class="col-12">
+                    <u>The committee recommends the following:</u>
+                </strong>
+            </div>
+
+            <div class="row" name="recommend">
+                <div class="col-12">
+                    <pre t-esc="o.committee_recommend" style="font-family:Verdana;"/>
+                </div>
+            </div>
+            <br/>
+
+            <div class="row" name="provision">
+                <div class="col-12">
+                    <strong>
+                        The committee has taken into account in all its work the provisions of Law No. 182 of 2018.
+                    </strong>
+                </div>
+            </div>
+
+            <div class="row" name="competent_authority">
+                <div class="col-12">
+                    <strong>
+                        It is referred to the competent authority to take what it deems necessary in this regard.
+                    </strong>
+                </div>
+            </div>
+
+        </t>
+    </template>
+
+    <template id="report_technical_record">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-set="lang" t-value="user.partner_id.lang"/>
+                <t t-call="egymentors_inventory.report_technical_record_doc" t-lang="lang"/>
+            </t>
+        </t>
+    </template>
+</odoo>

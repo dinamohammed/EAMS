@@ -57,6 +57,23 @@ class PurchaseRequisitionInherit(models.Model):
     signatures_technical_ids = fields.Many2many(comodel_name='agreement.signature.technical',
                                                 help="Add signatures to be added in printouts")
 
+    financial_rec_ids = fields.One2many(comodel_name='purchase.financial.record', inverse_name='requisition_id',
+                                        string='Financial Records', states={'done': [('readonly', True)]})
+    technical_rec_ids = fields.One2many(comodel_name='purchase.technical.record', inverse_name='requisition_id',
+                                        string='Technical Records', states={'done': [('readonly', True)]})
+    financial_rec_count = fields.Integer(compute='_compute_financial_rec_number', string='Financial Records')
+    technical_rec_count = fields.Integer(compute='_compute_technical_rec_number', string='Financial Records')
+
+    @api.depends('financial_rec_ids')
+    def _compute_financial_rec_number(self):
+        for requisition in self:
+            requisition.financial_rec_count = len(requisition.financial_rec_ids)
+
+    @api.depends('technical_rec_ids')
+    def _compute_technical_rec_number(self):
+        for requisition in self:
+            requisition.technical_rec_count = len(requisition.technical_rec_ids)
+
     @api.onchange('request_id')
     def assign_request(self):
         for req in self:

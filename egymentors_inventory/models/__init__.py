@@ -8,6 +8,7 @@ from . import purchase_requisition_inherit
 from . import product_inherit
 from . import agreement_signature
 from . import tender_request
+from . import purchase_record
 
 
 
