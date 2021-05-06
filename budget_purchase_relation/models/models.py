@@ -161,12 +161,14 @@ class CrossoveredBudget(models.Model):
 class CrossoveredBudgetLines(models.Model):
     _inherit = "crossovered.budget.lines"
     
+    general_budget_id = fields.Many2one('account.budget.post', 'Budgetary Position')
+    
     dependable_amount = fields.Monetary('dependable')
     reserve_amount = fields.Monetary('Reserve Amount')
     commitment_amount = fields.Monetary('Commitment Amount')
     available_amount = fields.Monetary('Available Amount')
     
-    budget_transfer = fields.Selection(related="crossovered_budget_id.budget_transfer")
+    budget_transfer = fields.Selection(related="crossovered_budget_id.budget_transfer", store = True)
     
 class BudgetEntry(models.Model):
     _name = "budget.entry"
