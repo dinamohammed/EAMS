@@ -302,7 +302,7 @@ class AccountPayment(models.Model):
                 payment.write({'reserve_budget_entry':payment.reserve_budget_entry})
 #                 raise ValidationError('%s'%payment.reserve_budget_entry.budget_allocation_ids)
                 allocation_id = payment.reserve_budget_entry.budget_allocation_ids[0]
-                payment.env['budget.entry'].create({'budget_id':payment.budget_id,
+                payment.env['budget.entry'].create({'budget_id':payment.move_id.budget_id.id,
                                                     'budget_entry_type':'commitment',
                                                     'state':'approved',
                                                     'budget_allocation_ids':[(0,0,{
