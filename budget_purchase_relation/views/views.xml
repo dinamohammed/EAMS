@@ -35,9 +35,11 @@
                 </xpath>
                 <xpath expr="//field[@name='general_budget_id']" position="after">
                     <field name = "dependable_amount"/>
-                    <field name = "general_budget_id"/>
+                    <field name = "general_budget_id" 
+                           attrs="{'invisible': [('budget_transfer', '=', 'current')]}"/>
                     <field name = "date_from"/>
                     <field name = "date_to"/>
+                    <field name = "budget_transfer" invisible = "1"/>
                 </xpath>
                 <xpath expr="//header" position="inside">
                     <button name="%(action_budget_transfer)d" string="Transfer" class="btn btn-link" type="action"/>

@@ -166,6 +166,8 @@ class CrossoveredBudgetLines(models.Model):
     commitment_amount = fields.Monetary('Commitment Amount')
     available_amount = fields.Monetary('Available Amount')
     
+    budget_transfer = fields.Selection(related="crossovered_budget_id.budget_transfer")
+    
 class BudgetEntry(models.Model):
     _name = "budget.entry"
     
