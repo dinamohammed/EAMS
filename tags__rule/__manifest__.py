@@ -26,7 +26,7 @@
     'data': [
         'data/hr_level_data.xml',
         'security/ir.model.access.csv',
-        'views/views.xml',
+        'views/tags_rule_view.xml',
         'views/templates.xml',
         'views/location.xml',
         'views/level.xml',

@@ -152,7 +152,6 @@
                                 <field name="allowance_ids" nolabel="1">
                                     <tree editable="top">
                                         <field name="allowance" options="{'no_open': True, 'no_create': True}"/>
-                                        <field name="code"/>
                                         <field name="value"/>
                                     </tree>
                                 </field>
@@ -161,7 +160,6 @@
                                 <field name="deduction_ids" nolabel="1">
                                     <tree editable="top">
                                         <field name="deduction" options="{'no_open': True, 'no_create': True}"/>
-                                        <field name="code"/>
                                         <field name="value"/>
                                     </tree>
                                 </field>

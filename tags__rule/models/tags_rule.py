@@ -15,7 +15,7 @@ class TagsRule(models.Model):
 
     tax_base_temp = fields.Float(string='Tax Base Temp', default=0)
 
-    def Tags_function(self, category_ids):
+    def tags_function(self, category_ids):
         value = 0
         tag = []
         for category in category_ids:
@@ -25,33 +25,33 @@ class TagsRule(models.Model):
     # ############### ############### ##################
     # To Execute the previous function on a salary rule :
     # Write the following code :
-    #       result = payslip.env['hr.payslip'].Tags_function(employee.category_ids)
+    #       result = payslip.env['hr.payslip'].tags_function(employee.category_ids)
 
-    def Date_Error(self, Specific_Date):
-        Current_Date = datetime.now()
-        Day_Current_Date = Current_Date.strftime("%d")
-        Specific_Date_str = datetime.strptime(Specific_Date, DEFAULT_SERVER_DATE_FORMAT)
-        Day_Specific_Date = Specific_Date_str.strftime("%d")
+    def date_error(self, specific_date):
+        current_date = datetime.now()
+        day_current_date = current_date.strftime("%d")
+        specific_date_str = datetime.strptime(specific_date, DEFAULT_SERVER_DATE_FORMAT)
+        day_specific_date = specific_date_str.strftime("%d")
 
-        if Day_Specific_Date < Day_Current_Date:
+        if day_specific_date < day_current_date:
             raise ValidationError(_('Sorry, Today Date Must be greater Than Start Date...'))
 
     # ############### ############### ##################
     # To Execute the previous function on a salary rule :
     # Write the following code :
-    #       result = payslip.env['hr.payslip'].Date_Error('2019-1-12')
+    #       result = payslip.env['hr.payslip'].date_error('2019-1-12')
 
-    def Tax_Base_Value(self, Tax_Base, Field_to_Give):
-        emp_rec = self.env['hr.employee'].search([('id', '=', Field_to_Give)])
+    def tax_base_value(self, tax_base, field_to_give):
+        emp_rec = self.env['hr.employee'].search([('id', '=', field_to_give)])
         payslip_rec = self.env['hr.payslip'].search([('employee_id', '=', emp_rec['id']), ('state', '=', 'draft')])
-        payslip_rec['tax_base_temp'] = Tax_Base
+        payslip_rec['tax_base_temp'] = tax_base
 
         return 0
 
     # ############### ############### ##################
     # To Execute the previous function on a salary rule :
     # Write the following code :
-    #       result = payslip.env['hr.payslip'].Tax_Base_Value(categories.RuleofTaxBase , employee.id)
+    #       result = payslip.env['hr.payslip'].tax_base_value(categories.RuleofTaxBase , employee.id)
 
     def action_payslip_done(self):
         if any(slip.state == 'cancel' for slip in self):
@@ -59,7 +59,7 @@ class TagsRule(models.Model):
         self.write({'state': 'done'})
         self.mapped('payslip_run_id').action_close()
         for payslip in self:
-            ##### Add the part of Tax Base Container
+            # ##### Add the part of Tax Base Container
             payslip.employee_id.tax_base = payslip.tax_base_temp + payslip.employee_id.tax_base
             # ############### ##########################
         if self.env.context.get('payslip_generate_pdf'):
@@ -88,7 +88,7 @@ class HrLevel(models.Model):
     name = fields.Char("Level")
 
 
-class HrEmployee(models.Model):
+class HrEmployeeInherit(models.Model):
     _inherit = 'hr.employee'
 
     location_type = fields.Selection([('static', 'Insured'),
@@ -99,10 +99,10 @@ class HrEmployee(models.Model):
     tax_base = fields.Float(string='Tax Base', default=0)
     work_location_id = fields.Many2one('hr.location', 'Work Location Ertrac')
 
-    def Daily_Check_Value(self):
+    def daily_check_value(self):
 
-        Current_Date = datetime.now()
-        if Current_Date.day == '30' or Current_Date.day == '31':
+        current_date = datetime.now()
+        if current_date.day == '30' or current_date.day == '31':
             emp_rec = self.env['hr.employee'].search([])
             for emp in emp_rec:
                 emp['tax_base'] = 0
@@ -157,7 +157,7 @@ class HrEmployee(models.Model):
                                                 ('completed', 'Completed')], string='Military Service Status')
 
 
-class HrContract(models.Model):
+class HrContractInherit(models.Model):
     _inherit = 'hr.contract'
 
     # ################## Contract Type # ##########################
@@ -248,16 +248,16 @@ class HrContract(models.Model):
     traveling_days = fields.Integer(string='Traveling Days')
     transportation_expenses = fields.Float(string='Transportation Expenses')
 
-    ########################### Extra Fields Added #########################################
+    # ########################## Extra Fields Added #########################################
     security_days = fields.Integer(string='Security Days Allowance')
     company_pay = fields.Float(string='Company Pay')
     allowance_apecial = fields.Float(string='Special Allowance')
     total_institution_Value = fields.Float(string='Total Institutions Value')
 
-    def Daily_Check_Contract_Value(self):
+    def daily_check_contract_value(self):
 
-        Current_Date = datetime.now()
-        if Current_Date.day == '20':
+        current_date = datetime.now()
+        if current_date.day == '20':
             cont_rec = self.env['hr.contract'].search([])
             for cont in cont_rec:
                 cont['security_days'] = 0
@@ -283,7 +283,6 @@ class HRAllowance(models.Model):
     _rec_name = 'allowance'
 
     allowance = fields.Many2one(comodel_name='hr.allowance.confg', string="Allowance")
-    code = fields.Char(string="Code")
     value = fields.Float(string="Value")
     contract_id = fields.Many2one(comodel_name='hr.contract', string="Contract")
 
@@ -298,7 +297,6 @@ class HRDeduction(models.Model):
     _description = "HR Deduction"
 
     deduction = fields.Many2one(comodel_name='hr.deduction.confg', string="Deduction")
-    code = fields.Char(string="Code")
     value = fields.Float(string="Value")
     contract_id = fields.Many2one(comodel_name='hr.contract', string="Contract")
 
@@ -313,6 +311,7 @@ class HRAllowanceConfiguration(models.Model):
     _description = "HR Allowance Configuration"
 
     name = fields.Char(string="Allowance Name")
+    code = fields.Char(string="Code")
 
 
 class HRDeductionConfiguration(models.Model):
@@ -320,3 +319,4 @@ class HRDeductionConfiguration(models.Model):
     _description = "HR Deduction Configuration"
 
     name = fields.Char(string="Deduction Name")
+    code = fields.Char(string="Code")
