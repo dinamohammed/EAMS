@@ -161,10 +161,14 @@ class CrossoveredBudget(models.Model):
 class CrossoveredBudgetLines(models.Model):
     _inherit = "crossovered.budget.lines"
     
+    general_budget_id = fields.Many2one('account.budget.post', 'Budgetary Position')
+    
     dependable_amount = fields.Monetary('dependable')
     reserve_amount = fields.Monetary('Reserve Amount')
     commitment_amount = fields.Monetary('Commitment Amount')
     available_amount = fields.Monetary('Available Amount')
+    
+    budget_transfer = fields.Selection(related="crossovered_budget_id.budget_transfer", store = True)
     
 class BudgetEntry(models.Model):
     _name = "budget.entry"
@@ -298,7 +302,7 @@ class AccountPayment(models.Model):
                 payment.write({'reserve_budget_entry':payment.reserve_budget_entry})
 #                 raise ValidationError('%s'%payment.reserve_budget_entry.budget_allocation_ids)
                 allocation_id = payment.reserve_budget_entry.budget_allocation_ids[0]
-                payment.env['budget.entry'].create({'budget_id':payment.budget_id,
+                payment.env['budget.entry'].create({'budget_id':payment.move_id.budget_id.id,
                                                     'budget_entry_type':'commitment',
                                                     'state':'approved',
                                                     'budget_allocation_ids':[(0,0,{
