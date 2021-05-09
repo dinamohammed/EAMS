@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 13.0+e-20210126\n"
+"Project-Id-Version: Odoo Server 14.0+e-20210126\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-16 18:35+0000\n"
-"PO-Revision-Date: 2021-02-16 18:35+0000\n"
+"POT-Creation-Date: 2021-05-09 01:43+0000\n"
+"PO-Revision-Date: 2021-05-09 01:43+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -401,6 +401,42 @@ msgid "<strong>Work Location:</strong>"
 msgstr "<strong>مكان العمل:</strong>"
 
 #. module: egymentors_hr
+#: model:ir.model.constraint,message:egymentors_hr.constraint_hr_bonus_type_code_uniq
+msgid "A bonus type with the same code already exists."
+msgstr "نوع المكافأة بنفس الرمز موجود بالفعل."
+
+#. module: egymentors_hr
+#: model:ir.model.constraint,message:egymentors_hr.constraint_hr_bonus_type_name_uniq
+msgid "A bonus type with the same name already exists."
+msgstr "نوع المكافأة بنفس الاسم موجود بالفعل."
+
+#. module: egymentors_hr
+#: model:ir.model.constraint,message:egymentors_hr.constraint_hr_bonus_categ_name_uniq
+#: model:ir.model.constraint,message:egymentors_hr.constraint_hr_penalty_categ_name_uniq
+msgid "A category with the same name already exists."
+msgstr "توجد فئة بنفس الاسم بالفعل."
+
+#. module: egymentors_hr
+#: model:ir.model.constraint,message:egymentors_hr.constraint_hr_penalty_type_code_uniq
+msgid "A penalty type with the same code already exists."
+msgstr "نوع العقوبة بنفس الرمز موجود بالفعل."
+
+#. module: egymentors_hr
+#: model:ir.model.constraint,message:egymentors_hr.constraint_hr_penalty_type_name_uniq
+msgid "A penalty type with the same name already exists."
+msgstr "نوع العقوبة بنفس الرمز موجود بالفعل."
+
+#. module: egymentors_hr
+#: model:ir.model.fields,field_description:egymentors_hr.field_hr_employee__accommodation
+msgid "Accommodation"
+msgstr "سكن"
+
+#. module: egymentors_hr
+#: model:ir.model.fields,field_description:egymentors_hr.field_hr_employee__accommodation_type
+msgid "Accommodation Type"
+msgstr "نوع السكن"
+
+#. module: egymentors_hr
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_promotion_line__action_id
 msgid "Action"
 msgstr "إجراء"
@@ -424,7 +460,7 @@ msgstr "إضافه المنح/الارباح السنويه"
 #. module: egymentors_hr
 #: model_terms:ir.actions.act_window,help:egymentors_hr.action_hr_bonus
 msgid "Add New Bonus"
-msgstr ""
+msgstr "اضف بدل جديد"
 
 #. module: egymentors_hr
 #: model_terms:ir.actions.act_window,help:egymentors_hr.act_hr_pay_raise
@@ -452,6 +488,7 @@ msgid "Add New Transportation Allowance"
 msgstr "اضافه بدل انتقال"
 
 #. module: egymentors_hr
+#: model_terms:ir.actions.act_window,help:egymentors_hr.act_hr_bonus_type
 #: model_terms:ir.actions.act_window,help:egymentors_hr.act_hr_penalty_type
 msgid "Add New penalty Type"
 msgstr "إضافه نوع جزاء جديد"
@@ -459,7 +496,7 @@ msgstr "إضافه نوع جزاء جديد"
 #. module: egymentors_hr
 #: model:ir.model.fields.selection,name:egymentors_hr.selection__hr_award_profit__select_by__all
 msgid "All"
-msgstr ""
+msgstr "الكل"
 
 #. module: egymentors_hr
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_payslip_run__all_employees
@@ -554,7 +591,7 @@ msgstr "فئة الحافز"
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_bonus__bonus_line_ids
 #: model_terms:ir.ui.view,arch_db:egymentors_hr.hr_bonus_form_view
 msgid "Bonus Lines"
-msgstr ""
+msgstr "بنود المكافأة"
 
 #. module: egymentors_hr
 #: model_terms:ir.ui.view,arch_db:egymentors_hr.report_hr_bonus_doc
@@ -565,12 +602,18 @@ msgstr "تقرير الحوافز"
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_bonus__total_bonus_ids
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_payslip__total_bonus_ids
 msgid "Bonus Totals"
-msgstr ""
+msgstr "اجمالي المكافئات"
 
 #. module: egymentors_hr
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_total_bonus__bonus_type_id
 msgid "Bonus Type"
 msgstr "نوع الحافز"
+
+#. module: egymentors_hr
+#: model:ir.actions.act_window,name:egymentors_hr.act_hr_bonus_type
+#: model:ir.ui.menu,name:egymentors_hr.menu_hr_bonus_type
+msgid "Bonus Types"
+msgstr "أنواع الحوافز"
 
 #. module: egymentors_hr
 #: model:ir.actions.act_window,name:egymentors_hr.action_hr_bonus
@@ -579,6 +622,11 @@ msgstr "نوع الحافز"
 #: model_terms:ir.ui.view,arch_db:egymentors_hr.view_hr_payslip_form_inherit
 msgid "Bonuses"
 msgstr "الحوافز"
+
+#. module: egymentors_hr
+#: model:ir.model.fields.selection,name:egymentors_hr.selection__hr_employee__transportation_type__bus
+msgid "Bus"
+msgstr "اتوبيس"
 
 #. module: egymentors_hr
 #: model_terms:ir.ui.view,arch_db:egymentors_hr.hr_award_profit_form_view
@@ -607,10 +655,15 @@ msgid "Cancelled"
 msgstr "لاغى"
 
 #. module: egymentors_hr
+#: model:ir.model.fields.selection,name:egymentors_hr.selection__hr_employee__transportation_type__car
+msgid "Car"
+msgstr "ملاكي"
+
+#. module: egymentors_hr
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_bonus_type__code
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_penalty_type__code
 msgid "Code"
-msgstr ""
+msgstr "الرمز"
 
 #. module: egymentors_hr
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_award_profit__company_id
@@ -804,27 +857,29 @@ msgid "Department Transfer?"
 msgstr "تغير القسم؟"
 
 #. module: egymentors_hr
-msgid "Discount list"
-msgstr "خصم لائحه"
-
-#. module: egymentors_hr
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_award_profit__display_name
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_award_profit_line__display_name
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_bonus__display_name
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_bonus_categ__display_name
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_bonus_line__display_name
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_bonus_type__display_name
+#: model:ir.model.fields,field_description:egymentors_hr.field_hr_contract__display_name
+#: model:ir.model.fields,field_description:egymentors_hr.field_hr_employee__display_name
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_employee_deduction__display_name
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_employee_grade__display_name
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_employee_grade_line__display_name
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_pay_raise__display_name
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_pay_raise_line__display_name
+#: model:ir.model.fields,field_description:egymentors_hr.field_hr_payslip__display_name
+#: model:ir.model.fields,field_description:egymentors_hr.field_hr_payslip_employees__display_name
+#: model:ir.model.fields,field_description:egymentors_hr.field_hr_payslip_run__display_name
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_penalty__display_name
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_penalty_categ__display_name
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_penalty_line__display_name
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_penalty_type__display_name
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_promotion__display_name
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_promotion_line__display_name
+#: model:ir.model.fields,field_description:egymentors_hr.field_hr_salary_rule__display_name
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_salary_rule_parent__display_name
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_total_bonus__display_name
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_total_penalty__display_name
@@ -832,6 +887,8 @@ msgstr "خصم لائحه"
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_trans_allowance_line__display_name
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_transfer__display_name
 #: model:ir.model.fields,field_description:egymentors_hr.field_report_egymentors_hr_report_payslip_salary_rules__display_name
+#: model:ir.model.fields,field_description:egymentors_hr.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:egymentors_hr.field_res_country_state__display_name
 msgid "Display Name"
 msgstr "الاسم"
 
@@ -899,7 +956,7 @@ msgstr "عقد الموظف"
 #. module: egymentors_hr
 #: model_terms:ir.ui.view,arch_db:egymentors_hr.report_payslip_salary_rules_pdf_doc
 msgid "Employee Payslip"
-msgstr ""
+msgstr "ايصال مرتب الموظف"
 
 #. module: egymentors_hr
 #: model_terms:ir.ui.view,arch_db:egymentors_hr.hr_employee_promotion_form_view
@@ -917,7 +974,7 @@ msgstr "الراتب الشهري للموظف"
 #. module: egymentors_hr
 #: model_terms:ir.ui.view,arch_db:egymentors_hr.hr_award_profit_form_view
 msgid "Employees"
-msgstr ""
+msgstr "الموظفين"
 
 #. module: egymentors_hr
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_trans_allowance__total_trans_external
@@ -1022,7 +1079,12 @@ msgstr "الدرجات"
 #: model:ir.model.fields.selection,name:egymentors_hr.selection__hr_payslip__method__gross
 #: model:ir.model.fields.selection,name:egymentors_hr.selection__hr_total_bonus__method__gross
 msgid "Gross"
-msgstr ""
+msgstr "اجمالي"
+
+#. module: egymentors_hr
+#: model:ir.model.fields.selection,name:egymentors_hr.selection__hr_employee__accommodation_type__group
+msgid "Group"
+msgstr "سكن جماعي"
 
 #. module: egymentors_hr
 #: model_terms:ir.ui.view,arch_db:egymentors_hr.hr_award_profit_penalty_filter_view
@@ -1036,22 +1098,22 @@ msgstr "مجموعه"
 #. module: egymentors_hr
 #: model:ir.model,name:egymentors_hr.model_hr_bonus
 msgid "HR Bonus"
-msgstr ""
+msgstr "مكافأة الموارد البشرية"
 
 #. module: egymentors_hr
 #: model:ir.model,name:egymentors_hr.model_hr_bonus_categ
 msgid "HR Bonus Category"
-msgstr ""
+msgstr "فئة مكافأة الموارد البشرية"
 
 #. module: egymentors_hr
 #: model:ir.model,name:egymentors_hr.model_hr_bonus_line
 msgid "HR Bonus Line"
-msgstr ""
+msgstr "بند مكافأة الموارد البشرية"
 
 #. module: egymentors_hr
 #: model:ir.model,name:egymentors_hr.model_hr_bonus_type
 msgid "HR Bonus Type"
-msgstr ""
+msgstr "نوع مكافأة الموارد البشرية"
 
 #. module: egymentors_hr
 #: model:ir.model,name:egymentors_hr.model_hr_promotion
@@ -1067,12 +1129,12 @@ msgstr " زياده مرتب"
 #. module: egymentors_hr
 #: model:ir.model,name:egymentors_hr.model_hr_penalty
 msgid "HR Penalty"
-msgstr ""
+msgstr "جزاء الموارد البشرية"
 
 #. module: egymentors_hr
 #: model:ir.model,name:egymentors_hr.model_hr_penalty_categ
 msgid "HR Penalty Category"
-msgstr ""
+msgstr "فئة جزاء الموارد البشرية"
 
 #. module: egymentors_hr
 #: model:ir.model,name:egymentors_hr.model_hr_penalty_line
@@ -1082,7 +1144,7 @@ msgstr ""
 #. module: egymentors_hr
 #: model:ir.model,name:egymentors_hr.model_hr_penalty_type
 msgid "HR Penalty Type"
-msgstr ""
+msgstr "فئة جزاء الموارد البشرية"
 
 #. module: egymentors_hr
 #: model:ir.model,name:egymentors_hr.model_hr_award_profit
@@ -1093,18 +1155,6 @@ msgstr "المنح/ اﻷرباح السنويه"
 #: model:ir.model,name:egymentors_hr.model_hr_award_profit_line
 msgid "Hr Award/Profit Line"
 msgstr "سطر المنح والأرباح السنويه"
-
-#. module: egymentors_hr
-msgid "Hr Bonus Type"
-msgstr "نوع الحافز"
-
-#. module: egymentors_hr
-msgid "Hr Bonus/Penalty"
-msgstr "حافز\\جزاء"
-
-#. module: egymentors_hr
-msgid "Hr Bonus/Penalty Line"
-msgstr "سطر حافز\\جزاء"
 
 #. module: egymentors_hr
 #: model:ir.model,name:egymentors_hr.model_hr_trans_allowance
@@ -1123,17 +1173,23 @@ msgstr " سطر بدل الانتقال"
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_bonus_categ__id
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_bonus_line__id
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_bonus_type__id
+#: model:ir.model.fields,field_description:egymentors_hr.field_hr_contract__id
+#: model:ir.model.fields,field_description:egymentors_hr.field_hr_employee__id
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_employee_deduction__id
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_employee_grade__id
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_employee_grade_line__id
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_pay_raise__id
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_pay_raise_line__id
+#: model:ir.model.fields,field_description:egymentors_hr.field_hr_payslip__id
+#: model:ir.model.fields,field_description:egymentors_hr.field_hr_payslip_employees__id
+#: model:ir.model.fields,field_description:egymentors_hr.field_hr_payslip_run__id
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_penalty__id
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_penalty_categ__id
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_penalty_line__id
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_penalty_type__id
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_promotion__id
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_promotion_line__id
+#: model:ir.model.fields,field_description:egymentors_hr.field_hr_salary_rule__id
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_salary_rule_parent__id
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_total_bonus__id
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_total_penalty__id
@@ -1141,8 +1197,10 @@ msgstr " سطر بدل الانتقال"
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_trans_allowance_line__id
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_transfer__id
 #: model:ir.model.fields,field_description:egymentors_hr.field_report_egymentors_hr_report_payslip_salary_rules__id
+#: model:ir.model.fields,field_description:egymentors_hr.field_res_config_settings__id
+#: model:ir.model.fields,field_description:egymentors_hr.field_res_country_state__id
 msgid "ID"
-msgstr ""
+msgstr "المُعرف"
 
 #. module: egymentors_hr
 #: model:ir.model.fields,help:egymentors_hr.field_hr_award_profit__message_needaction
@@ -1160,7 +1218,7 @@ msgstr ""
 #: model:ir.model.fields,help:egymentors_hr.field_hr_transfer__message_needaction
 #: model:ir.model.fields,help:egymentors_hr.field_hr_transfer__message_unread
 msgid "If checked, new messages require your attention."
-msgstr ""
+msgstr "إذا تم تحديدها ، فإن الرسائل الجديدة تتطلب انتباهك."
 
 #. module: egymentors_hr
 #: model:ir.model.fields,help:egymentors_hr.field_hr_award_profit__message_has_error
@@ -1178,11 +1236,7 @@ msgstr ""
 #: model:ir.model.fields,help:egymentors_hr.field_hr_transfer__message_has_error
 #: model:ir.model.fields,help:egymentors_hr.field_hr_transfer__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
-msgstr ""
-
-#. module: egymentors_hr
-msgid "If selected it will add start and end month "
-msgstr ""
+msgstr "إذا تم تحديده ، فإن بعض الرسائل بها خطأ في التسليم."
 
 #. module: egymentors_hr
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_award_profit__image_1920
@@ -1310,17 +1364,23 @@ msgstr "تغير الوظيفه؟"
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_bonus_categ____last_update
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_bonus_line____last_update
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_bonus_type____last_update
+#: model:ir.model.fields,field_description:egymentors_hr.field_hr_contract____last_update
+#: model:ir.model.fields,field_description:egymentors_hr.field_hr_employee____last_update
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_employee_deduction____last_update
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_employee_grade____last_update
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_employee_grade_line____last_update
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_pay_raise____last_update
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_pay_raise_line____last_update
+#: model:ir.model.fields,field_description:egymentors_hr.field_hr_payslip____last_update
+#: model:ir.model.fields,field_description:egymentors_hr.field_hr_payslip_employees____last_update
+#: model:ir.model.fields,field_description:egymentors_hr.field_hr_payslip_run____last_update
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_penalty____last_update
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_penalty_categ____last_update
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_penalty_line____last_update
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_penalty_type____last_update
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_promotion____last_update
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_promotion_line____last_update
+#: model:ir.model.fields,field_description:egymentors_hr.field_hr_salary_rule____last_update
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_salary_rule_parent____last_update
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_total_bonus____last_update
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_total_penalty____last_update
@@ -1328,6 +1388,8 @@ msgstr "تغير الوظيفه؟"
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_trans_allowance_line____last_update
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_transfer____last_update
 #: model:ir.model.fields,field_description:egymentors_hr.field_report_egymentors_hr_report_payslip_salary_rules____last_update
+#: model:ir.model.fields,field_description:egymentors_hr.field_res_config_settings____last_update
+#: model:ir.model.fields,field_description:egymentors_hr.field_res_country_state____last_update
 msgid "Last Modified on"
 msgstr "آخر تعديل في"
 
@@ -1384,14 +1446,6 @@ msgstr "آخر تحديث بواسطة"
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_transfer__write_date
 msgid "Last Updated on"
 msgstr "آخر تحديث في"
-
-#. module: egymentors_hr
-msgid "Leadership"
-msgstr "إداره"
-
-#. module: egymentors_hr
-msgid "Leave Balance"
-msgstr ""
 
 #. module: egymentors_hr
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_award_profit__line_ids
@@ -1464,7 +1518,12 @@ msgstr "الرسائل"
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_payslip__method
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_total_bonus__method
 msgid "Method"
-msgstr ""
+msgstr "الطريقة"
+
+#. module: egymentors_hr
+#: model:ir.model.fields.selection,name:egymentors_hr.selection__hr_employee__transportation_type__microbus
+msgid "Microbus"
+msgstr "ميكروبص"
 
 #. module: egymentors_hr
 #: model:ir.model.fields,field_description:egymentors_hr.field_res_config_settings__min_raise
@@ -1491,18 +1550,14 @@ msgstr "الشهر"
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_total_penalty__name
 #: model_terms:ir.ui.view,arch_db:egymentors_hr.hr_bonus_form_view
 msgid "Name"
-msgstr ""
+msgstr "الاسم"
 
 #. module: egymentors_hr
 #: model:ir.model.fields.selection,name:egymentors_hr.selection__hr_bonus_line__method__net
 #: model:ir.model.fields.selection,name:egymentors_hr.selection__hr_payslip__method__net
 #: model:ir.model.fields.selection,name:egymentors_hr.selection__hr_total_bonus__method__net
 msgid "Net"
-msgstr ""
-
-#. module: egymentors_hr
-msgid "Net Amount"
-msgstr "صافى"
+msgstr "صافي"
 
 #. module: egymentors_hr
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_transfer__new_department_id
@@ -1514,7 +1569,7 @@ msgstr "القسم الجديد"
 #: model:ir.model,name:egymentors_hr.model_hr_total_bonus
 #: model:ir.model,name:egymentors_hr.model_hr_total_penalty
 msgid "New Description"
-msgstr ""
+msgstr "وصف جديد"
 
 #. module: egymentors_hr
 #: model_terms:ir.ui.view,arch_db:egymentors_hr.hr_employee_transfer_filter_view
@@ -1547,10 +1602,6 @@ msgid "New Work Location"
 msgstr "مكان العمل الجديد"
 
 #. module: egymentors_hr
-msgid "Night Shift"
-msgstr ""
-
-#. module: egymentors_hr
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_award_profit_line__notes
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_bonus_line__notes
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_employee_deduction__notes
@@ -1574,10 +1625,6 @@ msgstr "عدد الأشهر"
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_transfer__message_needaction_counter
 msgid "Number of Actions"
 msgstr "عدد الاوامر"
-
-#. module: egymentors_hr
-msgid "Number of Days"
-msgstr "عدد الأيام"
 
 #. module: egymentors_hr
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_award_profit__message_has_error_counter
@@ -1660,18 +1707,6 @@ msgid "Old Work Location"
 msgstr "مكان العمل السابق"
 
 #. module: egymentors_hr
-msgid "Other"
-msgstr "آخر"
-
-#. module: egymentors_hr
-msgid "OverTime Home"
-msgstr ""
-
-#. module: egymentors_hr
-msgid "OverTime Site"
-msgstr ""
-
-#. module: egymentors_hr
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_salary_rule__parent_id
 #: model_terms:ir.ui.view,arch_db:egymentors_hr.mentors_view_hr_rule_filter
 msgid "Parent"
@@ -1739,12 +1774,12 @@ msgstr "الجزائات"
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_penalty__penalty_categ_id
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_penalty_type__penalty_categ_id
 msgid "Penalty Category"
-msgstr ""
+msgstr "فئة الجزاء"
 
 #. module: egymentors_hr
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_penalty__penalty_line_ids
 msgid "Penalty Lines"
-msgstr ""
+msgstr "بنود الجزاء"
 
 #. module: egymentors_hr
 #: model_terms:ir.ui.view,arch_db:egymentors_hr.report_hr_penalty_doc
@@ -1755,12 +1790,12 @@ msgstr "تقرير الجزائات"
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_payslip__total_penalty_ids
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_penalty__total_penalty_ids
 msgid "Penalty Totals"
-msgstr ""
+msgstr "مجموع الجزاءات"
 
 #. module: egymentors_hr
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_total_penalty__penalty_type_id
 msgid "Penalty Type"
-msgstr ""
+msgstr "نوع الجزاء"
 
 #. module: egymentors_hr
 #: model:ir.actions.act_window,name:egymentors_hr.act_hr_penalty_type
@@ -1803,10 +1838,6 @@ msgstr "الراتب السابق"
 #: model_terms:ir.ui.view,arch_db:egymentors_hr.hr_transfer_form_view
 msgid "Print"
 msgstr "طباعه"
-
-#. module: egymentors_hr
-msgid "Production"
-msgstr "الانتاج"
 
 #. module: egymentors_hr
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_payslip__total_profit
@@ -1853,10 +1884,6 @@ msgid "Raise Type"
 msgstr "نوع الزيادة"
 
 #. module: egymentors_hr
-msgid "Ramadan"
-msgstr ""
-
-#. module: egymentors_hr
 #: model_terms:ir.ui.view,arch_db:egymentors_hr.hr_award_profit_form_view
 #: model_terms:ir.ui.view,arch_db:egymentors_hr.hr_bonus_form_view
 #: model_terms:ir.ui.view,arch_db:egymentors_hr.hr_employee_promotion_form_view
@@ -1866,10 +1893,6 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:egymentors_hr.hr_transfer_form_view
 msgid "Rest To Draft"
 msgstr "اعاده إلى جديد"
-
-#. module: egymentors_hr
-msgid "Rewards"
-msgstr "المكافأت"
 
 #. module: egymentors_hr
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_salary_rule_parent__name
@@ -1905,7 +1928,17 @@ msgstr "هيكل المرتب"
 #. module: egymentors_hr
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_award_profit__select_by
 msgid "Select By"
-msgstr ""
+msgstr "تم تحديده بواسطة"
+
+#. module: egymentors_hr
+#: model:ir.model.fields.selection,name:egymentors_hr.selection__hr_employee__accommodation_type__single
+msgid "Single"
+msgstr "سكن فردي"
+
+#. module: egymentors_hr
+#: model:ir.model.fields,field_description:egymentors_hr.field_hr_employee__special_needs
+msgid "Special Needs"
+msgstr "زوي احتياجات خاصة"
 
 #. module: egymentors_hr
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_award_profit__state
@@ -1933,11 +1966,8 @@ msgid "State"
 msgstr "المدينة"
 
 #. module: egymentors_hr
-msgid "Stop incentive"
-msgstr "إيقاف حافز"
-
-#. module: egymentors_hr
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_penalty__date_to
+#: model:ir.model.fields,field_description:egymentors_hr.field_hr_penalty_line__date_to
 msgid "To Date"
 msgstr "إلى تاريخ"
 
@@ -1955,22 +1985,6 @@ msgstr "الإجمالي"
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_payslip__total_award_profit
 msgid "Total Award/Profit"
 msgstr "إجمالى المنح/الأرباح السنويه"
-
-#. module: egymentors_hr
-msgid "Total Bonuses"
-msgstr "إجمالى الحوافز"
-
-#. module: egymentors_hr
-msgid "Total Bonuses(Allowance)"
-msgstr "إجمالى الحوافز(حوافز)"
-
-#. module: egymentors_hr
-msgid "Total Bonuses(Rewards)"
-msgstr "إجمالى الحوافز(مكافئات)"
-
-#. module: egymentors_hr
-msgid "Total Penalties"
-msgstr "إجمال الجزائات"
 
 #. module: egymentors_hr
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_trans_allowance__total_trans_allowance
@@ -1997,6 +2011,7 @@ msgid "Transfers"
 msgstr "نقل الموظف"
 
 #. module: egymentors_hr
+#: model:ir.model.fields,field_description:egymentors_hr.field_hr_employee__transportation
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_trans_allowance_line__trans_id
 msgid "Transportation"
 msgstr " بدل الانتقال"
@@ -2016,6 +2031,11 @@ msgstr " بدل الانتقال"
 #: model_terms:ir.ui.view,arch_db:egymentors_hr.report_hr_trans_allowance_doc
 msgid "Transportation Allowance Report"
 msgstr "تقرير بدلات الانتقالات"
+
+#. module: egymentors_hr
+#: model:ir.model.fields,field_description:egymentors_hr.field_hr_employee__transportation_type
+msgid "Transportation Type"
+msgstr "نوع وسيلة الانتقال"
 
 #. module: egymentors_hr
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_award_profit__extra_type
@@ -2046,10 +2066,6 @@ msgstr "الرسائل غير مقروءة"
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_transfer__message_unread_counter
 msgid "Unread Messages Counter"
 msgstr "عداد الرسائل الغير مقرؤة"
-
-#. module: egymentors_hr
-msgid "VPP"
-msgstr ""
 
 #. module: egymentors_hr
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_award_profit__website_message_ids
@@ -2084,10 +2100,6 @@ msgstr "تاريخ الاتصال بالموقع"
 #: model_terms:ir.ui.view,arch_db:egymentors_hr.hr_trans_allowance_penalty_filter_view
 msgid "Work Location"
 msgstr "مكان العمل"
-
-#. module: egymentors_hr
-msgid "Workshop"
-msgstr "ورشه"
 
 #. module: egymentors_hr
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_employee_deduction__year
