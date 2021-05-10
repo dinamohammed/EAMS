@@ -25,6 +25,7 @@
     # always loaded
     'data': [
         'data/hr_level_data.xml',
+        'data/hr_allowance_data.xml',
         'security/ir.model.access.csv',
         'views/tags_rule_view.xml',
         'views/templates.xml',

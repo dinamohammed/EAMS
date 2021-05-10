@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record forcecreate="True" id="monthly_salary" model="hr.allowance.confg">
+            <field name="name">الاجر الوظيفي</field>
+            <field name="code">SAL</field>
+        </record>
+
+        <record forcecreate="True" id="starting_degree_salary" model="hr.allowance.confg">
+            <field name="name">مربوط الدرجة</field>
+            <field name="code">SDS</field>
+        </record>
+
+        <record forcecreate="True" id="allowance_minimum" model="hr.allowance.confg">
+            <field name="name">علاوة الحد الادني للدرجة</field>
+            <field name="code">MIN</field>
+        </record>
+
+        <record forcecreate="True" id="allowance_87_to_2009" model="hr.allowance.confg">
+            <field name="name">مجموع العلاوات من 87 الي 2009</field>
+            <field name="code">allow_87_2009</field>
+        </record>
+
+        <record forcecreate="True" id="allowance_66" model="hr.allowance.confg">
+            <field name="name">العلاوات الخاصة</field>
+            <field name="code">allow_66</field>
+        </record>
+
+        <record forcecreate="True" id="allowance_2010" model="hr.allowance.confg">
+            <field name="name">العلاوات الخاصة 2010</field>
+            <field name="code">allow_2010</field>
+        </record>
+
+        <record forcecreate="True" id="allowance_2011" model="hr.allowance.confg">
+            <field name="name">العلاوات الخاصة 2011</field>
+            <field name="code">allow_2011</field>
+        </record>
+
+        <record forcecreate="True" id="allowance_2012" model="hr.allowance.confg">
+            <field name="name">العلاوات الخاصة 2012</field>
+            <field name="code">allow_2012</field>
+        </record>
+
+        <record forcecreate="True" id="allowance_2013" model="hr.allowance.confg">
+            <field name="name">العلاوات الخاصة 2013</field>
+            <field name="code">allow_2013</field>
+        </record>
+
+        <record forcecreate="True" id="allowance_2014" model="hr.allowance.confg">
+            <field name="name">العلاوات الخاصة 2014</field>
+            <field name="code">allow_2014</field>
+        </record>
+
+    </data>
+</odoo>

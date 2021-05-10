@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0+e-20210126\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-20 13:39+0000\n"
-"PO-Revision-Date: 2021-04-20 13:39+0000\n"
+"POT-Creation-Date: 2021-05-10 23:08+0000\n"
+"PO-Revision-Date: 2021-05-10 23:08+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -221,6 +221,7 @@ msgstr "دكتوراه"
 #. module: egymaritimesafty
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_contract__duration
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_job__duration
+#: model:ir.model.fields,field_description:egymaritimesafty.field_hr_job_degree__duration
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_session__session_duration
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_session__session_duration_display
 msgid "Duration"
@@ -427,6 +428,7 @@ msgid ""
 "Job Degree should be unique for each job title in each qualitative group in "
 "each functional group!"
 msgstr ""
+"يجب أن تكون درجة الوظيفة فريدة لكل مسمى وظيفي في كل مجموعة نوعية في كل مجموعة وظيفية!"
 
 #. module: egymaritimesafty
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_job_title__job_degree_ids
@@ -529,6 +531,11 @@ msgid "Job Qualitative Groups"
 msgstr "المجموعات النوعية"
 
 #. module: egymaritimesafty
+#: model:ir.model.fields,field_description:egymaritimesafty.field_hr_contract__monthly_salary
+msgid "Job Salary"
+msgstr "اجر الوظيفي"
+
+#. module: egymaritimesafty
 #: model:ir.model,name:egymaritimesafty.model_hr_job_title
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_contract__job_title_id
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_employee__job_title_id
@@ -560,8 +567,7 @@ msgid ""
 "Job title should be unique for each qualitative group in each functional "
 "group!"
 msgstr ""
-"يجب أن يكون المسمى الوظيفي فريدًا لكل مجموعة نوعية في كل مجموعة "
-"!وظيفة"
+"يجب أن يكون المسمى الوظيفي فريدًا لكل مجموعة نوعية في كل مجموعة !وظيفة"
 
 #. module: egymaritimesafty
 #: model_terms:ir.ui.view,arch_db:egymaritimesafty.view_hr_job_qualitative_form
@@ -634,10 +640,16 @@ msgid "Master"
 msgstr "دراسات عليا"
 
 #. module: egymaritimesafty
-#: model:ir.model.fields,field_description:egymaritimesafty.field_hr_contract__monthly_salary
+#: model:ir.model.fields,field_description:egymaritimesafty.field_hr_job__minimum_allowance
+#: model:ir.model.fields,field_description:egymaritimesafty.field_hr_job_degree__minimum_allowance
+msgid "Minimum Allowance"
+msgstr "علاوة الحد الادني للدرجة"
+
+#. module: egymaritimesafty
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_job__monthly_salary
+#: model:ir.model.fields,field_description:egymaritimesafty.field_hr_job_degree__monthly_salary
 msgid "Monthly Salary"
-msgstr "الراتب الشهري"
+msgstr "الاجر الوظيفي"
 
 #. module: egymaritimesafty
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_training_evaluation__name
@@ -745,11 +757,6 @@ msgstr "تاريخ اعادة التعيين"
 msgid "Responsible"
 msgstr "المسؤل"
 
-#. module: hr_contract
-#: model:ir.model.fields,field_description:hr_contract.field_hr_contract__structure_type_id
-msgid "Salary Structure Type"
-msgstr "نوع هيكل الراتب"
-
 #. module: egymaritimesafty
 #: model:ir.model.fields.selection,name:egymaritimesafty.selection__hr_training_subject__training_type__scholarship
 msgid "Scholarship"
@@ -795,6 +802,7 @@ msgstr "تاريخ البدء"
 #. module: egymaritimesafty
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_contract__starting_degree_salary
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_job__starting_degree_salary
+#: model:ir.model.fields,field_description:egymaritimesafty.field_hr_job_degree__starting_degree_salary
 msgid "Starting Degree Salary"
 msgstr "مربوط الدرجة"
 

@@ -4,7 +4,7 @@ import base64
 
 from datetime import datetime
 
-from odoo import models, fields, _
+from odoo import models, fields, _, api
 from odoo.exceptions import ValidationError
 from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
 from odoo.tools.safe_eval import safe_eval
@@ -254,6 +254,41 @@ class HrContractInherit(models.Model):
     company_pay = fields.Float(string='Company Pay')
     allowance_apecial = fields.Float(string='Special Allowance')
     total_institution_Value = fields.Float(string='Total Institutions Value')
+
+    @api.model
+    def create(self, vals):
+        contracts = super(HrContractInherit, self).create(vals)
+        if vals.get('employee_id'):
+            other_contracts = self.env['hr.contract'].search([('employee_id', '=', vals.get('employee_id'))])
+            if len(other_contracts) == 1:
+                contracts.allowance_ids = [
+                    (0, 0, {'allowance': self.env.ref('tags__rule.monthly_salary').id,
+                            'value': contracts.job_id.monthly_salary}),
+                    (0, 0, {'allowance': self.env.ref('tags__rule.starting_degree_salary').id,
+                            'value': contracts.job_id.starting_degree_salary}),
+                    (0, 0, {'allowance': self.env.ref('tags__rule.allowance_minimum').id,
+                            'value': contracts.job_id.minimum_allowance}),
+                    (0, 0, {'allowance': self.env.ref('tags__rule.allowance_87_to_2009').id,
+                            'value': contracts.job_id.starting_degree_salary * 275 / 100}),
+                    (0, 0, {'allowance': self.env.ref('tags__rule.allowance_66').id,
+                            'value': 66}),
+                    (0, 0, {'allowance': self.env.ref('tags__rule.allowance_2011').id,
+                            'value': contracts.job_id.starting_degree_salary * 10 / 100}),
+                    (0, 0, {'allowance': self.env.ref('tags__rule.allowance_2012').id,
+                            'value': contracts.job_id.starting_degree_salary * 10 / 100}),
+                    (0, 0, {'allowance': self.env.ref('tags__rule.allowance_2013').id,
+                            'value': contracts.job_id.starting_degree_salary * 10 / 100}),
+                    (0, 0, {'allowance': self.env.ref('tags__rule.allowance_2014').id,
+                            'value': contracts.job_id.starting_degree_salary * 10 / 100}),
+                ]
+        if vals.get('state') == 'open':
+            contracts._assign_open_contract()
+        open_contracts = contracts.filtered(
+            lambda c: c.state == 'open' or c.state == 'draft' and c.kanban_state == 'done')
+        # sync contract calendar -> calendar employee
+        for contract in open_contracts.filtered(lambda c: c.employee_id and c.resource_calendar_id):
+            contract.employee_id.resource_calendar_id = contract.resource_calendar_id
+        return contracts
 
     def daily_check_contract_value(self):
 
