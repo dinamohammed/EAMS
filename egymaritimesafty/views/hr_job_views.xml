@@ -32,11 +32,12 @@
                                 <field name="emp_no" string="Number of Employees"/>
                             </group>
                             <group>
-                                <field name="financial_degree"/>
+                                <field name="financial_degree" invisible="1"/>
                                 <field name="starting_degree_salary"/>
                                 <field name="duration"/>
                                 <field name="promotion_percent"/>
                                 <field name="monthly_salary"/>
+                                <field name="minimum_allowance"/>
                             </group>
                         </group>
                     </sheet>
@@ -172,6 +173,12 @@
                             </group>
                             <group>
                                 <field name="emp_no"/>
+                            </group>
+                            <group>
+                                <field name="starting_degree_salary"/>
+                                <field name="duration"/>
+                                <field name="monthly_salary"/>
+                                <field name="minimum_allowance"/>
                             </group>
                         </group>
                     </sheet>
