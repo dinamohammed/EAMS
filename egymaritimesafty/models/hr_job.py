@@ -14,10 +14,11 @@ class JobPosition(models.Model):
     name = fields.Char(string='Job Position', required=False, index=True, translate=True)
     emp_no = fields.Integer(string="Number of Employees", compute='_compute_job_count')
     financial_degree = fields.Char(string="Financial Degree")
-    starting_degree_salary = fields.Float(string="Starting Degree Salary")
-    duration = fields.Integer(string="Duration")
+    starting_degree_salary = fields.Float(related='job_title_degree_id.starting_degree_salary')
+    duration = fields.Integer(related='job_title_degree_id.duration')
     promotion_percent = fields.Char(string="Promotion Percent")
-    monthly_salary = fields.Float(string="Monthly Salary")
+    monthly_salary = fields.Float(related='job_title_degree_id.monthly_salary')
+    minimum_allowance = fields.Float(related='job_title_degree_id.minimum_allowance')
 
     _sql_constraints = [
         ('Job_position_uniq', 'unique (name)',
@@ -29,8 +30,8 @@ class JobPosition(models.Model):
         for job in self:
             job_title = job.job_title_id.name if job.job_title_id.name else ''
             job_degree = job.job_degree if job.job_degree else ''
-            job_department = job.department_id.name if job.department_id.name else ''
-            job.name = " - ".join([job_title, job_degree, job_department])
+            # job_department = job.department_id.name if job.department_id.name else ''
+            job.name = " - ".join([job_title, job_degree])
 
     def _compute_job_count(self):
         """this function computes the number fo employees with this jop position"""
@@ -151,6 +152,10 @@ class HRJobJobDegree(models.Model):
     name = fields.Char(string="Job Degree", required=True)
     full_name = fields.Char(string="Job Full Name", compute='_compute_full_name')
     emp_no = fields.Integer(string="Number of Employees", compute="_compute_emp_degree_count")
+    monthly_salary = fields.Float(string="Monthly Salary")
+    duration = fields.Integer(string="Duration")
+    starting_degree_salary = fields.Float(string="Starting Degree Salary")
+    minimum_allowance = fields.Float(string="Minimum Allowance")
 
     _sql_constraints = [
         ('Job_degree_uniq', 'unique (name, job_title_id, job_qualitative_id, job_functional_id)',

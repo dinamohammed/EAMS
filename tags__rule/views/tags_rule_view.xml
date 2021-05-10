@@ -28,7 +28,7 @@
 
                 <xpath expr="/form/sheet/notebook/page[@name='personal_information']/group/group[7]/field[@name='certificate']"
                        position="replace">
-                    <field name="certificate_level"/>
+                    <field name="certificate_id"/>
                 </xpath>
                 <xpath expr="/form/sheet/notebook/page[@name='personal_information']/group/group[7]/field[@name='study_school']"
                        position="replace">
