@@ -152,7 +152,7 @@ class HRJobJobDegree(models.Model):
     name = fields.Char(string="Job Degree", required=True)
     full_name = fields.Char(string="Job Full Name", compute='_compute_full_name')
     emp_no = fields.Integer(string="Number of Employees", compute="_compute_emp_degree_count")
-    monthly_salary = fields.Float(string="Monthly Salary")
+    monthly_salary = fields.Float(string="Job Salary")
     duration = fields.Integer(string="Duration")
     starting_degree_salary = fields.Float(string="Starting Degree Salary")
     minimum_allowance = fields.Float(string="Minimum Allowance")
