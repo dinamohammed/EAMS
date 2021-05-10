@@ -7,3 +7,4 @@ access_hr_allowance,hr.allowance,model_hr_allowance,,1,1,1,1
 access_hr_deduction,hr.deduction,model_hr_deduction,,1,1,1,1
 access_hr_allowance_confg,hr.allowance.confg,model_hr_allowance_confg,,1,1,1,1
 access_hr_deduction_confg,hr.deduction.confg,model_hr_deduction_confg,,1,1,1,1
+access_hr_certificate,hr.certificate,model_hr_certificate,,1,1,1,1

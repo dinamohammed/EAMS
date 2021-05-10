@@ -98,6 +98,7 @@ class HrEmployeeInherit(models.Model):
 
     tax_base = fields.Float(string='Tax Base', default=0)
     work_location_id = fields.Many2one('hr.location', 'Work Location Ertrac')
+    certificate_id = fields.Many2one(comodel_name='hr.certificate', string="Certificate")
 
     def daily_check_value(self):
 
@@ -320,3 +321,14 @@ class HRDeductionConfiguration(models.Model):
 
     name = fields.Char(string="Deduction Name")
     code = fields.Char(string="Code")
+
+
+class HRCertificate(models.Model):
+    _name = "hr.certificate"
+    _description = "HR Certificate"
+
+    name = fields.Char(string="Name")
+
+    _sql_constraints = [
+        ('certificate_uniq', 'unique (name)', "The Certificate must be unique!")
+    ]
