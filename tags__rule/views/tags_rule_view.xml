@@ -173,6 +173,28 @@
             </field>
         </record>
 
+        <record id="view_hr_allowance_confg_tree" model="ir.ui.view">
+            <field name="name">hr.allowance.confg.tree</field>
+            <field name="model">hr.allowance.confg</field>
+            <field name="arch" type="xml">
+                <tree string="Allowances">
+                    <field name="name" string="Allowances"/>
+                    <field name="code"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_hr_deduction_confg_tree" model="ir.ui.view">
+            <field name="name">hr.deduction.confg.tree</field>
+            <field name="model">hr.deduction.confg</field>
+            <field name="arch" type="xml">
+                <tree string="Deductions">
+                    <field name="name" string="Deduction"/>
+                    <field name="code"/>
+                </tree>
+            </field>
+        </record>
+
         <record id="hr_allowance_action" model="ir.actions.act_window">
             <field name="name">Allowance</field>
             <field name="res_model">hr.allowance.confg</field>

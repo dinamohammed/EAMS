@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0+e-20210126\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-10 23:08+0000\n"
-"PO-Revision-Date: 2021-05-10 23:08+0000\n"
+"POT-Creation-Date: 2021-05-11 02:18+0000\n"
+"PO-Revision-Date: 2021-05-11 02:18+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -278,15 +278,31 @@ msgid "Evaluations"
 msgstr "التقيمات"
 
 #. module: egymaritimesafty
+#: model:ir.model.fields.selection,name:egymaritimesafty.selection__hr_job_degree__financial_degree__excellent
+msgid "Excellent"
+msgstr "الممتازة"
+
+#. module: egymaritimesafty
 #: model:ir.model.fields.selection,name:egymaritimesafty.selection__hr_training_subject__trainer_type__external
 msgid "External Trainer"
 msgstr "مدرب خارجي (مدرب خارج الهيئة)"
 
 #. module: egymaritimesafty
+#: model:ir.model.fields.selection,name:egymaritimesafty.selection__hr_job_degree__financial_degree__fifth
+msgid "Fifth"
+msgstr "الخامسة"
+
+#. module: egymaritimesafty
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_contract__financial_degree
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_job__financial_degree
+#: model:ir.model.fields,field_description:egymaritimesafty.field_hr_job_degree__financial_degree
 msgid "Financial Degree"
 msgstr "الدرجة المالية"
+
+#. module: egymaritimesafty
+#: model:ir.model.fields.selection,name:egymaritimesafty.selection__hr_job_degree__financial_degree__first
+msgid "First"
+msgstr "الاولي"
 
 #. module: egymaritimesafty
 #: model_terms:ir.actions.act_window,help:egymaritimesafty.open_view_hr_training_evaluation
@@ -297,10 +313,20 @@ msgstr ""
 "اولا يجب ان تضيف مشتركين في شاشة الدورة التدريبية، ثم ضف التقيم لهم..."
 
 #. module: egymaritimesafty
+#: model:ir.model.fields.selection,name:egymaritimesafty.selection__hr_job_degree__financial_degree__forth
+msgid "Forth"
+msgstr "الرابعة"
+
+#. module: egymaritimesafty
 #: model_terms:ir.ui.view,arch_db:egymaritimesafty.view_hr_reassignment_form
 #: model_terms:ir.ui.view,arch_db:egymaritimesafty.view_hr_reassignment_tree
 msgid "Functional Job Group"
 msgstr "المجموعة الوظيفية"
+
+#. module: egymaritimesafty
+#: model:ir.model.fields.selection,name:egymaritimesafty.selection__hr_job_degree__financial_degree__general_manager
+msgid "General Manager"
+msgstr "مدير عام"
 
 #. module: egymaritimesafty
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_training_evaluation__grade
@@ -354,6 +380,11 @@ msgstr "مكان التدريب"
 #: model:ir.model,name:egymaritimesafty.model_hr_training_subject
 msgid "HR Training Subject"
 msgstr "موضوع التدريب"
+
+#. module: egymaritimesafty
+#: model:ir.model.fields.selection,name:egymaritimesafty.selection__hr_job_degree__financial_degree__highest
+msgid "Highest"
+msgstr "العالية"
 
 #. module: egymaritimesafty
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_contract__id
@@ -428,7 +459,8 @@ msgid ""
 "Job Degree should be unique for each job title in each qualitative group in "
 "each functional group!"
 msgstr ""
-"يجب أن تكون درجة الوظيفة فريدة لكل مسمى وظيفي في كل مجموعة نوعية في كل مجموعة وظيفية!"
+"يجب أن تكون درجة الوظيفة فريدة لكل مسمى وظيفي في كل مجموعة نوعية في كل "
+"مجموعة وظيفية!"
 
 #. module: egymaritimesafty
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_job_title__job_degree_ids
@@ -532,6 +564,8 @@ msgstr "المجموعات النوعية"
 
 #. module: egymaritimesafty
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_contract__monthly_salary
+#: model:ir.model.fields,field_description:egymaritimesafty.field_hr_job__monthly_salary
+#: model:ir.model.fields,field_description:egymaritimesafty.field_hr_job_degree__monthly_salary
 msgid "Job Salary"
 msgstr "اجر الوظيفي"
 
@@ -646,12 +680,6 @@ msgid "Minimum Allowance"
 msgstr "علاوة الحد الادني للدرجة"
 
 #. module: egymaritimesafty
-#: model:ir.model.fields,field_description:egymaritimesafty.field_hr_job__monthly_salary
-#: model:ir.model.fields,field_description:egymaritimesafty.field_hr_job_degree__monthly_salary
-msgid "Monthly Salary"
-msgstr "الاجر الوظيفي"
-
-#. module: egymaritimesafty
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_training_evaluation__name
 msgid "Name"
 msgstr "الاسم"
@@ -763,6 +791,11 @@ msgid "Scholarship"
 msgstr "منحة"
 
 #. module: egymaritimesafty
+#: model:ir.model.fields.selection,name:egymaritimesafty.selection__hr_job_degree__financial_degree__second
+msgid "Second"
+msgstr "الثانية"
+
+#. module: egymaritimesafty
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_session__name
 #: model:ir.ui.menu,name:egymaritimesafty.menu_hr_sessions
 #: model_terms:ir.ui.view,arch_db:egymaritimesafty.view_hr_training_session_form
@@ -793,6 +826,11 @@ msgstr "مدة التدريب بالساعة"
 #: model_terms:ir.ui.view,arch_db:egymaritimesafty.view_hr_training_session_tree
 msgid "Sessions"
 msgstr "المحاضرات"
+
+#. module: egymaritimesafty
+#: model:ir.model.fields.selection,name:egymaritimesafty.selection__hr_job_degree__financial_degree__sixth
+msgid "Sixth"
+msgstr "السادسة"
 
 #. module: egymaritimesafty
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_training_subject__date_from
@@ -843,6 +881,11 @@ msgstr "يجب أن تكون المجموعة النوعية فريدة لكل �
 #: model_terms:ir.ui.view,arch_db:egymaritimesafty.view_hr_job_functional_form
 msgid "The qualitative groups subdivided from this Job Functional Group:"
 msgstr "المجموعات النوعية المتفرعة من هذه المجموعة الوظيفية"
+
+#. module: egymaritimesafty
+#: model:ir.model.fields.selection,name:egymaritimesafty.selection__hr_job_degree__financial_degree__third
+msgid "Third"
+msgstr "الثالثة"
 
 #. module: egymaritimesafty
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_training_evaluation__trainee_id
