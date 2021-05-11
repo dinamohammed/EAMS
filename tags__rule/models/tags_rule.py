@@ -255,32 +255,69 @@ class HrContractInherit(models.Model):
     allowance_apecial = fields.Float(string='Special Allowance')
     total_institution_Value = fields.Float(string='Total Institutions Value')
 
-    @api.model
-    def create(self, vals):
-        contracts = super(HrContractInherit, self).create(vals)
+    def compute_salary_allowance(self, vals, contracts):
+        """
+        This function checks if there is now contract for that employee, do the following:
+        computes fixed record allowances
+        And creates new lines in for these allowances with its values
+        And compare between the sum of these allowances and job salary, and write the greater value of them in wage
+        :param vals:
+        :param contracts:
+        :return:
+        """
         if vals.get('employee_id'):
             other_contracts = self.env['hr.contract'].search([('employee_id', '=', vals.get('employee_id'))])
             if len(other_contracts) == 1:
+
+                monthly_salary = contracts.job_id.monthly_salary
+                starting_degree_salary = contracts.job_id.starting_degree_salary
+                allowance_minimum = contracts.job_id.minimum_allowance
+                allowance_87_to_2009 = starting_degree_salary * 275 / 100
+                allowance_66 = 66
+                allowance_2010 = starting_degree_salary * 10 / 100
+                allowance_2011 = starting_degree_salary * 15 / 100
+                allowance_2012 = starting_degree_salary * 15 / 100
+                allowance_2013 = starting_degree_salary * 10 / 100
+                allowance_2014 = starting_degree_salary * 10 / 100
+                basic_30_6 = starting_degree_salary + allowance_87_to_2009 + allowance_66
+                grant_20 = 20
+
                 contracts.allowance_ids = [
-                    (0, 0, {'allowance': self.env.ref('tags__rule.monthly_salary').id,
-                            'value': contracts.job_id.monthly_salary}),
+                    # (0, 0, {'allowance': self.env.ref('tags__rule.monthly_salary').id,
+                    #         'value': monthly_salary}),
                     (0, 0, {'allowance': self.env.ref('tags__rule.starting_degree_salary').id,
-                            'value': contracts.job_id.starting_degree_salary}),
+                            'value': starting_degree_salary}),
                     (0, 0, {'allowance': self.env.ref('tags__rule.allowance_minimum').id,
-                            'value': contracts.job_id.minimum_allowance}),
+                            'value': allowance_minimum}),
                     (0, 0, {'allowance': self.env.ref('tags__rule.allowance_87_to_2009').id,
-                            'value': contracts.job_id.starting_degree_salary * 275 / 100}),
+                            'value': allowance_87_to_2009}),
                     (0, 0, {'allowance': self.env.ref('tags__rule.allowance_66').id,
-                            'value': 66}),
+                            'value': allowance_66}),
+                    (0, 0, {'allowance': self.env.ref('tags__rule.allowance_2010').id,
+                            'value': allowance_2010}),
                     (0, 0, {'allowance': self.env.ref('tags__rule.allowance_2011').id,
-                            'value': contracts.job_id.starting_degree_salary * 10 / 100}),
+                            'value': allowance_2011}),
                     (0, 0, {'allowance': self.env.ref('tags__rule.allowance_2012').id,
-                            'value': contracts.job_id.starting_degree_salary * 10 / 100}),
+                            'value': allowance_2012}),
                     (0, 0, {'allowance': self.env.ref('tags__rule.allowance_2013').id,
-                            'value': contracts.job_id.starting_degree_salary * 10 / 100}),
+                            'value': allowance_2013}),
                     (0, 0, {'allowance': self.env.ref('tags__rule.allowance_2014').id,
-                            'value': contracts.job_id.starting_degree_salary * 10 / 100}),
+                            'value': allowance_2014}),
+                    (0, 0, {'allowance': self.env.ref('tags__rule.basic_30_6').id,
+                            'value': basic_30_6}),
+                    (0, 0, {'allowance': self.env.ref('tags__rule.grant_20').id,
+                            'value': grant_20}),
                 ]
+
+                job_salary_computed = basic_30_6 + basic_30_6 + allowance_2010 + allowance_2011 + allowance_2012 + \
+                                      allowance_2013 + allowance_2014 + grant_20 + allowance_minimum
+
+                contracts.wage = job_salary_computed if job_salary_computed >= monthly_salary else monthly_salary
+
+    @api.model
+    def create(self, vals):
+        contracts = super(HrContractInherit, self).create(vals)
+        contracts.compute_salary_allowance(vals, contracts)
         if vals.get('state') == 'open':
             contracts._assign_open_contract()
         open_contracts = contracts.filtered(
