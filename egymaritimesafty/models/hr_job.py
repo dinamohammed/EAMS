@@ -13,7 +13,7 @@ class JobPosition(models.Model):
     job_degree = fields.Char(related='job_title_degree_id.name')
     name = fields.Char(string='Job Position', required=False, index=True, translate=True)
     emp_no = fields.Integer(string="Number of Employees", compute='_compute_job_count')
-    financial_degree = fields.Char(string="Financial Degree")
+    financial_degree = fields.Selection(related='job_title_degree_id.financial_degree')
     starting_degree_salary = fields.Float(related='job_title_degree_id.starting_degree_salary')
     duration = fields.Integer(related='job_title_degree_id.duration')
     promotion_percent = fields.Char(string="Promotion Percent")
@@ -30,7 +30,6 @@ class JobPosition(models.Model):
         for job in self:
             job_title = job.job_title_id.name if job.job_title_id.name else ''
             job_degree = job.job_degree if job.job_degree else ''
-            # job_department = job.department_id.name if job.department_id.name else ''
             job.name = " - ".join([job_title, job_degree])
 
     def _compute_job_count(self):
@@ -149,6 +148,10 @@ class HRJobJobDegree(models.Model):
     job_functional_id = fields.Many2one('hr.job.functional', string="Job Functional Group", required=True)
     job_qualitative_id = fields.Many2one('hr.job.qualitative', string="Job Qualitative", required=True)
     job_title_id = fields.Many2one('hr.job.title', string="Job Title", required=True)
+    financial_degree = fields.Selection(selection=[('first', 'First'), ('second', 'Second'), ('third', 'Third'),
+                                                   ('forth', 'Forth'), ('fifth', 'Fifth'), ('sixth', 'Sixth'),
+                                                   ('general_manager', 'General Manager'), ('highest', 'Highest'),
+                                                   ('excellent', 'Excellent')], string="Financial Degree")
     name = fields.Char(string="Job Degree", required=True)
     full_name = fields.Char(string="Job Full Name", compute='_compute_full_name')
     emp_no = fields.Integer(string="Number of Employees", compute="_compute_emp_degree_count")

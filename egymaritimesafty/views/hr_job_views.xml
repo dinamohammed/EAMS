@@ -23,6 +23,7 @@
                                 <field name="job_functional_id" string="Job Functional Group"/>
                                 <field name="job_qualitative_id" string="Job Qualitative Group"/>
                                 <field name="job_title_id" string="Job Title"/>
+                                <field name="financial_degree"/>
                                 <field name="job_degree" string="Job Degree"/>
                             </group>
                             <group name="recruitment">
@@ -32,7 +33,6 @@
                                 <field name="emp_no" string="Number of Employees"/>
                             </group>
                             <group>
-                                <field name="financial_degree" invisible="1"/>
                                 <field name="starting_degree_salary"/>
                                 <field name="duration"/>
                                 <field name="promotion_percent"/>
@@ -169,6 +169,7 @@
                                 <field name="job_functional_id" string="Job Functional Group"/>
                                 <field name="job_qualitative_id" string="Job Qualitative Group"/>
                                 <field name="job_title_id"/>
+                                <field name="financial_degree"/>
                                 <field name="name" string="Job Degree"/>
                             </group>
                             <group>
