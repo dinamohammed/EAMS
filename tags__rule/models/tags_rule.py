@@ -100,14 +100,6 @@ class HrEmployeeInherit(models.Model):
     work_location_id = fields.Many2one('hr.location', 'Work Location Ertrac')
     certificate_id = fields.Many2one(comodel_name='hr.certificate', string="Certificate")
 
-    def daily_check_value(self):
-
-        current_date = datetime.now()
-        if current_date.day == '30' or current_date.day == '31':
-            emp_rec = self.env['hr.employee'].search([])
-            for emp in emp_rec:
-                emp['tax_base'] = 0
-
     # ############### ############### ############### ############### ################
     # Create A Scheduled Action :
     # Name : Update Tax Base Value
@@ -156,6 +148,14 @@ class HrEmployeeInherit(models.Model):
     military_service_status = fields.Selection([('exempted', 'Exempted'),
                                                 ('postponed', 'Postponed'),
                                                 ('completed', 'Completed')], string='Military Service Status')
+
+    def daily_check_value(self):
+
+        current_date = datetime.now()
+        if current_date.day == '30' or current_date.day == '31':
+            emp_rec = self.env['hr.employee'].search([])
+            for emp in emp_rec:
+                emp['tax_base'] = 0
 
 
 class HrContractInherit(models.Model):
@@ -400,6 +400,7 @@ class HRCertificate(models.Model):
     _description = "HR Certificate"
 
     name = fields.Char(string="Name")
+    syndicate_id = fields.Many2one(comodel_name='hr.syndicate', string="Syndicate Subscription")
 
     _sql_constraints = [
         ('certificate_uniq', 'unique (name)', "The Certificate must be unique!")

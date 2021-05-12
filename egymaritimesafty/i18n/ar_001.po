@@ -857,7 +857,6 @@ msgid "Syndicate"
 msgstr "النقابة"
 
 #. module: egymaritimesafty
-#: model:ir.model.fields,field_description:egymaritimesafty.field_hr_employee__syndicate_id
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_syndicate__name
 msgid "Syndicate Subscription"
 msgstr "اشتراك النقابة"

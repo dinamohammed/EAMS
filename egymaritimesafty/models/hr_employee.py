@@ -10,7 +10,6 @@ class HrEmployeeInherit(models.Model):
     job_id = fields.Many2one(comodel_name='hr.job', string="Job Position")
     job_title_id = fields.Many2one(comodel_name='hr.job.title', string="Job Title")
     job_department_id = fields.Many2one(related='job_id.department_id')
-    syndicate_id = fields.Many2one(comodel_name='hr.syndicate', string="Syndicate Subscription")
 
 
 class TrainingSubject(models.Model):
