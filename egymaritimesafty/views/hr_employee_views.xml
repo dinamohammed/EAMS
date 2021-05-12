@@ -10,12 +10,6 @@
             <field name="job_title" position="replace">
                 <field name="job_id" placeholder="Job Position"/>
             </field>
-            <field name="coach_id" position="after">
-                <field name="syndicate_id"/>
-            </field>
-<!--            <field name="department_id" position="replace">-->
-<!--                <field name="job_department_id"/>-->
-<!--            </field>-->
         </field>
     </record>
 
