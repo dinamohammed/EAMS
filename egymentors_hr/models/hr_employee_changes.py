@@ -19,6 +19,8 @@ class HrEmployeeInherit(models.Model):
     deductions_ids = fields.One2many(comodel_name='hr.employee.deduction', inverse_name='employee_id',
                                      string="Deductions")
     grade_ids = fields.One2many(comodel_name='hr.employee.grade.line', inverse_name='employee_id', string="Grads")
+    Syndicate = fields.Selection(selection=[('member', 'Member'), ('not_member', 'Not Member')],
+                                 string='Syndicate')
     special_needs = fields.Boolean(string="Special Needs")
     accommodation = fields.Boolean(string="Accommodation")
     accommodation_type = fields.Selection(selection=[('single', 'Single'), ('group', 'Group')],

@@ -217,6 +217,17 @@
             </field>
         </record>
 
+        <record id="hr_certificate_action" model="ir.actions.act_window">
+            <field name="name">Certificate</field>
+            <field name="res_model">hr.certificate</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Add new Certificate!
+                </p>
+            </field>
+        </record>
+
         <menuitem
                 id="menu_hr_allowance"
                 name="Allowance"
@@ -230,6 +241,13 @@
                 parent="hr_payroll.menu_hr_salary_configuration"
                 action="hr_deduction_action"
                 sequence="26"/>
+
+        <menuitem
+                id="menu_hr_certificate"
+                name="Certificate"
+                parent="hr.menu_human_resources_configuration"
+                action="hr_certificate_action"
+                sequence="1"/>
 
     </data>
 </odoo>
