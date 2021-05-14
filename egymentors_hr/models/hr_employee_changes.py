@@ -22,10 +22,10 @@ class HrEmployeeInherit(models.Model):
     Syndicate = fields.Selection(selection=[('member', 'Member'), ('not_member', 'Not Member')],
                                  string='Syndicate')
     special_needs = fields.Boolean(string="Special Needs")
-    accommodation = fields.Boolean(string="Accommodation")
+    accommodation = fields.Selection(selection=[('yes', 'Yes'), ('no', 'No')], string="Accommodation")
     accommodation_type = fields.Selection(selection=[('single', 'Single'), ('group', 'Group')],
                                           string='Accommodation Type')
-    transportation = fields.Boolean(string="Transportation")
+    transportation = fields.Selection(selection=[('yes', 'Yes'), ('no', 'No')], string="Transportation")
     transportation_type = fields.Selection(selection=[('bus', 'Bus'), ('car', 'Car'), ('microbus', 'Microbus')],
                                            string='Transportation Type')
 

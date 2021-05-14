@@ -15,10 +15,10 @@
                 <field name="special_needs"/>
                 <field name="accommodation"/>
                 <field name="accommodation_type" widget="radio" options="{'horizontal': true}"
-                       attrs="{'invisible':[('accommodation','=',False)]}"/>
+                       attrs="{'invisible':[('accommodation','!=','yes')]}"/>
                 <field name="transportation"/>
                 <field name="transportation_type" widget="radio" options="{'horizontal': true}"
-                       attrs="{'invisible':[('transportation','=',False)]}"/>
+                       attrs="{'invisible':[('transportation','!=','yes')]}"/>
             </xpath>
 
             <xpath expr="//notebook" position="inside">
