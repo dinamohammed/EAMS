@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from odoo import models, fields, api, _
 from odoo.exceptions import Warning
-# Ahmed Salama Code Start ---->
 
 
 class HrTaxSlide(models.Model):
@@ -16,6 +15,8 @@ class HrTaxSlide(models.Model):
     company_id = fields.Many2one('res.company', "Company", default=lambda self: self.env.company)
     currency_id = fields.Many2one(related='company_id.currency_id')
     max_amount = fields.Monetary("Max Amount", required=True, help='Lide max amount for this amount and below')
+    tax_type = fields.Selection(selection=[('salary_tax', 'Salary Tax'), ('stamp_tax', 'Stamp Tax')],
+                                default='salary_tax')
     active = fields.Boolean("Active", default=True)
     priority = fields.Integer(default=5, required=True,
                               help='The priority of the job, as an integer: 0 means higher priority,'
@@ -28,14 +29,16 @@ class HrTaxSlide(models.Model):
     @api.constrains('max_amount', 'priority')
     def _check_amount_with_priority(self):
         """
-        Check if there is any below slides [With below priority] but with bigger amount
+        Check if there is any below slides [With below priority] but with bigger max amount with the same category
         :return:
         """
         for slc in self:
-            if slc.max_amount and self.search([('priority', '<', slc.priority), ('max_amount', '>=', slc.max_amount)]):
-                raise Warning(_("There are below slides [Priority less than %s] with bigger amount from [%s]"
-                                " which against the logic!!!\n You can increase amount or handel priority")
-                              % (slc.priority, slc.max_amount))
+            if slc.max_amount and self.search([('priority', '<', slc.priority), ('max_amount', '>=', slc.max_amount),
+                                               ('tax_type', '=', slc.tax_type)]):
+                raise Warning(_("There are below slides [Priority less than %s] with bigger amount from [%s] with the "
+                                "same category [%s], which is against the logic!!!\n"
+                                "You can increase amount or handle priority")
+                              % (slc.priority, slc.max_amount, slc.tax_type))
 
     def compute_tax_amount(self, amount):
         # print("HERE: ", amount, self)
@@ -66,6 +69,7 @@ class HrTaxSlide(models.Model):
                     break
         # print("total_tax: ", total_tax)
         return total_tax
+
 
 # Tax Compute function
 #     def taxesStageLoop(self, netSalary):
@@ -180,7 +184,3 @@ class HrTaxSlideLine(models.Model):
     def _compute_line_amount(self):
         for line in self:
             line.line_amount = line.amount_to - line.amount_from
-# Ahmed Salama Code E
-
-
-

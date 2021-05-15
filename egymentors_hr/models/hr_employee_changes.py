@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 from odoo import api, fields, models
+from datetime import datetime
+from dateutil.relativedelta import relativedelta
 
 YEAR = 2000  # replace 2000 with your a start year
 YEAR_LIST = []
@@ -28,6 +30,19 @@ class HrEmployeeInherit(models.Model):
     transportation = fields.Selection(selection=[('yes', 'Yes'), ('no', 'No')], string="Transportation")
     transportation_type = fields.Selection(selection=[('bus', 'Bus'), ('car', 'Car'), ('microbus', 'Microbus')],
                                            string='Transportation Type')
+    seniority_date = fields.Date(string="Seniority Date")
+    seniority_years = fields.Integer(string="Years of Seniority")
+
+    @api.onchange('seniority_date')
+    def compute_seniority(self):
+        for emp in self:
+            if emp.seniority_date:
+                date_format = '%Y-%m-%d'
+                joining_date = str(emp.seniority_date)
+                current_date = (datetime.today()).strftime(date_format)
+                d1 = datetime.strptime(joining_date, date_format).date()
+                d2 = datetime.strptime(current_date, date_format).date()
+                emp.seniority = relativedelta(d2, d1).years
 
 
 class HrEmployeeDeduction(models.Model):

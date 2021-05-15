@@ -11,7 +11,7 @@
             <field name="amount_from">0</field>
             <field name="amount_to">2000</field>
             <field name="tax_percentage">0</field>
-            <field name="comment">معافاه من الخصم الضصريبي</field>
+            <field name="comment">معافاه من الخصم الضريبي</field>
             <field name="tax_slide_id" ref="egymentors_hr_tax_slides.tax_slide_10000"/>
         </record>
         <record id="tax_slide_line_3250" model="hr.tax.slide.line">
@@ -55,6 +55,11 @@
             <field name="amount_to">10000</field>
             <field name="tax_percentage">2.5</field>
             <field name="tax_slide_id" ref="egymentors_hr_tax_slides.tax_slide_10000"/>
+        </record>
+
+        <record id="stamp" model="hr.salary.rule.category">
+            <field name="name">Stamp</field>
+            <field name="code">STAMP</field>
         </record>
     </data>
 </odoo>
