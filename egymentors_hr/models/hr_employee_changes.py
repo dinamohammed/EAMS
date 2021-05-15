@@ -42,7 +42,7 @@ class HrEmployeeInherit(models.Model):
                 current_date = (datetime.today()).strftime(date_format)
                 d1 = datetime.strptime(joining_date, date_format).date()
                 d2 = datetime.strptime(current_date, date_format).date()
-                emp.seniority = relativedelta(d2, d1).years
+                emp.seniority_years = relativedelta(d2, d1).years
 
 
 class HrEmployeeDeduction(models.Model):
