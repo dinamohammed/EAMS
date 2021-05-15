@@ -6,6 +6,15 @@
         <field name="inherit_id" ref="tags__rule.employee_view_tax_base_form"/>
         <field name="arch" type="xml">
 
+            <xpath expr="//page[@name='public']" position="inside">
+                <group name="seniority" string="Seniority">
+                    <group>
+                        <field name="seniority_date"/>
+                        <field name="seniority_years"/>
+                    </group>
+                </group>
+            </xpath>
+
             <xpath expr="//field[@name='level_id']" position="after">
                 <field name="level_date" readonly="0"/>
             </xpath>
@@ -15,10 +24,10 @@
                 <field name="special_needs"/>
                 <field name="accommodation"/>
                 <field name="accommodation_type" widget="radio" options="{'horizontal': true}"
-                       attrs="{'invisible':[('accommodation','=',False)]}"/>
+                       attrs="{'invisible':[('accommodation','!=','yes')]}"/>
                 <field name="transportation"/>
                 <field name="transportation_type" widget="radio" options="{'horizontal': true}"
-                       attrs="{'invisible':[('transportation','=',False)]}"/>
+                       attrs="{'invisible':[('transportation','!=','yes')]}"/>
             </xpath>
 
             <xpath expr="//notebook" position="inside">

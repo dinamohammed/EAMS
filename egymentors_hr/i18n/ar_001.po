@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0+e-20210126\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-09 01:43+0000\n"
-"PO-Revision-Date: 2021-05-09 01:43+0000\n"
+"POT-Creation-Date: 2021-05-14 22:18+0000\n"
+"PO-Revision-Date: 2021-05-14 22:18+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -674,7 +674,7 @@ msgstr "الشركة"
 #. module: egymentors_hr
 #: model:ir.model,name:egymentors_hr.model_res_config_settings
 msgid "Config Settings"
-msgstr "ضبط الإعدادات"
+msgstr "ضبط الاعدادات"
 
 #. module: egymentors_hr
 #: model_terms:ir.ui.view,arch_db:egymentors_hr.hr_award_profit_form_view
@@ -1492,6 +1492,11 @@ msgid "Max Pay Raise"
 msgstr "اقصى زياده مرتب"
 
 #. module: egymentors_hr
+#: model:ir.model.fields.selection,name:egymentors_hr.selection__hr_employee__Syndicate__member
+msgid "Member"
+msgstr "مشترك"
+
+#. module: egymentors_hr
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_award_profit__message_has_error
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_bonus__message_has_error
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_pay_raise__message_has_error
@@ -1600,6 +1605,17 @@ msgstr "الراتب الجديد"
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_transfer__new_location_id
 msgid "New Work Location"
 msgstr "مكان العمل الجديد"
+
+#. module: egymentors_hr
+#: model:ir.model.fields.selection,name:egymentors_hr.selection__hr_employee__accommodation__no
+#: model:ir.model.fields.selection,name:egymentors_hr.selection__hr_employee__transportation__no
+msgid "No"
+msgstr "لا"
+
+#. module: egymentors_hr
+#: model:ir.model.fields.selection,name:egymentors_hr.selection__hr_employee__Syndicate__not_member
+msgid "Not Member"
+msgstr "غير مشترك"
 
 #. module: egymentors_hr
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_award_profit_line__notes
@@ -1733,7 +1749,7 @@ msgstr " زياده المرتبات"
 #. module: egymentors_hr
 #: model:ir.model,name:egymentors_hr.model_hr_payslip
 msgid "Pay Slip"
-msgstr "كشف المرتبات"
+msgstr "إيصال المرتب"
 
 #. module: egymentors_hr
 #: code:addons/egymentors_hr/models/hr_payslip_changes.py:0
@@ -1931,6 +1947,16 @@ msgid "Select By"
 msgstr "تم تحديده بواسطة"
 
 #. module: egymentors_hr
+#: model_terms:ir.ui.view,arch_db:egymentors_hr.egymentors_employee_view_tax_base_form_inherit
+msgid "Seniority"
+msgstr "الاقدمية"
+
+#. module: egymentors_hr
+#: model:ir.model.fields,field_description:egymentors_hr.field_hr_employee__seniority_date
+msgid "Seniority Date"
+msgstr "تاريخ الاقدمية"
+
+#. module: egymentors_hr
 #: model:ir.model.fields.selection,name:egymentors_hr.selection__hr_employee__accommodation_type__single
 msgid "Single"
 msgstr "سكن فردي"
@@ -1964,6 +1990,11 @@ msgstr "الحالة"
 #: model_terms:ir.ui.view,arch_db:egymentors_hr.hr_trans_allowance_penalty_filter_view
 msgid "State"
 msgstr "المدينة"
+
+#. module: egymentors_hr
+#: model:ir.model.fields,field_description:egymentors_hr.field_hr_employee__Syndicate
+msgid "Syndicate"
+msgstr "النقابة"
 
 #. module: egymentors_hr
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_penalty__date_to
@@ -2108,6 +2139,17 @@ msgstr "مكان العمل"
 #: model_terms:ir.ui.view,arch_db:egymentors_hr.hr_employee_transfer_filter_view
 msgid "Year"
 msgstr "السنه"
+
+#. module: egymentors_hr
+#: model:ir.model.fields,field_description:egymentors_hr.field_hr_employee__seniority_years
+msgid "Years of Seniority"
+msgstr "سنوات الاقدمية"
+
+#. module: egymentors_hr
+#: model:ir.model.fields.selection,name:egymentors_hr.selection__hr_employee__accommodation__yes
+#: model:ir.model.fields.selection,name:egymentors_hr.selection__hr_employee__transportation__yes
+msgid "Yes"
+msgstr "نعم"
 
 #. module: egymentors_hr
 #: code:addons/egymentors_hr/models/hr_award_profit.py:0

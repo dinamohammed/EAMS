@@ -667,7 +667,7 @@ msgstr "مكان العمل"
 
 #. module: tags__rule
 #: model:ir.model.fields,field_description:tags__rule.field_hr_employee__work_location_id
-msgid "Work Location Ertrac"
+msgid "Work Location"
 msgstr "موقع العمل"
 
 #. module: tags__rule

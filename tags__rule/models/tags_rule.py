@@ -97,7 +97,7 @@ class HrEmployeeInherit(models.Model):
                                      required=True, default='static')
 
     tax_base = fields.Float(string='Tax Base', default=0)
-    work_location_id = fields.Many2one('hr.location', 'Work Location Ertrac')
+    work_location_id = fields.Many2one('hr.location', 'Work Location')
     certificate_id = fields.Many2one(comodel_name='hr.certificate', string="Certificate")
 
     # ############### ############### ############### ############### ################
@@ -383,16 +383,24 @@ class HRAllowanceConfiguration(models.Model):
     _name = "hr.allowance.confg"
     _description = "HR Allowance Configuration"
 
-    name = fields.Char(string="Allowance Name")
-    code = fields.Char(string="Code")
+    name = fields.Char(string="Allowance Name", required=True)
+    code = fields.Char(string="Code", required=True)
+
+    _sql_constraints = [
+        ('code_uniq', 'unique (code)', "The code must be unique!")
+    ]
 
 
 class HRDeductionConfiguration(models.Model):
     _name = "hr.deduction.confg"
     _description = "HR Deduction Configuration"
 
-    name = fields.Char(string="Deduction Name")
-    code = fields.Char(string="Code")
+    name = fields.Char(string="Deduction Name", required=True)
+    code = fields.Char(string="Code", required=True)
+
+    _sql_constraints = [
+        ('code_uniq', 'unique (code)', "The code must be unique!")
+    ]
 
 
 class HRCertificate(models.Model):
