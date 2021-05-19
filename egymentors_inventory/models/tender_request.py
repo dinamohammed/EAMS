@@ -64,7 +64,7 @@ class TenderRequest(models.Model):
         return True
 
     def print_request(self):
-        return self.env.ref('egymentors_inventory.purchase_request_report').report_action(self)
+        return self.env.ref('egymentors_inventory.tender_request_report').report_action(self)
 
     def button_audit_approval(self):
         # for request in self:

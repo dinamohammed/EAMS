@@ -1154,7 +1154,7 @@ msgstr "المنح/ اﻷرباح السنويه"
 #. module: egymentors_hr
 #: model:ir.model,name:egymentors_hr.model_hr_award_profit_line
 msgid "Hr Award/Profit Line"
-msgstr "سطر المنح والأرباح السنويه"
+msgstr "بند المنح والأرباح السنويه"
 
 #. module: egymentors_hr
 #: model:ir.model,name:egymentors_hr.model_hr_trans_allowance
@@ -1164,7 +1164,7 @@ msgstr " بدل الانتقال"
 #. module: egymentors_hr
 #: model:ir.model,name:egymentors_hr.model_hr_trans_allowance_line
 msgid "Hr Transportation Allowance Line"
-msgstr " سطر بدل الانتقال"
+msgstr " بند بدل الانتقال"
 
 #. module: egymentors_hr
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_award_profit__id

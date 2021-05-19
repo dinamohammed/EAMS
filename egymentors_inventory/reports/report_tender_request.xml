@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="report_purchase_request_doc">
+    <template id="report_tender_request_doc">
         <t t-call="web.external_layout">
 <!--            <t t-set="o" t-value="o.with_context(lang=lang)" />-->
             <div class="page text-right" style="text-align: right !important;direction:rtl">
                 <div class="row" >
                     <div class="col-4" t-if="o.name" name="name">
-                        <strong>Purchase order number</strong>
+                        <strong>رقم طلب المناقصة</strong>
                         <span class="m-0" t-field="o.name"/>
                     </div>
                     <div class="col-4" t-if="o.req_dep_id" name="req_dep_id">
@@ -69,7 +69,7 @@
                     </thead>
                     <tbody>
                         <t t-set="count" t-value="1"/>
-                        <tr t-foreach="o.request_line" t-as="line"  >
+                        <tr t-foreach="o.tender_request_line" t-as="line"  >
                             <td class="text-center"><span t-esc="count"/></td>
                             <td class="text-right" style="text-align: right !important;">
                                 <span t-if="line.product_id" t-esc="line.product_id.display_name"/>
@@ -141,11 +141,11 @@
             </div>
         </t>
     </template>
-    <template id="report_purchase_request">
+    <template id="report_tender_request">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="o">
                 <t t-set="lang" t-value="user.partner_id.lang"/>
-                <t t-call="egymentors_inventory.report_purchase_request_doc" t-lang="lang"/>
+                <t t-call="egymentors_inventory.report_tender_request_doc" t-lang="lang"/>
             </t>
         </t>
     </template>

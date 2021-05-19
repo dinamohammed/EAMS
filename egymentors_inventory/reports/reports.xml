@@ -13,6 +13,16 @@
         />
 
         <report
+                id="tender_request_report"
+                model="tender.request"
+                report_type="qweb-pdf"
+                string="Tender Request"
+                menu="False"
+                name="egymentors_inventory.report_tender_request"
+                file="egymentors_inventory.report_tender_request"
+        />
+
+        <report
                 id="purchase_requisition_financial_xlsx_report"
                 model="purchase.requisition"
                 string="Dumping Quotations Financial Report"
