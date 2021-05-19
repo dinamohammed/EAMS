@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0+e-20210126\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-28 13:09+0000\n"
-"PO-Revision-Date: 2021-04-28 13:09+0000\n"
+"POT-Creation-Date: 2021-05-19 18:13+0000\n"
+"PO-Revision-Date: 2021-05-19 18:13+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -88,6 +88,7 @@ msgstr ""
 
 #. module: egymentors_inventory
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_request_doc
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_tender_request_doc
 msgid ""
 "<b class=\"pull-right text-center\">\n"
 "                            ولسيادتكم جزيل الشكر,,,\n"
@@ -96,6 +97,7 @@ msgstr ""
 
 #. module: egymentors_inventory
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_request_doc
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_tender_request_doc
 msgid ""
 "<b class=\"text-center\">\n"
 "                            بعد التحيه,,,\n"
@@ -104,6 +106,7 @@ msgstr ""
 
 #. module: egymentors_inventory
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_request_doc
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_tender_request_doc
 msgid ""
 "<b style=\"width:100%;block\">\n"
 "                            السيد المهندس/ رئيس الشئون الفنيه\n"
@@ -167,6 +170,7 @@ msgstr ""
 
 #. module: egymentors_inventory
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_request_doc
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_tender_request_doc
 msgid "<b>ملاحظات:</b>"
 msgstr ""
 
@@ -192,8 +196,9 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_check_doc
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_request_doc
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_requisition_price_doc
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_tender_request_doc
 msgid "<span>إسم الصنف</span>"
-msgstr ""
+msgstr "<span>Product Name</span>"
 
 #. module: egymentors_inventory
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_check_doc
@@ -209,6 +214,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_order_check_doc
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_request_doc
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_requisition_price_doc
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_tender_request_doc
 msgid "<span>الكميه</span>"
 msgstr ""
 
@@ -230,6 +236,7 @@ msgstr ""
 #. module: egymentors_inventory
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_request_doc
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_requisition_price_doc
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_tender_request_doc
 msgid "<span>ملاحظات</span>"
 msgstr ""
 
@@ -338,6 +345,7 @@ msgstr ""
 
 #. module: egymentors_inventory
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_request_doc
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_tender_request_doc
 msgid "<strong> التاريخ</strong>"
 msgstr ""
 
@@ -397,11 +405,13 @@ msgstr ""
 
 #. module: egymentors_inventory
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_request_doc
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_tender_request_doc
 msgid "<strong>الجهه الطالبه</strong>"
 msgstr ""
 
 #. module: egymentors_inventory
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_request_doc
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_tender_request_doc
 msgid "<strong>رئيس الشئون الفنيه</strong>"
 msgstr ""
 
@@ -411,27 +421,37 @@ msgid "<strong>رقم طلب الشراء</strong>"
 msgstr ""
 
 #. module: egymentors_inventory
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_tender_request_doc
+msgid "<strong>رقم طلب المناقصة</strong>"
+msgstr ""
+
+#. module: egymentors_inventory
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_request_doc
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_tender_request_doc
 msgid "<strong>مدير الورشه</strong>"
 msgstr ""
 
 #. module: egymentors_inventory
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_request_doc
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_tender_request_doc
 msgid "<strong>مراقب المخزون</strong>"
 msgstr ""
 
 #. module: egymentors_inventory
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_request_doc
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_tender_request_doc
 msgid "<strong>مسئول المخزن</strong>"
 msgstr ""
 
 #. module: egymentors_inventory
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_request_doc
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_tender_request_doc
 msgid "<strong>مسئول المراجعه / الفحص</strong>"
 msgstr ""
 
 #. module: egymentors_inventory
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_request_doc
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_tender_request_doc
 msgid "<strong>مهندس الورشه</strong>"
 msgstr ""
 
@@ -592,7 +612,7 @@ msgstr "لاغى"
 #: code:addons/egymentors_inventory/models/purchase_order_inherit.py:0
 #, python-format
 msgid "Cannot delete a purchase order line which is in state '%s'."
-msgstr "لا يمكن حذف بند أمر الشراء في حالته '%s'."
+msgstr ""
 
 #. module: egymentors_inventory
 #: model:ir.model.fields,help:egymentors_inventory.field_purchase_order__request_id
@@ -830,6 +850,11 @@ msgstr "الموظف المختص/"
 #: model:ir.actions.act_window,name:egymentors_inventory.action_purchase_financial_record
 msgid "Financial Record"
 msgstr "محضر اللجنة المالية"
+
+#. module: egymentors_inventory
+#: model:ir.actions.report,name:egymentors_inventory.action_report_financial_record
+msgid "Financial Record Report"
+msgstr "تقرير محضر اللجنة المالية"
 
 #. module: egymentors_inventory
 #: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_requisition__financial_rec_count
@@ -1324,11 +1349,6 @@ msgid "Print Excel"
 msgstr "طباعة اكسل"
 
 #. module: egymentors_inventory
-#: model:ir.actions.report,name:egymentors_inventory.action_report_financial_record
-msgid "Financial Record Report"
-msgstr "تقرير محضر اللجنة المالية"
-
-#. module: egymentors_inventory
 #: model:ir.model,name:egymentors_inventory.model_product_product
 #: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_request_line__product_id
 #: model:ir.model.fields,field_description:egymentors_inventory.field_tender_request_line__product_id
@@ -1435,7 +1455,7 @@ msgstr "قسم طلب الشراء"
 #: model:ir.ui.menu,name:egymentors_inventory.menu_purchase_request_line
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.purchase_request_filter_line_view
 msgid "Purchase Request Line"
-msgstr "سطر طلب الشراء"
+msgstr "بند طلب الشراء"
 
 #. module: egymentors_inventory
 #: model:ir.model,name:egymentors_inventory.model_purchase_requisition
@@ -1462,7 +1482,7 @@ msgstr "طلب الشراء"
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.purchase_request_form
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.purchase_request_line_tree_view
 msgid "Purchase request Lines"
-msgstr "سطر طلب الشراء"
+msgstr "بند طلب الشراء"
 
 #. module: egymentors_inventory
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchaseorder_document_eams2
@@ -1556,7 +1576,7 @@ msgstr "تاريخ الطلب"
 #. module: egymentors_inventory
 #: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_requisition_line__request_line_ids
 msgid "Request Line"
-msgstr "سطر الطلب"
+msgstr "بند الطلب"
 
 #. module: egymentors_inventory
 #: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_order_line__request_line_ids
@@ -1765,6 +1785,7 @@ msgstr "مسؤول المناقصة"
 
 #. module: egymentors_inventory
 #: model:ir.actions.act_window,name:egymentors_inventory.act_tender_request
+#: model:ir.actions.report,name:egymentors_inventory.tender_request_report
 #: model:ir.model,name:egymentors_inventory.model_tender_request
 #: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_order__tender_request_ids
 #: model:ir.model.fields,field_description:egymentors_inventory.field_purchase_requisition__tender_request_id
@@ -2195,11 +2216,13 @@ msgstr ""
 
 #. module: egymentors_inventory
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_request_doc
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_tender_request_doc
 msgid "نرجو من سيادتكم الموافقه على توفير قطع الغيار التاليه:"
 msgstr ""
 
 #. module: egymentors_inventory
 #: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_purchase_request_doc
+#: model_terms:ir.ui.view,arch_db:egymentors_inventory.report_tender_request_doc
 msgid ""
 "والأمر مرفوع لسيادتكم للتكرم بالتنبيه بسرعه إتخاذ اللازم لعدم تعطل العمل"
 msgstr ""
