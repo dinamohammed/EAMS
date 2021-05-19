@@ -37,6 +37,7 @@
         'security/ir.model.access.csv',
         'reports/reports.xml',
         'reports/report_purchase_request.xml',
+        'reports/report_tender_request.xml',
         'reports/report_purchase_requisition_price.xml',
         'reports/report_purchase_order_check.xml',
         'reports/report_purchase_order_note.xml',
