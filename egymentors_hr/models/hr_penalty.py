@@ -22,7 +22,8 @@ class HRPenalty(models.Model):
     penalty_line_ids = fields.One2many(comodel_name="hr.penalty.line", inverse_name="penalty_id",
                                        string="Penalty Lines", readonly=True, states={'draft': [('readonly', False)]})
     total_penalty_ids = fields.One2many(comodel_name="hr.total.penalty", inverse_name="penalty_id",
-                                        string="Penalty Totals", compute='_compute_total_penalty', store=True)
+                                        string="Penalty Totals", compute='_compute_total_penalty', store=True,
+                                        domain=[('payslip_id', '=', False)])
 
     @api.depends('penalty_line_ids')
     def _compute_total_penalty(self):

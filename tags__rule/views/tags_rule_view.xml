@@ -77,76 +77,7 @@
             <field name="priority" eval="1"/>
             <field name="arch" type="xml">
                 <xpath expr="/form/sheet/notebook/page[@name='information']" position="after">
-                    <page string="Salary Elements" name="salary_elements">
-                        <group name="main_info">
-                            <group name="allowance" string="Allowance">
-                                <field name="allowance_20"/>
-                                <field name="allowance_21"/>
-                                <field name="allowance_22"/>
-                                <field name="allowance_23"/>
-                                <field name="allowance_1"/>
-                                <field name="allowance_2"/>
-                                <field name="allowance_3"/>
-                                <field name="allowance_4"/>
-                                <field name="allowance_5"/>
-                                <field name="allowance_6"/>
-                                <field name="allowance_7"/>
-                                <field name="allowance_8"/>
-                                <field name="allowance_9"/>
-                                <field name="allowance_10"/>
-                                <field name="allowance_11"/>
-                                <field name="allowance_12"/>
-                                <field name="allowance_13"/>
-                                <field name="allowance_14"/>
-                                <field name="allowance_15"/>
-                                <field name="allowance_16"/>
-                                <field name="allowance_17"/>
-                                <field name="allowance_18"/>
-                                <field name="allowance_19"/>
-                            </group>
-                            <group name="deduction" string="Deduction">
-                                <field name="deduction_32"/>
-                                <field name="deduction_33"/>
-                                <field name="deduction_34"/>
-                                <field name="deduction_35"/>
-                                <field name="deduction_36"/>
-                                <field name="deduction_37"/>
-                                <field name="deduction_38"/>
-                                <field name="deduction_1"/>
-                                <field name="deduction_2"/>
-                                <field name="deduction_3"/>
-                                <field name="deduction_4"/>
-                                <field name="deduction_5"/>
-                                <field name="deduction_6"/>
-                                <field name="deduction_7"/>
-                                <field name="deduction_8"/>
-                                <field name="deduction_9"/>
-                                <field name="deduction_10"/>
-                                <field name="deduction_11"/>
-                                <field name="deduction_12"/>
-                                <field name="deduction_13"/>
-                                <field name="deduction_14"/>
-                                <field name="deduction_15"/>
-                                <field name="deduction_16"/>
-                                <field name="deduction_17"/>
-                                <field name="deduction_18"/>
-                                <field name="deduction_19"/>
-                                <field name="deduction_20"/>
-                                <field name="deduction_21"/>
-                                <field name="deduction_22"/>
-                                <field name="deduction_23"/>
-                                <field name="deduction_24"/>
-                                <field name="deduction_25"/>
-                                <field name="deduction_26"/>
-                                <field name="deduction_27"/>
-                                <field name="deduction_28"/>
-                                <field name="deduction_29"/>
-                                <field name="deduction_30"/>
-                                <field name="deduction_31"/>
-                            </group>
-                        </group>
-                    </page>
-                    <page name="salary_elements_dynamic" string="Salary Elements Dynamic">
+                    <page name="salary_elements" string="Salary Elements">
                         <group>
                             <group string="Allowances">
                                 <field name="allowance_ids" nolabel="1">
