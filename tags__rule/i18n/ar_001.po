@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0+e-20210126\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-20 13:00+0000\n"
-"PO-Revision-Date: 2021-04-20 13:00+0000\n"
+"POT-Creation-Date: 2021-05-19 14:14+0000\n"
+"PO-Revision-Date: 2021-05-19 14:14+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -32,6 +32,11 @@ msgid "Add new Allowance!"
 msgstr "إضافة بدل جديد!"
 
 #. module: tags__rule
+#: model_terms:ir.actions.act_window,help:tags__rule.hr_certificate_action
+msgid "Add new Certificate!"
+msgstr "اضف شهادة جديدة"
+
+#. module: tags__rule
 #: model_terms:ir.actions.act_window,help:tags__rule.hr_deduction_action
 msgid "Add new Deduction!"
 msgstr "إضافة خصم جديد!"
@@ -45,124 +50,8 @@ msgstr "مصروفات إنتقال"
 #: model:ir.actions.act_window,name:tags__rule.hr_allowance_action
 #: model:ir.model.fields,field_description:tags__rule.field_hr_allowance__allowance
 #: model:ir.ui.menu,name:tags__rule.menu_hr_allowance
-#: model_terms:ir.ui.view,arch_db:tags__rule.contact_view_fields_form
 msgid "Allowance"
 msgstr "البدل"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__allowance_1
-msgid "Allowance 1"
-msgstr "حافز اداء او المستحق حوافز( الاجر الاساسى فى 30-6-2015)"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__allowance_10
-msgid "Allowance 10"
-msgstr "بدل صرافة"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__allowance_11
-msgid "Allowance 11"
-msgstr "بدل راتب اقامة"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__allowance_12
-msgid "Allowance 12"
-msgstr "حافز تميز علمى"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__allowance_13
-msgid "Allowance 13"
-msgstr "بدل تفرغ محاماه"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__allowance_14
-msgid "Allowance 14"
-msgstr "مكافاءة"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__allowance_15
-msgid "Allowance 15"
-msgstr "علاوة تعويضية"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__allowance_16
-msgid "Allowance 16"
-msgstr "بدل فنانيين تشكيليين"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__allowance_17
-msgid "Allowance 17"
-msgstr "حافز فئة مقطوعة 150"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__allowance_18
-msgid "Allowance 18"
-msgstr "حافز اضافى للدرجة بتاريخ 30-6-2020"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__allowance_19
-msgid "Allowance 19"
-msgstr "بدل عدوى"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__allowance_2
-msgid "Allowance 2"
-msgstr "الاثابة"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__allowance_20
-msgid "Allowance 20"
-msgstr "12% حصة حكومة فى الشيوخة والعجز والوفاة  على الاجر الشامل"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__allowance_21
-msgid "Allowance 21"
-msgstr "1.25%  حصة الحكومة فى اصابة العمل على الاجر الشامل"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__allowance_22
-msgid "Allowance 22"
-msgstr "1% حصة الحكومة فى مكافأة نهاية الخدمة على الاجر الشامل"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__allowance_23
-msgid "Allowance 23"
-msgstr "3% حصة الحكومة فى التأمين الصحى على الاجر الشامل"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__allowance_3
-msgid "Allowance 3"
-msgstr "نوباتجية"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__allowance_4
-msgid "Allowance 4"
-msgstr "بدل مهندسين"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__allowance_5
-msgid "Allowance 5"
-msgstr "بدل طبيعة"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__allowance_6
-msgid "Allowance 6"
-msgstr "بدل تفرغ تجاريين"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__allowance_7
-msgid "Allowance 7"
-msgstr "بدل تمثيل"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__allowance_8
-msgid "Allowance 8"
-msgstr "بدل لاسلكى"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__allowance_9
-msgid "Allowance 9"
-msgstr "بدل سماعة"
 
 #. module: tags__rule
 #: model:ir.model.fields,field_description:tags__rule.field_hr_allowance_confg__name
@@ -171,7 +60,8 @@ msgstr "اسم البدل"
 
 #. module: tags__rule
 #: model:ir.model.fields,field_description:tags__rule.field_hr_contract__allowance_ids
-#: model_terms:ir.ui.view,arch_db:tags__rule.contact_view_fields_form
+#: model_terms:ir.ui.view,arch_db:tags__rule.contact_view_fields_form_inherit
+#: model_terms:ir.ui.view,arch_db:tags__rule.view_hr_allowance_confg_tree
 msgid "Allowances"
 msgstr "البدلات"
 
@@ -192,9 +82,18 @@ msgid "CEO Allowance"
 msgstr "إعفاءات هيئة"
 
 #. module: tags__rule
+#: model:ir.actions.act_window,name:tags__rule.hr_certificate_action
+#: model:ir.model.fields,field_description:tags__rule.field_hr_employee__certificate_id
 #: model:ir.model.fields,field_description:tags__rule.field_hr_employee__certificate_level
+#: model:ir.ui.menu,name:tags__rule.menu_hr_certificate
 msgid "Certificate"
 msgstr "الشهادة"
+
+#. module: tags__rule
+#: model:ir.model.fields,field_description:tags__rule.field_hr_allowance_confg__code
+#: model:ir.model.fields,field_description:tags__rule.field_hr_deduction_confg__code
+msgid "Code"
+msgstr "الكود"
 
 #. module: tags__rule
 #: model:ir.model.fields,field_description:tags__rule.field_hr_contract__company_pay
@@ -253,6 +152,7 @@ msgstr "قم بإنشاء موقع عمل جديد"
 #. module: tags__rule
 #: model:ir.model.fields,field_description:tags__rule.field_hr_allowance__create_uid
 #: model:ir.model.fields,field_description:tags__rule.field_hr_allowance_confg__create_uid
+#: model:ir.model.fields,field_description:tags__rule.field_hr_certificate__create_uid
 #: model:ir.model.fields,field_description:tags__rule.field_hr_contract_type__create_uid
 #: model:ir.model.fields,field_description:tags__rule.field_hr_deduction__create_uid
 #: model:ir.model.fields,field_description:tags__rule.field_hr_deduction_confg__create_uid
@@ -264,6 +164,7 @@ msgstr "أنشئ بواسطة"
 #. module: tags__rule
 #: model:ir.model.fields,field_description:tags__rule.field_hr_allowance__create_date
 #: model:ir.model.fields,field_description:tags__rule.field_hr_allowance_confg__create_date
+#: model:ir.model.fields,field_description:tags__rule.field_hr_certificate__create_date
 #: model:ir.model.fields,field_description:tags__rule.field_hr_contract_type__create_date
 #: model:ir.model.fields,field_description:tags__rule.field_hr_deduction__create_date
 #: model:ir.model.fields,field_description:tags__rule.field_hr_deduction_confg__create_date
@@ -276,199 +177,9 @@ msgstr "أنشئ في"
 #: model:ir.actions.act_window,name:tags__rule.hr_deduction_action
 #: model:ir.model.fields,field_description:tags__rule.field_hr_deduction__deduction
 #: model:ir.ui.menu,name:tags__rule.menu_hr_deduction
-#: model_terms:ir.ui.view,arch_db:tags__rule.contact_view_fields_form
+#: model_terms:ir.ui.view,arch_db:tags__rule.view_hr_deduction_confg_tree
 msgid "Deduction"
 msgstr "الاستقطاع"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__deduction_1
-msgid "Deduction 1"
-msgstr "كسب عمل"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__deduction_10
-msgid "Deduction 10"
-msgstr "سكن"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__deduction_11
-msgid "Deduction 11"
-msgstr "نقابة تطبقيين"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__deduction_12
-msgid "Deduction 12"
-msgstr "يرد لبند الحوافز"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__deduction_13
-msgid "Deduction 13"
-msgstr "نقابة تجاريين"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__deduction_14
-msgid "Deduction 14"
-msgstr "الوحدة الحسابية سفاجا"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__deduction_15
-msgid "Deduction 15"
-msgstr "الوحدة الحسابية الغردقة جنوب"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__deduction_16
-msgid "Deduction 16"
-msgstr "الوحدة الحسابية الغردقة  شمال"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__deduction_17
-msgid "Deduction 17"
-msgstr "ايرادات متنوعة"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__deduction_18
-msgid "Deduction 18"
-msgstr "(صندوق التامين الخاص (اقساط التأمين"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__deduction_19
-msgid "Deduction 19"
-msgstr "صندوق الخدمات"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__deduction_2
-msgid "Deduction 2"
-msgstr "الدمغة النسبية"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__deduction_20
-msgid "Deduction 20"
-msgstr "رابطة السويس"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__deduction_21
-msgid "Deduction 21"
-msgstr "حرمان"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__deduction_22
-msgid "Deduction 22"
-msgstr "ارباب عهد الهيئة"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__deduction_23
-msgid "Deduction 23"
-msgstr "الجزاء"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__deduction_24
-msgid "Deduction 24"
-msgstr "الصندوق العاملين (صندوق نهاية الخدمة)"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__deduction_25
-msgid "Deduction 25"
-msgstr "لحساب كورونا"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__deduction_26
-msgid "Deduction 26"
-msgstr "ايرادات سنوات سابقة"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__deduction_27
-msgid "Deduction 27"
-msgstr "ضرائب 2018"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__deduction_28
-msgid "Deduction 28"
-msgstr "ضرائب 2019"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__deduction_29
-msgid "Deduction 29"
-msgstr "ضرائب 2016"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__deduction_3
-msgid "Deduction 3"
-msgstr "مدة اعتبارية"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__deduction_30
-msgid "Deduction 30"
-msgstr "اقساط التامين"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__deduction_31
-msgid "Deduction 31"
-msgstr "صندوق تكافل العاملين وزارة الثقافة"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__deduction_32
-msgid "Deduction 32"
-msgstr "12% حصة حكومة فى الشيوخة والعجز والوفاة  على الاجر الشامل"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__deduction_33
-msgid "Deduction 33"
-msgstr "1.25%  حصة الحكومة فى اصابة العمل على الاجر الشامل"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__deduction_34
-msgid "Deduction 34"
-msgstr "1% حصة الحكومة فى مكافأة نهاية الخدمة على الاجر الشامل"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__deduction_35
-msgid "Deduction 35"
-msgstr "3% حصة الحكومة فى التأمين الصحى على الاجر الشامل"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__deduction_36
-msgid "Deduction 36"
-msgstr "9% حصة الموظف فى الشيوخة فى العجز والوفاة  على الاجر الشامل"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__deduction_37
-msgid "Deduction 37"
-msgstr "1% حصة الموظف فى مكافأة نهاية الخدمة على الاجر الشامل"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__deduction_38
-msgid "Deduction 38"
-msgstr "1% حصة الموظف فى التأمين الصحى على الاجر الشامل"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__deduction_4
-msgid "Deduction 4"
-msgstr "اجازة معاش"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__deduction_5
-msgid "Deduction 5"
-msgstr "مدة سابقة"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__deduction_6
-msgid "Deduction 6"
-msgstr "نادى"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__deduction_7
-msgid "Deduction 7"
-msgstr "نقابة"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__deduction_8
-msgid "Deduction 8"
-msgstr "سيارة"
-
-#. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_contract__deduction_9
-msgid "Deduction 9"
-msgstr "نفقة"
 
 #. module: tags__rule
 #: model:ir.model.fields,field_description:tags__rule.field_hr_deduction_confg__name
@@ -477,7 +188,8 @@ msgstr "اسم الاستقطاع"
 
 #. module: tags__rule
 #: model:ir.model.fields,field_description:tags__rule.field_hr_contract__deduction_ids
-#: model_terms:ir.ui.view,arch_db:tags__rule.contact_view_fields_form
+#: model_terms:ir.ui.view,arch_db:tags__rule.contact_view_fields_form_inherit
+#: model_terms:ir.ui.view,arch_db:tags__rule.view_hr_deduction_confg_tree
 msgid "Deductions"
 msgstr "الاستقطاعات"
 
@@ -494,6 +206,7 @@ msgstr "دبلومة"
 #. module: tags__rule
 #: model:ir.model.fields,field_description:tags__rule.field_hr_allowance__display_name
 #: model:ir.model.fields,field_description:tags__rule.field_hr_allowance_confg__display_name
+#: model:ir.model.fields,field_description:tags__rule.field_hr_certificate__display_name
 #: model:ir.model.fields,field_description:tags__rule.field_hr_contract__display_name
 #: model:ir.model.fields,field_description:tags__rule.field_hr_contract_type__display_name
 #: model:ir.model.fields,field_description:tags__rule.field_hr_deduction__display_name
@@ -590,6 +303,11 @@ msgid "HR Allowance Configuration"
 msgstr "اعدادات تكوين بدل الموارد البشرية"
 
 #. module: tags__rule
+#: model:ir.model,name:tags__rule.model_hr_certificate
+msgid "HR Certificate"
+msgstr "الشهادة الموارد البشرية"
+
+#. module: tags__rule
 #: model:ir.model,name:tags__rule.model_hr_deduction
 msgid "HR Deduction"
 msgstr "استقطاعات الموارد البشرية"
@@ -607,6 +325,7 @@ msgstr "علاوات مضافة على المرتب"
 #. module: tags__rule
 #: model:ir.model.fields,field_description:tags__rule.field_hr_allowance__id
 #: model:ir.model.fields,field_description:tags__rule.field_hr_allowance_confg__id
+#: model:ir.model.fields,field_description:tags__rule.field_hr_certificate__id
 #: model:ir.model.fields,field_description:tags__rule.field_hr_contract__id
 #: model:ir.model.fields,field_description:tags__rule.field_hr_contract_type__id
 #: model:ir.model.fields,field_description:tags__rule.field_hr_deduction__id
@@ -673,6 +392,7 @@ msgstr "تاريخ الاصدار "
 #. module: tags__rule
 #: model:ir.model.fields,field_description:tags__rule.field_hr_allowance____last_update
 #: model:ir.model.fields,field_description:tags__rule.field_hr_allowance_confg____last_update
+#: model:ir.model.fields,field_description:tags__rule.field_hr_certificate____last_update
 #: model:ir.model.fields,field_description:tags__rule.field_hr_contract____last_update
 #: model:ir.model.fields,field_description:tags__rule.field_hr_contract_type____last_update
 #: model:ir.model.fields,field_description:tags__rule.field_hr_deduction____last_update
@@ -687,6 +407,7 @@ msgstr "آخر تعديل في"
 #. module: tags__rule
 #: model:ir.model.fields,field_description:tags__rule.field_hr_allowance__write_uid
 #: model:ir.model.fields,field_description:tags__rule.field_hr_allowance_confg__write_uid
+#: model:ir.model.fields,field_description:tags__rule.field_hr_certificate__write_uid
 #: model:ir.model.fields,field_description:tags__rule.field_hr_contract_type__write_uid
 #: model:ir.model.fields,field_description:tags__rule.field_hr_deduction__write_uid
 #: model:ir.model.fields,field_description:tags__rule.field_hr_deduction_confg__write_uid
@@ -698,6 +419,7 @@ msgstr "آخر تحديث بواسطة"
 #. module: tags__rule
 #: model:ir.model.fields,field_description:tags__rule.field_hr_allowance__write_date
 #: model:ir.model.fields,field_description:tags__rule.field_hr_allowance_confg__write_date
+#: model:ir.model.fields,field_description:tags__rule.field_hr_certificate__write_date
 #: model:ir.model.fields,field_description:tags__rule.field_hr_contract_type__write_date
 #: model:ir.model.fields,field_description:tags__rule.field_hr_deduction__write_date
 #: model:ir.model.fields,field_description:tags__rule.field_hr_deduction_confg__write_date
@@ -833,6 +555,11 @@ msgid "Military Service Status"
 msgstr "موقف التجنيد"
 
 #. module: tags__rule
+#: model:ir.model.fields,field_description:tags__rule.field_hr_certificate__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: tags__rule
 #: model:ir.model.fields.selection,name:tags__rule.selection__hr_employee__location_type__management
 msgid "Non"
 msgstr ""
@@ -877,8 +604,7 @@ msgstr "يُستخدم مستوى عمل Odoo لإدارة مستويات الع
 #: model_terms:ir.actions.act_window,help:tags__rule.open_module_tree_location
 msgid ""
 "Odoo's Work location is used to manage loactions of work for each employee."
-msgstr ""
-"يُستخدم موقع عمل Odoo لإدارة مواقع العمل لكل موظف."
+msgstr "يُستخدم موقع عمل Odoo لإدارة مواقع العمل لكل موظف."
 
 #. module: tags__rule
 #: model:ir.model.fields.selection,name:tags__rule.selection__hr_employee__certificate_level__other
@@ -897,7 +623,7 @@ msgid "Pay Slip"
 msgstr "إيصال المرتب"
 
 #. module: tags__rule
-#: code:addons/tags__rule/models/models.py:0
+#: code:addons/tags__rule/models/tags_rule.py:0
 #, python-format
 msgid "Payslip"
 msgstr "قسيمة الراتب"
@@ -919,14 +645,9 @@ msgid "SMS Delivery error"
 msgstr "خطأ في تسليم الرسائل القصيرة"
 
 #. module: tags__rule
-#: model_terms:ir.ui.view,arch_db:tags__rule.contact_view_fields_form
+#: model_terms:ir.ui.view,arch_db:tags__rule.contact_view_fields_form_inherit
 msgid "Salary Elements"
 msgstr "عناصر المرتب"
-
-#. module: tags__rule
-#: model_terms:ir.ui.view,arch_db:tags__rule.contact_view_fields_form
-msgid "Salary Elements Dynamic"
-msgstr "عناصر الراتب ديناميكية"
 
 #. module: tags__rule
 #: model:ir.model.fields.selection,name:tags__rule.selection__hr_employee__levels__level_sec_manager
@@ -964,7 +685,7 @@ msgid "Social Insurance Start Date"
 msgstr "تاريخ بداية التأمين"
 
 #. module: tags__rule
-#: code:addons/tags__rule/models/models.py:0
+#: code:addons/tags__rule/models/tags_rule.py:0
 #, python-format
 msgid "Sorry, Today Date Must be greater Than Start Date..."
 msgstr "لا يمكنك إتمام العملية لأنه فات ميعاد إنشاء الكشف"
@@ -980,6 +701,11 @@ msgid "Supervision Allowance"
 msgstr "علاوة 2019"
 
 #. module: tags__rule
+#: model:ir.model.fields,field_description:tags__rule.field_hr_certificate__syndicate_id
+msgid "Syndicate Subscription"
+msgstr "اشتراك النقابة"
+
+#. module: tags__rule
 #: model:ir.model.fields,field_description:tags__rule.field_hr_employee__tax_base
 msgid "Tax Base"
 msgstr "الوعاء الضريبي"
@@ -990,9 +716,20 @@ msgid "Tax Base Temp"
 msgstr "نموذج قاعدة الضريبة"
 
 #. module: tags__rule
+#: model:ir.model.constraint,message:tags__rule.constraint_hr_certificate_certificate_uniq
+msgid "The Certificate must be unique!"
+msgstr يجب أن تكون الشهادة فريدًة!"
+
+#. module: tags__rule
 #: model:ir.model.constraint,message:tags__rule.constraint_hr_allowance_allowance_uniq
 msgid "The allowance must be unique!"
 msgstr "يجب أن يكون البدل فريدًا!"
+
+#. module: tags__rule
+#: model:ir.model.constraint,message:tags__rule.constraint_hr_allowance_confg_code_uniq
+#: model:ir.model.constraint,message:tags__rule.constraint_hr_deduction_confg_code_uniq
+msgid "The code must be unique!"
+msgstr "يجب أن يكون الكود فريدًا!"
 
 #. module: tags__rule
 #: model:ir.model.constraint,message:tags__rule.constraint_hr_deduction_deduction_uniq
@@ -1061,12 +798,8 @@ msgid "Work Levels"
 msgstr "مستويات العمل"
 
 #. module: tags__rule
-#: model:ir.model.fields,field_description:tags__rule.field_hr_location__name
-msgid "Work Location"
-msgstr "مكان العمل"
-
-#. module: tags__rule
 #: model:ir.model.fields,field_description:tags__rule.field_hr_employee__work_location_id
+#: model:ir.model.fields,field_description:tags__rule.field_hr_location__name
 msgid "Work Location"
 msgstr "موقع العمل"
 
@@ -1077,7 +810,7 @@ msgid "Work Locations"
 msgstr "رقم تصريح العمل"
 
 #. module: tags__rule
-#: code:addons/tags__rule/models/models.py:0
+#: code:addons/tags__rule/models/tags_rule.py:0
 #, python-format
 msgid "You can't validate a cancelled payslip."
 msgstr "لا يمكنك التحقق من صحة قسيمة الدفع الملغاة."
