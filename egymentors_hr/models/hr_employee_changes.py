@@ -31,9 +31,9 @@ class HrEmployeeInherit(models.Model):
     transportation_type = fields.Selection(selection=[('bus', 'Bus'), ('car', 'Car'), ('microbus', 'Microbus')],
                                            string='Transportation Type')
     seniority_date = fields.Date(string="Seniority Date")
-    seniority_years = fields.Integer(string="Years of Seniority")
+    seniority_years = fields.Integer(string="Years of Seniority", compute='compute_seniority')
 
-    @api.onchange('seniority_date')
+    @api.depends('seniority_date')
     def compute_seniority(self):
         for emp in self:
             if emp.seniority_date:
