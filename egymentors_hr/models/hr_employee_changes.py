@@ -35,6 +35,7 @@ class HrEmployeeInherit(models.Model):
 
     @api.depends('seniority_date')
     def compute_seniority(self):
+        self.seniority_years = 0
         for emp in self:
             if emp.seniority_date:
                 date_format = '%Y-%m-%d'
