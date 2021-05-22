@@ -23,6 +23,8 @@ class HrEmployeeInherit(models.Model):
     grade_ids = fields.One2many(comodel_name='hr.employee.grade.line', inverse_name='employee_id', string="Grads")
     Syndicate = fields.Selection(selection=[('member', 'Member'), ('not_member', 'Not Member')],
                                  string='Syndicate')
+    End_service_subscription = fields.Selection(selection=[('member', 'Member'), ('not_member', 'Not Member')],
+                                                string='End of Service Subscription')
     special_needs = fields.Boolean(string="Special Needs")
     accommodation = fields.Selection(selection=[('yes', 'Yes'), ('no', 'No')], string="Accommodation")
     accommodation_type = fields.Selection(selection=[('single', 'Single'), ('group', 'Group')],

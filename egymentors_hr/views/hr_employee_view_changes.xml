@@ -21,7 +21,11 @@
 
             <xpath expr="//field[@name='location_type']" position="after">
                 <field name="Syndicate" widget="radio" options="{'horizontal': true}"/>
+                <field name="End_service_subscription" widget="radio" options="{'horizontal': true}"/>
                 <field name="special_needs"/>
+            </xpath>
+
+            <xpath expr="//field[@name='coach_id']" position="after">
                 <field name="accommodation"/>
                 <field name="accommodation_type" widget="radio" options="{'horizontal': true}"
                        attrs="{'invisible':[('accommodation','!=','yes')]}"/>
