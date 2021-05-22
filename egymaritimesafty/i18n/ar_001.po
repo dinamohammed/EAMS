@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0+e-20210126\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-11 02:18+0000\n"
-"PO-Revision-Date: 2021-05-11 02:18+0000\n"
+"POT-Creation-Date: 2021-05-22 11:49+0000\n"
+"PO-Revision-Date: 2021-05-22 11:49+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -47,6 +47,11 @@ msgstr "فئة"
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_reassignment__certificate
 msgid "Certificate Level"
 msgstr "مستوي الشهادة"
+
+#. module: egymaritimesafty
+#: model:ir.model.fields.selection,name:egymaritimesafty.selection__hr_job_degree__financial_degree__chief
+msgid "Chief"
+msgstr "كبير"
 
 #. module: egymaritimesafty
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_syndicate__code
@@ -211,7 +216,7 @@ msgstr "الوصف"
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_training_place__display_name
 #: model:ir.model.fields,field_description:egymaritimesafty.field_hr_training_subject__display_name
 msgid "Display Name"
-msgstr "الاسم المعروض"
+msgstr "الاسم"
 
 #. module: egymaritimesafty
 #: model:ir.model.fields.selection,name:egymaritimesafty.selection__hr_reassignment__new_certificate__doctor

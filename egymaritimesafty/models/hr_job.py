@@ -151,7 +151,8 @@ class HRJobJobDegree(models.Model):
     financial_degree = fields.Selection(selection=[('first', 'First'), ('second', 'Second'), ('third', 'Third'),
                                                    ('forth', 'Forth'), ('fifth', 'Fifth'), ('sixth', 'Sixth'),
                                                    ('general_manager', 'General Manager'), ('highest', 'Highest'),
-                                                   ('excellent', 'Excellent')], string="Financial Degree")
+                                                   ('excellent', 'Excellent'), ('chief', 'Chief')],
+                                        string="Financial Degree")
     name = fields.Char(string="Job Degree", required=True)
     full_name = fields.Char(string="Job Full Name", compute='_compute_full_name')
     emp_no = fields.Integer(string="Number of Employees", compute="_compute_emp_degree_count")
