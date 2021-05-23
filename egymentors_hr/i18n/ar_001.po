@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0+e-20210126\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-14 22:18+0000\n"
-"PO-Revision-Date: 2021-05-14 22:18+0000\n"
+"POT-Creation-Date: 2021-05-22 12:28+0000\n"
+"PO-Revision-Date: 2021-05-22 12:28+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -977,6 +977,11 @@ msgid "Employees"
 msgstr "الموظفين"
 
 #. module: egymentors_hr
+#: model:ir.model.fields,field_description:egymentors_hr.field_hr_employee__End_service_subscription
+msgid "End of Service Subscription"
+msgstr "صندوق نهاية الخدمة"
+
+#. module: egymentors_hr
 #: model:ir.model.fields,field_description:egymentors_hr.field_hr_trans_allowance__total_trans_external
 msgid "External"
 msgstr "الخارجى"
@@ -1492,6 +1497,7 @@ msgid "Max Pay Raise"
 msgstr "اقصى زياده مرتب"
 
 #. module: egymentors_hr
+#: model:ir.model.fields.selection,name:egymentors_hr.selection__hr_employee__End_service_subscription__member
 #: model:ir.model.fields.selection,name:egymentors_hr.selection__hr_employee__Syndicate__member
 msgid "Member"
 msgstr "مشترك"
@@ -1613,6 +1619,7 @@ msgid "No"
 msgstr "لا"
 
 #. module: egymentors_hr
+#: model:ir.model.fields.selection,name:egymentors_hr.selection__hr_employee__End_service_subscription__not_member
 #: model:ir.model.fields.selection,name:egymentors_hr.selection__hr_employee__Syndicate__not_member
 msgid "Not Member"
 msgstr "غير مشترك"
