@@ -256,7 +256,7 @@ class HrContractInherit(models.Model):
     @api.model
     def create(self, vals):
         contracts = super(HrContractInherit, self).create(vals)
-        contracts.compute_salary_allowance(vals, contracts)
+        # contracts.compute_salary_allowance(vals, contracts)
         if vals.get('state') == 'open':
             contracts._assign_open_contract()
         open_contracts = contracts.filtered(
