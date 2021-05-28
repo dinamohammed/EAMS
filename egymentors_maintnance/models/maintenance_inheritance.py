@@ -12,6 +12,7 @@ class EquipmentRequestInherit(models.Model):
     part_ids = fields.Many2many(comodel_name="maintenance.equipment.parts", string='Equipment Parts')
     task_sheet_line_ids = fields.One2many(comodel_name='maintenance.task.sheet.line', inverse_name='request_id',
                                           string="Task Sheet Lines")
+    team_lead_id = fields.Many2one(related='maintenance_team_id.team_lead_id')
 
     @api.onchange('project_id')
     def onchange_project_id(self):
@@ -41,3 +42,9 @@ class EquipmentRequestInherit(models.Model):
             return {'domain': {
                 'part_ids': [('product_id', 'in', request.equipment_id.part_ids.mapped('product_id').ids)]
             }}
+
+
+class MaintenanceTeamInherit(models.Model):
+    _inherit = 'maintenance.team'
+
+    team_lead_id = fields.Many2one(comodel_name='res.users', string="Team Lead")

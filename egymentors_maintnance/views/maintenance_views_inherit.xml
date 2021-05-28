@@ -8,6 +8,12 @@
             <field name="inherit_id" ref="maintenance.hr_equipment_request_view_form"/>
             <field name="arch" type="xml">
                 <data>
+                    <field name="name" position="before">
+                        <widget name="web_ribbon" title="Corrective" bg_color="bg-success"
+                                attrs="{'invisible': [('maintenance_type', '!=', 'corrective')]}"/>
+                        <widget name="web_ribbon" title="Preventive" bg_color="bg-info"
+                                attrs="{'invisible': [('maintenance_type', '!=', 'preventive')]}"/>
+                    </field>
                     <field name="equipment_id" position="before">
                         <field name="project_id" options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
                         <field name="location_id"
@@ -21,6 +27,9 @@
                     <field name="category_id" position="after">
                         <field name="part_ids" widget="many2many_tags"
                                options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                    </field>
+                    <field name="maintenance_team_id" position="after">
+                        <field name="team_lead_id"/>
                     </field>
                     <field name="category_id" position="attributes">
                         <attribute name="string">Equipment Category</attribute>
@@ -45,6 +54,17 @@
                         </notebook>
                     </field>
                 </data>
+            </field>
+        </record>
+
+        <record id="maintenance_team_view_tree_inherit" model="ir.ui.view">
+            <field name="name">maintenance.team.tree.inherit</field>
+            <field name="inherit_id" ref="maintenance.maintenance_team_view_tree"/>
+            <field name="model">maintenance.team</field>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="team_lead_id"/>
+                </field>
             </field>
         </record>
 
