@@ -10,6 +10,8 @@ class MaintenanceProject(models.Model):
     _description = "Maintenance Project"
 
     name = fields.Char(string="Name", required=True)
+    project_manager = fields.Many2one(comodel_name='res.users', string="Project Manager")
+    project_manager_vice = fields.Many2one(comodel_name='res.users', string="Vice Project Manager")
     project_type_id = fields.Many2one(comodel_name='maintenance.project.type', string="Project Type")
     location_ids = fields.One2many(comodel_name='stock.location', inverse_name="project_id",
                                    string='Project Location')
@@ -309,9 +311,10 @@ class MaintenanceTechnicalStatus(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = "Maintenance Technical Status"
 
-    name = fields.Char(string="Name", help="task sheet name + date")
+    name = fields.Char(string="Name", help="task sheet name")
     task_sheet_id = fields.Many2one(comodel_name="maintenance.task.sheet", string="Task Sheet")
     equipment_id = fields.Many2one(comodel_name='maintenance.equipment', string="Equipment")
+    location_id = fields.Many2one(related='equipment_id.location_id')
     date_state = fields.Date(string="Last Maintenance State Date", default=fields.Date.today())
     last_technical_state = fields.Text(string="Last Technical State")
     state_after_maintenance = fields.Text(string="State After Maintenance")
