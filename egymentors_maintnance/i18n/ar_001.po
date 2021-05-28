@@ -1,0 +1,1406 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* egymentors_maintnance
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e-20210126\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-27 23:54+0000\n"
+"PO-Revision-Date: 2021-05-27 23:54+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,help:egymentors_maintnance.field_stock_location__usage
+msgid ""
+"* Vendor Location: Virtual location representing the source location for products coming from your vendors\n"
+"* View: Virtual location used to create a hierarchical structures for your warehouse, aggregating its child locations ; can't directly contain products\n"
+"* Internal Location: Physical locations inside your own warehouses,\n"
+"* Customer Location: Virtual location representing the destination location for products sent to your customers\n"
+"* Inventory Loss: Virtual location serving as counterpart for inventory operations used to correct stock levels (Physical inventories)\n"
+"* Production: Virtual counterpart location for production operations: this location consumes the components and produces finished products\n"
+"* Transit Location: Counterpart location that should be used in inter-company or inter-warehouses operations"
+msgstr ""
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment_parts__message_needaction
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project__message_needaction
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project_type__message_needaction
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task__message_needaction
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_categ__message_needaction
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_line__message_needaction
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet__message_needaction
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet_line__message_needaction
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_technical_status__message_needaction
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_stock_location__message_needaction
+msgid "Action Needed"
+msgstr "الإجراءات اللازمة"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment_parts__activity_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project__activity_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project_type__activity_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task__activity_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_categ__activity_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_line__activity_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet__activity_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet_line__activity_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_technical_status__activity_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_stock_location__activity_ids
+msgid "Activities"
+msgstr "الانشطة"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment_parts__activity_exception_decoration
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project__activity_exception_decoration
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project_type__activity_exception_decoration
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task__activity_exception_decoration
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_categ__activity_exception_decoration
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_line__activity_exception_decoration
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet__activity_exception_decoration
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet_line__activity_exception_decoration
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_technical_status__activity_exception_decoration
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_stock_location__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "زخرفة استثناء النشاط"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment_parts__activity_state
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project__activity_state
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project_type__activity_state
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task__activity_state
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_categ__activity_state
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_line__activity_state
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet__activity_state
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet_line__activity_state
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_technical_status__activity_state
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_stock_location__activity_state
+msgid "Activity State"
+msgstr "حالة النشاط"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment_parts__activity_type_icon
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project__activity_type_icon
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project_type__activity_type_icon
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task__activity_type_icon
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_categ__activity_type_icon
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_line__activity_type_icon
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet__activity_type_icon
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet_line__activity_type_icon
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_technical_status__activity_type_icon
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_stock_location__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "رمز نوع النشاط"
+
+#. module: egymentors_maintnance
+#: model_terms:ir.actions.act_window,help:egymentors_maintnance.maintenance_task_configuration_action
+msgid "Add a new maintenance task"
+msgstr "أضف مهمة صيانة جديدة"
+
+#. module: egymentors_maintnance
+#: model_terms:ir.actions.act_window,help:egymentors_maintnance.maintenance_task_categ_configuration_action
+#: model_terms:ir.actions.act_window,help:egymentors_maintnance.maintenance_task_line_action
+msgid "Add a new maintenance task category"
+msgstr "أضف فئة مهمة صيانة جديدة"
+
+#. module: egymentors_maintnance
+#: model_terms:ir.actions.act_window,help:egymentors_maintnance.maintenance_task_sheet_action
+msgid "Add a new maintenance task sheet"
+msgstr "أضف ورقة مهام صيانة جديدة"
+
+#. module: egymentors_maintnance
+#: model_terms:ir.actions.act_window,help:egymentors_maintnance.maintenance_task_sheet_lines_action
+msgid "Add a new maintenance task sheet lines"
+msgstr "إضافة بنود ورقة مهام صيانة جديدة"
+
+#. module: egymentors_maintnance
+#: model_terms:ir.actions.act_window,help:egymentors_maintnance.equipment_parts_action
+msgid "Add a new project equipment part"
+msgstr "إضافة جزء معدات المشروع الجديد"
+
+#. module: egymentors_maintnance
+#: model_terms:ir.actions.act_window,help:egymentors_maintnance.maintenance_project_configuration_action
+msgid "Add a new project in the maintenance request"
+msgstr "اضافة مشروع جديد في طلب الصيانة"
+
+#. module: egymentors_maintnance
+#: model_terms:ir.actions.act_window,help:egymentors_maintnance.project_location_action
+msgid "Add a new project location"
+msgstr "أضف موقع مشروع جديد"
+
+#. module: egymentors_maintnance
+#: model_terms:ir.actions.act_window,help:egymentors_maintnance.project_type_action
+msgid "Add a new project type"
+msgstr "أضف نوع مشروع جديد"
+
+#. module: egymentors_maintnance
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.view_maintenance_location_form
+msgid "Additional Information"
+msgstr "معلومة اضافية"
+
+#. module: egymentors_maintnance
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.view_maintenance_location_form
+msgid "Archived"
+msgstr "مؤرشف"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment_parts__message_attachment_count
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project__message_attachment_count
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project_type__message_attachment_count
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task__message_attachment_count
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_categ__message_attachment_count
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_line__message_attachment_count
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet__message_attachment_count
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet_line__message_attachment_count
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_technical_status__message_attachment_count
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_stock_location__message_attachment_count
+msgid "Attachment Count"
+msgstr "عدد المرفقات"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment__brand
+msgid "Brand"
+msgstr "ماركة"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment__capacity
+msgid "Capacity"
+msgstr "الاهلية"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment__code
+msgid "Code"
+msgstr "الكود"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment__consumed_electrical_power
+msgid "Consumed Electrical Power"
+msgstr "الطاقة الكهربائية المستهلكة"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment__cooling_capacity
+msgid "Cooling Capacity"
+msgstr "قدرة التبريد"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment__cooling_type
+msgid "Cooling type"
+msgstr "نوع التبريد"
+
+#. module: egymentors_maintnance
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.view_hr_equipment_request_stock_custom
+msgid "Corrective"
+msgstr "تصحيحي"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment__country_id
+msgid "Country of Origin"
+msgstr "بلد المنشأ"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment_parts__create_uid
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project__create_uid
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project_type__create_uid
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task__create_uid
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_categ__create_uid
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_line__create_uid
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet__create_uid
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet_line__create_uid
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_technical_status__create_uid
+msgid "Created by"
+msgstr "انشأ من قبل"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment_parts__create_date
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project__create_date
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project_type__create_date
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task__create_date
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_categ__create_date
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_line__create_date
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet__create_date
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet_line__create_date
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_technical_status__create_date
+msgid "Created on"
+msgstr "تم إنشاؤهافي"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields.selection,name:egymentors_maintnance.selection__stock_location__usage__customer
+msgid "Customer Location"
+msgstr "مكان العميل"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet_line__date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: egymentors_maintnance
+#: model:ir.actions.report,name:egymentors_maintnance.report_detailed_task_sheet_excel
+msgid "Detailed Task Sheet Excel Report"
+msgstr "تقرير إكسل عن ورقة المهام التفصيلية"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment__device_type
+msgid "Device type"
+msgstr "نوع الجهاز"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment__display_name
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment_parts__display_name
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project__display_name
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project_type__display_name
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_request__display_name
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task__display_name
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_categ__display_name
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_line__display_name
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet__display_name
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet_line__display_name
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_team__display_name
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_technical_status__display_name
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_product_product__display_name
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_report_egymentors_maintnance_detailed_task_sheet_excel_report__display_name
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_report_egymentors_maintnance_summary_task_sheet_excel_report__display_name
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_stock_location__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment__efficiency
+msgid "Efficiency"
+msgstr "الكفاءة"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment__electrical_capacity
+msgid "Electrical Capacity"
+msgstr "القدرة الكهربائية"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment_parts__email_cc
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project__email_cc
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project_type__email_cc
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task__email_cc
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_categ__email_cc
+msgid "Email cc"
+msgstr "البريد الإلكتروني نسخة"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment__engine_type
+msgid "Engine type"
+msgstr "نوع المحرك"
+
+#. module: egymentors_maintnance
+#: code:addons/egymentors_maintnance/reports/maintenance_detailed_report_xlsx.py:0
+#: code:addons/egymentors_maintnance/reports/maintenance_summary_report_xlsx.py:0
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment_parts__equipment_id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_line__equipment_id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet__equipment_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet_line__equipment_id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_technical_status__equipment_id
+#, python-format
+msgid "Equipment"
+msgstr "المعدة"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment__category_id
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.view_hr_equipment_request_stock_custom
+msgid "Equipment Category"
+msgstr "فئة المعدات"
+
+#. module: egymentors_maintnance
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.maintenance_equipment_view_form_inherit
+msgid "Equipment Information"
+msgstr "معلومات المعدة"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment__part_ids
+msgid "Equipment Part"
+msgstr "جزء المعدة"
+
+#. module: egymentors_maintnance
+#: model:ir.actions.act_window,name:egymentors_maintnance.equipment_parts_action
+#: model:ir.model,name:egymentors_maintnance.model_maintenance_equipment_parts
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_request__part_ids
+msgid "Equipment Parts"
+msgstr "اجزاء المعدة"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment__equipment_type
+msgid "Equipment Type"
+msgstr "نوع المعدة"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task__equipment_ids
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.maintenance_task_form_view
+msgid "Equipments"
+msgstr "معدات"
+
+#. module: egymentors_maintnance
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.view_maintenance_location_form
+msgid "External note..."
+msgstr "ملاحظة خارجية ..."
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment_parts__message_follower_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project__message_follower_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project_type__message_follower_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task__message_follower_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_categ__message_follower_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_line__message_follower_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet__message_follower_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet_line__message_follower_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_technical_status__message_follower_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_stock_location__message_follower_ids
+msgid "Followers"
+msgstr "متابعون"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment_parts__message_channel_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project__message_channel_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project_type__message_channel_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task__message_channel_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_categ__message_channel_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_line__message_channel_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet__message_channel_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet_line__message_channel_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_technical_status__message_channel_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_stock_location__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "المتابعون (القنوات)"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment_parts__message_partner_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project__message_partner_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project_type__message_partner_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task__message_partner_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_categ__message_partner_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_line__message_partner_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet__message_partner_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet_line__message_partner_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_technical_status__message_partner_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_stock_location__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "المتابعون (الشركاء)"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_equipment_parts__activity_type_icon
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_project__activity_type_icon
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_project_type__activity_type_icon
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task__activity_type_icon
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_categ__activity_type_icon
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_line__activity_type_icon
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_sheet__activity_type_icon
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_sheet_line__activity_type_icon
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_technical_status__activity_type_icon
+#: model:ir.model.fields,help:egymentors_maintnance.field_stock_location__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_technical_status__repeated_errors
+msgid "Frequent Faults"
+msgstr "اخطاء متكررة"
+
+#. module: egymentors_maintnance
+#: code:addons/egymentors_maintnance/reports/maintenance_detailed_report_xlsx.py:0
+#: code:addons/egymentors_maintnance/reports/maintenance_summary_report_xlsx.py:0
+#, python-format
+msgid "Frequent faults"
+msgstr "اخطاء متكررة"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment__generator_type
+msgid "Generator Type"
+msgstr "نوع المولد"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment__id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment_parts__id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project__id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project_type__id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_request__id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task__id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_categ__id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_line__id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet__id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet_line__id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_team__id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_technical_status__id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_product_product__id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_report_egymentors_maintnance_detailed_task_sheet_excel_report__id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_report_egymentors_maintnance_summary_task_sheet_excel_report__id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_stock_location__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment__ip_protection_factor
+msgid "IP Protection Factor"
+msgstr "عامل حماية IP"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment_parts__activity_exception_icon
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project__activity_exception_icon
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project_type__activity_exception_icon
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task__activity_exception_icon
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_categ__activity_exception_icon
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_line__activity_exception_icon
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet__activity_exception_icon
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet_line__activity_exception_icon
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_technical_status__activity_exception_icon
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_stock_location__activity_exception_icon
+msgid "Icon"
+msgstr "رمز"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_equipment_parts__activity_exception_icon
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_project__activity_exception_icon
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_project_type__activity_exception_icon
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task__activity_exception_icon
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_categ__activity_exception_icon
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_line__activity_exception_icon
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_sheet__activity_exception_icon
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_sheet_line__activity_exception_icon
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_technical_status__activity_exception_icon
+#: model:ir.model.fields,help:egymentors_maintnance.field_stock_location__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "رمز للإشارة إلى نشاط استثناء."
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_equipment_parts__message_needaction
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_equipment_parts__message_unread
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_project__message_needaction
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_project__message_unread
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_project_type__message_needaction
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_project_type__message_unread
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task__message_needaction
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task__message_unread
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_categ__message_needaction
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_categ__message_unread
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_line__message_needaction
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_line__message_unread
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_sheet__message_needaction
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_sheet__message_unread
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_sheet_line__message_needaction
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_sheet_line__message_unread
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_technical_status__message_needaction
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_technical_status__message_unread
+#: model:ir.model.fields,help:egymentors_maintnance.field_stock_location__message_needaction
+#: model:ir.model.fields,help:egymentors_maintnance.field_stock_location__message_unread
+msgid "If checked, new messages require your attention."
+msgstr "إذا تم تحديدها ، فإن الرسائل الجديدة تتطلب انتباهك."
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_equipment_parts__message_has_error
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_equipment_parts__message_has_sms_error
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_project__message_has_error
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_project__message_has_sms_error
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_project_type__message_has_error
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_project_type__message_has_sms_error
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task__message_has_error
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task__message_has_sms_error
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_categ__message_has_error
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_categ__message_has_sms_error
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_line__message_has_error
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_line__message_has_sms_error
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_sheet__message_has_error
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_sheet__message_has_sms_error
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_sheet_line__message_has_error
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_sheet_line__message_has_sms_error
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_technical_status__message_has_error
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_technical_status__message_has_sms_error
+#: model:ir.model.fields,help:egymentors_maintnance.field_stock_location__message_has_error
+#: model:ir.model.fields,help:egymentors_maintnance.field_stock_location__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "إذا تم تحديده ، فإن بعض الرسائل بها خطأ في التسليم."
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment__installation_date
+msgid "Installation Date"
+msgstr "تاريخ التركيب"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields.selection,name:egymentors_maintnance.selection__stock_location__usage__internal
+msgid "Internal Location"
+msgstr "مكان داخلي"
+
+#. module: egymentors_maintnance
+#: model:ir.model,name:egymentors_maintnance.model_stock_location
+msgid "Inventory Locations"
+msgstr "مواقع المخزون"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields.selection,name:egymentors_maintnance.selection__stock_location__usage__inventory
+msgid "Inventory Loss"
+msgstr "المفقود من الجرد"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment_parts__message_is_follower
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project__message_is_follower
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project_type__message_is_follower
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task__message_is_follower
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_categ__message_is_follower
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_line__message_is_follower
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet__message_is_follower
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet_line__message_is_follower
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_technical_status__message_is_follower
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_stock_location__message_is_follower
+msgid "Is Follower"
+msgstr "تابع"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment__lantern_char
+msgid "Lantern type and characteristic"
+msgstr "نوع الفانوس وخصائصه"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_technical_status__date_state
+msgid "Last Maintenance State Date"
+msgstr "تاريخ آخر حالة صيانة"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment____last_update
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment_parts____last_update
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project____last_update
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project_type____last_update
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_request____last_update
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task____last_update
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_categ____last_update
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_line____last_update
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet____last_update
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet_line____last_update
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_team____last_update
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_technical_status____last_update
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_product_product____last_update
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_report_egymentors_maintnance_detailed_task_sheet_excel_report____last_update
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_report_egymentors_maintnance_summary_task_sheet_excel_report____last_update
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_stock_location____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: egymentors_maintnance
+#: code:addons/egymentors_maintnance/reports/maintenance_detailed_report_xlsx.py:0
+#: code:addons/egymentors_maintnance/reports/maintenance_summary_report_xlsx.py:0
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_technical_status__last_technical_state
+#, python-format
+msgid "Last Technical State"
+msgstr "آخر حالة فنية"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment_parts__write_uid
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project__write_uid
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project_type__write_uid
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task__write_uid
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_categ__write_uid
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_line__write_uid
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet__write_uid
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet_line__write_uid
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_technical_status__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment_parts__write_date
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project__write_date
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project_type__write_date
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task__write_date
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_categ__write_date
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_line__write_date
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet__write_date
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet_line__write_date
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_technical_status__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_equipment_parts__email_cc
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_project__email_cc
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_project_type__email_cc
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task__email_cc
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_categ__email_cc
+msgid "List of cc from incoming emails."
+msgstr "قائمة نسخة من رسائل البريد الإلكتروني الواردة."
+
+#. module: egymentors_maintnance
+#: code:addons/egymentors_maintnance/reports/maintenance_detailed_report_xlsx.py:0
+#: code:addons/egymentors_maintnance/reports/maintenance_summary_report_xlsx.py:0
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment_parts__location_id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet__location_ids
+#, python-format
+msgid "Location"
+msgstr "موقع"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment__location_Technical_condition
+msgid "Location Technical Condition"
+msgstr "الحالة الفنية للموقع"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_stock_location__usage
+msgid "Location Type"
+msgstr "نوع المكان"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment_parts__message_main_attachment_id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project__message_main_attachment_id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project_type__message_main_attachment_id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task__message_main_attachment_id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_categ__message_main_attachment_id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_line__message_main_attachment_id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet__message_main_attachment_id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet_line__message_main_attachment_id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_technical_status__message_main_attachment_id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_stock_location__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "المرفق الرئيسي"
+
+#. module: egymentors_maintnance
+#: model:ir.model,name:egymentors_maintnance.model_maintenance_equipment
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_stock_location__equipment_ids
+msgid "Maintenance Equipment"
+msgstr "معدات الصيانة"
+
+#. module: egymentors_maintnance
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.view_maintenance_location_form
+msgid "Maintenance Equipments"
+msgstr "معدات الصيانة"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment__location_id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_request__location_id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_line__location_id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet_line__location_id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_technical_status__location_id
+#: model:ir.model.fields.selection,name:egymentors_maintnance.selection__stock_location__usage__maintenance
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.maintenance_project_form_view
+msgid "Maintenance Location"
+msgstr "موقع الصيانة"
+
+#. module: egymentors_maintnance
+#: model:ir.model,name:egymentors_maintnance.model_maintenance_project
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_stock_location__project_id
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.maintenance_project_form_view
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.maintenance_project_view_tree
+msgid "Maintenance Project"
+msgstr "مشروع صيانة"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_product_product__equipment_id
+msgid "Maintenance Project Equipment"
+msgstr "معدات مشروع الصيانة"
+
+#. module: egymentors_maintnance
+#: model:ir.model,name:egymentors_maintnance.model_maintenance_project_type
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.maintenance_project_type_form_view
+msgid "Maintenance Project Type"
+msgstr "نوع مشروع الصيانة"
+
+#. module: egymentors_maintnance
+#: model:ir.model,name:egymentors_maintnance.model_maintenance_request
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet_line__request_id
+msgid "Maintenance Request"
+msgstr "طلب الصيانة"
+
+#. module: egymentors_maintnance
+#: model:ir.model,name:egymentors_maintnance.model_maintenance_task
+#: model:ir.model,name:egymentors_maintnance.model_maintenance_task_line
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_line__task_id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet_line__task_id
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.maintenance_task_line_view_tree
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.maintenance_task_sheet_form_view
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.maintenance_task_view_tree
+msgid "Maintenance Task"
+msgstr "مهمة الصيانة"
+
+#. module: egymentors_maintnance
+#: model:ir.model,name:egymentors_maintnance.model_maintenance_task_sheet
+msgid "Maintenance Task Sheet"
+msgstr "ورقة مهام الصيانة"
+
+#. module: egymentors_maintnance
+#: model:ir.model,name:egymentors_maintnance.model_maintenance_task_sheet_line
+msgid "Maintenance Task Sheet Line"
+msgstr "بند ورقة مهام الصيانة"
+
+#. module: egymentors_maintnance
+#: code:addons/egymentors_maintnance/reports/maintenance_detailed_report_xlsx.py:0
+#, python-format
+msgid "Maintenance Tasks"
+msgstr "مهام الصيانة"
+
+#. module: egymentors_maintnance
+#: model:ir.model,name:egymentors_maintnance.model_maintenance_team
+msgid "Maintenance Teams"
+msgstr "فرق الصيانة"
+
+#. module: egymentors_maintnance
+#: model:ir.model,name:egymentors_maintnance.model_maintenance_technical_status
+msgid "Maintenance Technical Status"
+msgstr "الحالة الفنية للصيانة"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment_parts__message_has_error
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project__message_has_error
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project_type__message_has_error
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task__message_has_error
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_categ__message_has_error
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_line__message_has_error
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet__message_has_error
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet_line__message_has_error
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_technical_status__message_has_error
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_stock_location__message_has_error
+msgid "Message Delivery error"
+msgstr "خطأ في تسليم الرسالة"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment_parts__message_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project__message_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project_type__message_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task__message_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_categ__message_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_line__message_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet__message_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet_line__message_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_technical_status__message_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_stock_location__message_ids
+msgid "Messages"
+msgstr "الرسائل"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project__name
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project_type__name
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_categ__name
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_line__name
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet__name
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet_line__name
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_technical_status__name
+msgid "Name"
+msgstr "الأسم"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment__navigational_range
+msgid "Navigational Range"
+msgstr "المدى الملاحي"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment_parts__activity_date_deadline
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project__activity_date_deadline
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project_type__activity_date_deadline
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task__activity_date_deadline
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_categ__activity_date_deadline
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_line__activity_date_deadline
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet__activity_date_deadline
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet_line__activity_date_deadline
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_technical_status__activity_date_deadline
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_stock_location__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "الموعد النهائي للنشاط التالي"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment_parts__activity_summary
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project__activity_summary
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project_type__activity_summary
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task__activity_summary
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_categ__activity_summary
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_line__activity_summary
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet__activity_summary
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet_line__activity_summary
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_technical_status__activity_summary
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_stock_location__activity_summary
+msgid "Next Activity Summary"
+msgstr "ملخص النشاط التالي"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment_parts__activity_type_id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project__activity_type_id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project_type__activity_type_id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task__activity_type_id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_categ__activity_type_id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_line__activity_type_id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet__activity_type_id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet_line__activity_type_id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_technical_status__activity_type_id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_stock_location__activity_type_id
+msgid "Next Activity Type"
+msgstr "نوع النشاط التالي"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields.selection,name:egymentors_maintnance.selection__maintenance_task_sheet_line__state__no
+msgid "No"
+msgstr "لا"
+
+#. module: egymentors_maintnance
+#: code:addons/egymentors_maintnance/reports/maintenance_detailed_report_xlsx.py:0
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet_line__note
+#, python-format
+msgid "Note"
+msgstr "ملاحظة"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment_parts__message_needaction_counter
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project__message_needaction_counter
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project_type__message_needaction_counter
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task__message_needaction_counter
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_categ__message_needaction_counter
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_line__message_needaction_counter
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet__message_needaction_counter
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet_line__message_needaction_counter
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_technical_status__message_needaction_counter
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_stock_location__message_needaction_counter
+msgid "Number of Actions"
+msgstr "عدد الإجراءات"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment__number_of_tier
+msgid "Number of Tier"
+msgstr "عدد الاطارات"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment_parts__message_has_error_counter
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project__message_has_error_counter
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project_type__message_has_error_counter
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task__message_has_error_counter
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_categ__message_has_error_counter
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_line__message_has_error_counter
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet__message_has_error_counter
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet_line__message_has_error_counter
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_technical_status__message_has_error_counter
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_stock_location__message_has_error_counter
+msgid "Number of errors"
+msgstr "عدد الأخطاء"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment__number_facets
+msgid "Number of facets"
+msgstr "عدد الأوجه"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment__number_of_matrices
+msgid "Number of matrices"
+msgstr "عدد المصفوفات"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_equipment_parts__message_needaction_counter
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_project__message_needaction_counter
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_project_type__message_needaction_counter
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task__message_needaction_counter
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_categ__message_needaction_counter
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_line__message_needaction_counter
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_sheet__message_needaction_counter
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_sheet_line__message_needaction_counter
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_technical_status__message_needaction_counter
+#: model:ir.model.fields,help:egymentors_maintnance.field_stock_location__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "عدد الرسائل التي تتطلب اتخاذ إجراء"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_equipment_parts__message_has_error_counter
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_project__message_has_error_counter
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_project_type__message_has_error_counter
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task__message_has_error_counter
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_categ__message_has_error_counter
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_line__message_has_error_counter
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_sheet__message_has_error_counter
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_sheet_line__message_has_error_counter
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_technical_status__message_has_error_counter
+#: model:ir.model.fields,help:egymentors_maintnance.field_stock_location__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "عدد الرسائل التي بها خطأ في التسليم"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_equipment_parts__message_unread_counter
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_project__message_unread_counter
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_project_type__message_unread_counter
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task__message_unread_counter
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_categ__message_unread_counter
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_line__message_unread_counter
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_sheet__message_unread_counter
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_sheet_line__message_unread_counter
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_technical_status__message_unread_counter
+#: model:ir.model.fields,help:egymentors_maintnance.field_stock_location__message_unread_counter
+msgid "Number of unread messages"
+msgstr "عدد الرسائل غير المقروءة"
+
+#. module: egymentors_maintnance
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.maintenance_equipment_part_form_view
+msgid "Part ..."
+msgstr "جزء ..."
+
+#. module: egymentors_maintnance
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.maintenance_equipment_part_view_tree
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.maintenance_equipment_view_form_inherit
+msgid "Parts"
+msgstr "أجزاء"
+
+#. module: egymentors_maintnance
+#: code:addons/egymentors_maintnance/models/maintenance_project.py:0
+#, python-format
+msgid "Please define Task sheet name."
+msgstr "يرجى تحديد اسم ورقة المهمة."
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment__power_factor
+msgid "Power Factor"
+msgstr "عامل القوى"
+
+#. module: egymentors_maintnance
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.view_hr_equipment_request_stock_custom
+msgid "Preventive"
+msgstr "وقائي"
+
+#. module: egymentors_maintnance
+#: model:ir.model,name:egymentors_maintnance.model_product_product
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment_parts__product_id
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.maintenance_equipment_part_form_view
+msgid "Product"
+msgstr "المنتج"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment_parts__categ_id
+msgid "Product Category"
+msgstr "فئة المنتج"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields.selection,name:egymentors_maintnance.selection__stock_location__usage__production
+msgid "Production"
+msgstr "الإنتاج"
+
+#. module: egymentors_maintnance
+#: model:ir.actions.act_window,name:egymentors_maintnance.maintenance_project_configuration_action
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment_parts__project_id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet__project_ids
+#: model:ir.ui.menu,name:egymentors_maintnance.menu_project_configuration
+#: model:ir.ui.menu,name:egymentors_maintnance.menu_project_details_configuration
+msgid "Project"
+msgstr "المشروع"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_request__equipment_id
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.maintenance_equipment_part_form_view
+msgid "Project Equipment"
+msgstr "معدات المشروع"
+
+#. module: egymentors_maintnance
+#: model:ir.actions.act_window,name:egymentors_maintnance.project_location_action
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project__location_ids
+msgid "Project Location"
+msgstr "موقع المشروع"
+
+#. module: egymentors_maintnance
+#: model:ir.ui.menu,name:egymentors_maintnance.project_locations_menu
+msgid "Project Locations"
+msgstr "مواقع المشروع"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project__project_manager
+msgid "Project Manager"
+msgstr "مدير المشروع"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment__project_id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_request__project_id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_line__project_id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet_line__project_id
+msgid "Project Name"
+msgstr "اسم المشروع"
+
+#. module: egymentors_maintnance
+#: model:ir.model.constraint,message:egymentors_maintnance.constraint_maintenance_project_name_uniq
+msgid "Project Name must be unique."
+msgstr "يجب أن يكون اسم المشروع فريدًا."
+
+#. module: egymentors_maintnance
+#: model:ir.ui.menu,name:egymentors_maintnance.equipment_parts_menu
+msgid "Project Parts"
+msgstr "أجزاء المشروع"
+
+#. module: egymentors_maintnance
+#: model:ir.actions.act_window,name:egymentors_maintnance.project_type_action
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project__project_type_id
+#: model:ir.ui.menu,name:egymentors_maintnance.project_type_menu
+msgid "Project Type"
+msgstr "نوع المشروع"
+
+#. module: egymentors_maintnance
+#: model:ir.model.constraint,message:egymentors_maintnance.constraint_maintenance_project_type_name_uniq
+msgid "Project Type must be unique."
+msgstr "يجب أن يكون نوع المشروع فريدًا."
+
+#. module: egymentors_maintnance
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.maintenance_project_type_form_view
+msgid "Project Type..."
+msgstr "نوع المشروع..."
+
+#. module: egymentors_maintnance
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.maintenance_project_form_view
+msgid "Project name..."
+msgstr "اسم المشروع..."
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment_parts__qty
+msgid "Quantity"
+msgstr "الكمية"
+
+#. module: egymentors_maintnance
+#: code:addons/egymentors_maintnance/reports/maintenance_detailed_report_xlsx.py:0
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet_line__readings
+#, python-format
+msgid "Readings"
+msgstr "القراءات"
+
+#. module: egymentors_maintnance
+#: code:addons/egymentors_maintnance/reports/maintenance_detailed_report_xlsx.py:0
+#: code:addons/egymentors_maintnance/reports/maintenance_summary_report_xlsx.py:0
+#, python-format
+msgid "Recurring Error During Contract"
+msgstr "تكرار الخطأ أثناء العقد"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment_parts__activity_user_id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project__activity_user_id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project_type__activity_user_id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task__activity_user_id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_categ__activity_user_id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_line__activity_user_id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet__activity_user_id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet_line__activity_user_id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_technical_status__activity_user_id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_stock_location__activity_user_id
+msgid "Responsible User"
+msgstr "مستخدم مسؤول"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment_parts__message_has_sms_error
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project__message_has_sms_error
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project_type__message_has_sms_error
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task__message_has_sms_error
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_categ__message_has_sms_error
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_line__message_has_sms_error
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet__message_has_sms_error
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet_line__message_has_sms_error
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_technical_status__message_has_sms_error
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_stock_location__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "خطأ في تسليم الرسائل القصيرة"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_equipment_parts__categ_id
+msgid "Select category for the current product"
+msgstr "حدد فئة للمنتج الحالي"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment__skew_angle
+msgid "Skew Angle"
+msgstr "زاوية الانحراف"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment__speed
+msgid "Speed"
+msgstr "السرعة"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet_line__state
+msgid "State"
+msgstr "الحالة"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_technical_status__state_after_maintenance
+msgid "State After Maintenance"
+msgstr "الحالة بعد الصيانة"
+
+#. module: egymentors_maintnance
+#: code:addons/egymentors_maintnance/reports/maintenance_detailed_report_xlsx.py:0
+#, python-format
+msgid "Status"
+msgstr "الحالة"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_equipment_parts__activity_state
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_project__activity_state
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_project_type__activity_state
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task__activity_state
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_categ__activity_state
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_line__activity_state
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_sheet__activity_state
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_sheet_line__activity_state
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_technical_status__activity_state
+#: model:ir.model.fields,help:egymentors_maintnance.field_stock_location__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"الحالة على أساس الأنشطة \\ nمتأخر: تاريخ الاستحقاق فات بالفعل \\ nاليوم: "
+"تاريخ النشاط هو اليوم \\ nمخطط لها: الأنشطة المستقبلية"
+
+#. module: egymentors_maintnance
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.view_maintenance_location_form
+msgid "Stock Location"
+msgstr "موقع المخزون"
+
+#. module: egymentors_maintnance
+#: model:ir.actions.report,name:egymentors_maintnance.report_summary_task_sheet_excel
+msgid "Summary Task Sheet Excel Report"
+msgstr "تقرير إكسل موجز عن ورقة المهام"
+
+#. module: egymentors_maintnance
+#: code:addons/egymentors_maintnance/reports/maintenance_detailed_report_xlsx.py:0
+#: model:ir.actions.act_window,name:egymentors_maintnance.maintenance_task_configuration_action
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task__name
+#: model:ir.ui.menu,name:egymentors_maintnance.menu_task_configuration
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.maintenance_task_form_view
+#, python-format
+msgid "Task"
+msgstr "المهمة"
+
+#. module: egymentors_maintnance
+#: model:ir.actions.act_window,name:egymentors_maintnance.maintenance_task_categ_configuration_action
+#: model:ir.model,name:egymentors_maintnance.model_maintenance_task_categ
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task__task_categ_id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_line__task_categ_id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet__task_categ_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet_line__task_categ_id
+#: model:ir.ui.menu,name:egymentors_maintnance.menu_task_categ_configuration
+msgid "Task Category"
+msgstr "فئة المهمة"
+
+#. module: egymentors_maintnance
+#: model:ir.model.constraint,message:egymentors_maintnance.constraint_maintenance_task_categ_name_uniq
+msgid "Task Category must be unique."
+msgstr "يجب أن تكون فئة المهمة فريدة."
+
+#. module: egymentors_maintnance
+#: model:ir.actions.act_window,name:egymentors_maintnance.maintenance_task_line_action
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet_line__task_line_id
+msgid "Task Line"
+msgstr "بند المهمة"
+
+#. module: egymentors_maintnance
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.maintenance_task_line_form_view
+msgid "Task Line name..."
+msgstr "اسم بند المهمة ..."
+
+#. module: egymentors_maintnance
+#: model:ir.ui.menu,name:egymentors_maintnance.menu_task_lines
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.maintenance_task_sheet_form_view
+msgid "Task Lines"
+msgstr "بنود المهمة"
+
+#. module: egymentors_maintnance
+#: model:ir.model.constraint,message:egymentors_maintnance.constraint_maintenance_task_name_uniq
+msgid "Task Name and Task Category must be unique."
+msgstr "يجب أن يكون اسم المهمة وفئة المهمة فريدين."
+
+#. module: egymentors_maintnance
+#: model:ir.actions.act_window,name:egymentors_maintnance.maintenance_task_sheet_action
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet_line__task_sheet_id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_technical_status__task_sheet_id
+#: model:ir.ui.menu,name:egymentors_maintnance.menu_task_sheet
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.maintenance_task_category_form_view
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.maintenance_task_sheet_form_view
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.maintenance_task_sheet_view_tree
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.view_hr_equipment_request_stock_custom
+msgid "Task Sheet"
+msgstr "ورقة المهام"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet__task_sheet_line_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet__technical_status_ids
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.maintenance_task_line_form_view
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.maintenance_task_sheet_line_form_view
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.maintenance_task_sheet_line_view_tree
+msgid "Task Sheet Line"
+msgstr "بند ورقة المهام"
+
+#. module: egymentors_maintnance
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.maintenance_task_sheet_line_form_view
+msgid "Task Sheet Line name..."
+msgstr "اسم بند ورقة المهام ..."
+
+#. module: egymentors_maintnance
+#: model:ir.actions.act_window,name:egymentors_maintnance.maintenance_task_sheet_lines_action
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_request__task_sheet_line_ids
+#: model:ir.ui.menu,name:egymentors_maintnance.menu_task_sheet_lines
+msgid "Task Sheet Lines"
+msgstr "خطوط ورقة المهام"
+
+#. module: egymentors_maintnance
+#: model:ir.model.constraint,message:egymentors_maintnance.constraint_maintenance_task_sheet_name
+msgid "Task Sheet name cannot be duplicated."
+msgstr "لا يمكن تكرار اسم ورقة المهام."
+
+#. module: egymentors_maintnance
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.maintenance_task_category_form_view
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.maintenance_task_sheet_form_view
+msgid "Task Sheet name..."
+msgstr "اسم ورقة المهام ..."
+
+#. module: egymentors_maintnance
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.maintenance_task_form_view
+msgid "Task name..."
+msgstr "اسم المهمة..."
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment__task_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_categ__task_ids
+#: model:ir.ui.menu,name:egymentors_maintnance.menu_main_task
+#: model:ir.ui.menu,name:egymentors_maintnance.menu_main_task_configuration
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.maintenance_equipment_view_form_inherit
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.maintenance_task_category_form_view
+msgid "Tasks"
+msgstr "المهام"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_request__team_lead_id
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_team__team_lead_id
+msgid "Team Lead"
+msgstr "قائد الفريق"
+
+#. module: egymentors_maintnance
+#: code:addons/egymentors_maintnance/reports/maintenance_detailed_report_xlsx.py:0
+#: code:addons/egymentors_maintnance/reports/maintenance_summary_report_xlsx.py:0
+#, python-format
+msgid "Technical State After Maintenance"
+msgstr "الحالة الفنية بعد الصيانة"
+
+#. module: egymentors_maintnance
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.maintenance_task_sheet_form_view
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.maintenance_technical_status_form_view
+msgid "Technical Status"
+msgstr "الحالة الفنية"
+
+#. module: egymentors_maintnance
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.maintenance_technical_status_form_view
+msgid "Technical Status name..."
+msgstr "اسم الحالة الفنية ..."
+
+#. module: egymentors_maintnance
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.maintenance_project_form_view
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.maintenance_project_type_form_view
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.maintenance_task_category_form_view
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.maintenance_task_form_view
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.maintenance_task_line_form_view
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.maintenance_task_sheet_form_view
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.maintenance_task_sheet_line_form_view
+#: model_terms:ir.ui.view,arch_db:egymentors_maintnance.maintenance_technical_status_form_view
+msgid "Title"
+msgstr "العنوان"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields.selection,name:egymentors_maintnance.selection__stock_location__usage__transit
+msgid "Transit Location"
+msgstr "مكان وسيط"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment__type
+msgid "Type"
+msgstr "النوع"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_equipment_parts__activity_exception_decoration
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_project__activity_exception_decoration
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_project_type__activity_exception_decoration
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task__activity_exception_decoration
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_categ__activity_exception_decoration
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_line__activity_exception_decoration
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_sheet__activity_exception_decoration
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_sheet_line__activity_exception_decoration
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_technical_status__activity_exception_decoration
+#: model:ir.model.fields,help:egymentors_maintnance.field_stock_location__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "نوع نشاط الاستثناء المسجل."
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment_parts__message_unread
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project__message_unread
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project_type__message_unread
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task__message_unread
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_categ__message_unread
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_line__message_unread
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet__message_unread
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet_line__message_unread
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_technical_status__message_unread
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_stock_location__message_unread
+msgid "Unread Messages"
+msgstr "رسائل غير مقروءة"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment_parts__message_unread_counter
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project__message_unread_counter
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project_type__message_unread_counter
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task__message_unread_counter
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_categ__message_unread_counter
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_line__message_unread_counter
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet__message_unread_counter
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet_line__message_unread_counter
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_technical_status__message_unread_counter
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_stock_location__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "عداد الرسائل غير المقروءة"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields.selection,name:egymentors_maintnance.selection__stock_location__usage__supplier
+msgid "Vendor Location"
+msgstr "مكان المورد"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project__project_manager_vice
+msgid "Vice Project Manager"
+msgstr "نائب مدير المشروع"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields.selection,name:egymentors_maintnance.selection__stock_location__usage__view
+msgid "View"
+msgstr "أداة العرض"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_equipment_parts__website_message_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project__website_message_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_project_type__website_message_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task__website_message_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_categ__website_message_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_line__website_message_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet__website_message_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_task_sheet_line__website_message_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_maintenance_technical_status__website_message_ids
+#: model:ir.model.fields,field_description:egymentors_maintnance.field_stock_location__website_message_ids
+msgid "Website Messages"
+msgstr "رسائل الموقع"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_equipment_parts__website_message_ids
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_project__website_message_ids
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_project_type__website_message_ids
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task__website_message_ids
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_categ__website_message_ids
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_line__website_message_ids
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_sheet__website_message_ids
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_task_sheet_line__website_message_ids
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_technical_status__website_message_ids
+#: model:ir.model.fields,help:egymentors_maintnance.field_stock_location__website_message_ids
+msgid "Website communication history"
+msgstr "سجل اتصال الموقع"
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields.selection,name:egymentors_maintnance.selection__maintenance_task_sheet_line__state__yes
+msgid "Yes"
+msgstr "نعم"
+
+#. module: egymentors_maintnance
+#: model:ir.model,name:egymentors_maintnance.model_report_egymentors_maintnance_detailed_task_sheet_excel_report
+msgid "report.egymentors_maintnance.detailed_task_sheet_excel_report"
+msgstr ""
+
+#. module: egymentors_maintnance
+#: model:ir.model,name:egymentors_maintnance.model_report_egymentors_maintnance_summary_task_sheet_excel_report
+msgid "report.egymentors_maintnance.summary_task_sheet_excel_report"
+msgstr ""
+
+#. module: egymentors_maintnance
+#: model:ir.model.fields,help:egymentors_maintnance.field_maintenance_technical_status__name
+msgid "task sheet name"
+msgstr "اسم ورقة المهام"
