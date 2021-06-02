@@ -194,6 +194,11 @@
             <form position="attributes">
                 <attribute name="create">false</attribute>
             </form>
+<!--            <xpath expr="//div[@name='button_box']" position="inside">-->
+<!--                <button name="action_generate_maintenance_plan" type="object"-->
+<!--                        class="oe_stat_button" context="{'default_company_id': company_id}" icon="fa-bars"-->
+<!--                        string="Generate Plan"/>-->
+<!--            </xpath>-->
             <xpath expr="//field[@name='category_id']" position="after">
                 <field name="project_id"/>
                 <field name="equipment_type"/>
@@ -257,6 +262,12 @@
                     </group>
                 </page>
             </xpath>
+<!--            <xpath expr="//group[@name='maintenance']" position="after">-->
+<!--                <group name="maintenance_plan" string="Maintenance Plan">-->
+<!--                    <field name="maintenance_from"/>-->
+<!--                    <field name="maintenance_to"/>-->
+<!--                </group>-->
+<!--            </xpath>-->
         </field>
     </record>
 

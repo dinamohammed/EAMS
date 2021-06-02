@@ -2,6 +2,8 @@
 
 from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
+# from datetime import date, datetime, timedelta
+# from dateutil.relativedelta import relativedelta
 
 
 class MaintenanceProject(models.Model):
@@ -104,6 +106,82 @@ class ProjectEquipmentInherit(models.Model):
     capacity = fields.Integer(string="Capacity")
     code = fields.Char(string="Code")
     location_Technical_condition = fields.Char(string="Location Technical Condition")
+    # maintenance_from = fields.Date(string="Start Maintenance", default=fields.Date.context_today)
+    # maintenance_to = fields.Date(string="End Maintenance")
+    #
+    # @api.depends('effective_date', 'period', 'maintenance_ids.request_date', 'maintenance_ids.close_date',
+    #              'maintenance_from')
+    # def _compute_next_maintenance(self):
+    #     date_now = fields.Date.context_today(self)
+    #     equipments = self.filtered(lambda x: x.period > 0)
+    #     for equipment in equipments:
+    #         next_maintenance_todo = self.env['maintenance.request'].search([
+    #             ('equipment_id', '=', equipment.id),
+    #             ('maintenance_type', '=', 'preventive'),
+    #             ('stage_id.done', '!=', True),
+    #             ('close_date', '=', False)], order="request_date asc", limit=1)
+    #         last_maintenance_done = self.env['maintenance.request'].search([
+    #             ('equipment_id', '=', equipment.id),
+    #             ('maintenance_type', '=', 'preventive'),
+    #             ('stage_id.done', '=', True),
+    #             ('close_date', '!=', False)], order="close_date desc", limit=1)
+    #         if next_maintenance_todo and last_maintenance_done:
+    #             next_date = next_maintenance_todo.request_date
+    #             date_gap = next_maintenance_todo.request_date - last_maintenance_done.close_date
+    #             # If the gap between the last_maintenance_done and the next_maintenance_todo one is bigger than 2 times the period and next request is in the future
+    #             # We use 2 times the period to avoid creation too closed request from a manually one created
+    #             if date_gap > timedelta(0) and date_gap > timedelta(
+    #                     days=equipment.period) * 2 and next_maintenance_todo.request_date > date_now:
+    #                 # If the new date still in the past, we set it for today
+    #                 if last_maintenance_done.close_date + timedelta(days=equipment.period) < date_now:
+    #                     next_date = date_now
+    #                 else:
+    #                     next_date = last_maintenance_done.close_date + timedelta(days=equipment.period)
+    #         elif next_maintenance_todo:
+    #             next_date = next_maintenance_todo.request_date
+    #             date_gap = next_maintenance_todo.request_date - date_now
+    #             # If next maintenance to do is in the future, and in more than 2 times the period, we insert an new request
+    #             # We use 2 times the period to avoid creation too closed request from a manually one created
+    #             if date_gap > timedelta(0) and date_gap > timedelta(days=equipment.period) * 2:
+    #                 next_date = date_now + timedelta(days=equipment.period)
+    #         elif last_maintenance_done:
+    #             next_date = last_maintenance_done.close_date + timedelta(days=equipment.period)
+    #             # If when we add the period to the last maintenance done and we still in past, we plan it for today
+    #             if next_date < date_now:
+    #                 next_date = date_now
+    #         else:
+    #             next_date = equipment.maintenance_from + timedelta(days=equipment.period)
+    #         equipment.next_action_date = next_date
+    #     (self - equipments).next_action_date = False
+    #
+    # def action_generate_maintenance_plan(self):
+    #     """
+    #     This function generate the maintenance plan by creating maintenance requests between the date range every
+    #     certain day(s) of interval (period)
+    #     :return:
+    #     """
+    #     for equip in self:
+    #         if equip.maintenance_from and equip.maintenance_to and equip.period:
+    #             start_date = equip.maintenance_from
+    #             end_date = equip.maintenance_to
+    #             delta = timedelta(days=equip.period + 1)
+    #
+    #             if start_date <= end_date:
+    #                 while start_date <= end_date:
+    #                     print(start_date)
+    #                     # equip._create_new_request(start_date)
+    #                     start_date = start_date + delta
+    #             else:
+    #                 raise ValidationError(_("End Maintenance Date must be greater than Start Maintenance Date."))
+    #
+    # @api.model
+    # def _cron_generate_requests(self):
+    #     """
+    #     corn disabled as it is replaced by the above functions (action_generate_maintenance_plan) to generate
+    #     maintenance request immediately to make maintenance plan between two date range.
+    #     :return:
+    #     """
+    #     pass
 
     @api.onchange('project_id')
     def onchange_project_id(self):
